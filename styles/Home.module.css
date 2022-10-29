@@ -2,6 +2,11 @@
   padding: 0 2rem;
 }
 
+.list {
+  width: 0;
+  overflow: visible;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
