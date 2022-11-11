@@ -5,7 +5,23 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <p>Hello world. This is my new homepage</p>
+      <h1>Something about MusTech</h1>
+      hey
+      <p>
+        Hello world. <b>This</b> is my new <i>homepage</i>. Read it and weep.
+        exilon piper nerdrum etcetera. exilon piper nerdrum etcetera. exilon
+        piper nerdrum etcetera. exilon piper nerdrum etcetera. exilon piper
+        nerdrum etcetera. exilon piper nerdrum etcetera. exilon piper nerdrum
+        etcetera.
+      </p>
+      <p>
+        exilon piper nerdrum etcetera. exilon piper nerdrum etcetera. exilon
+        piper nerdrum etcetera. exilon piper nerdrum etcetera. exilon piper
+        nerdrum etcetera. exilon piper nerdrum etcetera. exilon piper nerdrum
+        etcetera. exilon piper nerdrum etcetera. exilon piper nerdrum etcetera.
+        exilon piper nerdrum etcetera. exilon piper nerdrum etcetera. exilon
+        piper nerdrum etcetera.
+      </p>
       <div className={styles.list}>
         777777777777777777777!!!!!!7777!!!!!!!!!!!!!!!!!!!
         77777777777777777!!!77????77!!!!!!!!!!!!!!!!!!!!!!

@@ -1,15 +1,18 @@
 /* Load inn a Local font */
 @font-face {
-  font-family: "Monaco Regular";
-  src: url("../assets/Monaco/Monacoregular.ttf");
+  /* font-family: "Monaco Regular"; */
+  /* src: url("../assets/Monaco/Monacoregular.ttf"); */
+  font-family: "Consolas";
+  src: url("../assets/Consolas/consolas.ttf");
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Monaco Regular";
-  font-size: 18px;
+  /* font-family: "Monaco Regular";*/
+  font-family: "Consolas";
+  font-size: 16px;
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
