@@ -9,7 +9,7 @@ const CategoryToggles = () => {
   const handleClick = (e) => setActiveCat(e.target.innerHTML);
 
   return (
-    <div className="flex flex-row items-center space-x-14 justify-start px-2 pb-4">
+    <div className="flex flex-row items-center space-x-12 justify-start px-2 pb-4">
       {categories.map((cat) => (
         <MyLink key={cat} onClick={handleClick} active={cat === activeCat}>
           {cat}

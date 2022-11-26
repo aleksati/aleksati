@@ -10,12 +10,10 @@ const NavLeft = () => {
         height={50}
         className="rounded"
       />
-      <div className="">
+      <div>
         <p>Aleksander</p>
         <p>Tidemann</p>
-      </div>
-      <div className="pb-1">
-        <Icon id="audio" iconSize={"text-xl"} />
+        {/* <Icon id="audio" /> */}
       </div>
     </div>
   );
