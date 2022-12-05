@@ -13,7 +13,7 @@ const MyLink = ({
     return (
       <div
         onClick={onClick}
-        className={`hover:border-b-2 px-2 border-primary-light dark:border-primary-dark hover:cursor-pointer ${isActive} ${className}`}
+        className={`hover:border-b-2 space-x-2 border-primary-light dark:border-primary-dark hover:cursor-pointer ${isActive} ${className}`}
       >
         <p>{children}</p>
       </div>

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import getCurrTheme from "../functions/getCurrTheme";
-import Icon from "../components/Icon";
-import Button from "./Button";
+import Icon from "./Icon";
 
-const ButtonTheme = ({ tabOrder }) => {
+const IconTheme = ({ tabOrder }) => {
   const [mounted, setMounted] = useState(false);
   const { currTheme, setTheme } = getCurrTheme();
 
@@ -19,7 +18,7 @@ const ButtonTheme = ({ tabOrder }) => {
   return (
     <a
       label="Toggle light or dark theme"
-      tabOrder={tabOrder}
+      // tabOrder={tabOrder}
       onClick={handleClick}
       className="m-auto p-2 flex items-center hover:cursor-pointer"
     >
@@ -28,4 +27,4 @@ const ButtonTheme = ({ tabOrder }) => {
   );
 };
 
-export default ButtonTheme;
+export default IconTheme;

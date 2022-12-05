@@ -3,11 +3,7 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIosNew,
 } from "react-icons/md";
-import {
-  BsFillSunFill,
-  BsFillMoonFill,
-  BsFillPeopleFill,
-} from "react-icons/bs";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { RiQuestionMark } from "react-icons/ri";
 import { RiCloseLine } from "react-icons/ri";
 import { FaBandcamp } from "react-icons/fa";
@@ -24,7 +20,7 @@ import { GiMagnifyingGlass } from "react-icons/gi";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
-import { HiDotsHorizontal } from "react-icons/hi";
+import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 
 const defaultSize = "text-md";
 
@@ -63,6 +59,9 @@ const icons = {
   issue: (s) => <MdOutlineReportProblem className={s} />,
   check: (s) => <AiOutlineCheck className={s} />,
   threedots: (s) => <HiDotsHorizontal className={s} />,
+  filter: (s) => (
+    <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
+  ),
 };
 
 const Icon = ({ iconSize, id }) => {

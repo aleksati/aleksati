@@ -11,9 +11,12 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.29.2",
     "@tailwindcss/forms": "^0.5.3",
+    "express-validator": "^6.14.2",
     "next": "13.0.0",
+    "next-connect": "^0.13.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "sharp": "^0.31.2"

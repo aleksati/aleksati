@@ -1,14 +1,42 @@
-import CategoryToggles from "../components/CategoryToggles";
 import LayoutPage from "../layouts/LayoutPage";
-import Nav from "../templates/Nav";
+import PostList from "../components/PostList";
+
+const pageMeta = {
+  title: "Aleksander Tidemann",
+  keywords:
+    "music technology, software development, networked music performance",
+  description: "Official homepage of Aleksander Tidemann ",
+  url: "?",
+};
+
+const categories = [
+  {
+    category: "network music",
+    color: "category-one",
+  },
+  {
+    category: "music tech",
+    color: "category-two",
+  },
+  {
+    category: "audio programming",
+    color: "yellow-400",
+  },
+  {
+    category: "software dev",
+    color: "green-400",
+  },
+];
 
 export default function Home() {
   return (
-    <LayoutPage>
-      <Nav />
-      <CategoryToggles />
-      <h1 className="text-2xl font-bold">Something about MusTech</h1>
-      <p>hello world</p>
+    <LayoutPage
+      showSearchAndTheme={true}
+      showProfile={true}
+      showMenu={true}
+      pageMeta={pageMeta}
+    >
+      <PostList categories={categories} />
     </LayoutPage>
   );
 }

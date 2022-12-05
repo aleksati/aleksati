@@ -13,7 +13,7 @@ module.exports = {
         sm: "640px",
         md: "768px",
         lg: "1024px", // "100%",
-        xl: "1024px",
+        xl: "1280px",
       },
     },
     extend: {
@@ -29,6 +29,10 @@ module.exports = {
         // text colors
         "primary-light": "#000",
         "primary-dark": "#fff",
+        "category-one": "#FBF3D5",
+        "category-two": "#A1E536",
+        "category-three": "#07976F",
+        "category-four": "#0D9488",
       },
     },
   },
