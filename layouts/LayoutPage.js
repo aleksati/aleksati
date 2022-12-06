@@ -1,31 +1,31 @@
 import IconScrollTo from "../components/IconScrollTo";
+import NavVertikalDesktop from "../components/NavVertikalDesktop";
+import NavTop from "../components/NavTop";
 import React, { useRef } from "react";
 import Meta from "../components/Meta";
-import Nav from "../templates/Nav";
 
 const LayoutPage = ({
   pageId = "top",
   children,
   className,
   showSearchAndTheme,
-  showProfile,
-  showMenu,
   pageMeta,
+  categories,
 }) => {
   const ref = useRef(null);
   return (
-    <div className="flex">
+    <div>
       <Meta {...pageMeta} />
-      <Nav
-        showProfile={showProfile}
+      <NavVertikalDesktop />
+      <NavTop
         showSearchAndTheme={showSearchAndTheme}
-        showMenu={showMenu}
+        showPostFilter={true}
+        categories={categories}
       />
       <div
-        className={`min-h-screen container mx-auto p-2 px-4 pb-12 ${className}`}
+        className={`min-h-screen container mx-auto pb-12 ${className}`}
         ref={ref}
-        id={pageId}
-      >
+        id={pageId}>
         {children}
         <IconScrollTo targetId={pageId} parentRef={ref} />
       </div>

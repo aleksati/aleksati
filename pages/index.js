@@ -31,11 +31,9 @@ const categories = [
 export default function Home() {
   return (
     <LayoutPage
+      categories={categories}
       showSearchAndTheme={true}
-      showProfile={true}
-      showMenu={true}
-      pageMeta={pageMeta}
-    >
+      pageMeta={pageMeta}>
       <PostList categories={categories} />
     </LayoutPage>
   );

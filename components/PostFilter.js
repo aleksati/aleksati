@@ -9,9 +9,8 @@ const PostFilter = ({ onClick, categories, activeFilter }) => {
     <div className="flex space-x-2 items-center">
       <a
         className="cursor-pointer py-2"
-        onClick={() => setIsShown((prevState) => !prevState)}
-      >
-        <Icon id={!isShown ? "filter" : "x"} iconSize={"text-xl"} />
+        onClick={() => setIsShown((prevState) => !prevState)}>
+        <Icon id={!isShown ? "filter" : "x"} />
       </a>
       {isShown ? (
         <div className="flex space-x-2">
@@ -20,8 +19,7 @@ const PostFilter = ({ onClick, categories, activeFilter }) => {
               onClick={onClick}
               isActive={activeFilter === cat.category}
               key={cat.category}
-              color={cat.color}
-            >
+              color={cat.color}>
               {cat.category}
             </PostFilterItem>
           ))}

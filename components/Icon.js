@@ -22,7 +22,7 @@ import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 
-const defaultSize = "text-md";
+const defaultSize = "text-xl";
 
 const icons = {
   sun: (s) => <BsFillSunFill className={s} />,

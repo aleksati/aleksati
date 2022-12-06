@@ -20,9 +20,8 @@ const IconTheme = ({ tabOrder }) => {
       label="Toggle light or dark theme"
       // tabOrder={tabOrder}
       onClick={handleClick}
-      className="m-auto p-2 flex items-center hover:cursor-pointer"
-    >
-      <Icon iconSize={"text-xl"} id={currTheme === "dark" ? "sun" : "moon"} />
+      className="m-auto p-2 flex items-center hover:cursor-pointer">
+      <Icon id={currTheme === "dark" ? "sun" : "moon"} />
     </a>
   );
 };
