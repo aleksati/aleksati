@@ -8,8 +8,10 @@ const LayoutPage = ({
   pageId = "top",
   children,
   className,
-  showSearchAndTheme,
+  showSearch,
   showPostFilter,
+  showTheme,
+  showBackButton,
   pageMeta,
   categories,
 }) => {
@@ -17,16 +19,18 @@ const LayoutPage = ({
   return (
     <div>
       <Meta {...pageMeta} />
-      <NavVertikalDesktop />
-      <NavTop
-        showSearchAndTheme={showSearchAndTheme}
-        showPostFilter={showPostFilter}
-        categories={categories}
-      />
+      {/* <NavVertikalDesktop /> */}
       <div
-        className={`min-h-screen container mx-auto pb-12 ${className}`}
+        className={`min-h-screen container mx-auto px-4 pb-12 ${className}`}
         ref={ref}
         id={pageId}>
+        <NavTop
+          showSearch={showSearch}
+          showTheme={showTheme}
+          showPostFilter={showPostFilter}
+          showBackButton={showBackButton}
+          categories={categories}
+        />
         {children}
         <IconScrollTo targetId={pageId} parentRef={ref} />
       </div>

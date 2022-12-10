@@ -1,9 +1,12 @@
-import { useState } from "react";
-import IconTheme from "./IconTheme";
 import PostFilter from "./PostFilter";
+import IconTheme from "./IconTheme";
+import { useState } from "react";
+import Link from "next/link";
+import Icon from "./Icon";
 
 const NavTop = ({
-  showSearchAndTheme,
+  showSearch,
+  showTheme,
   showPostFilter,
   showBackButton,
   categories,
@@ -12,11 +15,16 @@ const NavTop = ({
 
   return (
     <nav
-      className="z-40 w-full py-4 absolute border-primary-light dark:border-primary-dark"
+      className="z-40 w-full py-4 border-primary-light dark:border-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="flex container mx-auto justify-between">
-        <div>
+      <div className="flex justify-between">
+        <div className="flex space-x-2 items-center">
+          {showBackButton ? (
+            <Link href="/">
+              <Icon id="prevArrow" />
+            </Link>
+          ) : null}
           {showPostFilter ? (
             <PostFilter
               onClick={(e) => setActiveFilter(e)}
@@ -26,17 +34,17 @@ const NavTop = ({
           ) : null}
         </div>
         <div className="flex">
-          {showSearchAndTheme ? (
-            <div className="flex space-x-2 items-center">
+          <div className="flex space-x-2 items-center">
+            {showSearch ? (
               <input
                 type="search"
                 className="bg-primary-light dark:bg-primary-dark form-search rounded w-42 md:w-46 h-8"
                 id="site-search"
                 placeholder="&#x1F50E;&#xFE0E; search"
               />
-              <IconTheme />
-            </div>
-          ) : null}
+            ) : null}
+            {showTheme ? <IconTheme /> : null}
+          </div>
         </div>
       </div>
     </nav>

@@ -11,9 +11,9 @@ module.exports = {
     container: {
       screens: {
         sm: "640px",
-        md: "768px",
-        lg: "768px", // "100%",
-        xl: "768px",
+        // md: "768px",
+        // lg: "768px",
+        // xl: "768px",
       },
     },
     extend: {
@@ -36,5 +36,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

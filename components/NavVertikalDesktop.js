@@ -1,12 +1,15 @@
-import { useState } from "react";
-import MyLink from "./MyLink";
 import Footer from "../templates/Footer";
+import { useRouter } from "next/router";
+import MyLink from "./MyLink";
+import Link from "next/link";
 
 const tabs = ["posts", "projects", "research", "about"];
 
 const NavVertikalDesktop = () => {
-  const [activeCat, setActiveCat] = useState("blog");
-  const handleClick = (e) => setActiveCat(e.target.innerHTML);
+  const router = useRouter();
+  const page = tabs.includes(router.pathname.slice(1))
+    ? router.pathname.slice(1)
+    : "";
 
   return (
     <nav
@@ -14,14 +17,12 @@ const NavVertikalDesktop = () => {
       aria-label="Navbar"
       role="toolbar">
       <div className="py-4 flex flex-col min-h-screen justify-between">
-        <div className="mx-auto text-xl space-y-4 w-1/2">
-          <p className="m-2 font-bold">tidemann</p>
+        <div className="mx-auto space-y-4 w-1/2">
+          <Link href="/" className="m-2 font-bold">
+            Tidemann.is
+          </Link>
           {tabs.map((tab) => (
-            <MyLink
-              key={tab}
-              type="tab"
-              onClick={handleClick}
-              active={tab === activeCat}>
+            <MyLink key={tab} href={tab} type="page" active={tab === page}>
               {tab}
             </MyLink>
           ))}

@@ -25,7 +25,7 @@ export async function getAllFrontMatter() {
   const paths = path.join(root, postFolder);
   const posts = fs.readdirSync(paths);
 
-  const fr = posts.reduce((accumFronMatter, postSlug) => {
+  const fr = posts.reduce((accumFrontMatter, postSlug) => {
     const post = fs.readFileSync(path.join(root, postFolder, postSlug));
     const { data, content } = matter(post);
 
@@ -35,17 +35,25 @@ export async function getAllFrontMatter() {
         readingTime: readingTime(content),
         ...data,
       },
-      ...accumFronMatter,
+      ...accumFrontMatter,
     ];
   }, []);
 
-  const fr_date_sorted = fr.sort((a, b) => {
+  const fr_sorted = fr.sort((a, b) => {
     if (a.date > b.date) return 1;
     if (a.date < b.date) return -1;
     return 0;
   });
 
-  return fr_date_sorted.reverse();
+  const data = fr_sorted.reverse();
+
+  const categories = data.reduce(
+    (accum, post) =>
+      accum.includes(post.category) ? accum : [...accum, post.category],
+    []
+  );
+
+  return { data, categories };
 }
 
 export async function getPostFromSlug(slug) {
@@ -60,7 +68,7 @@ export async function getPostFromSlug(slug) {
 
   return {
     mdxSource,
-    fontMatter: {
+    frontMatter: {
       // wordCount: content.split(/\s+/gu).length,
       readingTime: readingTime(content),
       slug: slug || null,

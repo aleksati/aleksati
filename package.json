@@ -11,6 +11,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.29.2",
     "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.8",
     "express-validator": "^6.14.2",
     "gray-matter": "^4.0.3",
     "next": "13.0.0",

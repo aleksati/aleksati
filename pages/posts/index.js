@@ -1,7 +1,7 @@
-import { getAllFrontMatter, getSlugs } from "../functions/loadPosts";
-import PostListItem from "../components/PostListItem";
-import LayoutPage from "../layouts/LayoutPage";
-import PostList from "../components/PostList";
+import { getAllFrontMatter } from "../../functions/loadPosts";
+import PostListItem from "../../components/PostListItem";
+import LayoutPage from "../../layouts/LayoutPage";
+import PostList from "../../components/PostList";
 
 const pageMeta = {
   title: "Aleksander Tidemann",
@@ -11,35 +11,19 @@ const pageMeta = {
   url: "?",
 };
 
-const categories = [
-  {
-    category: "network music",
-    color: "category-one",
-  },
-  {
-    category: "music tech",
-    color: "category-two",
-  },
-  {
-    category: "audio programming",
-    color: "yellow-400",
-  },
-  {
-    category: "software dev",
-    color: "green-400",
-  },
-];
-
-export default function Home({ data }) {
+export default function Posts({ data, categories }) {
   return (
     <LayoutPage
       categories={categories}
-      showSearchAndTheme={true}
+      showSearch={true}
+      showTheme={true}
+      showPostFilter={true}
       pageMeta={pageMeta}>
       <PostList>
         {data.map((post) => (
           <PostListItem
             key={post.slug}
+            slug={post.slug}
             title={post.title}
             date={post.date}
             category={post.category}
@@ -53,6 +37,6 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await getAllFrontMatter();
-  return { props: { data } };
+  const { data, categories } = await getAllFrontMatter();
+  return { props: { data, categories } };
 }

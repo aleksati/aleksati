@@ -6,7 +6,7 @@ const PostFilter = ({ onClick, categories, activeFilter }) => {
   const [isShown, setIsShown] = useState(false);
 
   return (
-    <div className="flex space-x-2 items-center">
+    <>
       <a
         className="cursor-pointer py-2"
         onClick={() => setIsShown((prevState) => !prevState)}>
@@ -17,15 +17,14 @@ const PostFilter = ({ onClick, categories, activeFilter }) => {
           {categories.map((cat) => (
             <PostFilterItem
               onClick={onClick}
-              isActive={activeFilter === cat.category}
-              key={cat.category}
-              color={cat.color}>
-              {cat.category}
+              isActive={activeFilter === cat}
+              key={cat}>
+              {cat}
             </PostFilterItem>
           ))}
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

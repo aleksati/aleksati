@@ -28,9 +28,8 @@ const IconScrollTo = ({ targetId, parentRef }) => {
             document.getElementById(targetId).scrollIntoView({
               behavior: "smooth",
             })
-          }
-        >
-          <Icon id="upArrow" iconSize={"text-2xl"} />
+          }>
+          <Icon id="upArrow" />
         </a>
       </nav>
     );

@@ -1,22 +1,24 @@
+import Link from "next/link";
+
 const MyLink = ({
   type = "tab",
+  className,
   children,
   onClick,
-  href,
-  className,
   active,
+  href,
 }) => {
   // url or tab
   const isActive = active ? "border-b-2" : null;
 
-  if (type === "tab") {
+  if (type === "page") {
     return (
       <div className="m-2">
-        <a
-          onClick={onClick}
+        <Link
+          href={`/${href}`}
           className={`hover:border-b-2 border-primary-light dark:border-primary-dark hover:cursor-pointer ${isActive} ${className}`}>
           {children}
-        </a>
+        </Link>
       </div>
     );
   }
