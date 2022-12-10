@@ -9,6 +9,7 @@ const LayoutPage = ({
   children,
   className,
   showSearchAndTheme,
+  showPostFilter,
   pageMeta,
   categories,
 }) => {
@@ -19,7 +20,7 @@ const LayoutPage = ({
       <NavVertikalDesktop />
       <NavTop
         showSearchAndTheme={showSearchAndTheme}
-        showPostFilter={true}
+        showPostFilter={showPostFilter}
         categories={categories}
       />
       <div

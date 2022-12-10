@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
 import { useMouseHover } from "../hooks/useMouseHover";
 // import Image from "next/image";
 
-const PostListItem = ({ item }) => {
-  const [color, setColor] = useState("");
+const PostListItem = ({
+  title,
+  date,
+  category,
+  summary,
+  readingTime,
+  wordCount,
+}) => {
   const [divRef, divHovered] = useMouseHover();
-
-  useEffect(() => {
-    if (item.color) {
-      setColor("border-" + item.color);
-    }
-  }, [item]);
 
   return (
     <div
@@ -24,20 +23,18 @@ const PostListItem = ({ item }) => {
               divHovered ? "underline decoration-2" : null
             }`}
             onClick={() => {}}>
-            A Show About Nothing
+            {title}
           </h1>
           <div className="flex space-x-1 text-sm items-center">
-            <p>11.12.22</p>
+            <p>{date}</p>
             <p>•</p>
-            <p>{item.category}</p>
+            <p>{category}</p>
+          </div>
+          <div className="flex space-x-1 text-sm items-center">
+            <p>{readingTime.text}</p>
           </div>
           <div>
-            <p className="pr-6">
-              Something something something Something something something
-              Something something something Something something something
-              Something something somethingSomething something something
-              Something something something.
-            </p>
+            <p className="pr-6">{summary}</p>
           </div>
         </div>
         <div>

@@ -1,3 +1,5 @@
+import { getAllFrontMatter, getSlugs } from "../functions/loadPosts";
+import PostListItem from "../components/PostListItem";
 import LayoutPage from "../layouts/LayoutPage";
 import PostList from "../components/PostList";
 
@@ -28,13 +30,29 @@ const categories = [
   },
 ];
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <LayoutPage
       categories={categories}
       showSearchAndTheme={true}
       pageMeta={pageMeta}>
-      <PostList categories={categories} />
+      <PostList>
+        {data.map((post) => (
+          <PostListItem
+            key={post.slug}
+            title={post.title}
+            date={post.date}
+            category={post.category}
+            summary={post.summary}
+            readingTime={post.readingTime}
+          />
+        ))}
+      </PostList>
     </LayoutPage>
   );
+}
+
+export async function getStaticProps() {
+  const data = await getAllFrontMatter();
+  return { props: { data } };
 }
