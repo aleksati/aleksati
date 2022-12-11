@@ -24,8 +24,8 @@ export default function Posts({ data, categories }) {
           <PostListItem
             key={post.slug}
             slug={post.slug}
-            title={post.title}
             date={post.date}
+            title={post.title}
             category={post.category}
             summary={post.summary}
             readingTime={post.readingTime}

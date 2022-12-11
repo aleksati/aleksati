@@ -1,4 +1,5 @@
 import { getPostFromSlug, getSlugs } from "../../functions/loadPosts";
+import { category2color } from "../../functions/category2color";
 import MDXComponents from "../../components/MDXComponents";
 import LayoutPage from "../../layouts/LayoutPage";
 import { MDXRemote } from "next-mdx-remote";
@@ -7,25 +8,30 @@ import { MDXRemote } from "next-mdx-remote";
 
 export default function Post({ mdxSource, frontMatter }) {
   return (
-    <LayoutPage showTheme={true} showBackButton={true}>
-      <div className="pt-12">
-        <div className="mb-12">
-          <h1 className="font-bold text-7xl mb-2">{frontMatter.title}</h1>
-          <div className="flex space-x-2 text-gray-500">
-            <p>{frontMatter.date}</p>
-            <p>•</p>
+    <LayoutPage showTheme={true}>
+      <div className="mb-10">
+        <h1 className="font-bold text-5xl md:text-7xl mb-2">
+          {frontMatter.title}
+        </h1>
+        <div className="flex space-x-2 text-secondary">
+          <p>{frontMatter.date}</p>
+          <p>•</p>
+          <div className="flex space-x-1">
+            <p style={{ color: `${category2color[frontMatter.category]}` }}>
+              ■
+            </p>
             <p>{frontMatter.category}</p>
-            {/* <p>•</p>
-            <p>{frontMatter.readingTime.text}</p> */}
           </div>
+          {/* <p>•</p>
+            <p>{frontMatter.readingTime.text}</p> */}
         </div>
-        <div className="prose dark:prose-invert !container">
-          <MDXRemote
-            components={MDXComponents}
-            frontmatter={frontMatter}
-            {...mdxSource}
-          />
-        </div>
+      </div>
+      <div className="prose dark:prose-invert !container">
+        <MDXRemote
+          components={MDXComponents}
+          frontmatter={frontMatter}
+          {...mdxSource}
+        />
       </div>
     </LayoutPage>
   );

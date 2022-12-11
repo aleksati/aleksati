@@ -13,24 +13,27 @@ const NavVertikalDesktop = () => {
 
   return (
     <nav
-      className="z-50 w-56 fixed min-h-screen bg-primary-light dark:bg-primary-dark border-r border-primary-light dark:border-primary-dark"
+      className="z-50 w-52 pt-2 fixed min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="py-4 flex flex-col min-h-screen justify-between">
-        <div className="mx-auto space-y-4 w-1/2">
-          <Link href="/" className="m-2 font-bold">
+      <div className="py-4 flex flex-col min-h-screen items-center justify-between">
+        <div className="space-y-4">
+          <Link href="/" className="font-bold">
             Tidemann.is
           </Link>
+          {/* <p className="text-sm italic">@aleksati</p> */}
           {tabs.map((tab) => (
-            <MyLink key={tab} href={tab} type="page" active={tab === page}>
-              {tab}
-            </MyLink>
+            <div>
+              <MyLink key={tab} href={tab} type="page" active={tab === page}>
+                {tab}
+              </MyLink>
+            </div>
           ))}
         </div>
 
-        <div className="text-sm flex items-center justify-center">
+        <div className="text-sm flex">
           <Footer
-            author={"Aleksander Tidemann"}
+            // author={"Aleksander Tidemann"}
             date={new Date().getFullYear()}
           />
         </div>

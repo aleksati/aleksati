@@ -29,10 +29,7 @@ module.exports = {
         // text colors
         "primary-light": "#000",
         "primary-dark": "#fff",
-        "category-one": "#FBF3D5",
-        "category-two": "#A1E536",
-        "category-three": "#07976F",
-        "category-four": "#0D9488",
+        secondary: "#8b949e",
       },
     },
   },

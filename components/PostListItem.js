@@ -1,5 +1,5 @@
 import { useMouseHover } from "../hooks/useMouseHover";
-// import Image from "next/image";
+import { category2color } from "../functions/category2color";
 import Link from "next/link";
 
 const PostListItem = ({
@@ -14,7 +14,7 @@ const PostListItem = ({
 
   return (
     <div
-      className="flex flex-col space-y-4 pb-4 border-b cursor-pointer"
+      className="flex flex-col space-y-4 pb-4 border-b border-secondary cursor-pointer"
       ref={divRef}>
       <Link href={`/posts/${slug}`}>
         <div className="space-y-4 pb-2">
@@ -27,10 +27,13 @@ const PostListItem = ({
                 {title}
               </h1>
             </div>
-            <div className="flex text-gray-500 space-x-2 text-sm">
+            <div className="flex text-secondary space-x-2 text-sm">
               <p>{date}</p>
               <p>•</p>
-              <p>{category}</p>
+              <div className="flex space-x-1">
+                <p style={{ color: `${category2color[category]}` }}>■</p>
+                <p>{category}</p>
+              </div>
               <p>•</p>
               <p>{readingTime.text}</p>
             </div>

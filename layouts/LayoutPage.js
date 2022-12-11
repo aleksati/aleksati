@@ -1,5 +1,5 @@
-import IconScrollTo from "../components/IconScrollTo";
 import NavVertikalDesktop from "../components/NavVertikalDesktop";
+import IconScrollTo from "../components/IconScrollTo";
 import NavTop from "../components/NavTop";
 import React, { useRef } from "react";
 import Meta from "../components/Meta";
@@ -17,9 +17,9 @@ const LayoutPage = ({
 }) => {
   const ref = useRef(null);
   return (
-    <div>
+    <>
       <Meta {...pageMeta} />
-      {/* <NavVertikalDesktop /> */}
+      <NavVertikalDesktop />
       <div
         className={`min-h-screen container mx-auto px-4 pb-12 ${className}`}
         ref={ref}
@@ -34,7 +34,7 @@ const LayoutPage = ({
         {children}
         <IconScrollTo targetId={pageId} parentRef={ref} />
       </div>
-    </div>
+    </>
   );
 };
 

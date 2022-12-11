@@ -37,10 +37,10 @@ const NavTop = ({
           <div className="flex space-x-2 items-center">
             {showSearch ? (
               <input
-                type="search"
-                className="bg-primary-light dark:bg-primary-dark form-search rounded w-42 md:w-46 h-8"
-                id="site-search"
+                className="form-search bg-primary-light dark:bg-primary-dark rounded w-42 md:w-46 h-8"
                 placeholder="&#x1F50E;&#xFE0E; search"
+                id="site-search"
+                type="search"
               />
             ) : null}
             {showTheme ? <IconTheme /> : null}
