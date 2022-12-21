@@ -47,11 +47,11 @@ export async function getAllFrontMatter() {
 
   const data = fr_sorted.reverse();
 
-  const categories = data.reduce(
-    (accum, post) =>
-      accum.includes(post.category) ? accum : [...accum, post.category],
+  const categories_raw = data.reduce(
+    (accum, fr) => [...fr.categories, ...accum],
     []
   );
+  const categories = [...new Set(categories_raw)];
 
   return { data, categories };
 }

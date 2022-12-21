@@ -11,13 +11,13 @@
   /* font-family: "Monaco Regular"; */
   /* src: url("../assets/Monaco/Monacoregular.ttf"); */
   font-family: "Consolas";
-  src: url("../assets/fonts/Consolas/consolas.ttf");
+  src: url("../assets/fonts/Consolas/consola.ttf");
 }
 
 @layer base {
   body {
-    font-family: "Source Sans Pro", sans-serif;
-    /* font-family: "Consolas", sans-serif; */
+    /* font-family: "Source Sans Pro", sans-serif; */
+    font-family: "Consolas", sans-serif;
     height: 100%;
   }
 }

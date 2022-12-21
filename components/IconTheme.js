@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import getCurrTheme from "../functions/getCurrTheme";
+import { useState, useEffect } from "react";
+// import Link from "next/link";
 import Icon from "./Icon";
 
 const IconTheme = ({ tabOrder }) => {
@@ -18,9 +19,9 @@ const IconTheme = ({ tabOrder }) => {
   return (
     <a
       label="Toggle light or dark theme"
-      // tabOrder={tabOrder}
       onClick={handleClick}
-      className="m-auto p-2 flex items-center hover:cursor-pointer">
+      // tabOrder={tabOrder}
+      className="flex items-start p-2 hover:cursor-pointer">
       <Icon id={currTheme === "dark" ? "sun" : "moon"} />
     </a>
   );

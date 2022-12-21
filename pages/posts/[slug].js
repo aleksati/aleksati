@@ -10,17 +10,19 @@ export default function Post({ mdxSource, frontMatter }) {
   return (
     <LayoutPage showTheme={true}>
       <div className="mb-10">
-        <h1 className="font-bold text-5xl md:text-7xl mb-2">
+        <h1 className="font-bold text-4xl md:text-6xl mb-2">
           {frontMatter.title}
         </h1>
-        <div className="flex space-x-2 text-secondary">
+        <div className="flex space-x-2 text-secondary text-sm">
           <p>{frontMatter.date}</p>
           <p>•</p>
-          <div className="flex space-x-1">
-            <p style={{ color: `${category2color[frontMatter.category]}` }}>
-              ■
-            </p>
-            <p>{frontMatter.category}</p>
+          <div className="flex space-x-2">
+            {[...frontMatter.categories].map((category) => (
+              <div className="flex space-x-1" key={category}>
+                <p style={{ color: `${category2color[category]}` }}>■</p>
+                <p>{category}</p>
+              </div>
+            ))}
           </div>
           {/* <p>•</p>
             <p>{frontMatter.readingTime.text}</p> */}

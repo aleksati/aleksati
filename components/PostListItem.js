@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const PostListItem = ({
   readingTime,
-  category,
+  categories,
   summary,
   title,
   date,
@@ -21,7 +21,7 @@ const PostListItem = ({
           <div className="space-y-2">
             <div>
               <h1
-                className={`text-3xl font-bold ${
+                className={`text-2xl font-bold ${
                   divHovered ? "underline decoration-2" : null
                 }`}>
                 {title}
@@ -30,12 +30,14 @@ const PostListItem = ({
             <div className="flex text-secondary space-x-2 text-sm">
               <p>{date}</p>
               <p>•</p>
-              <div className="flex space-x-1">
-                <p style={{ color: `${category2color[category]}` }}>■</p>
-                <p>{category}</p>
+              <div className="flex space-x-2">
+                {[...categories].map((category) => (
+                  <div className="flex space-x-1" key={category}>
+                    <p style={{ color: `${category2color[category]}` }}>■</p>
+                    <p>{category}</p>
+                  </div>
+                ))}
               </div>
-              <p>•</p>
-              <p>{readingTime.text}</p>
             </div>
           </div>
           <div>

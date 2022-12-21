@@ -17,9 +17,12 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        source: ['"Source Sans Pro"', "sans-serif"],
+      fontSize: {
+        sm: ".8rem",
       },
+      // fontFamily: {
+      //   source: ['"Source Sans Pro"', "sans-serif"],
+      // },
       backgroundColor: {
         // background colors
         "primary-light": "#fff",

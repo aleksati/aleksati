@@ -26,7 +26,7 @@ export default function Posts({ data, categories }) {
             slug={post.slug}
             date={post.date}
             title={post.title}
-            category={post.category}
+            categories={post.categories}
             summary={post.summary}
             readingTime={post.readingTime}
           />

@@ -1,5 +1,5 @@
-import Footer from "../templates/Footer";
 import { useRouter } from "next/router";
+import IconTheme from "./IconTheme";
 import MyLink from "./MyLink";
 import Link from "next/link";
 
@@ -13,29 +13,25 @@ const NavVertikalDesktop = () => {
 
   return (
     <nav
-      className="z-50 w-52 pt-2 fixed min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark"
+      className="z-50 fixed min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="py-4 flex flex-col min-h-screen items-center justify-between">
+      <div className="py-4 flex flex-col min-h-screen px-12 items-start justify-between">
         <div className="space-y-4">
           <Link href="/" className="font-bold">
             Tidemann.is
           </Link>
           {/* <p className="text-sm italic">@aleksati</p> */}
           {tabs.map((tab) => (
-            <div>
-              <MyLink key={tab} href={tab} type="page" active={tab === page}>
-                {tab}
-              </MyLink>
-            </div>
+            <MyLink key={tab} href={tab} type="page" active={tab === page}>
+              {tab}
+            </MyLink>
           ))}
         </div>
 
-        <div className="text-sm flex">
-          <Footer
-            // author={"Aleksander Tidemann"}
-            date={new Date().getFullYear()}
-          />
+        <div className="flex items-center -ml-6">
+          <IconTheme />
+          <p className="text-sm">theme</p>
         </div>
       </div>
     </nav>

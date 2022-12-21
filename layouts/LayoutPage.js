@@ -26,10 +26,10 @@ const LayoutPage = ({
         id={pageId}>
         <NavTop
           showSearch={showSearch}
-          showTheme={showTheme}
-          showPostFilter={showPostFilter}
-          showBackButton={showBackButton}
-          categories={categories}
+          // showTheme={showTheme}
+          // showPostFilter={showPostFilter}
+          // showBackButton={showBackButton}
+          // categories={categories}
         />
         {children}
         <IconScrollTo targetId={pageId} parentRef={ref} />

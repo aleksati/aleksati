@@ -13,11 +13,13 @@ const MyLink = ({
 
   if (type === "page") {
     return (
-      <Link
-        className={`hover:cursor-pointer border-primary-light dark:border-primary-dark hover:border-b-2 ${isActive} ${className}`}
-        href={`/${href}`}>
-        {children}
-      </Link>
+      <div>
+        <Link
+          className={`hover:cursor-pointer border-primary-light dark:border-primary-dark hover:border-b-2 ${isActive} ${className}`}
+          href={`/${href}`}>
+          {children}
+        </Link>
+      </div>
     );
   }
 
