@@ -17,7 +17,7 @@ const LayoutPage = ({
 }) => {
   const ref = useRef(null);
   return (
-    <>
+    <div className="text-base">
       <Meta {...pageMeta} />
       <NavVertikalDesktop />
       <div
@@ -34,7 +34,7 @@ const LayoutPage = ({
         {children}
         <IconScrollTo targetId={pageId} parentRef={ref} />
       </div>
-    </>
+    </div>
   );
 };
 

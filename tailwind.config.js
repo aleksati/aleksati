@@ -16,12 +16,13 @@ module.exports = {
         // xl: "768px",
       },
     },
+    // fontSize: {
+    //   sm: ".8rem",
+    //   base: "1rem",
+    // },
     extend: {
-      fontSize: {
-        sm: ".8rem",
-      },
       // fontFamily: {
-      //   source: ['"Source Sans Pro"', "sans-serif"],
+      //   source: ['"Ubuntu"', "sans-serif"],
       // },
       backgroundColor: {
         // background colors

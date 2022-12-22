@@ -29,9 +29,9 @@ const NavVertikalDesktop = () => {
           ))}
         </div>
 
-        <div className="flex items-center -ml-6">
+        <div className="flex items-center -ml-9">
           <IconTheme />
-          <p className="text-sm">theme</p>
+          <p className="">theme</p>
         </div>
       </div>
     </nav>
