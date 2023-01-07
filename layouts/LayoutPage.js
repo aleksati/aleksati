@@ -1,8 +1,9 @@
-import NavVertikalDesktop from "../components/NavVertikalDesktop";
+import NavVertical from "../components/NavVertical";
 import IconScrollTo from "../components/IconScrollTo";
+import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
-import React, { useRef } from "react";
 import Meta from "../components/Meta";
+import { useRef } from "react";
 
 const LayoutPage = ({
   pageId = "top",
@@ -16,23 +17,28 @@ const LayoutPage = ({
   categories,
 }) => {
   const ref = useRef(null);
+  const { width } = useWindowSize();
+
   return (
     <div className="text-base">
       <Meta {...pageMeta} />
-      <NavVertikalDesktop />
-      <div
-        className={`min-h-screen container mx-auto px-4 pb-12 ${className}`}
-        ref={ref}
-        id={pageId}>
-        <NavTop
-          showSearch={showSearch}
-          // showTheme={showTheme}
-          // showPostFilter={showPostFilter}
-          // showBackButton={showBackButton}
-          // categories={categories}
-        />
-        {children}
-        <IconScrollTo targetId={pageId} parentRef={ref} />
+      <NavTop
+        showSearch={showSearch}
+        // showTheme={showTheme}
+        // showPostFilter={showPostFilter}
+        // showBackButton={showBackButton}
+        // categories={categories}
+      />
+      {width > "1060" ? <NavVertical /> : null}
+      {/* Compensate for fixed NavTop */}
+      <div className="pt-20">
+        <div
+          className={`min-h-screen container mx-auto px-4 pb-12 ${className}`}
+          ref={ref}
+          id={pageId}>
+          {children}
+          <IconScrollTo targetId={pageId} parentRef={ref} />
+        </div>
       </div>
     </div>
   );

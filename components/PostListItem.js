@@ -14,10 +14,10 @@ const PostListItem = ({
 
   return (
     <div
-      className="flex flex-col space-y-4 pb-4 border-b border-secondary cursor-pointer"
+      className="flex flex-col pb-2 border-b border-secondary cursor-pointer"
       ref={divRef}>
       <Link href={`/posts/${slug}`}>
-        <div className="space-y-4 pb-2">
+        <div className="space-y-2 pb-2">
           <div className="space-y-2">
             <div>
               <h1
