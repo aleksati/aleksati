@@ -1,35 +1,28 @@
-import NavVertical from "../components/NavVertical";
+import isTouchDevice from "../functions/isTouchDevice";
 import IconScrollTo from "../components/IconScrollTo";
+import NavVertical from "../components/NavVertical";
+import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
 import Meta from "../components/Meta";
-import { useRef } from "react";
 
-const LayoutPage = ({
-  pageId = "top",
-  children,
-  className,
-  showSearch,
-  showPostFilter,
-  showTheme,
-  showBackButton,
-  pageMeta,
-  categories,
-}) => {
+const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const ref = useRef(null);
-  const { width } = useWindowSize();
+  const [navIsShown, setNavIsShown] = useState(true);
+  // const { width } = useWindowSize();
+  const isMobile = isTouchDevice();
+
+  useEffect(() => {
+    setNavIsShown(isMobile ? false : true);
+  }, [isMobile]);
+
+  const handleClick = () => setNavIsShown((prevState) => !prevState);
 
   return (
     <div className="text-base">
       <Meta {...pageMeta} />
-      <NavTop
-        showSearch={showSearch}
-        // showTheme={showTheme}
-        // showPostFilter={showPostFilter}
-        // showBackButton={showBackButton}
-        // categories={categories}
-      />
-      {width > "1060" ? <NavVertical /> : null}
+      <NavTop onClick={handleClick} />
+      {navIsShown ? <NavVertical onClick={handleClick} /> : null}
       {/* Compensate for fixed NavTop */}
       <div className="pt-20">
         <div

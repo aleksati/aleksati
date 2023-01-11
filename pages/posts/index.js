@@ -4,9 +4,8 @@ import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../components/PostList";
 
 const pageMeta = {
-  title: "Aleksander Tidemann",
-  keywords:
-    "music technology, software development, networked music performance",
+  title: "tidemann.xyz",
+  keywords: "music technology, software development, networked audio",
   description: "Official homepage of Aleksander Tidemann ",
   url: "?",
 };

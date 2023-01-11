@@ -58,7 +58,9 @@ const icons = {
   heart: (s) => <AiOutlineHeart className={s} />,
   issue: (s) => <MdOutlineReportProblem className={s} />,
   check: (s) => <AiOutlineCheck className={s} />,
-  threedots: (s) => <HiDotsHorizontal className={s} />,
+  threedots: (s) => (
+    <HiDotsHorizontal className={s} style={{ transform: "rotate(-90deg)" }} />
+  ),
   filter: (s) => (
     <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
   ),

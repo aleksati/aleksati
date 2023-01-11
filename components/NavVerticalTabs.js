@@ -3,50 +3,10 @@ import Icon from "./Icon";
 import MyLink from "./MyLink";
 
 const tabs = [
-  { key: "about", title: "ABOUT", categories: [] },
-  {
-    key: "posts",
-    title: "POSTS",
-    categories: [
-      {
-        key: "music-tech",
-        icon: "x",
-        title: "Music tech",
-      },
-      {
-        key: "networked-music",
-        icon: "x",
-        title: "Networked Music",
-      },
-      {
-        key: "web-dev",
-        icon: "x",
-        title: "Web Development",
-      },
-    ],
-  },
-  {
-    key: "projects",
-    title: "PROJECTS",
-    categories: [
-      {
-        key: "music-tech",
-        icon: "x",
-        title: "The Holy Mountain",
-      },
-      {
-        key: "networked-music",
-        icon: "x",
-        title: "Networked Music",
-      },
-      {
-        key: "web-dev",
-        icon: "x",
-        title: "Web Development",
-      },
-    ],
-  },
-  { key: "research", title: "RESEARCH", categories: [] },
+  { key: "about", title: "About", categories: [], icon: "about" },
+  { key: "posts", title: "Posts", categories: [], icon: "filter" },
+  { key: "projects", title: "Projects", categories: [], icon: "issue" },
+  { key: "research", title: "Publications", categories: [], icon: "x" },
 ];
 
 const NavVerticalTabs = () => {
@@ -62,13 +22,18 @@ const NavVerticalTabs = () => {
         const brdr = "";
         return (
           <div className={`space-y-2 ${brdr}`}>
-            <MyLink
+            <div
               key={tab.key}
-              href={tab.key}
-              type="page"
-              active={tab.key === page}>
-              {tab.title}
-            </MyLink>
+              className="flex space-x-1 items-center justify-start">
+              <Icon id={tab.icon} iconSize={"text-md"} />
+              <MyLink
+                key={tab.key}
+                href={tab.key}
+                type="page"
+                active={tab.key === page}>
+                {tab.title}
+              </MyLink>
+            </div>
             {tab.categories
               ? tab.categories.map((cat) => (
                   <div

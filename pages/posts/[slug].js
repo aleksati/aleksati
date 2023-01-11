@@ -1,5 +1,6 @@
 import { getPostFromSlug, getSlugs } from "../../functions/loadPosts";
 import { category2color } from "../../functions/category2color";
+import { category2text } from "../../functions/category2text";
 import MDXComponents from "../../components/MDXComponents";
 import LayoutPage from "../../layouts/LayoutPage";
 import { MDXRemote } from "next-mdx-remote";
@@ -15,12 +16,11 @@ export default function Post({ mdxSource, frontMatter }) {
         </h1>
         <div className="flex space-x-2 text-secondary text-sm">
           <p>{frontMatter.date}</p>
-          <p>•</p>
           <div className="flex space-x-2">
             {[...frontMatter.categories].map((category) => (
               <div className="flex space-x-1" key={category}>
-                <p style={{ color: `${category2color[category]}` }}>■</p>
-                <p>{category}</p>
+                <p style={{ color: `${category2color[category]}` }}>•</p>
+                <p>{category2text[category]}</p>
               </div>
             ))}
           </div>

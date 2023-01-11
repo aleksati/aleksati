@@ -1,5 +1,6 @@
 import { useMouseHover } from "../hooks/useMouseHover";
 import { category2color } from "../functions/category2color";
+import { category2text } from "../functions/category2text";
 import Link from "next/link";
 
 const PostListItem = ({
@@ -18,35 +19,29 @@ const PostListItem = ({
       ref={divRef}>
       <Link href={`/posts/${slug}`}>
         <div className="space-y-2 pb-2">
-          <div className="space-y-2">
-            <div>
-              <h1
-                className={`text-2xl font-bold ${
-                  divHovered ? "underline decoration-2" : null
-                }`}>
-                {title}
-              </h1>
-            </div>
-            <div className="flex text-secondary space-x-2 text-sm">
-              <p>{date}</p>
-              <p>•</p>
-              <div className="flex space-x-2">
-                {[...categories].map((category) => (
-                  <div className="flex space-x-1" key={category}>
-                    <p style={{ color: `${category2color[category]}` }}>■</p>
-                    <p>{category}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <h2
+            className={`text-2xl font-bold ${
+              divHovered ? "underline decoration-2" : null
+            }`}>
+            {title}
+          </h2>
           <div>
             <p>{summary}</p>
           </div>
+          <div className="flex text-secondary space-x-2 text-sm">
+            <p>{readingTime.text}</p>
+            <p>•</p>
+            <p>{date}</p>
+            <div className="flex space-x-2">
+              {[...categories].map((category) => (
+                <div className="flex space-x-1" key={category}>
+                  <p style={{ color: `${category2color[category]}` }}>•</p>
+                  <p>{category2text[category]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        {/* <div>
-          <p className="font-bold">Read more ...</p>
-        </div> */}
       </Link>
     </div>
   );
