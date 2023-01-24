@@ -18,7 +18,7 @@ const NavVertical = ({ onClick }) => {
               <Icon id={"x"} iconSize={"text-xl"} />
             </a>
           </div>
-          <div className="space-y-6 px-4 pt-0 w-full text-sm">
+          <div className="space-y-6 px-4 pt-0 w-full">
             <NavVerticalTabs />
           </div>
         </div>
