@@ -7,7 +7,9 @@ import fs from "fs";
 
 const root = process.cwd();
 const postFolder = "posts";
-const paginationThresh = 1;
+
+// how many posts before pagination starts?
+const paginationThresh = 5;
 
 export async function getSlugs() {
   const paths = path.join(root, postFolder);

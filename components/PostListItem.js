@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const PostListItem = ({
   readingTime,
-  pageNumber,
   categories,
   summary,
   title,
@@ -18,7 +17,7 @@ const PostListItem = ({
     <div
       className="flex flex-col pb-2 border-b border-secondary cursor-pointer"
       ref={divRef}>
-      <Link href={`/posts/${pageNumber}/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <div className="space-y-2 pb-2">
           <h2
             className={`text-2xl font-bold ${

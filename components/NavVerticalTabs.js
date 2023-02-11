@@ -24,7 +24,7 @@ const NavVerticalTabs = () => {
         return (
           <div className={`space-y-2 ${brdr}`} key={tab.key}>
             <div className="flex space-x-1 items-center justify-start">
-              <Icon id={tab.icon} iconSize={"text-sm"} />
+              {/* <Icon id={tab.icon} iconSize={"text-sm"} /> */}
               <MyLink
                 className={"text-sm"}
                 key={tab.key}
