@@ -12,7 +12,7 @@ const NavVertical = ({ onClick }) => {
         <div className="w-full">
           <div className="py-4 px-4 items-center justify-between flex pb-4 border-secondary">
             <Link href="/" className="font-bold">
-              TIDEMANN.XYZ
+              tidemann.xyz
             </Link>
             <a onClick={onClick} className="hover:cursor-pointer">
               <Icon id={"x"} iconSize={"text-xl"} />
@@ -22,9 +22,9 @@ const NavVertical = ({ onClick }) => {
             <NavVerticalTabs />
           </div>
         </div>
-        <div className="border-t border-secondary w-full text-sm">
-          <div className="px-4 py-2">credits</div>
-        </div>
+        {/* <div className="border-t border-secondary w-full text-xs">
+          <div className="px-4 py-2">&copy; {new Date().getFullYear()}</div>
+        </div> */}
       </div>
     </nav>
   );

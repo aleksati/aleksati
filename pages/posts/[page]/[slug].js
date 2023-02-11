@@ -1,8 +1,12 @@
-import { getPostFromSlug, getSlugs } from "../../functions/loadPosts";
-import { category2color } from "../../functions/category2color";
-import { category2text } from "../../functions/category2text";
-import MDXComponents from "../../components/MDXComponents";
-import LayoutPage from "../../layouts/LayoutPage";
+import {
+  getAllFr,
+  getPostFromSlug,
+  getSlugs,
+} from "../../../functions/loadPosts";
+import { category2color } from "../../../categories/category2color";
+import { category2text } from "../../../categories/category2text";
+import MDXComponents from "../../../components/MDXComponents";
+import LayoutPage from "../../../layouts/LayoutPage";
 import { MDXRemote } from "next-mdx-remote";
 
 //https://tailwindcss.com/docs/typography-plugin
@@ -45,10 +49,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const slugs = await getSlugs();
+  const frontMatter = await getAllFr();
 
   return {
-    paths: slugs.map((s) => ({ params: { slug: s } })),
+    paths: frontMatter.map((item, i) => ({
+      params: { page: item.page.toString(), slug: item.slug },
+    })),
     fallback: false,
   };
 }

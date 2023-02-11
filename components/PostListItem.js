@@ -1,10 +1,11 @@
 import { useMouseHover } from "../hooks/useMouseHover";
-import { category2color } from "../functions/category2color";
-import { category2text } from "../functions/category2text";
+import { category2color } from "../categories/category2color";
+import { category2text } from "../categories/category2text";
 import Link from "next/link";
 
 const PostListItem = ({
   readingTime,
+  pageNumber,
   categories,
   summary,
   title,
@@ -17,7 +18,7 @@ const PostListItem = ({
     <div
       className="flex flex-col pb-2 border-b border-secondary cursor-pointer"
       ref={divRef}>
-      <Link href={`/posts/${slug}`}>
+      <Link href={`/posts/${pageNumber}/${slug}`}>
         <div className="space-y-2 pb-2">
           <h2
             className={`text-2xl font-bold ${

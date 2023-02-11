@@ -11,7 +11,14 @@ const pageMeta = {
 export default function About() {
   return (
     <LayoutPage showSearchAndTheme={true} pageMeta={pageMeta}>
-      <p>Heia</p>
+      <p>
+        I am passionate about music technology, drumming, my partner and our
+        cat, and programming. Currently work as a department engineer and
+        lecturer at the University of Oslo, specializing in networked audio and
+        audio programming.
+      </p>
+      <br />
+      <p>By the way, my name is Aleksander and here are my thingys:</p>
     </LayoutPage>
   );
 }

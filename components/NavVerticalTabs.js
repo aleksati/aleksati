@@ -3,13 +3,14 @@ import Icon from "./Icon";
 import MyLink from "./MyLink";
 
 const tabs = [
-  { key: "about", title: "About", categories: [], icon: "about" },
-  { key: "posts", title: "Posts", categories: [], icon: "filter" },
-  { key: "projects", title: "Projects", categories: [], icon: "issue" },
-  { key: "research", title: "Publications", categories: [], icon: "x" },
+  { key: "about", title: "about", categories: [], icon: "about" },
+  { key: "posts", title: "posts", categories: [], icon: "filter" },
+  { key: "projects", title: "projects", categories: [], icon: "issue" },
+  { key: "research", title: "research", categories: [], icon: "x" },
 ];
 
 const NavVerticalTabs = () => {
+  // find the ending of the current url route.
   const router = useRouter();
   const path = router.pathname.slice(1);
   const currTab = tabs.filter((tab) => tab.key === path);
@@ -21,12 +22,11 @@ const NavVerticalTabs = () => {
         // const brdr = index === 0 ? "" : "pt-2 pb-2 border-t";
         const brdr = "";
         return (
-          <div className={`space-y-2 ${brdr}`}>
-            <div
-              key={tab.key}
-              className="flex space-x-1 items-center justify-start">
-              <Icon id={tab.icon} iconSize={"text-md"} />
+          <div className={`space-y-2 ${brdr}`} key={tab.key}>
+            <div className="flex space-x-1 items-center justify-start">
+              <Icon id={tab.icon} iconSize={"text-sm"} />
               <MyLink
+                className={"text-sm"}
                 key={tab.key}
                 href={tab.key}
                 type="page"

@@ -14,7 +14,7 @@ const NavTop = ({ onClick }) => {
         <div className="w-1/2 flex items-center space-x-2">
           <div className="w-48 py-4">
             <div className="px-4 justify-between items-center flex border-secondary">
-              <Link href="/" className="font-bold">
+              <Link href="/" className="font-bold items-center">
                 tidemann.xyz
               </Link>
               <a onClick={onClick} className="hover:cursor-pointer">
@@ -23,7 +23,7 @@ const NavTop = ({ onClick }) => {
             </div>
           </div>
         </div>
-        <div className="flex space-x-2 items-center py-2">
+        <div className="flex space-x-2 items-center py-2 mr-2">
           <input
             className="form-search bg-primary-light dark:bg-primary-dark rounded w-42 md:w-46 h-8"
             placeholder="&#x1F50E;&#xFE0E; search"

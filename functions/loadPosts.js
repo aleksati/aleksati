@@ -7,6 +7,7 @@ import fs from "fs";
 
 const root = process.cwd();
 const postFolder = "posts";
+const paginationThresh = 1;
 
 export async function getSlugs() {
   const paths = path.join(root, postFolder);
@@ -21,7 +22,28 @@ export async function getSlugs() {
   });
 }
 
-export async function getAllFrontMatter() {
+// and inject page numbers for pagination
+function addPagesToFr(fr) {
+  const frontMatter = fr.map((item, i) => ({
+    ...item,
+    page: Math.floor(i / paginationThresh) + 1,
+  }));
+  return frontMatter;
+}
+
+// sort by date
+function sortFrByDate(fr) {
+  const frSorted = fr.sort((a, b) => {
+    if (a.date > b.date) return 1;
+    if (a.date < b.date) return -1;
+    return 0;
+  });
+
+  return frSorted.reverse();
+}
+
+// gather all frontmatter data from posts into correct format
+export async function getAllFr() {
   const paths = path.join(root, postFolder);
   const posts = fs.readdirSync(paths);
 
@@ -39,21 +61,23 @@ export async function getAllFrontMatter() {
     ];
   }, []);
 
-  const fr_sorted = fr.sort((a, b) => {
-    if (a.date > b.date) return 1;
-    if (a.date < b.date) return -1;
-    return 0;
-  });
+  // sort by date
+  const frSorted = sortFrByDate(fr);
+  // inject page numbers for pagination
+  const frontMatter = addPagesToFr(frSorted);
 
-  const data = fr_sorted.reverse();
+  return frontMatter;
+}
 
-  const categories_raw = data.reduce(
+// extract all used categories in posts
+export async function getCatFromFr(frontMatter) {
+  const categories_raw = frontMatter.reduce(
     (accum, fr) => [...fr.categories, ...accum],
     []
   );
   const categories = [...new Set(categories_raw)];
 
-  return { data, categories };
+  return categories;
 }
 
 export async function getPostFromSlug(slug) {

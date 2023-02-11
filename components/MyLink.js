@@ -1,13 +1,6 @@
 import Link from "next/link";
 
-const MyLink = ({
-  type = "tab",
-  className,
-  children,
-  onClick,
-  active,
-  href,
-}) => {
+const MyLink = ({ type = "", className, children, onClick, active, href }) => {
   // url or tab
   const isActive = active ? "border-b-2" : null;
 
