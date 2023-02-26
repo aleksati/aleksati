@@ -1,7 +1,7 @@
 ---
 title: "VideoAnalysis"
 date: "2022-12-22"
-categories: ["software", "motion", "analysis", "video"]
+categories: ["motion", "video", "analysis", "software"]
 summary: "A quick-look into VideoAnalysis v2.1; a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
 ---
 
@@ -22,12 +22,10 @@ This post gives a quick look at VideoAnalysis v2.1; a standalone beginners tool 
   </li>
   <ol>
     <li>
-      <a href="batch-processing">Batch Processing</a>
+      <a href="#batch-processing">Batch Processing</a>
     </li>
     <li>
-      <a href="#cropping-trimming-and-skipping">
-        Cropping, Trimming and Skipping
-      </a>
+      <a href="#crop-trim-and-skip">Crop, Trim and Skip</a>
     </li>
     <li>
       <a href="#video-visualizations">Video Visualizations</a>
@@ -52,11 +50,11 @@ VideoAnalysis is a desktop app designed for asynchronous video processing. First
 
 For full documentation and guides, visit [the official VideAnalysis Wiki](https://github.com/fourMs/VideoAnalysis/wiki). You can also get a detailed overview of the basic software operations from the app itself.
 
-<h1 id="#key-features">Key Features</h1>
+<h1 id="key-features">Key Features</h1>
 
 Let's take a closer look at some of the unique import and export options, pre-processing features, and visualizations possibilities in VideoAnalysis v2.1.
 
-<h2 id="#batch-processing">Batch Processing</h2>
+<h2 id="batch-processing">Batch Processing</h2>
 
 VideoAnalysis supports batch processing, meaning you can drag inn and drop an entire folder of video files. When batch processing, you can also save/recall settings and decide whether to use the same settings for all videos or configure individual settings for each video.
 
@@ -66,11 +64,9 @@ VideoAnalysis supports batch processing, meaning you can drag inn and drop an en
   caption="Batch processing is a potent tool if you want to get lots of data fast."
 />
 
-<h2 id="#cropping-trimming-and-skipping">Cropping, Trimming and Skipping</h2>
+<h2 id="crop-trim-and-skip">Crop, Trim and Skip</h2>
 
-Probably the most useful pre-processing features in VideoAnalysis are cropping, skipping, and trimming. When doing motion analysis of videos, there is no need for high resolutions and frame rates to get suitable data. Therefore, we often crop video dimensions, skip frames, and trim the length to minimize CPU load and processing time.
-
-Skipping, trimming and cropping are avaliable from the _Processing_ settings left of the Source Display.
+Probably the most useful pre-processing features in VideoAnalysis are cropping, skipping, and trimming. When doing motion video analysis, there is no need for high resolutions and frame rates to get high quality data. Therefore, it's wise to reduce video dimensions, skip frames, and trim length to minimize CPU load and processing time.
 
 <MyImage
   src="/img/videoanalysis-cropping.PNG"
@@ -78,13 +74,13 @@ Skipping, trimming and cropping are avaliable from the _Processing_ settings lef
   caption="We can reduce video dimensions and processing time by cropping the source video."
 />
 
-To crop video, simply highlight a desired bounding box region in the Source Display with your mouse. You can monitor the results in the detachable display in real-time.
+Cropping, trimming, and skipping features are avaliable from the _Processing_ settings left of the Source Display. To crop a video, simply highlight a desired bounding box region in the Source Display. You can monitor the results in the detachable display in real-time.
 
-Skipping is a method where you specify a factor that decides which frames are processed. A skipping value of 1 means that every other frame is skipped and frames `1, 3, 5, etc.` are processed. A skip factor like this is powerful because it cuts the video length in half while preserving most of its content, reducing processing time by 50%(!).
+Skipping values decide which frames are processed. With a skipping value of 1, every other frame is skipped, meaning only frames 1, 3, 5, etc. are processed. Skipping like this is powerful because it cuts the video length in half while preserving most of its content, reducing processing time by 50%(!).
 
 <MyImage src="/img/videoanalysis-trimming.PNG" alt="videoanalysis trimming" />
 
-Trimming of the video length can also be adjusted from the _Processing_ settings. However, it's more convinient and dynamic to trim by adjusting the yellow timeline under the Source Diplay playbar.
+Video trimming can help isolate sections that are interesting for analysis, removing unnecessary content. Trimming can be adjusted numerically from the _Processing_ UI seciton or more dynamically by adjusting the yellow timeline under the Source Diplay playbar.
 
 <h2 id="video-visualizations">Video Visualizations</h2>
 

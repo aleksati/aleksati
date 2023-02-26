@@ -33,10 +33,10 @@ const PostListItem = ({
             <div className="flex space-x-1">
               <p>{date}</p>
             </div>
-            <p>•</p>
+            {/* <p>•</p>
             <div className="text-secondary text-sm">
               <p>{readingTime.text}</p>
-            </div>
+            </div> */}
             <div className="flex space-x-2 items-center">
               {/* <Icon id="key" iconSize={"text-md"} /> */}
               {[...categories].map((category) => (

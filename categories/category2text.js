@@ -7,4 +7,5 @@ export const category2text = {
   software: "software",
   analysis: "analysis",
   video: "video",
+  motion: "motion",
 };
