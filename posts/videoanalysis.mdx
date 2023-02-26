@@ -1,0 +1,166 @@
+---
+title: "VideoAnalysis"
+date: "2022-12-22"
+categories: ["software", "motion", "analysis", "video"]
+summary: "A quick-look into VideoAnalysis v2.1; a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
+---
+
+<MyImage src="/img/videoanalysis-overview.png" alt="videoanalysis overview" />
+
+VideoAnalysis is part of the [Musical Gestures Toolbox for MaxMSP](https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/) (MGT), created by Alexander Refsum Jensenius for the [RITMO FourMS lab](https://www.uio.no/ritmo/english/research/labs/fourms/) at the University of Oslo in the early 2000s. In 2019, I was assigned to update and refurbish VideoAnalysis, one of the larger MGT applications, together with [Balint Lackzo](https://github.com/balintlaczko).
+
+This post gives a quick look at VideoAnalysis v2.1; a standalone beginners tool for analyzing basic music-related body motion of videos.
+
+# Contents
+
+<ol>
+  <li>
+    <a href="#how-to-use-it">How To Use It</a>
+  </li>
+  <li>
+    <a href="#key-features">Key Features</a>
+  </li>
+  <ol>
+    <li>
+      <a href="batch-processing">Batch Processing</a>
+    </li>
+    <li>
+      <a href="#cropping-trimming-and-skipping">
+        Cropping, Trimming and Skipping
+      </a>
+    </li>
+    <li>
+      <a href="#video-visualizations">Video Visualizations</a>
+    </li>
+    <li>
+      <a href="#export-options">Export Options</a>
+    </li>
+  </ol>
+  <li>
+    <a href="#downloads">Downloads</a>
+  </li>
+  <li>
+    <a href="">References</a>
+  </li>
+</ol>
+
+<hr />
+
+<h1 id="#how-to-use-it">How To Use It</h1>
+
+VideoAnalysis is a desktop app designed for asynchronous video processing. First, you load pre-recorded videos into the software. Then, the goal is to isolatate the motion in the videos through various pre-processing techniques. Finally, you can export lots of data in various formats for further analysis (see below).
+
+For full documentation and guides, visit [the official VideAnalysis Wiki](https://github.com/fourMs/VideoAnalysis/wiki). You can also get a detailed overview of the basic software operations from the app itself.
+
+<h1 id="#key-features">Key Features</h1>
+
+Let's take a closer look at some of the unique import and export options, pre-processing features, and visualizations possibilities in VideoAnalysis v2.1.
+
+<h2 id="#batch-processing">Batch Processing</h2>
+
+VideoAnalysis supports batch processing, meaning you can drag inn and drop an entire folder of video files. When batch processing, you can also save/recall settings and decide whether to use the same settings for all videos or configure individual settings for each video.
+
+<MyImage
+  src="/img/videoanalysis-batch.gif"
+  alt="videoanalysis batch processing"
+  caption="Batch processing is a potent tool if you want to get lots of data fast."
+/>
+
+<h2 id="#cropping-trimming-and-skipping">Cropping, Trimming and Skipping</h2>
+
+Probably the most useful pre-processing features in VideoAnalysis are cropping, skipping, and trimming. When doing motion analysis of videos, there is no need for high resolutions and frame rates to get suitable data. Therefore, we often crop video dimensions, skip frames, and trim the length to minimize CPU load and processing time.
+
+Skipping, trimming and cropping are avaliable from the _Processing_ settings left of the Source Display.
+
+<MyImage
+  src="/img/videoanalysis-cropping.PNG"
+  alt="videoanalysis cropping."
+  caption="We can reduce video dimensions and processing time by cropping the source video."
+/>
+
+To crop video, simply highlight a desired bounding box region in the Source Display with your mouse. You can monitor the results in the detachable display in real-time.
+
+Skipping is a method where you specify a factor that decides which frames are processed. A skipping value of 1 means that every other frame is skipped and frames `1, 3, 5, etc.` are processed. A skip factor like this is powerful because it cuts the video length in half while preserving most of its content, reducing processing time by 50%(!).
+
+<MyImage src="/img/videoanalysis-trimming.PNG" alt="videoanalysis trimming" />
+
+Trimming of the video length can also be adjusted from the _Processing_ settings. However, it's more convinient and dynamic to trim by adjusting the yellow timeline under the Source Diplay playbar.
+
+<h2 id="video-visualizations">Video Visualizations</h2>
+
+In addition to extracting motion data asynchronously, VideoAnaysis can create powerful and useful real-time motion visualizations. Perhaps the most interesting visuals are motion images/videos, motiongrams, and centroid of motion.
+
+<MyImage
+  src="/img/videoanalysis-display.PNG"
+  alt="videoanalysis detachable display."
+  caption="The detachable display with visualizations of the Box, Centroid, and Motion videos."
+/>
+
+Motion images are generated by calculating the difference between the current frame and the previous frame of a video. The result is an image that shows only the difference between the previous and current frame. A motion video is a series of motion images, each showing only the motion happening between the two last frames in the original video file.
+
+<MyImage
+  src="/img/videoanalysis-filtering.PNG"
+  alt="videoanalysis filtering."
+  caption="Using filters in VideoAnalysis can help to isoltate motion."
+/>
+
+The quality of raw motion images depend on the quality of the original video stream. Small changes in the lighting, camera motion, compression artefacts, etc. may all influence the final image. This visual "noise" can be removed by applying a simple low-pass filter to remove pixels below a certain threshold. These settings can be found in the _Filter_ UI section.
+
+<MyImage
+  src="/img/videoanalysis-mg.JPG"
+  alt="videoanalysis motiongram."
+  caption="A motiongram image exported by VideoAnalyis, showing motion (Y) over time (X)."
+/>
+
+From the motion videos, we can represent motion over time by creating motiongrams. These images are good for getting a general sense of the spatiotemporal distribution in our videos. Vidograms are exactly the same, only without the motion image processing at the start.
+
+Motion-and videograms are created by calculating mean values of either every row or column of a frame depending if you want to represent time on the X or Y-axis, as shown below. This process outputs a one-dimensional matrix of mean values that we can use to sequentially print across a canvas to produce the desired looking image.
+
+<MyImage
+  src="/img/videoanalysis-mg-theory.JPG"
+  alt="videoanalysis motiongram theory."
+/>
+
+The centroid of motion (CoM) and area of motion (AoM) are other basic features that can easily be extracted from a motion image. The CoM and AoM features can be used to illustrate where in an image the motion occurs as well the spatial displacement of motion over time.
+
+<MyImage
+  src="/img/videoanalysis-com.JPG"
+  alt="videoanalysis cropping."
+  caption=""
+/>
+
+In VideoAnalysis, the centriod video at the center of the detached display window. The CoM is visualizes by a series of red circles. Also, we can customize the length, radius and threshold of the circles (snake, as we sometimes call it) to better track and visualize the motion history.
+
+<h2 id="export-options">Export Options</h2>
+
+VideoAnalysis can generate a lot of useful motion data, including of videos, images, and data (.csv) files. By default, the software will export a good selection of data. To customize your selection, visit the _export options_ in the navbar.
+
+<MyImage
+  src="/img/videoanalysis-exportoptions.png"
+  alt="videoanalysis export options"
+  caption=""
+/>
+
+Here is a complete list of the data avaliable:
+
+- Quantitative .csv data from the analysis.
+- General information about the analysed file and the analysis in a .txt file.
+- Basic statistics in a .txt file.
+- Average image, based on taking the average of all images in video stream.
+- Motion average image, based on taking the average of all motion images in video stream.
+- Horizontal motiongram, based on averaging over each column in each motion image.
+- Horizontal motiongram, based on averaging over each column in each motion image.
+- Motion history image: displaying motion average image (mavg) on top of first video frame.
+- Motion history image: displaying motion average image (mavg) on top of last video frame.
+
+<h1 id="downloads">Downloads</h1>
+
+VideoAnalysis is open source and available on both OSX and WIN. It can be downloaded from the [FourMS GitHub page](https://github.com/fourMs/VideoAnalysis/releases). If you want to contribute, you are free to do so. Simply fork the [VideoAnalysis repo](https://github.com/fourMs/VideoAnalysis), and make a pull request for us to review.
+
+# References
+
+If you use this application for research purposes, please reference this publication:
+
+- Jensenius, Alexander Refsum (2005). [Developing Tools for Studying Musical Gestures within the Max/MSP/Jitter Environment](https://www.duo.uio.no/handle/10852/26907). Proceedings of the International Computer Music Conference, p. 282-285.
+
+The software has also been acknowledgment by Cycling74 [on their official homepage](https://cycling74.com/projects/video-analysis).

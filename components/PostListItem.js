@@ -2,6 +2,7 @@ import { useMouseHover } from "../hooks/useMouseHover";
 import { category2color } from "../categories/category2color";
 import { category2text } from "../categories/category2text";
 import Link from "next/link";
+import Icon from "./Icon";
 
 const PostListItem = ({
   readingTime,
@@ -29,10 +30,15 @@ const PostListItem = ({
             <p>{summary}</p>
           </div>
           <div className="flex text-secondary space-x-2 text-sm">
-            <p>{readingTime.text}</p>
+            <div className="flex space-x-1">
+              <p>{date}</p>
+            </div>
             <p>•</p>
-            <p>{date}</p>
-            <div className="flex space-x-2">
+            <div className="text-secondary text-sm">
+              <p>{readingTime.text}</p>
+            </div>
+            <div className="flex space-x-2 items-center">
+              {/* <Icon id="key" iconSize={"text-md"} /> */}
               {[...categories].map((category) => (
                 <div className="flex space-x-1" key={category}>
                   <p style={{ color: `${category2color[category]}` }}>•</p>

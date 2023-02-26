@@ -1,5 +1,7 @@
 import LayoutPage from "../layouts/LayoutPage";
+import profilePic from "../public/img/aleksander.jpg";
 import Image from "next/image";
+import SoMeBar from "../components/SoMeBar";
 
 const pageMeta = {
   title: "tidemann.xyz",
@@ -12,27 +14,26 @@ const pageMeta = {
 export default function About() {
   return (
     <LayoutPage pageMeta={pageMeta}>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="relative w-full">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:-mx-8 mx-auto">
+        <div className="hidden md:flex">
           <Image
-            src="/img/aleksander.jpg"
-            // layout="responsive"
-            objectFit="cover"
-            fill={true}
-            // height="100%"
-            // width="100%"
-            alt="profile pic"
+            src={profilePic}
+            layout="responsive"
+            objectFit="contain"
+            alt="portrait picture"
           />
         </div>
         <div>
+          <h1 className="text-7xl">hello, </h1>
           <p>
-            I am passionate about music technology, drumming, my partner and our
-            cat, and programming. Currently work as a department engineer and
-            lecturer at the University of Oslo, specializing in networked audio
-            and audio programming.
+            my name is Aleksander and I work as an engineer and lecturer at the
+            University of Oslo, specializing in networked audio and audio
+            programming. Curious about all things science, passionate about
+            music, exercising, my partner and our cat.
           </p>
           <br />
-          <p>By the way, my name is Aleksander and here are my thingys:</p>
+          <p>By the way, my name is Aleksander.</p>
+          <SoMeBar iconSize={"text-2xl"} className="pt-2" />
         </div>
       </div>
     </LayoutPage>

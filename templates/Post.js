@@ -26,7 +26,7 @@ export default function Post({ mdxSource, frontMatter }) {
             <p>{frontMatter.readingTime.text}</p> */}
         </div>
       </div>
-      <div className="prose dark:prose-invert !container">
+      <div className="prose dark:prose-invert prose-h1:pt-4 prose-a:font-light prose-a:no-underline prose-a:text-blue-600 !container">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}

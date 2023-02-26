@@ -1,5 +1,10 @@
 export const category2text = {
-  "web-dev": "web",
-  "networked-audio": "networked audio",
-  "music-tech": "music tech",
+  web: "web",
+  network: "network",
+  audio: "audio",
+  music: "music",
+  tech: "tech",
+  software: "software",
+  analysis: "analysis",
+  video: "video",
 };

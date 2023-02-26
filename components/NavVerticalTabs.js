@@ -13,7 +13,8 @@ const NavVerticalTabs = () => {
   // find the ending of the current url route.
   const router = useRouter();
   const path = router.pathname.slice(1);
-  const currTab = tabs.filter((tab) => tab.key === path);
+  const route = path.replace("/[page]", "");
+  const currTab = tabs.filter((tab) => tab.key === route);
   const page = currTab.length ? currTab[0].key : "";
 
   return (

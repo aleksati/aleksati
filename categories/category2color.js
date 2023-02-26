@@ -1,5 +1,11 @@
 export const category2color = {
-  "web-dev": "#a3e635", //lime-400
-  "music-tech": "#f87171", //red-400
-  "networked-audio": "#fb923c", //orange-400
+  web: "#a3e635", //lime-400
+  tech: "#f87171", //red-400
+  music: "",
+  audio: "",
+  tech: "",
+  network: "#fb923c", //orange-400
+  analysis: "",
+  software: "",
+  video: "",
 };
