@@ -2,6 +2,7 @@ import { category2color } from "../categories/category2color";
 import { category2text } from "../categories/category2text";
 import MDXComponents from "../components/MDXComponents";
 import { MDXRemote } from "next-mdx-remote";
+import { date2text } from "../functions/date2text";
 
 //https://tailwindcss.com/docs/typography-plugin
 
@@ -13,7 +14,7 @@ export default function Post({ mdxSource, frontMatter }) {
           {frontMatter.title}
         </h1>
         <div className="flex space-x-2 text-secondary text-sm">
-          <p>{frontMatter.date}</p>
+          <p>{date2text(frontMatter.date)}</p>
           <div className="flex space-x-2">
             {[...frontMatter.categories].map((category) => (
               <div className="flex space-x-1" key={category}>
@@ -26,7 +27,7 @@ export default function Post({ mdxSource, frontMatter }) {
             <p>{frontMatter.readingTime.text}</p> */}
         </div>
       </div>
-      <div className="prose dark:prose-invert prose-h1:pt-4 prose-a:font-light prose-a:no-underline prose-a:text-blue-600 !container">
+      <div className="prose dark:prose-invert prose-h1:pt-4 prose-a:font-light prose-a:no-underline prose-a:text-blue-600 dark:prose-a:text-blue-300 !container">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}

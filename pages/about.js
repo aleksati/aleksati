@@ -19,20 +19,20 @@ export default function About() {
           <Image
             src={profilePic}
             layout="responsive"
-            objectFit="contain"
+            // objectFit="contain"
             alt="portrait picture"
           />
         </div>
         <div>
           <h1 className="text-7xl">hello, </h1>
           <p>
-            my name is Aleksander and I work as an engineer and lecturer at the
-            University of Oslo, specializing in networked audio and audio
-            programming. Curious about all things science, passionate about
-            music, exercising, my partner and our cat.
+            I work as an engineer and lecturer at the University of Oslo,
+            specializing in networked audio and audio programming. Curious about
+            all things science and passionate about music, exercising, my
+            partner and our cat.
           </p>
           <br />
-          <p>By the way, my name is Aleksander.</p>
+          <p>Oh, and my name is Aleksander.</p>
           <SoMeBar iconSize={"text-2xl"} className="pt-2" />
         </div>
       </div>

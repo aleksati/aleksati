@@ -1,6 +1,7 @@
-import { useMouseHover } from "../hooks/useMouseHover";
 import { category2color } from "../categories/category2color";
 import { category2text } from "../categories/category2text";
+import { useMouseHover } from "../hooks/useMouseHover";
+import { date2text } from "../functions/date2text";
 import Link from "next/link";
 import Icon from "./Icon";
 
@@ -31,7 +32,7 @@ const PostListItem = ({
           </div>
           <div className="flex text-secondary space-x-2 text-sm">
             <div className="flex space-x-1">
-              <p>{date}</p>
+              <p>{date2text(date)}</p>
             </div>
             {/* <p>•</p>
             <div className="text-secondary text-sm">

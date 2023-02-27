@@ -72,7 +72,7 @@ export async function getAllFr() {
 }
 
 // extract all used categories in posts
-export async function getCatFromFr(frontMatter) {
+export function getCatFromFr(frontMatter) {
   const categories_raw = frontMatter.reduce(
     (accum, fr) => [...fr.categories, ...accum],
     []

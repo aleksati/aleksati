@@ -1,17 +1,25 @@
-import { getAllFr, getPostFromSlug } from "../../functions/loadPosts";
+import {
+  getAllFr,
+  getPostFromSlug,
+  getCatFromFr,
+} from "../../functions/loadPosts";
 import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 import Post from "../../templates/Post";
 
-const pageMeta = {
-  title: "tidemann.xyz",
-  keywords:
-    "music technology, music, software development, networked audio, programming",
-  description: "Official homepage of Aleksander Tidemann ",
-  url: "?",
-};
-
 export default function Posts(props) {
+  // inject the categories of postlist or post into the <Head>
+  const cat =
+    props.type === "postlist" ? props.categories : props.frontMatter.categories;
+  const catString = cat.join(", ");
+
+  const pageMeta = {
+    title: "tidemann.xyz",
+    keywords: catString,
+    description: "Official homepage of Aleksander Tidemann ",
+    url: "unknown at this time",
+  };
+
   return (
     <LayoutPage pageMeta={pageMeta}>
       {props.type === "postlist" ? (
@@ -35,10 +43,13 @@ export async function getStaticProps({ params }) {
     const lastItem = fr[fr.length - 1];
     const numbPages = lastItem.page;
 
+    // get all used categories
+    const categories = getCatFromFr(fr);
+
     // only include desired page (pagination)
     const frontMatter = fr.filter((item) => item.page === currPage);
 
-    return { props: { frontMatter, numbPages, type } };
+    return { props: { frontMatter, numbPages, type, categories } };
   } else {
     // else, the path is slug, so deliver a post
     type = "post";
