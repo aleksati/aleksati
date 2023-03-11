@@ -1,7 +1,7 @@
 import LayoutPage from "../layouts/LayoutPage";
-import profilePic from "../public/img/aleksander.jpg";
-import Image from "next/image";
-import SoMeBar from "../components/SoMeBar";
+import profilePic from "../public/img/portrett.jpg";
+import MyImage from "../components/MyImage";
+import MyLink from "../components/MyLink";
 
 const pageMeta = {
   title: "tidemann.xyz",
@@ -14,26 +14,40 @@ const pageMeta = {
 export default function About() {
   return (
     <LayoutPage pageMeta={pageMeta}>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:-mx-8 mx-auto">
-        <div className="hidden md:flex">
-          <Image
-            src={profilePic}
-            layout="responsive"
-            // objectFit="contain"
-            alt="portrait picture"
-          />
-        </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mx-auto">
         <div>
-          <h1 className="text-7xl">hello, </h1>
-          <p>
-            I work as an engineer and lecturer at the University of Oslo,
-            specializing in networked audio and audio programming. Curious about
-            all things science and passionate about music, exercising, my
-            partner and our cat.
-          </p>
+          <div>
+            <h2 className="text-2xl font-bold pb-4">hello</h2>
+            <p>
+              I am a music technologist and university lecturer living in Oslo,
+              Norway. Curious about all things science and passionate about art,
+              exercising, my partner and our cat.
+            </p>
+            <br />
+            <p>
+              My main interests are in networked interactions and audio-video
+              programming. Currently I work as an engineer at the University of
+              Oslo.
+            </p>
+          </div>
           <br />
-          <p>Oh, and my name is Aleksander.</p>
-          <SoMeBar iconSize={"text-2xl"} className="pt-2" />
+          <div className="text-sm flex flex-col items-start">
+            <MyLink type="text" href="">
+              GitHub
+            </MyLink>
+            <MyLink type="text" href="">
+              Mastadon
+            </MyLink>
+            <MyLink type="text" href="">
+              Instagram
+            </MyLink>
+            <MyLink type="text" href="">
+              Linkedin
+            </MyLink>
+          </div>
+        </div>
+        <div className="hidden md:flex">
+          <MyImage src={profilePic} />
         </div>
       </div>
     </LayoutPage>

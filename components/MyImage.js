@@ -4,8 +4,15 @@ const MyImage = (props) => {
   const { caption, ...imgProps } = props;
   return (
     <figure>
-      {/* <Image {...props} /> */}
-      <img {...imgProps} className="rounded-md" />
+      <Image
+        {...imgProps}
+        width="0"
+        height="0"
+        sizes="100vw"
+        className="w-full h-auto"
+        priority
+      />
+      {/* <img {...imgProps} className="rounded-md" quality={100} /> */}
       <figcaption>{caption}</figcaption>
     </figure>
   );

@@ -5,7 +5,7 @@ import MyLink from "./MyLink";
 const tabs = [
   { key: "about", title: "about", categories: [], icon: "about" },
   { key: "posts", title: "posts", categories: [], icon: "filter" },
-  { key: "projects", title: "projects", categories: [], icon: "issue" },
+  { key: "music", title: "music", categories: [], icon: "issue" },
   { key: "research", title: "research", categories: [], icon: "x" },
 ];
 
@@ -30,11 +30,12 @@ const NavVerticalTabs = () => {
                 className={"text-sm"}
                 key={tab.key}
                 href={tab.key}
-                type="page"
+                type="nav"
                 active={tab.key === page}>
                 {tab.title}
               </MyLink>
             </div>
+            {/* If the categories has sub-categories */}
             {tab.categories
               ? tab.categories.map((cat) => (
                   <div
@@ -44,7 +45,7 @@ const NavVerticalTabs = () => {
                     <MyLink
                       key={cat.key}
                       href={cat.key}
-                      type="page"
+                      type="nav"
                       active={cat.key === page}>
                       {cat.title}
                     </MyLink>

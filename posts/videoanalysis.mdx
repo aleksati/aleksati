@@ -1,15 +1,15 @@
 ---
 title: "VideoAnalysis"
 date: "2022-12-22"
-categories: ["motion", "video", "analysis", "software"]
+categories: ["video", "analysis", "software-dev"]
 summary: "A quick-look into VideoAnalysis v2.1; a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
 ---
 
-<MyImage src="/img/videoanalysis-overview.png" alt="videoanalysis overview" />
+<MyImage src="/img/va-overview.png" alt="videoanalysis overview" />
 
 VideoAnalysis is part of the [Musical Gestures Toolbox for MaxMSP](https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/) (MGT), created by Alexander Refsum Jensenius for the [RITMO FourMS lab](https://www.uio.no/ritmo/english/research/labs/fourms/) at the University of Oslo in the early 2000s. In 2019, I was assigned to update and refurbish VideoAnalysis, one of the larger MGT applications, together with [Balint Lackzo](https://github.com/balintlaczko).
 
-This post gives a quick look at VideoAnalysis v2.1; a standalone beginners tool for analyzing basic music-related body motion of videos.
+This post gives a quick look at VideoAnalysis v2.1; a standalone beginners tool for analyzing basic music-related body motion in videos.
 
 # Contents
 
@@ -46,9 +46,15 @@ This post gives a quick look at VideoAnalysis v2.1; a standalone beginners tool 
 
 <h1 id="#how-to-use-it">How To Use It</h1>
 
-VideoAnalysis is a desktop app designed for asynchronous video processing. First, you load pre-recorded videos into the software. Then, the goal is to isolatate the motion in the videos through various pre-processing techniques. Finally, you can export lots of data in various formats for further analysis (see below).
+VideoAnalysis (VA) is designed and optimized for asynchronous use, meaning it can only analyze pre-recorded videos.
 
-For full documentation and guides, visit [the official VideAnalysis Wiki](https://github.com/fourMs/VideoAnalysis/wiki). You can also get a detailed overview of the basic software operations from the app itself.
+The goal is to isolatate the motion in the videos via different pre-processing techniques. To guide this process, a adjustable UI display window is avalible where you can view the processed videos in real-time.
+
+Finally, the app includes a powerful export features capable of delivering a wide range of images and quantiative data for further analysis.
+
+BILDE??? gif kanskje.
+
+For full documentation and guides, visit [the official VideAnalysis Wiki](https://github.com/fourMs/VideoAnalysis/wiki). You can also get a detailed overview of all software operations from the app itself, under "help".
 
 <h1 id="key-features">Key Features</h1>
 
@@ -59,7 +65,7 @@ Let's take a closer look at some of the unique import and export options, pre-pr
 VideoAnalysis supports batch processing, meaning you can drag inn and drop an entire folder of video files. When batch processing, you can also save/recall settings and decide whether to use the same settings for all videos or configure individual settings for each video.
 
 <MyImage
-  src="/img/videoanalysis-batch.gif"
+  src="/img/va-batch.gif"
   alt="videoanalysis batch processing"
   caption="Batch process your video folder if you want to get lots of data, fast."
 />
@@ -69,25 +75,25 @@ VideoAnalysis supports batch processing, meaning you can drag inn and drop an en
 Probably the most useful pre-processing features in VideoAnalysis are cropping, skipping, and trimming. When doing motion video analysis, there is no need for high resolutions and frame rates to get high quality data. Therefore, it's wise to reduce video dimensions, skip frames, and trim length to minimize CPU load and processing time.
 
 <MyImage
-  src="/img/videoanalysis-cropping.PNG"
+  src="/img/va-cropping.PNG"
   alt="videoanalysis cropping."
   caption="We can reduce video dimensions and processing time by cropping the source video."
 />
 
-Cropping, trimming, and skipping features are avaliable from the _Processing_ settings left of the Source Display. To **crop** a video, simply highlight a desired bounding box region in the Source Display. You can monitor the results in the detachable UI display in real-time.
+Cropping, trimming, and skipping features are avaliable from the _Processing_ settings left of the Source Display. To **crop** videos, simply highlight a desired bounding box region in the Source Display. You can monitor the results in the detachable UI display in real-time.
 
 **Skipping** values decide which frames are processed. With a skipping value of 1, every other frame is skipped, meaning only frames 1, 3, 5, etc. are processed. Skipping like this is powerful because it cuts the video length in half while preserving most of its content, reducing processing time by 50%(!).
 
-<MyImage src="/img/videoanalysis-trimming.PNG" alt="videoanalysis trimming" />
+<MyImage src="/img/va-trimming.PNG" alt="videoanalysis trimming" />
 
 Finally, **trimming** can help isolate sections that are interesting for analysis, removing unnecessary content. Trimming can be adjusted numerically from the _Processing_ UI seciton or more dynamically by adjusting the yellow timeline under the Source Diplay playbar.
 
 <h2 id="video-visualizations">Video Visualizations</h2>
 
-In addition to extracting motion data asynchronously, VideoAnaysis can create powerful motion visualizations in real-time. Perhaps the most interesting visuals are motion images/videos, motiongrams, and centroid of motion.
+VideoAnaysis can also create several useful motion visualizations in real-time. Perhaps the most interesting are motion images/videos, motiongrams, and centroid of motion.
 
 <MyImage
-  src="/img/videoanalysis-display.PNG"
+  src="/img/va-display.PNG"
   alt="videoanalysis detachable display."
   caption="The detachable UI display with Box, Centroid, and Motion video shown."
 />
@@ -95,7 +101,7 @@ In addition to extracting motion data asynchronously, VideoAnaysis can create po
 **Motion images** are generated by calculating the difference between the current frame and the previous frame of a video. The result is an image that shows only the difference between the previous and current frame. A **motion video** is simply a series of motion images.
 
 <MyImage
-  src="/img/videoanalysis-filtering.PNG"
+  src="/img/va-filtering.PNG"
   alt="videoanalysis filtering."
   caption="Using filters in VideoAnalysis can help to isoltate movement in the motion videos."
 />
@@ -103,7 +109,7 @@ In addition to extracting motion data asynchronously, VideoAnaysis can create po
 The quality of motion videos depend on the quality of the original video stream. Small changes in the lighting, camera motion, compression artefacts, etc. will influence the final image. However, visual "noise" can be removed by applying filters that remove pixel values below certain thresholds. In VideoAnalysis, these settings are found in the _Filter_ UI section.
 
 <MyImage
-  src="/img/videoanalysis-mg.JPG"
+  src="/img/va-mg.JPG"
   alt="videoanalysis motiongram."
   caption="A motiongram image exported by VideoAnalyis, showing motion (Y) over time (X)."
 />
@@ -112,18 +118,11 @@ The quality of motion videos depend on the quality of the original video stream.
 
 These images are created by calculating the mean values of rows or column in a frame depending if you want to represent time on the X or Y-axis, as shown below. the process outputs a one-dimensional matrix of mean values that's used to print an image across a canvas.
 
-<MyImage
-  src="/img/videoanalysis-mg-theory.JPG"
-  alt="videoanalysis motiongram theory."
-/>
+<MyImage src="/img/va-mg-theory.JPG" alt="videoanalysis motiongram theory." />
 
 The **centroid of motion** (CoM) and area of motion (AoM) are other features that can be extracted from a motion video. The CoM and AoM are used to illustrate where motion occurs in a video, as well as the spatial displacement of motion over time.
 
-<MyImage
-  src="/img/videoanalysis-com.JPG"
-  alt="videoanalysis CoM and AoM."
-  caption=""
-/>
+<MyImage src="/img/va-com.JPG" alt="videoanalysis CoM and AoM." caption="" />
 
 In VideoAnalysis, the CoM video is at the center of the detached UI display window. Here, the CoM is visualized by a series of red circles (or snake, as we sometimes call it). It's also possible to customize the length, radius and threshold of the snake to better track and visualize the motion history.
 
@@ -132,7 +131,7 @@ In VideoAnalysis, the CoM video is at the center of the detached UI display wind
 VideoAnalysis can generate a lot of useful motion data, including of videos, images, and data (.csv) files. By default, the software will export a varied selection of this data. To customize the selection, visit the _export options_ in the navbar.
 
 <MyImage
-  src="/img/videoanalysis-exportoptions.png"
+  src="/img/va-exportoptions.png"
   alt="videoanalysis export options"
   caption=""
 />
