@@ -2,16 +2,67 @@
 title: "5G Networked Music Performances"
 date: "2023-02-10"
 categories: ["audio", "networking", "5G"]
-summary: "Me and a colleague from UiO explored the prospects of doing Networked Music Performances over 5G, in collaboration with Telenor Research."
+summary: "We explored the prospects of doing Networked Music Performances over commercial and private 5G, in collaboration with Telenor Research."
 ---
+
+<MyImage src="/img/5G-logo.png" alt="5G logo" />
 
 5G is the new paradigm of telecommunication and wireless networking. The biggest difference from 4G to 5G is increase in speed (bandwidth) due to new network infrastructures. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
 
-At the <MyLink href="https://www.uio.no/english/studies/programmes/mct-master">MCT masters programme</MyLink>, UiO, we have been experimenting with NMPs for several years. The biggest challenge with conducting NMPs is the exceptionally high demands for low-latency. In fact, research tells us that the ideal roundtrip latency for synchronous NMPs is between 25-50ms. For perspective:
-
-<small>Demo - 30ms audio delay from left to right ear:</small>
+However, playing music over the network is highly challenging with exceptionally high demands for low-latency communication. In fact, research tells us that the ideal roundtrip latency for synchronous NMPs is between 25-50ms. For perspective, here is 30ms of audio delay from left to right channel:
 
 <AudioPlayer
   src="/audio/fiveg-30ms-delay.mp3"
   newOptions={{ splitChannels: true }}
 />
+
+In late 2021, me and my colleague <MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink> got in touch with Telenor Research to explore the
+feasibility of conducting NMPs over 5G. In this post, I present our experiments on
+commercial and private 5G networks, explaining the technical setup, methods, and
+preliminary results.
+
+# Contents
+
+1. <MyLink href="#setup">Setup</MyLink>
+2. <MyLink href="#method">Method</MyLink>
+3. <MyLink href="#results">Results</MyLink>
+4. <MyLink href="#summary">Summary</MyLink>
+5. <MyLink href="#going-forward">Going Forward</MyLink>
+
+<hr />
+
+<h1 id="setup">Setup</h1>
+
+We conducted two experiments in two separate locations on two different 5G networks.
+
+<h3 id="5g-networks">5G networks</h3>
+
+The first experiment was carried out at the Musicology Department at UiO on a first-generation commercial 5G network. Telenor pre-configured routers for us to access specific Access-Point-Names (APNs) nearby. This configuration enabled faster packet routing and P2P connectivity.
+
+The second experiment was carried out in Elverum on a private 5G Network-on-Wheels (5GNoW) solution. The 5GNoW relies on a Stand-Alone (SA) core network, systems mostly used for experimental testing of various 5G applications in the field.
+
+SLIDESHOW
+
+<h3 href="hardware-and-software">Hardware and software</h3>
+
+For both experiments, we used a pair of Huawei H138-380 CPE Pro 3 5G Routers and sent audio and video back and forth using <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">specialized NMP hardware kits</MyLink>.
+
+Software-wise, we used....
+
+<h1 id="method">Method</h1>
+
+### Coverage and bandwidth
+
+### Finding the sweet-spots
+
+### Measuring latency
+
+# Results
+
+### Commercial 5G experiment
+
+### Private 5GNoW experiment
+
+# Summary
+
+# Going forward
