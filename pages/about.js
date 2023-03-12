@@ -32,18 +32,10 @@ export default function About() {
           </div>
           <br />
           <div className="text-sm flex flex-col items-start">
-            <MyLink type="text" href="">
-              GitHub
-            </MyLink>
-            <MyLink type="text" href="">
-              Mastadon
-            </MyLink>
-            <MyLink type="text" href="">
-              Instagram
-            </MyLink>
-            <MyLink type="text" href="">
-              Linkedin
-            </MyLink>
+            <MyLink href="">GitHub</MyLink>
+            <MyLink href="">Mastadon</MyLink>
+            <MyLink href="">Instagram</MyLink>
+            <MyLink href="">Linkedin</MyLink>
           </div>
         </div>
         <div className="hidden md:flex">

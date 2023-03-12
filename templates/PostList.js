@@ -8,7 +8,6 @@ const PostList = ({ frontMatter, numbPages }) => {
   return (
     <div className="grid grid-cols-1 gap-12">
       {/* <ClientOnly className="grid grid-cols-1 gap-12"> */}
-      {/* {currPage === 1 ? <h1 className="text-7xl mb-8">latest posts</h1> : null} */}
       {frontMatter.map((post, i) => (
         <PostListItem
           key={post.slug}

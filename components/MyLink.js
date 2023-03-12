@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const MyLink = ({ type = "", className, children, active, href }) => {
+const MyLink = ({ type, className, children, active, href }) => {
   // url or tab
   const isActive = active ? "border-b-2" : null;
 
@@ -16,15 +16,13 @@ const MyLink = ({ type = "", className, children, active, href }) => {
     );
   }
 
-  if (type === "text") {
-    return (
-      <a
-        href={href}
-        className={`text-blue-600 dark:text-blue-300 hover:underline ${className}`}>
-        {children}
-      </a>
-    );
-  }
+  return (
+    <a
+      href={href}
+      className={`text-blue-600 dark:text-blue-300 hover:underline ${className}`}>
+      {children}
+    </a>
+  );
 };
 
 export default MyLink;

@@ -20,9 +20,8 @@ export default function Music() {
           genre="avant-garde pop"
           role="drums and synthesizer"
           type="band"
-          img="music-thm.jpg"
-          linkTitle="official webpage"
-          link="https://theholymountain.net"
+          pageUrl="https://theholymountain.net"
+          musicUrl="https://open.spotify.com/artist/04GXo6z6x1KLMG9weDPayK?si=5wuVoAz1SqqsndsFbkKmYQ"
         />
         <MusicListItem
           title="Karwowski, Kann & Tidemann"
@@ -30,9 +29,8 @@ export default function Music() {
           genre="improvisation"
           role="live electronics"
           type="band"
-          img="music-kkt.jpg"
-          linkTitle="facebook"
-          link="https://www.facebook.com/karwowskikanntidemann"
+          pageUrl="https://www.facebook.com/karwowskikanntidemann"
+          musicUrl="https://vimeo.com/karwowskikanntidemann"
         />
         <MusicListItem
           title="Radio 9"
@@ -40,9 +38,8 @@ export default function Music() {
           genre="Krautrock"
           role="drums"
           type="band"
-          img="music-radio9.jpg"
-          linkTitle="bandcamp"
-          link="https://radio9.bandcamp.com"
+          pageUrl="https://www.facebook.com/radio9"
+          musicUrl="https://radio9.bandcamp.com"
         />
       </div>
     </LayoutPage>

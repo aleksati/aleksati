@@ -10,7 +10,7 @@ const MyImage = (props) => {
         height="0"
         sizes="100vw"
         className="w-full h-auto"
-        priority
+        quality={100}
       />
       {/* <img {...imgProps} className="rounded-md" quality={100} /> */}
       <figcaption>{caption}</figcaption>

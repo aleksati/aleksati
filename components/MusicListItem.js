@@ -1,5 +1,6 @@
 import MyLink from "./MyLink";
 import MyImage from "./MyImage";
+import Icon from "./Icon";
 
 const MusicListItem = ({
   summary,
@@ -8,8 +9,8 @@ const MusicListItem = ({
   genre,
   role,
   img,
-  linkTitle,
-  link,
+  pageUrl,
+  musicUrl,
 }) => {
   return (
     <div className="flex flex-col pb-2 border-b border-secondary">
@@ -29,10 +30,15 @@ const MusicListItem = ({
             {summary} I play {role}.
           </p>
         </div>
-        <div className="text-sm flex flex-col gap-2">
-          <MyLink type="text" href={link}>
-            {linkTitle}
-          </MyLink>
+        <div className="text-sm">
+          <div className="flex space-x-2 items-center">
+            <Icon id="details" iconSize={"text-md"} />
+            <MyLink href={pageUrl}>official page</MyLink>
+          </div>
+          <div className="flex space-x-2 items-center">
+            <Icon id="audio" iconSize={"text-md"} />
+            <MyLink href={musicUrl}>music</MyLink>
+          </div>
         </div>
       </div>
     </div>

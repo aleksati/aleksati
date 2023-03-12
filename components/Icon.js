@@ -22,6 +22,7 @@ import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
+import { TbWorldWww } from "react-icons/tb";
 
 const defaultSize = "text-xl";
 
@@ -66,6 +67,7 @@ const icons = {
   filter: (s) => (
     <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
   ),
+  web: (s) => <TbWorldWww className={s} />,
 };
 
 const Icon = ({ iconSize, id }) => {

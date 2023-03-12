@@ -2,70 +2,72 @@
 title: "AudioVideoAnalysis"
 date: "2023-01-10"
 categories: ["video", "audio", "analysis", "software-dev"]
-summary: "A quick-look into AudioVideoAnalysis v2.0; a standalone application for real-time openGL rendering of motiongrams and spectrograms, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
+summary: "A quick look into AudioVideoAnalysis v2.0; a standalone application for real-time OpenGL rendering of motiongrams and spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo."
 ---
 
 <MyImage src="/img/ava-overview.jpg" alt="audiovideoanalysis overview" />
 
-AudioVideoAnalysis is part of the [Musical Gestures Toolbox for MaxMSP](https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/) (MGT), created by Alexander Refsum Jensenius for the [RITMO FourMS lab](https://www.uio.no/ritmo/english/research/labs/fourms/) at the University of Oslo in the early 2000s. In 2019, I was assigned to update and refurbish AudioVideoAnalysis, one of the larger MGT applications.
+AudioVideoAnalysis is part of the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/">Musical Gestures Toolbox for MaxMSP</MyLink> (MGT), created by Alexander Refsum Jensenius for the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/">RITMO FourMS lab</MyLink> at the University of Oslo in the early 2000s.
 
-This post gives a quick look at AudioVideoAnalysis v2.0; a standalone application for real-time openGL rendering of spectral audio and video content.
+In 2019, I was assigned to update and refurbish AudioVideoAnalysis, one of the larger MGT applications.
+
+This post is a quick look at AudioVideoAnalysis v2.0; a standalone application for real-time OpenGL rendering of spectral audio and video content.
 
 # Contents
 
 <ol>
   <li>
-    <a href="#how-to-use-it">How To Use It</a>
+    <MyLink href="#how-to-use-it"> How To Use It</MyLink>
   </li>
   <li>
-    <a href="#key-features">Key Features</a>
+    <MyLink href="#key-features"> Key Features</MyLink>
   </li>
   <ol>
     <li>
-      <a href="#rate-of-play">Rate of Play</a>
+      <MyLink href="#rate-of-play">Rate of Play</MyLink>
     </li>
     <li>
-      <a href="#analysis-markers">Analysis Markers and Data Retreival</a>
+      <MyLink href="#analysis-markers">Analysis Markers and Data Retreival</MyLink>
     </li>
         <li>
-      <a href="#image-layering">Image Layering</a>
+      <MyLink href="#image-layering">Image Layering</MyLink>
     </li>
     <li>
-      <a href="#export-options">Export Options</a>
+      <MyLink href="#export-options">Export Options</MyLink>
     </li>
 
   </ol>
   <li>
-    <a href="#downloads">Downloads</a>
+    <MyLink href="#downloads">Downloads</MyLink>
   </li>
   <li>
-    <a href="#references">References</a>
+    <MyLink href="#references">References</MyLink>
   </li>
 </ol>
 
 <hr />
 
-<h1 id="#how-to-use-it">How To Use It</h1>
+<h1 id="how-to-use-it">How To Use It</h1>
 
-AudioVideoAnalysis (AVA) can generate motiongrams and videograms (video), and spectrograms (audio) in an adjustable UI display window from any connected media source in real-time.
+AudioVideoAnalysis (AVA) generates motiongrams, videograms (video), and spectrograms (audio) from any connected media source in real-time.
 
-Spectrograms are visual representations of the frequency spectrum of audio signals over time. Similarly, motion- and videograms are visual representations of motion in a video over time. We can call both of these representations for _spectral images_.
+Spectrograms are visual representations of the frequency spectrum of audio signals over time. Similarly, motion- and videograms are visual representations of motion in a video over time. We can call both of these representations _spectral images_.
 
-To read more about motiongrams, and how they're made, visit my previous post on the [VideoAnalysis](https://github.com) software.
+To read more about motiongrams and how they're made, visit my previous post on the <MyLink href="/posts/videoanalysis">VideoAnalysis</MyLink> software.
 
 <MyImage src="/img/ava-overview-2.gif" alt="audiovideoanalysis overview 2" />
 
-For full documentation and guides on AudioVideoAnalysis, visit [the official AVA Wiki](https://github.com/fourMs/AudioVideoAnalysis/wiki). You can also get a detailed overview of all software operations from the app itself, under "help".
+For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
 
 <h1 id="key-features">Key Features</h1>
 
-AVA sports alot of advanced audio, video and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and much more.
+AVA sports many advanced audio, video, and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and more.
 
-Let's take a closer look at some of the most interesting features of AudioVideoAnalysis v2.0.
+Let's take a closer look at some of the interesting features of AudioVideoAnalysis v2.0.
 
 <h2 id="rate-of-play">Rate of Play</h2>
 
-The printing rate determines how fast the spectral images are printed across the dislay window. It can be configured with the _Rate_ dial and monitoring the _Total Display Time_ value in the app' display settings. A rate of 100% corresponds to a printing "length" of 60 seconds from start to finish.
+AVA works by printing images across the display window from left to right. By default, it takes 60 seconds for the images to loop back to start. However, there is a way to configure the speed of image printing.
 
 <MyImage
   src="/img/ava-printing-rate.jpg"
@@ -73,13 +75,15 @@ The printing rate determines how fast the spectral images are printed across the
   caption="Adjust the printing rate to peer deeper into the spectral content."
 />
 
-Increasing the printing rate will increase the temporal resolution of the images in the display window, effectively zooming inn. However, zooming inn to higher temporal resolutions will decrease the overall image resolution.
+The printing rate determines how fast the images are printed across the display window. By adjusting the _Rate_ dial while monitoring the _Total Display Time_ in AVA's display settings, users can customize a desired speed that corresponds with the length of their recording.
+
+A nice effect of increasing the printing rate is that it will increase the temporal resolution of the images, enabling you to zoom in on the spectral content. However, the downside of higher printing rates is that it decreases the overall image resolution.
 
 <h2 id="analysis-markers">Analysis Markers and Data Retreival</h2>
 
-Perhaps the most useful feature of AVA is the ability to apply analysis markers and retreive data from the display window. These features can help users to conduct some basic analysis of their recordings.
+Perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording.
 
-The analysis markers are freqency and time labels on the X and Y-axis of the images. The marker give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
+The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
 
 <MyImage
   src="/img/ava-analysis-markers.GIF"
@@ -87,23 +91,23 @@ The analysis markers are freqency and time labels on the X and Y-axis of the ima
   caption="Analysis markers and grids can assist with orientation and analysis."
 />
 
-It's also possible to add a grid structure over the images, called a _display grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar.
+Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar.
 
-To accomodate the analysis markers and grid function, AVA features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for more detailed inspection of the spectral audio content.
+To accommodate the analysis markers and grid function, AVA features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content.
 
 <MyImage
   src="/img/ava-clickpoint.jpg"
   alt="audiovideoanalysis clickpoint"
-  caption="Retrieve Hz, Amplitude and Time from anywhere on the spectrogram at clickpoint."
+  caption="Retrieve Hz, Amplitude, and Time from anywhere on the spectrogram at clickpoint."
 />
 
-I first learned about clickpoint data retrieval in a paper by Jean-Francois Charles called [_A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter_](https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87). I used Jean-Francois' algorithms as the basis my implementation.
+I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
 
 <h2 id="image-layering">Image Layering</h2>
 
-To add to the visual and real-time capabilities of AVA, I introduced multiple display options. These options enable users to view the spectral images in the displays window in different configurations.
+To add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view spectral images in different configurations in the display window.
 
-From the menubar, users can select to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
+The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
 
 <MyImage
   src="/img/ava-display-options.gif"
@@ -113,20 +117,18 @@ From the menubar, users can select to view the images individually (only audio o
 
 <h2 id="export-options">Export Options</h2>
 
-The image you produce in the AVA display window can be exported via the software export options. The avaliable formats are JPEG, TIFF (lossless) and PNG.
+The images created in the AVA display window can be exported via the menubar export options. The available formats are JPEG, TIFF (lossless), and PNG.
 
-Unfortunatley, due to the processing constraints, the final image resolution cannot be customized. The maximum image resolution for exported images is 1024x640. and the resolution will decrease based on the printing rate set.
+Unfortunately, the image resolution cannot be customized due to several processing constraints. The maximum export image resolution is 1024x720, and it will only decrease based on the printing rate used.
 
 <h1 id="downloads">Downloads</h1>
 
-AudioVideoAnalysis is open source and available on both OSX and WIN. It can be downloaded from the [FourMS GitHub page](https://github.com/fourMs/AudioVideoAnalysis/releases). If you want to contribute, you are free to do so. Simply fork the [AudioVideoAnalysis repo](https://github.com/fourMs/AudioVideoAnalysis), and make a pull request for us to review.
+AudioVideoAnalysis is open source and available on both OSX and WIN. The software can be downloaded from the <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/releases">FourMS GitHub page</MyLink>. If you want to contribute, you are free to do so. Simply fork the <MyLink href="https://github.com/fourMs/AudioVideoAnalysis">AudioVideoAnalysis repo</MyLink>, and make a pull request for us to review.
 
 # References
 
-- Charles, Jean-Francois (2008). [**A Tutorial on Spectral Sound Processing Using Max/Msp and Jitter**](https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87). MIT press journals.
+Charles, Jean-Francois (2008). _A Tutorial on Spectral Sound Processing Using Max/Msp and Jitter_. MIT Press journals. Available at: https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87
 
-If you use this application for research purposes, please reference this publication:
+Jensenius, Alexander Refsum (2005). _Developing Tools for Studying Musical Gestures within the Max/MSP/Jitter Environment_. Proceedings of the International Computer Music Conference, p. 282-285. Available at: https://www.duo.uio.no/handle/10852/26907
 
-- Jensenius, Alexander Refsum (2005). [**Developing Tools for Studying Musical Gestures within the Max/MSP/Jitter Environment**](https://www.duo.uio.no/handle/10852/26907). Proceedings of the International Computer Music Conference, p. 282-285.
-
-The software has also been acknowledgment by Cycling74 [on their official homepage](https://cycling74.com/projects/audiovideoanalysis).
+AudioVideoAnalysis was also acknowledged by Cycling74 (maxMSP creators) <MyLink href="https://cycling74.com/projects/audiovideoanalysis">on their official homepage</MyLink>.
