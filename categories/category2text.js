@@ -3,4 +3,6 @@ export const category2text = {
   "software-dev": "software dev",
   analysis: "analysis",
   video: "video",
+  networking: "networking",
+  "5G": "5G",
 };

@@ -1,4 +1,3 @@
-// import { IconContext } from "react-icons";
 import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIosNew,
@@ -23,6 +22,8 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { TbWorldWww } from "react-icons/tb";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { BsMastodon } from "react-icons/bs";
 
 const defaultSize = "text-xl";
 
@@ -68,6 +69,9 @@ const icons = {
     <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
   ),
   web: (s) => <TbWorldWww className={s} />,
+  mastodon: (s) => <BsMastodon className={s} />,
+  linkedin: (s) => <AiFillLinkedin className={s} />,
+  github: (s) => <AiFillGithub className={s} />,
 };
 
 const Icon = ({ iconSize, id }) => {

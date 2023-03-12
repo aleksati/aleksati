@@ -9,7 +9,7 @@ const MyImage = (props) => {
         width="0"
         height="0"
         sizes="100vw"
-        className="w-full h-auto"
+        className="w-full h-auto rounded-sm"
         quality={100}
       />
       {/* <img {...imgProps} className="rounded-md" quality={100} /> */}
