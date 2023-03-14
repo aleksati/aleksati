@@ -10,6 +10,7 @@ const MyImage = (props) => {
         height="0"
         sizes="100vw"
         className="w-full h-auto rounded-sm"
+        unoptimized={true} // this is the only way make gifs work with Image component, I found
         quality={100}
       />
       {/* <img {...imgProps} className="rounded-md" quality={100} /> */}
