@@ -27,3 +27,12 @@
     font-weight: 300;
   }
 }
+
+/* For the active slideshow indicators */
+.indicators .active {
+  background-color: #4b5563 !important;
+}
+
+.dark .indicators .active {
+  background-color: #d1d5db !important;
+}

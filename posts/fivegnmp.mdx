@@ -2,7 +2,7 @@
 title: "5G Networked Music Performances"
 date: "2023-02-10"
 categories: ["audio", "networking", "5G"]
-summary: "We explored the prospects of doing Networked Music Performances over commercial and private 5G, in collaboration with Telenor Research."
+summary: "In collaboration with Telenor Research, we did some serious testing to find out of it's possible to play music together over 5G telecom networks."
 ---
 
 <MyImage src="/img/5G-logo.png" alt="5G logo" />
@@ -16,46 +16,68 @@ However, playing music over the network is highly challenging with exceptionally
   newOptions={{ splitChannels: true }}
 />
 
-In late 2021, me and my colleague <MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink> got in touch with Telenor Research to explore the
+In 2021, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the
 feasibility of conducting NMPs over 5G. In this post, I present our experiments on
 commercial and private 5G networks, explaining the technical setup, methods, and
 preliminary results.
 
-# Contents
+# Content
 
-1. <MyLink href="#setup">Setup</MyLink>
-2. <MyLink href="#method">Method</MyLink>
+1. <MyLink href="#test-sites-and-equipment">Test sites and Equipment</MyLink>
+2. <MyLink href="#testing-methodology">Testing Methodology</MyLink>
+   1. <MyLink href="#network-coverage">Network Coverage</MyLink>
+   2. <MyLink href="#audio-quality">Audio Quality</MyLink>
+   3. <MyLink href="#roundtrip-latency">Roundtrip Latency</MyLink>
 3. <MyLink href="#results">Results</MyLink>
 4. <MyLink href="#summary">Summary</MyLink>
-5. <MyLink href="#going-forward">Going Forward</MyLink>
+5. <MyLink href="#going-forward">Going forward</MyLink>
 
 <hr />
 
-<h1 id="setup">Setup</h1>
+<h1 id="test-sites-and-equipment">Test sites and Equipment</h1>
 
-We conducted two experiments in two separate locations on two different 5G networks.
+Together with Telenor, we were able to schedule two big experiments (during 2021) where we met and collaborated on a series of AV network transmission tests on different 5G networks.
 
-<h3 id="5g-networks">5G networks</h3>
+To connect to their 5G, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Routers. These modems were then pre-configured to access specifc Access-Point-Names (APNs) based on our test locations. This enabled faster packet routing and better p2p connectivity at the test site.
 
-The first experiment was carried out at the Musicology Department at UiO on a first-generation commercial 5G network. Telenor pre-configured routers for us to access specific Access-Point-Names (APNs) nearby. This configuration enabled faster packet routing and P2P connectivity.
+The first experiment was carried out at the Musicology Department (IMV) at UiO on a first-generation commercial 5G network. The second experiment was carried out at Terningmoen Army Base, Eleverum, on a private 5G Network-on-Wheels (5GNoW). The 5GNoW relies on a Stand-Alone (SA) core network, systems that are mostly used for experiments in the field.
 
-The second experiment was carried out in Elverum on a private 5G Network-on-Wheels (5GNoW) solution. The 5GNoW relies on a Stand-Alone (SA) core network, systems mostly used for experimental testing of various 5G applications in the field.
+<Slideshow
+  imgs={["5G-modems-outside-salen.jpg", "5G-now.jpg"]}
+  captions={[
+    "Our 5G Routers in action outside the Musicology Department at UiO, ready to test the commercial NSA 5G network.",
+    "Telenor's 5GNoW van at Terningmoen Army Base, Elverum. Photo by Olai Bendik Erdal.",
+  ]}
+/>
 
-SLIDESHOW
+To transmit audio back and forth, we used custom-built <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink>, built at IMV for the MCT masters programme. These bundles of hardware are specifically designed for ultra low-latency AV network transmission, given they have good network conditions and the right sofware.
 
-<h3 href="hardware-and-software">Hardware and software</h3>
+We experimented with two different AV transmission software, namely <MyLink href="https://lola.conts.it">Lola</MyLink> and <MyLink href="https://www.jacktrip.org">JackTrip</MyLink>. Lola was our first choice because it works well with our hardware and supports 60fps HD video transfer. On the other hand, JackTrip is more agnostic and is more tolerant of unstable connections and network jitter. However, Jacktrip does not support video transmission.
 
-For both experiments, we used a pair of Huawei H138-380 CPE Pro 3 5G Routers and sent audio and video back and forth using <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">specialized NMP hardware kits</MyLink>.
+<Slideshow
+  imgs={[
+    "5G-lolaracks.jpg",
+    "5G-meandstefano-elverum.jpg",
+    "5G-racksontheroad.jpg",
+  ]}
+  captions={[
+    "NMP kits in action at UiO",
+    "Setting up the NMP kits at Terningsmoen. From left: Stefano Fasciani and me. Photo by Olai Bendik Erdal.",
+    "The NMP kits ready for the road to Terningsmoen Army Base, Elverum.",
+  ]}
+/>
 
-Software-wise, we used....
+<h1 id="testing-methodology">Testing Methodology</h1>
 
-<h1 id="method">Method</h1>
+To explore to what extent 5G can accomodate NMPs, we measured the **stability**, **quality**, and **latency** of AV tranmissions in two different locations, on both private and commercial 5G networks.
 
-### Coverage and bandwidth
+In any real NMP scenario, we want minimal dropouts and other unwanted artifacts in our signals. Different technical configs are only valuable if they render stable AV tranmission over time. With this in mind, we only measured signal latency when the best possible tradeoff between stability and quality was found.
 
-### Finding the sweet-spots
+We did three tests at each location:
 
-### Measuring latency
+<h3 id="network-coverage">Network Coverage</h3>
+<h3 id="audio-quality">Audio Quality</h3>
+<h3 id="roundtrip-latency">Roundtrip Latency</h3>
 
 # Results
 

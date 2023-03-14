@@ -32,7 +32,7 @@ export default function About() {
             </p>
           </div>
           <br />
-          <h2 className="text-2xl font-bold pb-4">online @</h2>
+          <h2 className="text-2xl font-bold pb-4">online</h2>
           <div className="flex flex-col space-y-2">
             <div className="flex space-x-2 items-center">
               <Icon id="github" />
@@ -57,7 +57,7 @@ export default function About() {
           </div>
         </div>
         <div className="hidden md:flex">
-          <MyImage src={profilePic} />
+          <MyImage src={profilePic} alt="Portrett pic of me" />
         </div>
       </div>
     </LayoutPage>
