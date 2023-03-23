@@ -85,7 +85,7 @@ To find the quality-stability sweetspots, we created loopback systems between ou
 <MyImage
   src="/img/5G-latency-method.jpg"
   alt="latency measurement diagram"
-  caption="This diagrams shows how we can measure the quality and latency of AV-transmissions in an NMP setting from a signal physical location."
+  caption="This diagrams shows how to setup for measuring audio quality and roundtrip latency in NMP systems with two clients."
 />
 
 If there were any unwanted artifacts, glitches or drops, we adjusted the software and hardware buffers to locate the lowest possible configuration that ensured stable transmission.
@@ -96,12 +96,14 @@ With the software and hardware parameters fine-tuned for good quality, we moved 
 
 With digital RTT, I refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware.
 
-By including this additional hardware, you measure the analog RTT. To achieve higher accuracy and certainty in our analog RTT measurements, we used a secondary pc+soundcard setup, as shown in the diagram below. With this configuration, we could bypass and control latency compensation mechanisms and other unwanted side effects caused by our hardware or software modules.
+By including this additional hardware, you measure the analog RTT. To achieve higher accuracy and certainty in our analog RTT measurements, we used a secondary pc+soundcard setup, as shown in the diagram below.
 
 <MyImage
   src="/img/5G-latency-method-third-laptop.png"
   alt="latency measurement third laptop diagram"
 />
+
+With this configuration, we could bypass and control latency compensation mechanisms and other unwanted side effects caused by our hardware or software modules.
 
 # Results
 
@@ -111,7 +113,9 @@ Inside the Musicology department at UiO, 5G reception was poor. After inspecting
 
 According to the Huawei routers' location-optimizing software, we achieved a stable 75% 5G coverage at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>. From here, we measured a stable 60Mbps bandwidth.
 
-The transmission sweet-spot was achieved using JackTrip with a buffer size of 512. Unfortunately, experimenting with lower buffer sizes only resulted in massive dropouts. We found the optimal stereo audio settings to be the following:
+The audio sweetspot was achieved using JackTrip with a buffer size of 512. Unfortunately, experimenting with lower buffer sizes only resulted in massive dropouts. We found the optimal stereo audio settings to be the following:
+
+<MyTable />
 
 ### Private 5GNoW
 

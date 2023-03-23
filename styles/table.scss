@@ -1,0 +1,76 @@
+//////// ---------------CUSTOM HTML TABLES ----------------////////
+///////  From: https://css-tricks.com/accessible-simple-responsive-tables/ ////
+
+/* Variables
+================================== */
+$bw: 2px;
+$spacing-unit: 30px;
+$max-width: 680px;
+
+/* Tables
+================================== */
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-unit;
+  padding: 0;
+  border-radius: 0.25rem;
+}
+
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+  padding: 0.8em 1em;
+  overflow: hidden;
+  list-style: none;
+  border: solid $bw white;
+  background: #eeeeff;
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin: 0;
+  }
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols > .Rtable-cell {
+  width: 50%;
+}
+
+.Rtable--3cols > .Rtable-cell {
+  width: 33.33%;
+}
+
+.Rtable--4cols > .Rtable-cell {
+  width: 25%;
+}
+
+.Rtable--5cols > .Rtable-cell {
+  width: 20%;
+}
+
+.Rtable--6cols > .Rtable-cell {
+  width: 16.6%;
+}
+
+/* Responsive when resizing the window
+==================================== */
+@media all and (max-width: 680px) {
+  .Rtable--collapse {
+    display: block;
+
+    > .Rtable-cell {
+      width: 100% !important;
+    }
+
+    > .Rtable-cell--foot {
+      margin-bottom: 1em;
+    }
+  }
+}
