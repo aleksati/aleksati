@@ -3,7 +3,7 @@ import Image from "next/image";
 const MyImage = (props) => {
   const { caption, ...imgProps } = props;
   return (
-    <figure>
+    <figure className="m-0">
       <Image
         {...imgProps}
         width="0"

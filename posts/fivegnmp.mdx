@@ -2,7 +2,7 @@
 title: "5G Networked Music Performances"
 date: "2023-02-10"
 categories: ["audio", "networking", "5G"]
-summary: "In collaboration with Telenor Research, we did some serious testing to find out of it's possible to play music together over 5G telecom networks."
+summary: "In collaboration with Telenor Research, me and a collegue did some tests to see if it's possible to play music together over 5G networks."
 ---
 
 <MyImage src="/img/5G-logo.png" alt="5G logo" />
@@ -16,8 +16,7 @@ However, playing music over the network is highly challenging with exceptionally
   newOptions={{ splitChannels: true }}
 />
 
-In 2021, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the
-feasibility of conducting NMPs over 5G. In this post, I present our experiments on
+In 2021, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the feasibility of conducting NMPs over 5G. In this post, I present our experiments on
 commercial and private 5G networks, explaining the technical setup, methods, and
 preliminary results.
 
@@ -26,7 +25,7 @@ preliminary results.
 1. <MyLink href="#test-sites-and-equipment">Test sites and Equipment</MyLink>
 2. <MyLink href="#testing-methodology">Testing Methodology</MyLink>
    1. <MyLink href="#network-coverage">Network Coverage</MyLink>
-   2. <MyLink href="#audio-quality">Audio Quality</MyLink>
+   2. <MyLink href="#signal-quality">Signal Quality</MyLink>
    3. <MyLink href="#roundtrip-latency">Roundtrip Latency</MyLink>
 3. <MyLink href="#results">Results</MyLink>
 4. <MyLink href="#summary">Summary</MyLink>
@@ -36,11 +35,11 @@ preliminary results.
 
 <h1 id="test-sites-and-equipment">Test sites and Equipment</h1>
 
-Together with Telenor, we were able to schedule two big experiments (during 2021) where we met and collaborated on a series of AV network transmission tests on different 5G networks.
+Together with Telenor, we were able to schedule two big experiments (during 2021) where we met and collaborated on a series of audio transmission tests on different 5G networks.
 
-To connect to their 5G, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Routers. These modems were then pre-configured to access specifc Access-Point-Names (APNs) based on our test locations. This enabled faster packet routing and better p2p connectivity at the test site.
+To connect to their 5G, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Routers. The modems were pre-configured to access specifc Access-Point-Names (APNs) based on our test locations. This enabled faster packet routing and better p2p connectivity at the test site.
 
-The first experiment was carried out at the Musicology Department (IMV) at UiO on a first-generation commercial 5G network. The second experiment was carried out at Terningmoen Army Base, Eleverum, on a private 5G Network-on-Wheels (5GNoW). The 5GNoW relies on a Stand-Alone (SA) core network, systems that are mostly used for experiments in the field.
+The first experiment was carried out at the Musicology Department (IMV), UiO, on a first-generation commercial 5G network. The second experiment was carried out at Terningmoen Army Base, Eleverum, on a private 5G Network-on-Wheels (5GNoW). The 5GNoW relies on a Stand-Alone (SA) core network, systems that are mostly used for special experiments in the field.
 
 <Slideshow
   imgs={["5G-modems-outside-salen.jpg", "5G-now.jpg"]}
@@ -50,9 +49,9 @@ The first experiment was carried out at the Musicology Department (IMV) at UiO o
   ]}
 />
 
-To transmit audio back and forth, we used custom-built <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink>, built at IMV for the MCT masters programme. These bundles of hardware are specifically designed for ultra low-latency AV network transmission, given they have good network conditions and the right sofware.
+To transmit audio back and forth, we used custom <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink>, built for educational and research purposes for the MCT masters programme at IMV. These bundles of hardware are specifically designed for ultra low-latency AV transmission, given they have optimal network conditions and the right kind of sofware running.
 
-We experimented with two different AV transmission software, namely <MyLink href="https://lola.conts.it">Lola</MyLink> and <MyLink href="https://www.jacktrip.org">JackTrip</MyLink>. Lola was our first choice because it works well with our hardware and supports 60fps HD video transfer. On the other hand, JackTrip is more agnostic and is more tolerant of unstable connections and network jitter. However, Jacktrip does not support video transmission.
+We experimented using <MyLink href="https://lola.conts.it">LoLa</MyLink> and <MyLink href="https://www.jacktrip.org">JackTrip</MyLink>, two different AV transmission software. Lola was our first choice because it works well with our hardware and supports 60fps HD video transfer. On the other hand, JackTrip is more agnostic and therefore more tolerant of unstable and sub-optimal networks conditions.
 
 <Slideshow
   imgs={[
@@ -69,21 +68,52 @@ We experimented with two different AV transmission software, namely <MyLink href
 
 <h1 id="testing-methodology">Testing Methodology</h1>
 
-To explore to what extent 5G can accomodate NMPs, we measured the **stability**, **quality**, and **latency** of AV tranmissions in two different locations, on both private and commercial 5G networks.
+To find out whether 5G can accomodate NMPs, we measured the **stability**, **quality**, and **latency** of audio tranmissions on both private and commercial 5G networks.
 
-In any real NMP scenario, we want minimal dropouts and other unwanted artifacts in our signals. Different technical configs are only valuable if they render stable AV tranmission over time. With this in mind, we only measured signal latency when the best possible tradeoff between stability and quality was found.
+In NMP scenarios, we always want fast communication with minimal dropouts and unwanted artifacts (glitches). In other words, our signals are only "valuable" if they render stable, high-quality and low-latency audio over time. With this in mind, we only measured signal latency when the best possible tradeoff between stability and quality was found.
 
 We did three tests at each location:
 
-<h3 id="network-coverage">Network Coverage</h3>
-<h3 id="audio-quality">Audio Quality</h3>
-<h3 id="roundtrip-latency">Roundtrip Latency</h3>
+<h3 id="network-coverage">1) Network Coverage</h3>
+
+By using the <MyLink href="https://iperf.fr/">iPerf</MyLink> networking utilities, the Huawei routers's own location-optimizing software, <MyLink href="https://www.telenor.no/dekning/#dekningskart">Telenor’s online coverage map</MyLink>, and <MyLink href="https://www.speedtest.net/">Ookla's online speedtester</MyLink>, we were able to make network bandwidth and coverage estimates throughout the experiments, ensuring that our load did not exceed the capacity of the network.
+
+<h3 id="signal-quality">2) Signal Quality</h3>
+
+To find the quality-stability sweetspots, we created loopback systems between our NMP kits over the 5G networks, as depicted in the diagram below. By listening and inspecting the audio we sent across these systems (preferably single 440Hz sine tones), we could monitor the audio quality of our connections in real-time.
+
+<MyImage
+  src="/img/5G-latency-method.jpg"
+  alt="latency measurement diagram"
+  caption="This diagrams shows how we can measure the quality and latency of AV-transmissions in an NMP setting from a signal physical location."
+/>
+
+If there were any unwanted artifacts, glitches or drops, we adjusted the software and hardware buffers to locate the lowest possible configuration that ensured stable transmission.
+
+<h3 id="roundtrip-latency">3) Roundtrip Latency</h3>
+
+With the software and hardware parameters fine-tuned for good quality, we moved on to measure both the digital and analog audio roundtrip time (RTT).
+
+With digital RTT, I refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware.
+
+By including this additional hardware, you measure the analog RTT. To achieve higher accuracy and certainty in our analog RTT measurements, we used a secondary pc+soundcard setup, as shown in the diagram below. With this configuration, we could bypass and control latency compensation mechanisms and other unwanted side effects caused by our hardware or software modules.
+
+<MyImage
+  src="/img/5G-latency-method-third-laptop.png"
+  alt="latency measurement third laptop diagram"
+/>
 
 # Results
 
-### Commercial 5G experiment
+### Commercial 5G
 
-### Private 5GNoW experiment
+Inside the Musicology department at UiO, 5G reception was poor. After inspecting Telenor's coverage map, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance.
+
+According to the Huawei routers' location-optimizing software, we achieved a stable 75% 5G coverage at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>. From here, we measured a stable 60Mbps bandwidth.
+
+The transmission sweet-spot was achieved using JackTrip with a buffer size of 512. Unfortunately, experimenting with lower buffer sizes only resulted in massive dropouts. We found the optimal stereo audio settings to be the following:
+
+### Private 5GNoW
 
 # Summary
 

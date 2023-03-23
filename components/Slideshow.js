@@ -8,7 +8,7 @@ import Icon from "./Icon";
 const indicators = (index) => (
   <button
     tabIndex="0"
-    className="w-2 h-2 m-0.5 bg-secondary rounded-full"></button>
+    className="w-2 h-2 mx-0.5 bg-secondary rounded-full"></button>
 );
 
 const properties = {
