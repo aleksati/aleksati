@@ -16,7 +16,7 @@ export default function Music() {
       <div className="flex flex-col space-y-12">
         <MusicListItem
           title="The Holy Mountain"
-          summary="A trio with accordion, synthesizer, drums, and vocals. We play hypnotic, dark and atmospheric music."
+          summary="THM (The Holy Mountain) is a captivating avant-garde pop trio hailing from Oslo. The band blends accordion, synthesizer, drums, and vocals to create hypnotic, atmospheric compositions that exude a dark, almost mystical quality. Their music is enhanced by a unique and sublime visual aesthetic, making for an immersive and unforgettable live performance."
           genre="avant-garde pop"
           role="drums and synthesizer"
           type="band"
@@ -25,8 +25,7 @@ export default function Music() {
         />
         <MusicListItem
           title="Karwowski, Kann & Tidemann"
-          summary="A quartet that creates contemplative concert experiences through unique audio-visual improvisation. Henrik Nordahl is the visual artist."
-          genre="improvisation"
+          summary="KKT (Karwowski, Kann og Tidemann + Nordahl) is a dynamic audio-visual quartet that offers audiences a thought-provoking and immersive concert experience. Their performances feature a unique combination of guitar, vocals, live electronics, and projected visual art, creating a space for exploration and contemplation. The music is improvisational and meditative, while the visual art serves to engage and connect with the audience and the environment, resulting in a one-of-a-kind and captivating experience."
           role="live electronics"
           type="band"
           pageUrl="https://www.facebook.com/karwowskikanntidemann"
@@ -34,7 +33,7 @@ export default function Music() {
         />
         <MusicListItem
           title="Radio 9"
-          summary="From subtle, mellifluous atmospherics to harsh post-punk whiteouts. This is Radio 9. Straight down the Autobahn."
+          summary="Radio 9 takes you on a sonic journey, seamlessly transitioning from subtle and mellifluous atmospheres to jarring post-punk whiteouts. Whether you're cruising down the Autobahn or exploring new musical landscapes, Radio 9 will deliver."
           genre="Krautrock"
           role="drums"
           type="band"
