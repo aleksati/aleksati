@@ -105,7 +105,7 @@ By including this additional hardware, you measure the analog RTT. To achieve hi
 
 With this configuration, we could bypass and control latency compensation mechanisms and other unwanted side effects caused by our hardware or software modules.
 
-# Results
+<h1 id="results">Results</h1>
 
 ### Commercial 5G
 
@@ -115,7 +115,14 @@ According to the Huawei routers' location-optimizing software, we achieved a sta
 
 The audio sweetspot was achieved using JackTrip with a buffer size of 512. Unfortunately, experimenting with lower buffer sizes only resulted in massive dropouts. We found the optimal stereo audio settings to be the following:
 
-<MyTable />
+<MyTable
+  cols={[
+    ["Compression", "Compression", "Compression", "Compression", "Compression"],
+    ["Compression", "Compression", "Compression", "Compression", "Compression"],
+    ["Compression", "Compression", "Compression", "Compression", "Compression"],
+    ["Compression", "Compression", "Compression", "Compression", "Compression"],
+  ]}
+/>
 
 ### Private 5GNoW
 
