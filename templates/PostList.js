@@ -16,7 +16,7 @@ const PostList = ({ frontMatter, numbPages }) => {
           title={post.title}
           summary={post.summary}
           pageNumber={post.page}
-          categories={post.categories}
+          keywords={post.keywords}
           readingTime={post.readingTime}
         />
       ))}

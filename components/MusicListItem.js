@@ -1,5 +1,5 @@
 import MyLink from "./MyLink";
-import MyImage from "./MyImage";
+// import MyImage from "./MyImage";
 import Icon from "./Icon";
 
 const MusicListItem = ({
@@ -8,7 +8,7 @@ const MusicListItem = ({
   type,
   genre,
   role,
-  img,
+  // img,
   pageUrl,
   musicUrl,
 }) => {

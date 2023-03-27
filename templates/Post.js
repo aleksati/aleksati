@@ -1,5 +1,4 @@
-import { category2color } from "../categories/category2color";
-import { category2text } from "../categories/category2text";
+import { keyword2color, keyword2text } from "../keywords/posts";
 import MDXComponents from "../components/MDXComponents";
 import { MDXRemote } from "next-mdx-remote";
 import { date2text } from "../functions/date2text";
@@ -16,10 +15,10 @@ export default function Post({ mdxSource, frontMatter }) {
         <div className="flex space-x-2 text-secondary text-sm">
           <p>{date2text(frontMatter.date)}</p>
           <div className="flex space-x-2">
-            {[...frontMatter.categories].map((category) => (
-              <div className="flex space-x-1" key={category}>
-                <p style={{ color: `${category2color[category]}` }}>•</p>
-                <p>{category2text[category]}</p>
+            {[...frontMatter.keywords].map((keyword) => (
+              <div className="flex space-x-1" key={keyword}>
+                <p style={{ color: `${keyword2color[keyword]}` }}>•</p>
+                <p>{keyword2text[keyword]}</p>
               </div>
             ))}
           </div>

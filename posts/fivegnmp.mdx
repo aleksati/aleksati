@@ -1,7 +1,7 @@
 ---
 title: "5G Networked Music Performances"
 date: "2023-02-10"
-categories: ["audio", "networking", "5G"]
+keywords: ["audio", "networking", "5G", "analysis"]
 summary: "In collaboration with Telenor Research, me and a collegue did some tests to see if it's possible to play music together over 5G networks."
 ---
 
@@ -11,7 +11,7 @@ summary: "In collaboration with Telenor Research, me and a collegue did some tes
 
 However, playing music over the network is highly challenging with exceptionally high demands for low-latency communication. In fact, research tells us that the ideal roundtrip latency for synchronous NMPs is between 25-50ms. For perspective, here is 30ms of audio delay from left to right channel:
 
-<AudioPlayer
+<MyAudioPlayer
   src="/audio/fiveg-30ms-delay.mp3"
   newOptions={{ splitChannels: true }}
 />
@@ -28,8 +28,9 @@ preliminary results.
    2. <MyLink href="#signal-quality">Signal Quality</MyLink>
    3. <MyLink href="#roundtrip-latency">Roundtrip Latency</MyLink>
 3. <MyLink href="#results">Results</MyLink>
-4. <MyLink href="#summary">Summary</MyLink>
-5. <MyLink href="#going-forward">Going forward</MyLink>
+   1. <MyLink href="#commercial-5g">Commercial 5G</MyLink>
+   2. <MyLink href="#private-5g">Private 5G</MyLink>
+4. <MyLink href="#summary-and-ahead">Summary and Ahead</MyLink>
 
 <hr />
 
@@ -107,17 +108,13 @@ With this configuration, we could bypass and control latency compensation mechan
 
 <h1 id="results">Results</h1>
 
-### Commercial 5G
+<h3 id="commercial-5g">Commercial 5G</h3>
 
 Since the 5G reception inside the Musicology department at UiO was poor, we decided to place the routers outside hoping it would generate better coverage and boost overall performance.
 
-Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>) we measured a stable 75% 5G coverage and 60Mbps bandwidth. using the Huawei routers' own location-optimizing software.
+Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>) we measured a stable 75% 5G coverage with 60Mbps of bandwidth.
 
-During our transmission tests we experienced massive dropouts and periodic glitches when using buffer sizes below 512. Unfortunately, this eliminated the use of Lola
-
-The results from our transmission tests showed that experimenting with buffer sizes lower than 512 resulted in massive dropouts, eliminating the possibility of using Lola. We found these to be the optimal JackTrip settings:
-
-we had to use JackTrip with a buffer size of 512 to acheive acceptable quality and stability over time. Unfortunately,
+During our tests we experienced massive dropouts and periodic glitches when using sofware buffersizes below 512. Unfortunately, this eliminated the possibility of using Lola. Using JackTrip, we were able to find a good quality+stability sweetspot using the following settings:
 
 <MyTable
   cols={[
@@ -129,8 +126,44 @@ we had to use JackTrip with a buffer size of 512 to acheive acceptable quality a
   ]}
 />
 
-### Private 5GNoW
+With the above configuration using JackTrip on a commercial 5G network at UiO, we measured a 110ms digital RTT and 165ms analog RTT audio latency. Considering that buffering 512 samples at 48Khz takes 10ms (and our audio had to buffer 4x times during our experiment), this difference between digital and analog RTT was expected.
 
-# Summary
+**Demo** - 165ms audio delay from left to right ear:
 
-# Going forward
+<MyAudioPlayer
+  src="/audio/fiveg-165ms-delay.mp3"
+  newOptions={{ splitChannels: true }}
+/>
+
+<h3 id="private-5g">Private 5G</h3>
+
+During our second round of testing on a private 5G in Elverum, time was of the essence. We only had about 3-4 hours to set up our equipment and ran into unexpected connectivity and bandwidth issues from the very start. These issues meant we again had to eliminate using Lola and settle for limited, but fair, bandwidth (approximately 13-14Mbps).
+
+On the private 5G, we were able to get stable and good-quality audio using lower buffersizes than on the commercial. At 256, we got decent audio with some periodic dropouts over time. We found the optimal stereo audio settings to be the following:
+
+<MyTable
+  cols={[
+    ["Compression", "0%"],
+    ["Bit Depth", "16-bit"],
+    ["Sampling Rate", "48Khz"],
+    ["Buffer Size", 256],
+    ["Jitter Buffer", "auto"],
+  ]}
+/>
+
+With the above configuration using JackTrip on a private 5G network, we measured a 55-60ms digital RTT and an analog RTT at 74ms. Although impressive, this configuration rendered borderline audio quality that would be unpleasant in the long run. When using a buffersize of 512, we measured a 90-100ms digital RTT (similar to experiment nr.1, only slightly faster) and analog RTT at about 140ms.
+
+**Demo** - 74ms audio delay from left to right ear:
+
+<MyAudioPlayer
+  src="/audio/fiveg-74ms-delay.mp3"
+  newOptions={{ splitChannels: true }}
+/>
+
+<h1 id="summary-and-ahead">Summary and Ahead</h1>
+
+In early 2022, me and a UiO collegue investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. On two separate occasions, we measured the stability, quality, and latency of transferring uncompressed audio over the networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
+
+Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5G test results were not particularly promising. I believe we could conduct successful NMPs over 5G if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
+
+Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5G is implemented on future Telenor networks.

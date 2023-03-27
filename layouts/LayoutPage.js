@@ -2,11 +2,17 @@ import isTouchDevice from "../functions/isTouchDevice";
 import IconScrollTo from "../components/IconScrollTo";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
-import useWindowSize from "../hooks/useWindowSize";
+// import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
 import Meta from "../components/Meta";
 
-const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
+const LayoutPage = ({
+  pageId = "top",
+  children,
+  className,
+  pageMeta,
+  showSearch = true,
+}) => {
   const ref = useRef(null);
   const [navIsShown, setNavIsShown] = useState(true);
   // const { width } = useWindowSize();
@@ -21,7 +27,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   return (
     <div className="text-base">
       <Meta {...pageMeta} />
-      <NavTop onClick={handleClick} />
+      <NavTop onClick={handleClick} showSearch={showSearch} />
       {navIsShown ? <NavVertical onClick={handleClick} /> : null}
       {/* Compensate for fixed NavTop */}
       <div className="pt-20">

@@ -1,12 +1,11 @@
-import { category2color } from "../categories/category2color";
-import { category2text } from "../categories/category2text";
+import { keyword2color, keyword2text } from "../keywords/posts";
 import { useMouseHover } from "../hooks/useMouseHover";
 import { date2text } from "../functions/date2text";
 import Link from "next/link";
 
 const PostListItem = ({
   readingTime,
-  categories,
+  keywords,
   summary,
   title,
   date,
@@ -40,14 +39,14 @@ const PostListItem = ({
           </div>
           <div className="flex text-sm text-secondary space-x-2 items-center">
             {/* <Icon id="key" iconSize={"text-md"} /> */}
-            {[...categories].map((category) => (
-              <div className="flex space-x-1 items-center" key={category}>
+            {[...keywords].map((keyword) => (
+              <div className="flex space-x-1 items-center" key={keyword}>
                 <p
                   className="text-lg "
-                  style={{ color: `${category2color[category]}` }}>
+                  style={{ color: `${keyword2color[keyword]}` }}>
                   •
                 </p>
-                <p>{category2text[category]}</p>
+                <p>{keyword2text[keyword]}</p>
               </div>
             ))}
           </div>

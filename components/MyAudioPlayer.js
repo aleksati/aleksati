@@ -19,7 +19,7 @@ const WaveFormOptions = (ref, opt) => ({
   ...opt,
 });
 
-const AudioPlayer = ({ src, newOptions = {} }) => {
+const MyAudioPlayer = ({ src, newOptions = {} }) => {
   const containerRef = useRef(null);
   const waveFormRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -86,4 +86,4 @@ const AudioPlayer = ({ src, newOptions = {} }) => {
   );
 };
 
-export default AudioPlayer;
+export default MyAudioPlayer;

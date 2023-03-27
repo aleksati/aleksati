@@ -1,28 +1,28 @@
 import {
   getAllFr,
   getPostFromSlug,
-  getCatFromFr,
+  getKeyFromFr,
 } from "../../functions/loadPosts";
 import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 import Post from "../../templates/Post";
 
 export default function Posts(props) {
-  // inject the categories of postlist or post into the <Head>
-  const cat =
-    props.type === "postlist" ? props.categories : props.frontMatter.categories;
-  const catString = cat.join(", ");
+  const isPostList = props.type === "postlist";
 
+  // inject the categories of postlist or post into the <Head>
+  const keywords = isPostList ? props.keywords : props.frontMatter.keywords;
+  const keyString = keywords.join(", ");
   const pageMeta = {
-    title: "tidemann.xyz",
-    keywords: catString,
+    title: "aleksati.net",
+    keywords: keyString,
     description: "Official homepage of Aleksander Tidemann ",
     url: "unknown at this time",
   };
 
   return (
-    <LayoutPage pageMeta={pageMeta}>
-      {props.type === "postlist" ? (
+    <LayoutPage pageMeta={pageMeta} showSearch={isPostList}>
+      {isPostList ? (
         <PostList frontMatter={props.frontMatter} numbPages={props.numbPages} />
       ) : (
         <Post mdxSource={props.mdxSource} frontMatter={props.frontMatter} />
@@ -43,13 +43,13 @@ export async function getStaticProps({ params }) {
     const lastItem = fr[fr.length - 1];
     const numbPages = lastItem.page;
 
-    // get all used categories
-    const categories = getCatFromFr(fr);
+    // get all used keywords
+    const keywords = getKeyFromFr(fr);
 
     // only include desired page (pagination)
     const frontMatter = fr.filter((item) => item.page === currPage);
 
-    return { props: { frontMatter, numbPages, type, categories } };
+    return { props: { frontMatter, numbPages, type, keywords } };
   } else {
     // else, the path is slug, so deliver a post
     type = "post";

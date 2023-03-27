@@ -71,15 +71,17 @@ export async function getAllFr() {
   return frontMatter;
 }
 
-// extract all used categories in posts
-export function getCatFromFr(frontMatter) {
-  const categories_raw = frontMatter.reduce(
-    (accum, fr) => [...fr.categories, ...accum],
+// extract all used keywords in posts
+export function getKeyFromFr(frontMatter) {
+  const keywords_raw = frontMatter.reduce(
+    (accum, fr) => [...fr.keywords, ...accum],
     []
   );
-  const categories = [...new Set(categories_raw)];
 
-  return categories;
+  // only unique values
+  const keywords = [...new Set(keywords_raw)];
+
+  return keywords;
 }
 
 export async function getPostFromSlug(slug) {

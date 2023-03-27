@@ -1,9 +1,8 @@
 import MusicListItem from "../components/MusicListItem";
-import MyLink from "../components/MyLink";
 import LayoutPage from "../layouts/LayoutPage";
 
 const pageMeta = {
-  title: "tidemann.xyz",
+  title: "aleksati.net",
   keywords:
     "music technology, music, software development, networked audio, programming",
   description: "Official homepage of Aleksander Tidemann ",
@@ -26,6 +25,7 @@ export default function Music() {
         <MusicListItem
           title="Karwowski, Kann & Tidemann"
           summary="KKT (Karwowski, Kann og Tidemann + Nordahl) is a dynamic audio-visual quartet that offers audiences a thought-provoking and immersive concert experience. Their performances feature a unique combination of guitar, vocals, live electronics, and projected visual art, creating a space for exploration and contemplation. The music is improvisational and meditative, while the visual art serves to engage and connect with the audience and the environment, resulting in a one-of-a-kind and captivating experience."
+          genre="improvisation"
           role="live electronics"
           type="band"
           pageUrl="https://www.facebook.com/karwowskikanntidemann"

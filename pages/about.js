@@ -5,7 +5,7 @@ import MyLink from "../components/MyLink";
 import Icon from "../components/Icon";
 
 const pageMeta = {
-  title: "tidemann.xyz",
+  title: "aleksati.net",
   keywords:
     "music technology, music, software development, networked audio, programming",
   description: "Official homepage of Aleksander Tidemann ",
@@ -14,7 +14,7 @@ const pageMeta = {
 
 export default function About() {
   return (
-    <LayoutPage pageMeta={pageMeta}>
+    <LayoutPage pageMeta={pageMeta} showSearch={false}>
       <h2 className="text-2xl font-bold pb-4">aleksander tidemann</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mx-auto">
         <div>
