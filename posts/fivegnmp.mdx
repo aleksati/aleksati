@@ -109,18 +109,23 @@ With this configuration, we could bypass and control latency compensation mechan
 
 ### Commercial 5G
 
-Inside the Musicology department at UiO, 5G reception was poor. After inspecting Telenor's coverage map, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance.
+Since the 5G reception inside the Musicology department at UiO was poor, we decided to place the routers outside hoping it would generate better coverage and boost overall performance.
 
-According to the Huawei routers' location-optimizing software, we achieved a stable 75% 5G coverage at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>. From here, we measured a stable 60Mbps bandwidth.
+Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>) we measured a stable 75% 5G coverage and 60Mbps bandwidth. using the Huawei routers' own location-optimizing software.
 
-The audio sweetspot was achieved using JackTrip with a buffer size of 512. Unfortunately, experimenting with lower buffer sizes only resulted in massive dropouts. We found the optimal stereo audio settings to be the following:
+During our transmission tests we experienced massive dropouts and periodic glitches when using buffer sizes below 512. Unfortunately, this eliminated the use of Lola
+
+The results from our transmission tests showed that experimenting with buffer sizes lower than 512 resulted in massive dropouts, eliminating the possibility of using Lola. We found these to be the optimal JackTrip settings:
+
+we had to use JackTrip with a buffer size of 512 to acheive acceptable quality and stability over time. Unfortunately,
 
 <MyTable
   cols={[
-    ["Compression", "Compression", "Compression", "Compression", "Compression"],
-    ["Compression", "Compression", "Compression", "Compression", "Compression"],
-    ["Compression", "Compression", "Compression", "Compression", "Compression"],
-    ["Compression", "Compression", "Compression", "Compression", "Compression"],
+    ["Compression", "0%"],
+    ["Bit Depth", "16-bit"],
+    ["Sampling Rate", "48Khz"],
+    ["Buffer Size", 512],
+    ["Jitter Buffer", "auto"],
   ]}
 />
 

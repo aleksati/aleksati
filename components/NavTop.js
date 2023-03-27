@@ -15,7 +15,7 @@ const NavTop = ({ onClick }) => {
           <div className="w-48 py-4">
             <div className="px-4 justify-between items-center flex border-secondary">
               <Link href="/" className="font-bold items-center">
-                tidemann.xyz
+                aleksati.net
               </Link>
               <a onClick={onClick} className="hover:cursor-pointer">
                 <Icon id={"threedots"} iconSize={"text-xl"} />

@@ -12,7 +12,7 @@ const NavVertical = ({ onClick }) => {
         <div className="w-full">
           <div className="py-4 px-4 items-center justify-between flex pb-6 border-secondary">
             <Link href="/" className="font-bold">
-              tidemann.xyz
+              aleksati.net
             </Link>
             <a onClick={onClick} className="hover:cursor-pointer">
               <Icon id={"x"} iconSize={"text-xl"} />
