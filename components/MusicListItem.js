@@ -30,7 +30,7 @@ const MusicListItem = ({
             {summary} I play {role}.
           </p>
         </div>
-        <div className="text-sm">
+        <div>
           <div className="flex space-x-2 items-center">
             <Icon id="details" iconSize={"text-md"} />
             <MyLink href={pageUrl}>official page</MyLink>

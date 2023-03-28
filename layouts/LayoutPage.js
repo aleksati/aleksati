@@ -30,9 +30,9 @@ const LayoutPage = ({
       <NavTop onClick={handleClick} showSearch={showSearch} />
       {navIsShown ? <NavVertical onClick={handleClick} /> : null}
       {/* Compensate for fixed NavTop */}
-      <div className="pt-20">
+      <div className="pt-16 min-h-screen ">
         <div
-          className={`min-h-screen container mx-auto px-4 pb-12 ${className}`}
+          className={`container mx-auto px-4 pb-6 ${className}`}
           ref={ref}
           id={pageId}>
           {children}

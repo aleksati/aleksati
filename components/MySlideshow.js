@@ -29,7 +29,7 @@ const properties = {
   ),
 };
 
-const Slideshow = ({ imgs = [], captions = [] }) => {
+const MySlideshow = ({ imgs = [], captions = [] }) => {
   return (
     <div aria-label="slideshow container">
       {imgs.length > 1 ? (
@@ -53,4 +53,4 @@ const Slideshow = ({ imgs = [], captions = [] }) => {
   );
 };
 
-export default Slideshow;
+export default MySlideshow;

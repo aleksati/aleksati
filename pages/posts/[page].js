@@ -10,18 +10,16 @@ import Post from "../../templates/Post";
 export default function Posts(props) {
   const isPostList = props.type === "postlist";
 
-  // inject the categories of postlist or post into the <Head>
-  const keywords = isPostList ? props.keywords : props.frontMatter.keywords;
-  const keyString = keywords.join(", ");
-  const pageMeta = {
-    title: "aleksati.net",
-    keywords: keyString,
-    description: "Official homepage of Aleksander Tidemann ",
-    url: "unknown at this time",
-  };
+  // for injecting the categories of postlist or post into the <Head>
+  // const keywords = isPostList ? props.keywords : props.frontMatter.keywords;
+  // const keyString = keywords.join(", ");
 
   return (
-    <LayoutPage pageMeta={pageMeta} showSearch={isPostList}>
+    <LayoutPage
+      pageMeta={{
+        title: isPostList ? "posts" : props.frontMatter.title,
+      }}
+      showSearch={isPostList}>
       {isPostList ? (
         <PostList frontMatter={props.frontMatter} numbPages={props.numbPages} />
       ) : (
