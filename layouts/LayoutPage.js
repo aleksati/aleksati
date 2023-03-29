@@ -32,9 +32,10 @@ const LayoutPage = ({
       {/* Compensate for fixed NavTop */}
       <div className="pt-16 min-h-screen ">
         <div
-          className={`container mx-auto px-4 pb-6 ${className}`}
+          className={`container mx-auto px-4 md:px-0 pb-6 ${className}`}
           ref={ref}
-          id={pageId}>
+          id={pageId}
+        >
           {children}
           <IconScrollTo targetId={pageId} parentRef={ref} />
         </div>
