@@ -8,7 +8,8 @@ import Icon from "./Icon";
 const indicators = (index) => (
   <button
     tabIndex="0"
-    className="w-2 h-2 mx-0.5 bg-secondary rounded-full"></button>
+    className="w-2 h-2 mx-0.5 mb-4 bg-secondary rounded-full"
+  ></button>
 );
 
 const properties = {
@@ -38,8 +39,8 @@ const MySlideshow = ({ imgs = [], captions = [] }) => {
             <MyImage
               src={"/img/" + slug}
               alt={`slideshow image of ${slug}`}
-              key={slug}
               caption={captions ? captions[index] : null}
+              key={slug}
             />
           ))}
         </Slide>

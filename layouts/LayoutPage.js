@@ -25,7 +25,7 @@ const LayoutPage = ({
   const handleClick = () => setNavIsShown((prevState) => !prevState);
 
   return (
-    <div className="text-base">
+    <div className="text-base items-center">
       <Meta {...pageMeta} />
       <NavTop onClick={handleClick} showSearch={showSearch} />
       {navIsShown ? <NavVertical onClick={handleClick} /> : null}

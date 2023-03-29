@@ -55,7 +55,8 @@ const MyTable = ({ cols, headings = "horizontal" }) => {
 
   return (
     <div
-      className={`grid gap-1 grid-flow-row md:grid-flow-col ${rowMap[numbRows]}`}>
+      className={`grid gap-1 grid-flow-row md:grid-flow-col mb-6 ${rowMap[numbRows]}`}
+    >
       {items1d
         ? items1d.map((item, idx) => (
             <MyTableCell
@@ -67,7 +68,8 @@ const MyTable = ({ cols, headings = "horizontal" }) => {
                   : headings == "vertical"
                   ? idx < numbRows
                   : false
-              }>
+              }
+            >
               {item}
             </MyTableCell>
           ))

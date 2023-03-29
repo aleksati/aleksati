@@ -11,7 +11,7 @@ const WaveFormOptions = (ref, opt) => ({
   //   barWidth: 1,
   //   barRadius: 5,
   responsive: true,
-  height: 60,
+  height: 40,
   partialRender: false, //true
   hideScrollbar: true,
   normalize: true,
@@ -64,7 +64,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   };
 
   return (
-    <div className="flex items-center justify-start p-2">
+    <div className="flex items-center justify-start p-2 py-6">
       {audioIsMounted ? (
         <div className="flex items-center">
           <div onClick={handlePlayPause} className="cursor-pointer">
