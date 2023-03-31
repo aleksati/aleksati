@@ -27,7 +27,7 @@ const NavTop = ({ onClick, showSearch }) => {
           {showSearch ? (
             <input
               className="form-search bg-primary-light dark:bg-primary-dark rounded w-42 md:w-46 h-8"
-              placeholder="&#x1F50E;&#xFE0E; search"
+              placeholder="&#x1F50E;&#xFE0E; keyword search"
               id="site-search"
               type="search"
             />

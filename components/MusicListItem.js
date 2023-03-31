@@ -32,11 +32,13 @@ const MusicListItem = ({
         </div>
         <div>
           <div className="flex space-x-2 items-center">
-            <Icon id="details" iconSize={"text-md"} />
+            {/* <Icon id="details" iconSize={"text-md"} /> */}
+            <p>•</p>
             <MyLink href={pageUrl}>official page</MyLink>
           </div>
           <div className="flex space-x-2 items-center">
-            <Icon id="audio" iconSize={"text-md"} />
+            {/* <Icon id="audio" iconSize={"text-md"} /> */}
+            <p>•</p>
             <MyLink href={musicUrl}>music</MyLink>
           </div>
         </div>

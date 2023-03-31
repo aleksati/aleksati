@@ -11,13 +11,13 @@ export default function Posts(props) {
   const isPostList = props.type === "postlist";
 
   // for injecting the categories of postlist or post into the <Head>
-  // const keywords = isPostList ? props.keywords : props.frontMatter.keywords;
-  // const keyString = keywords.join(", ");
+  const keywords = !isPostList ? props.frontMatter.keywords.join(", ") : null;
 
   return (
     <LayoutPage
       pageMeta={{
         title: isPostList ? "posts" : props.frontMatter.title,
+        keywords,
       }}
       showSearch={isPostList}>
       {isPostList ? (
