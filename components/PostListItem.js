@@ -16,16 +16,18 @@ const PostListItem = ({
   return (
     <div
       className="flex flex-col pb-2 border-b border-secondary cursor-pointer"
-      ref={divRef}>
+      ref={divRef}
+    >
       <Link href={`/posts/${slug}`}>
         <div className="space-y-2 pb-2">
           <h2
             className={`text-2xl font-bold ${
               divHovered ? "underline decoration-2" : null
-            }`}>
+            }`}
+          >
             {title}
           </h2>
-          <div className="flex text-secondary space-x-2 text-sm">
+          <div className="flex text-secondary space-x-2 text-xs md:text-sm">
             <div className="flex space-x-1">
               <p>{date2text(date)}</p>
             </div>
@@ -43,7 +45,8 @@ const PostListItem = ({
               <div className="flex space-x-1 items-center" key={keyword}>
                 <p
                   className="text-lg"
-                  style={{ color: `${keyword2color[keyword]}` }}>
+                  style={{ color: `${keyword2color[keyword]}` }}
+                >
                   •
                 </p>
                 <p>{keyword2text[keyword]}</p>

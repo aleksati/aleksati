@@ -32,19 +32,25 @@ const LayoutPage = ({
     setNavIsShown(isMobile ? false : true);
   }, [isMobile]);
 
-  const handleClick = () => setNavIsShown((prevState) => !prevState);
+  const handleShowVerticalNav = () => setNavIsShown((prevState) => !prevState);
 
   return (
     <div className="text-base items-center">
       <Meta {...pageMeta} />
-      <NavTop onClick={handleClick} showSearch={showSearch} />
-      {navIsShown ? <NavVertical onClick={handleClick} /> : null}
+      <NavTop
+        onShowVerticalNav={handleShowVerticalNav}
+        isMobileSearch={width < widthTresh}
+      />
+      {navIsShown ? (
+        <NavVertical onShowVerticalNav={handleShowVerticalNav} />
+      ) : null}
       {/* Compensate for fixed NavTop */}
       <div className="pt-16 min-h-screen ">
         <div
           className={`container mx-auto px-4 md:px-0 pb-6 ${className}`}
           ref={ref}
-          id={pageId}>
+          id={pageId}
+        >
           {children}
           <IconScrollTo targetId={pageId} parentRef={ref} />
         </div>

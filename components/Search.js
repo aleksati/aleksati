@@ -1,34 +1,23 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 
-const Search = ({ showSearch, showBigSearch, showSmallSearch = true }) => {
-  if (showSearch) {
-    if (showBigSearch) {
-      return (
-        <input
-          className="form-search resize bg-primary-light dark:bg-primary-dark rounded-sm h-8 w-36"
-          placeholder="&#x1F50E;&#xFE0E; search"
-          id="search"
-          type="search"
-        />
-      );
+const Search = ({ focusOnMount = false }) => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current && focusOnMount) {
+      inputRef.current.focus();
     }
-    if (showSmallSearch) {
-      return (
-        <div className="w-1/1">
-          <input
-            className="form-search resize bg-primary-light dark:bg-primary-dark rounded-sm h-8 w-full"
-            placeholder="&#x1F50E;&#xFE0E; search"
-            id="search"
-            type="search"
-          />
-        </div>
-      );
-    }
-  }
+  }, [inputRef, focusOnMount]);
+
+  return (
+    <input
+      className="form-search bg-primary-light dark:bg-primary-dark rounded-sm w-full h-8"
+      placeholder="search ..."
+      id="search"
+      type="search"
+      ref={inputRef}
+    />
+  );
 };
-
-{
-  /* <p>&#x1F50E;&#xFE0E;</p>; */
-}
 
 export default Search;

@@ -23,12 +23,13 @@ import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { TbWorldWww } from "react-icons/tb";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import { BsMastodon } from "react-icons/bs";
+import { BsMastodon, BsSearch } from "react-icons/bs";
 
 const defaultSize = "text-sm";
 
 const icons = {
   key: (s) => <BsKey className={s} />,
+  search: (s) => <BsSearch className={s} />,
   sun: (s) => <BsFillSunFill className={s} />,
   moon: (s) => <BsFillMoonFill className={s} />,
   audio: (s) => <TbWaveSine className={s} />,

@@ -9,7 +9,7 @@ export default function Post({ mdxSource, frontMatter }) {
   return (
     <div>
       <div className="mb-10">
-        <h1 className="font-bold text-2xl md:text-6xl mb-2">
+        <h1 className="font-bold text-4xl md:text-6xl mb-2">
           {frontMatter.title}
         </h1>
         <div className="flex space-x-2 text-secondary flex-wrap text-xs md:text-sm">
