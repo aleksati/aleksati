@@ -30,6 +30,10 @@ export default function Contact() {
               linkedin
             </MyLink>
           </div>
+          <div className="flex space-x-2 items-center">
+            <Icon id="x" />
+            <MyLink href="">Facebook</MyLink>
+          </div>
         </div>
       </div>
     </LayoutPage>

@@ -2,9 +2,12 @@ import isTouchDevice from "../functions/isTouchDevice";
 import IconScrollTo from "../components/IconScrollTo";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
-// import useWindowSize from "../hooks/useWindowSize";
+import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
 import Meta from "../components/Meta";
+
+const widthTresh = 768; // md tailwind default
+let prevWidth = 0;
 
 const LayoutPage = ({
   pageId = "top",
@@ -13,10 +16,17 @@ const LayoutPage = ({
   pageMeta,
   showSearch = true,
 }) => {
-  const ref = useRef(null);
   const [navIsShown, setNavIsShown] = useState(true);
-  // const { width } = useWindowSize();
+  const ref = useRef(null);
   const isMobile = isTouchDevice();
+  const { width } = useWindowSize();
+
+  // handle transitions to open and close vertical navbar
+  if (prevWidth !== width) {
+    if (navIsShown && width < widthTresh) setNavIsShown(false);
+    if (!navIsShown && width > widthTresh) setNavIsShown(true);
+    prevWidth = width;
+  }
 
   useEffect(() => {
     setNavIsShown(isMobile ? false : true);
@@ -34,8 +44,7 @@ const LayoutPage = ({
         <div
           className={`container mx-auto px-4 md:px-0 pb-6 ${className}`}
           ref={ref}
-          id={pageId}
-        >
+          id={pageId}>
           {children}
           <IconScrollTo targetId={pageId} parentRef={ref} />
         </div>

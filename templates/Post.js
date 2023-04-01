@@ -9,10 +9,10 @@ export default function Post({ mdxSource, frontMatter }) {
   return (
     <div>
       <div className="mb-10">
-        <h1 className="font-bold text-4xl md:text-6xl mb-2">
+        <h1 className="font-bold text-2xl md:text-6xl mb-2">
           {frontMatter.title}
         </h1>
-        <div className="flex space-x-2 text-secondary text-sm">
+        <div className="flex space-x-2 text-secondary flex-wrap text-xs md:text-sm">
           <p>{date2text(frontMatter.date)}</p>
           <div className="flex space-x-2">
             {[...frontMatter.keywords].map((keyword) => (
@@ -26,7 +26,7 @@ export default function Post({ mdxSource, frontMatter }) {
             <p>{frontMatter.readingTime.text}</p> */}
         </div>
       </div>
-      <div className="prose dark:prose-invert prose-h1:pt-4 prose-a:font-light prose-a:no-underline prose-a:text-blue-600 dark:prose-a:text-blue-300 !container">
+      <div className="prose dark:prose-invert prose-h1:pt-4 prose-a:font-light prose-a:no-underline !container">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}

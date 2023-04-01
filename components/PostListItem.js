@@ -37,12 +37,12 @@ const PostListItem = ({
           <div>
             <p>{summary}</p>
           </div>
-          <div className="flex text-sm text-secondary space-x-2 items-center">
+          <div className="flex overflow-hidden text-xs md:text-sm text-secondary space-x-2 items-center">
             {/* <Icon id="key" iconSize={"text-md"} /> */}
             {[...keywords].map((keyword) => (
               <div className="flex space-x-1 items-center" key={keyword}>
                 <p
-                  className="text-lg "
+                  className="text-lg"
                   style={{ color: `${keyword2color[keyword]}` }}>
                   •
                 </p>

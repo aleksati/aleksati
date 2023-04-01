@@ -22,7 +22,10 @@ const IconTheme = ({ tabOrder }) => {
       onClick={handleClick}
       // tabOrder={tabOrder}
       className="flex items-start p-2 hover:cursor-pointer">
-      <Icon id={currTheme === "dark" ? "sun" : "moon"} iconSize={"text-md"} />
+      <Icon
+        id={currTheme === "dark" ? "sun" : "moon"}
+        iconSize={"text-md md:text-xl"}
+      />
     </a>
   );
 };
