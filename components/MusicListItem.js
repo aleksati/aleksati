@@ -1,6 +1,4 @@
 import MyLink from "./MyLink";
-// import MyImage from "./MyImage";
-// import Icon from "./Icon";
 
 const MusicListItem = ({
   summary,
@@ -30,7 +28,7 @@ const MusicListItem = ({
             {summary} I play {role}.
           </p>
         </div>
-        <div className="text-xs md:text-sm items-center space-y-2 pt-2">
+        <div className="text-sm items-center space-y-1 pt-2">
           <div className="flex space-x-2">
             {/* <Icon id="details" iconSize={"text-md"} /> */}
             <p>•</p>

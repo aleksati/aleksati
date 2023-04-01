@@ -1,16 +1,22 @@
 import MDXComponents from "../components/MDXComponents";
 import { serialize } from "next-mdx-remote/serialize";
+
 import readingTime from "reading-time";
 import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
 
+// const fs = require("fs");
+// const path = require("path");
+// const matter = require("gray-matter");
+// const readingTime = require("reading-time");
+
+// all frontmatter is cached for search in the "cache" dir.
+
 const root = process.cwd();
 const postFolder = "posts";
-// how many posts before pagination starts?
-const paginationThresh = 4;
 
-export async function getSlugs() {
+export function getSlugs() {
   const paths = path.join(root, postFolder);
   const posts = fs.readdirSync(paths);
 
@@ -23,55 +29,55 @@ export async function getSlugs() {
   });
 }
 
-// and inject page numbers for pagination
-function addPagesToFr(fr) {
-  const frontMatter = fr.map((item, i) => ({
-    ...item,
-    page: Math.floor(i / paginationThresh) + 1,
-  }));
-  return frontMatter;
-}
+// function addPagesToFr(fr) {
+//   const frontMatter = fr.map((item, i) => ({
+//     ...item,
+//     page: Math.floor(i / paginationThresh) + 1,
+//   }));
+//   return frontMatter;
+// }
 
-// sort by date
-function sortFrByDate(fr) {
-  const frSorted = fr.sort((a, b) => {
-    if (a.date > b.date) return 1;
-    if (a.date < b.date) return -1;
-    return 0;
-  });
+// // sort by date
+// function sortFrByDate(fr) {
+//   const frSorted = fr.sort((a, b) => {
+//     if (a.date > b.date) return 1;
+//     if (a.date < b.date) return -1;
+//     return 0;
+//   });
 
-  return frSorted.reverse();
-}
+//   return frSorted.reverse();
+// }
 
-// gather all frontmatter data from posts into correct format
-export async function getAllFr() {
-  const paths = path.join(root, postFolder);
-  const posts = fs.readdirSync(paths);
+// // gather all frontmatter data from posts into correct format
+// export function getAllFr() {
+//   const paths = path.join(root, postFolder);
+//   const posts = fs.readdirSync(paths);
 
-  const fr = posts.reduce((accumFrontMatter, postSlug) => {
-    const post = fs.readFileSync(path.join(root, postFolder, postSlug));
-    const { data, content } = matter(post);
+//   const fr = posts.reduce((accumFrontMatter, postSlug) => {
+//     const post = fs.readFileSync(path.join(root, postFolder, postSlug));
+//     const { data, content } = matter(post);
 
-    return [
-      {
-        slug: postSlug.replace(".mdx", ""),
-        readingTime: readingTime(content),
-        ...data,
-      },
-      ...accumFrontMatter,
-    ];
-  }, []);
+//     return [
+//       {
+//         slug: postSlug.replace(".mdx", ""),
+//         readingTime: readingTime(content),
+//         ...data,
+//       },
+//       ...accumFrontMatter,
+//     ];
+//   }, []);
 
-  // sort by date
-  const frSorted = sortFrByDate(fr);
-  // inject page numbers for pagination
-  const frontMatter = addPagesToFr(frSorted);
+//   // sort by date
+//   const frSorted = sortFrByDate(fr);
 
-  return frontMatter;
-}
+//   // inject page numbers for pagination
+//   const frontMatter = addPagesToFr(frSorted);
+
+//   return frontMatter;
+// }
 
 // extract all used keywords in posts
-export function getKeyFromFr(frontMatter) {
+export function getKeysFromFr(frontMatter) {
   const keywords_raw = frontMatter.reduce(
     (accum, fr) => [...fr.keywords, ...accum],
     []

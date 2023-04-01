@@ -1,63 +1,61 @@
-import {
-  getAllFr,
-  getPostFromSlug,
-  getKeyFromFr,
-} from "../../functions/loadPosts";
+import { getPostFromSlug, getKeysFromFr } from "../../functions/loadPosts";
+import { frontMatter } from "../../cache/frontmatter-cache";
 import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 import Post from "../../templates/Post";
 
 export default function Posts(props) {
-  const isPostList = props.type === "postlist";
+  const { isPostList, frontMatter, mdxSource, numbPages, keywords } = props;
 
-  // for injecting the categories of postlist or post into the <Head>
-  const keywords = !isPostList ? props.frontMatter.keywords.join(", ") : null;
+  // I inject keywords straight into the <Head>
 
   return (
     <LayoutPage
       pageMeta={{
-        title: isPostList ? "posts" : props.frontMatter.title,
-        keywords,
+        title: isPostList ? "posts" : frontMatter.title,
+        keywords: isPostList ? keywords : frontMatter.keywords.join(", "),
       }}
-      showSearch={isPostList}>
+      showSearch={isPostList}
+    >
       {isPostList ? (
-        <PostList frontMatter={props.frontMatter} numbPages={props.numbPages} />
+        <PostList frontMatter={frontMatter} numbPages={numbPages} />
       ) : (
-        <Post mdxSource={props.mdxSource} frontMatter={props.frontMatter} />
+        <Post mdxSource={mdxSource} frontMatter={frontMatter} />
       )}
     </LayoutPage>
   );
 }
 
+// enable URL pagination for posts. posts/1,2,3 etc are the postlists, posts/slug is the actual post.
+// but this is overly complicated, i think... keep it simple
+
 export async function getStaticProps({ params }) {
-  let type;
+  let isPostList;
   if (parseInt(params.page)) {
     // if the path is a number, deliver a postlist
-    type = "postlist";
+    isPostList = true;
     const currPage = parseInt(params.page);
 
-    const fr = await getAllFr();
     // get number of pagination pages
-    const lastItem = fr[fr.length - 1];
+    const lastItem = frontMatter[frontMatter.length - 1];
     const numbPages = lastItem.page;
 
-    // get all used keywords
-    const keywords = getKeyFromFr(fr);
+    // get all used keywords in array
+    const keywords = getKeysFromFr(frontMatter);
 
     // only include desired page (pagination)
-    const frontMatter = fr.filter((item) => item.page === currPage);
+    // const frontMatterFiltered = fr.filter((item) => item.page === currPage);
 
-    return { props: { frontMatter, numbPages, type, keywords } };
+    return { props: { frontMatter, numbPages, isPostList, keywords } };
   } else {
     // else, the path is slug, so deliver a post
-    type = "post";
+    isPostList = false;
     const post = await getPostFromSlug(params.page);
-    return { props: { ...post, type } };
+    return { props: { ...post, isPostList } };
   }
 }
 
 export async function getStaticPaths() {
-  const frontMatter = await getAllFr();
   // get number of pagination pages
   const lastItem = frontMatter[frontMatter.length - 1];
   const numbPages = lastItem.page;

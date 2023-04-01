@@ -43,7 +43,7 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
           </div>
           <div className="flex space-x-2 items-center justify-end py-2 mr-4">
             {isMobileSearch ? (
-              <SearchToggle onClick={handleSearchToggle} />
+              <SearchToggle onSearchToggle={handleSearchToggle} />
             ) : (
               <Search />
             )}

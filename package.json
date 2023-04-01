@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cache-frontmatter": "node scripts/create-frontmatter-cache.js"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.29.2",
