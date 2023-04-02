@@ -9,7 +9,7 @@ const NavVertical = ({ onShowVerticalNav }) => {
       aria-label="Navbar"
       role="toolbar"
     >
-      <div className="flex flex-col min-h-screen items-start justify-between w-42">
+      <div className="flex flex-col min-h-screen items-start justify-between w-48">
         <div className="w-full">
           <div className="py-4 px-4 space-x-2 items-center justify-between flex pb-6">
             <Link href="/" className="font-bold text-sm md:text-base">

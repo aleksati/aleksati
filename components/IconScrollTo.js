@@ -24,13 +24,14 @@ const IconScrollTo = ({ targetId, parentRef }) => {
       <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-4 bottom-4">
         <a
           label="Back to top"
+          className="hover:cursor-pointer"
           onClick={() =>
             document.getElementById(targetId).scrollIntoView({
               behavior: "smooth",
             })
           }
         >
-          <Icon id="upArrow" iconSize={"text-xl"} />
+          <Icon id="upArrow" iconSize={"text-md md:text-xl"} />
         </a>
       </nav>
     );

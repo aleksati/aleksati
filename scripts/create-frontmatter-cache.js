@@ -9,18 +9,6 @@ const readingTime = require("reading-time");
 const root = process.cwd();
 const postFolder = "posts";
 
-// how many posts before pagination starts?
-const paginationThresh = 4;
-
-// and inject page numbers for pagination
-function addPagesToFr(fr) {
-  const frontMatter = fr.map((item, i) => ({
-    ...item,
-    page: Math.floor(i / paginationThresh) + 1,
-  }));
-  return frontMatter;
-}
-
 // sort by date
 function sortFrByDate(fr) {
   const frSorted = fr.sort((a, b) => {
@@ -52,10 +40,7 @@ function getAllFr() {
   }, []);
 
   // sort by date
-  const frSorted = sortFrByDate(fr);
-
-  // inject page numbers for pagination
-  const frontMatter = addPagesToFr(frSorted);
+  const frontMatter = sortFrByDate(fr);
 
   return JSON.stringify(frontMatter);
 }

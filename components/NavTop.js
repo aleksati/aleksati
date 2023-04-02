@@ -27,7 +27,7 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
       ) : (
         <div className="flex items-center justify-between">
           <div className="w-1/2 flex items-center space-x-2">
-            <div className="w-42 py-4">
+            <div className="w-48 py-4">
               <div className="px-4 justify-between space-x-2 items-center flex">
                 <Link
                   href="/"
