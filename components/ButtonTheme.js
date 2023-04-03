@@ -2,8 +2,9 @@ import getCurrTheme from "../functions/getCurrTheme";
 import { useState, useEffect } from "react";
 // import Link from "next/link";
 import Icon from "./Icon";
+import ButtonIcon from "./ButtonIcon";
 
-const IconTheme = ({ tabOrder }) => {
+const ButtonTheme = ({ tabOrder }) => {
   const [mounted, setMounted] = useState(false);
   const { currTheme, setTheme } = getCurrTheme();
 
@@ -17,18 +18,12 @@ const IconTheme = ({ tabOrder }) => {
   if (!mounted) return null;
 
   return (
-    <a
-      label="Toggle light or dark theme"
+    <ButtonIcon
+      iconId={currTheme === "dark" ? "sun" : "moon"}
       onClick={handleClick}
-      // tabOrder={tabOrder}
-      className="flex items-start p-2 hover:cursor-pointer"
-    >
-      <Icon
-        id={currTheme === "dark" ? "sun" : "moon"}
-        iconSize="text-md md:text-xl"
-      />
-    </a>
+      label="Toggle light or dark theme"
+    />
   );
 };
 
-export default IconTheme;
+export default ButtonTheme;

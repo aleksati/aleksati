@@ -1,5 +1,5 @@
-import SearchToggle from "./SearchToggle";
-import IconTheme from "./IconTheme";
+import ButtonIcon from "./ButtonIcon";
+import ButtonTheme from "./ButtonTheme";
 import { useState } from "react";
 import Search from "./Search";
 import Link from "next/link";
@@ -17,15 +17,15 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
       role="toolbar"
     >
       {isSearch && isMobileSearch ? (
-        <div className="items-center justify-between space-x-2 px-4 py-2.5 flex">
+        <div className="items-center justify-between space-x-4 px-4 py-2.5 flex">
           <Search focusOnMount={true} />
-          <SearchToggle onSearchToggle={handleSearchToggle} iconId="x" />
-          <IconTheme />
+          <ButtonIcon onClick={handleSearchToggle} iconId="x" />
+          <ButtonTheme />
         </div>
       ) : (
         <div className="flex items-center justify-between">
           <div className="w-1/2 flex items-center space-x-2">
-            <div className="w-48 py-4">
+            <div className="w-42 md:w-48 py-4">
               <div className="px-4 justify-between space-x-2 items-center flex">
                 <Link
                   href="/"
@@ -39,16 +39,13 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
               </div>
             </div>
           </div>
-          <div className="flex space-x-2 items-center justify-end py-2 mr-4">
+          <div className="flex space-x-4 items-center justify-end py-2 mr-4">
             {isMobileSearch ? (
-              <SearchToggle
-                onSearchToggle={handleSearchToggle}
-                iconId="search"
-              />
+              <ButtonIcon onClick={handleSearchToggle} iconId="search" />
             ) : (
               <Search />
             )}
-            <IconTheme />
+            <ButtonTheme />
           </div>
         </div>
       )}

@@ -1,6 +1,5 @@
 import PostListItem from "../components/PostListItem";
 import Pagination from "../components/Pagination";
-// import ClientOnly from "../components/ClientOnly";
 
 const pageThresh = 5;
 

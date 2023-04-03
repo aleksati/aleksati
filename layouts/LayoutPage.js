@@ -1,5 +1,5 @@
 import isTouchDevice from "../functions/isTouchDevice";
-import IconScrollTo from "../components/IconScrollTo";
+import ButtonScrollTo from "../components/ButtonScrollTo";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
@@ -52,7 +52,7 @@ const LayoutPage = ({
           id={pageId}
         >
           {children}
-          <IconScrollTo targetId={pageId} parentRef={ref} />
+          <ButtonScrollTo targetId={pageId} parentRef={ref} />
         </div>
       </div>
     </div>

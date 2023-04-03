@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 // import isTouchDevice from "../functions/isTouchDevice";
-import Icon from "./Icon";
+import ButtonIcon from "./ButtonIcon";
 
-const IconScrollTo = ({ targetId, parentRef }) => {
+const ButtonScrollTo = ({ targetId, parentRef }) => {
   const [isVisible, setIsVisible] = useState(false);
   // const isTouch = isTouchDevice();
 
@@ -13,6 +13,11 @@ const IconScrollTo = ({ targetId, parentRef }) => {
     }
   }, [parentRef]);
 
+  const handleClick = () => {
+    document.getElementById(targetId).scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   useEffect(() => {
     window.addEventListener("scroll", detectParentInFullViewPort);
     return () =>
@@ -21,18 +26,12 @@ const IconScrollTo = ({ targetId, parentRef }) => {
   // isTouch && isVisible
   if (isVisible) {
     return (
-      <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-6 bottom-4">
-        <a
+      <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-4 bottom-4">
+        <ButtonIcon
+          iconId="upArrow"
+          onClick={handleClick}
           label="Back to top"
-          className="hover:cursor-pointer"
-          onClick={() =>
-            document.getElementById(targetId).scrollIntoView({
-              behavior: "smooth",
-            })
-          }
-        >
-          <Icon id="upArrow" iconSize={"text-md md:text-xl"} />
-        </a>
+        />
       </nav>
     );
   }
@@ -40,4 +39,4 @@ const IconScrollTo = ({ targetId, parentRef }) => {
   return null;
 };
 
-export default IconScrollTo;
+export default ButtonScrollTo;

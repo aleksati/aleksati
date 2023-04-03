@@ -22,7 +22,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { TbWorldWww } from "react-icons/tb";
-import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { BsMastodon, BsSearch } from "react-icons/bs";
 
 const defaultSize = "text-sm";
@@ -63,9 +63,10 @@ const icons = {
   heart: (s) => <AiOutlineHeart className={s} />,
   issue: (s) => <MdOutlineReportProblem className={s} />,
   check: (s) => <AiOutlineCheck className={s} />,
-  threedots: (s) => (
-    <HiDotsHorizontal className={s} style={{ transform: "rotate(-90deg)" }} />
-  ),
+  // threedots: (s) => (
+  //   <HiDotsHorizontal className={s} style={{ transform: "rotate(-90deg)" }} />
+  // ),
+  threedots: (s) => <AiOutlineMenu className={s} />,
   filter: (s) => (
     <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
   ),
