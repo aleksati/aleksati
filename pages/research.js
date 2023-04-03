@@ -9,10 +9,14 @@ export default function Research({ data_cleaned, notFound }) {
         <p>Something went wrong while fetching the data...</p>
       ) : (
         <div className="flex flex-col space-y-6">
+          <p>
+            Data fetched from{" "}
+            <MyLink href="https://app.cristin.no/">Cristin</MyLink>:
+          </p>
           {data_cleaned.map((item, idx) => {
             if (idx === 1) return;
             return (
-              <p>
+              <div key={idx}>
                 {item.authors} ({item.year}). {item.title}.{" "}
                 <i>{item.journal}.</i>{" "}
                 {item.link ? (
@@ -20,15 +24,9 @@ export default function Research({ data_cleaned, notFound }) {
                 ) : (
                   ""
                 )}
-              </p>
+              </div>
             );
           })}
-          {/* <div className="text-sm">
-            Data fetched from{" "}
-            <MyLink href="https://app.cristin.no/persons/show.jsf?id=1213045">
-              Cristin
-            </MyLink>
-          </div> */}
         </div>
       )}
     </LayoutPage>

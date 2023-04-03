@@ -21,10 +21,11 @@ const IconTheme = ({ tabOrder }) => {
       label="Toggle light or dark theme"
       onClick={handleClick}
       // tabOrder={tabOrder}
-      className="flex items-start p-2 hover:cursor-pointer">
+      className="flex items-start p-2 hover:cursor-pointer"
+    >
       <Icon
         id={currTheme === "dark" ? "sun" : "moon"}
-        iconSize={"text-md md:text-xl"}
+        iconSize="text-md md:text-xl"
       />
     </a>
   );

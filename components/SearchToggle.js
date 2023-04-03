@@ -1,8 +1,8 @@
 import Icon from "./Icon";
 
-const SearchToggle = ({ onSearchToggle }) => (
+const SearchToggle = ({ onSearchToggle, iconId }) => (
   <a onClick={onSearchToggle}>
-    <Icon id="search" iconSize="text-md md:text-xl" />
+    <Icon id={iconId} iconSize="text-md md:text-xl" />
   </a>
 );
 

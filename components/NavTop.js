@@ -17,11 +17,9 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
       role="toolbar"
     >
       {isSearch && isMobileSearch ? (
-        <div className="items-center space-x-2 px-4 py-2 flex">
+        <div className="items-center justify-between space-x-2 px-4 py-2.5 flex">
           <Search focusOnMount={true} />
-          <a className="hover:cursor-pointer" onClick={handleSearchToggle}>
-            <Icon id={"x"} iconSize={"text-xl"} />
-          </a>
+          <SearchToggle onSearchToggle={handleSearchToggle} iconId="x" />
           <IconTheme />
         </div>
       ) : (
@@ -43,7 +41,10 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
           </div>
           <div className="flex space-x-2 items-center justify-end py-2 mr-4">
             {isMobileSearch ? (
-              <SearchToggle onSearchToggle={handleSearchToggle} />
+              <SearchToggle
+                onSearchToggle={handleSearchToggle}
+                iconId="search"
+              />
             ) : (
               <Search />
             )}

@@ -2,6 +2,8 @@ import LayoutPage from "../layouts/LayoutPage";
 import MyLink from "../components/MyLink";
 import Icon from "../components/Icon";
 
+// add the p5 app here!
+
 export default function Contact() {
   return (
     <LayoutPage pageMeta={{ title: "contact" }} showSearch={false}>
@@ -29,10 +31,6 @@ export default function Contact() {
             <MyLink href="https://www.linkedin.com/in/aleksander-tidemann-b4667816b">
               linkedin
             </MyLink>
-          </div>
-          <div className="flex space-x-2 items-center">
-            <Icon id="x" />
-            <MyLink href="">Facebook</MyLink>
           </div>
         </div>
       </div>

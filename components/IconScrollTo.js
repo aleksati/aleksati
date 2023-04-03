@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import isTouchDevice from "../functions/isTouchDevice";
+// import isTouchDevice from "../functions/isTouchDevice";
 import Icon from "./Icon";
 
 const IconScrollTo = ({ targetId, parentRef }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const isTouch = isTouchDevice();
+  // const isTouch = isTouchDevice();
 
   const detectParentInFullViewPort = useCallback(() => {
     if (parentRef.current) {
@@ -18,10 +18,10 @@ const IconScrollTo = ({ targetId, parentRef }) => {
     return () =>
       window.removeEventListener("scroll", detectParentInFullViewPort);
   }, [detectParentInFullViewPort]);
-
-  if (isTouch && isVisible) {
+  // isTouch && isVisible
+  if (isVisible) {
     return (
-      <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-4 bottom-4">
+      <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-6 bottom-4">
         <a
           label="Back to top"
           className="hover:cursor-pointer"
