@@ -1,7 +1,7 @@
 import NavVerticalTabs from "./NavVerticalTabs";
-import Link from "next/link";
-import Icon from "./Icon";
 import ButtonIcon from "./ButtonIcon";
+import Link from "next/link";
+// import Icon from "./Icon";
 
 const NavVertical = ({ onShowVerticalNav }) => {
   return (
