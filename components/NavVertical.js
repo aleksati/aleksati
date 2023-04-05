@@ -10,13 +10,13 @@ const NavVertical = ({ onShowVerticalNav }) => {
       aria-label="Navbar"
       role="toolbar"
     >
-      <div className="flex flex-col min-h-screen items-start justify-between w-42 md:w-48">
+      <div className="flex flex-col min-h-screen items-start justify-between w-42 md:w-44">
         <div className="w-full">
           <div className="py-4 px-4 space-x-2 items-center justify-between flex pb-6">
+            <ButtonIcon onClick={onShowVerticalNav} iconId="x" />
             <Link href="/" className="font-bold text-sm md:text-base">
               aleksati.net
             </Link>
-            <ButtonIcon onClick={onShowVerticalNav} iconId="x" />
           </div>
           <div className="space-y-6 px-4 pt-0 w-full">
             <NavVerticalTabs />

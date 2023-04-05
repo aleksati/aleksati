@@ -1,11 +1,45 @@
+import { initValidation, get, query } from "../../middleware/middlewareApi";
 import { frontMatter } from "../../cache/frontmatter-cache";
 import nextConnect from "next-connect";
 
-export default nextConnect().get(async (req, res) => {
-  const results = req.query.q
-    ? frontMatter.filter((fr) =>
-        fr.title.toLowerCase().includes(req.query.q.toLowerCase())
-      )
-    : [];
-  res.status(200).json({ results });
-});
+const searchValidation = initValidation([
+  query("q").exists().withMessage("search request must include query (q)."),
+]);
+
+export default nextConnect()
+  .use(get(searchValidation))
+  .get(async (req, res) => {
+    const query = req.query.q;
+    let results = [];
+
+    if (query.length) {
+      const query_array = query.split(" ");
+
+      // first full keywords
+      if (!results.length) {
+        results = frontMatter.filter((fr) =>
+          query_array.every((q) => fr.keywords.includes(q.toLowerCase()))
+        );
+      }
+
+      // then segments of titles
+      if (!results.length) {
+        results = frontMatter.filter((fr) =>
+          query_array.every((q) =>
+            fr.title.toLowerCase().includes(q.toLowerCase())
+          )
+        );
+      }
+
+      // then summary
+      // if (!results.length) {
+      //   results = frontMatter.filter((fr) =>
+      //     fr.summary.toLowerCase().includes(query.toLowerCase())
+      //   );
+      // }
+    }
+
+    res.status(200).json({ results });
+  });
+
+// filter first through the keywords, then through title, then through summary
