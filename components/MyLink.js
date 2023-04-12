@@ -32,7 +32,7 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   return (
     <a
       href={href}
-      className={`text-blue-400 dark:text-blue-300 hover:text-blue-600 hover:dark:text-blue-400 ${className}`}
+      className={`text-blue-400 hover:cursor-pointer dark:text-blue-300 hover:text-blue-600 hover:dark:text-blue-400 ${className}`}
     >
       {children}
     </a>

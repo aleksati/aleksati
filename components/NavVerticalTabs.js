@@ -19,7 +19,7 @@ const NavVerticalTabs = () => {
   const page = currTab.length ? currTab[0].key : "";
 
   return (
-    <>
+    <div className="space-y-6">
       {tabs.map((tab, index) => {
         // const brdr = index === 0 ? "" : "pt-2 pb-2 border-t";
         const brdr = "";
@@ -59,7 +59,7 @@ const NavVerticalTabs = () => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import ButtonIcon from "./ButtonIcon";
 import ButtonTheme from "./ButtonTheme";
 import Search from "./Search";
@@ -35,19 +35,17 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
       ) : (
         <div className="flex items-center justify-between">
           <div className="w-1/2 flex items-center space-x-2">
-            <div className="w-42 md:w-44 py-4">
-              <div className="px-4 justify-between space-x-2 items-center flex">
-                <ButtonIcon onClick={onShowVerticalNav} iconId="threedots" />
-                <Link
-                  href="/"
-                  className="font-bold text-sm md:text-base items-center"
-                >
-                  aleksati.net
-                </Link>
-              </div>
+            <div className="w-48 md:w-52 p-4 justify-start space-x-4 items-center flex">
+              <ButtonIcon onClick={onShowVerticalNav} iconId="threedots" />
+              <Link
+                href="/"
+                className="font-bold text-sm md:text-base items-center"
+              >
+                aleksati.net
+              </Link>
             </div>
           </div>
-          <div className="flex space-x-4 items-center justify-end py-2 mr-4">
+          <div className="flex space-x-4 items-center justify-end mr-4">
             {isMobileSearch ? (
               <ButtonIcon onClick={handleSearchToggle} iconId="search" />
             ) : (

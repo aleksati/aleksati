@@ -10,21 +10,18 @@ const NavVertical = ({ onShowVerticalNav }) => {
       aria-label="Navbar"
       role="toolbar"
     >
-      <div className="flex flex-col min-h-screen items-start justify-between w-42 md:w-44">
-        <div className="w-full">
-          <div className="py-4 px-4 space-x-2 items-center justify-between flex pb-6">
-            <ButtonIcon onClick={onShowVerticalNav} iconId="x" />
-            <Link href="/" className="font-bold text-sm md:text-base">
-              aleksati.net
-            </Link>
-          </div>
-          <div className="space-y-6 px-4 pt-0 w-full">
-            <NavVerticalTabs />
-          </div>
+      <div className="flex flex-col p-4 min-h-screen items-start justify-start w-48 md:w-52">
+        <div className="space-x-4 items-center justify-start flex pb-6">
+          <ButtonIcon onClick={onShowVerticalNav} iconId="x" />
+          <Link href="/" className="font-bold text-sm md:text-base">
+            aleksati.net
+          </Link>
         </div>
-        {/* <div className="border-t border-secondary w-full text-xs">
-          <div className="px-4 py-2">&copy; {new Date().getFullYear()}</div>
-        </div> */}
+        <div className="flex items-center space-x-4">
+          {/* just a filler */}
+          <div className="p-2"></div>
+          <NavVerticalTabs />
+        </div>
       </div>
     </nav>
   );

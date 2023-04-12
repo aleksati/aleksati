@@ -25,7 +25,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { BsMastodon, BsSearch } from "react-icons/bs";
 
-const defaultSize = "text-sm";
+const defaultSize = "text-md md:text-xl";
 
 const icons = {
   key: (s) => <BsKey className={s} />,
