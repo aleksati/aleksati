@@ -6,6 +6,9 @@ const readingTime = require("reading-time");
 // get and store all the frontmatter for the blog posts.
 // must be run in the root dir to work, "npm run ..."
 
+// I do all this there because there is issus with importing it
+// from the functions folder.
+
 const root = process.cwd();
 const postFolder = "posts";
 
@@ -45,7 +48,7 @@ function getAllFr() {
   return JSON.stringify(frontMatter);
 }
 
-const fileContents = `export const frontMatter = ${getAllFr()}`;
+const fileContents = `export const frontMatterCache = ${getAllFr()}`;
 
 // if the cache directory does not exist, create it
 try {
@@ -54,7 +57,7 @@ try {
   fs.mkdirSync("cache");
 }
 
-fs.writeFile("cache/frontmatter-cache.js", fileContents, (err) => {
+fs.writeFile("cache/frontmatter.js", fileContents, (err) => {
   // writing to the posts-cache.js file
   if (err) return console.log(err);
   console.log("Frontmatter cached.");

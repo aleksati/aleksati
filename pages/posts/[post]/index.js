@@ -11,15 +11,13 @@ export default function handler(props) {
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
       }}
-      showSearch={false}
-    >
+      showSearch={false}>
       <Post mdxSource={mdxSource} frontMatter={frontMatter} />
     </LayoutPage>
   );
 }
 
-import { frontMatter } from "../../../cache/frontmatter-cache";
-import { getPostFromSlug } from "../../../functions/loadPosts";
+import { getPostFromSlug, getAllFr } from "../../../functions/loadPosts";
 
 export async function getStaticProps({ params }) {
   const post = await getPostFromSlug(params.post);
@@ -27,6 +25,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  const frontMatter = getAllFr();
   const slugs = frontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]

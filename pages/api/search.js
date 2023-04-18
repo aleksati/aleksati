@@ -1,5 +1,5 @@
 import { initValidation, get, query } from "../../middleware/middlewareApi";
-import { frontMatter } from "../../cache/frontmatter-cache";
+import { frontMatterCache } from "../../cache/frontmatter";
 import nextConnect from "next-connect";
 
 const searchValidation = initValidation([
@@ -17,14 +17,14 @@ export default nextConnect()
 
       // first full keywords
       if (!results.length) {
-        results = frontMatter.filter((fr) =>
+        results = frontMatterCache.filter((fr) =>
           query_array.every((q) => fr.keywords.includes(q.toLowerCase()))
         );
       }
 
       // then segments of titles
       if (!results.length) {
-        results = frontMatter.filter((fr) =>
+        results = frontMatterCache.filter((fr) =>
           query_array.every((q) =>
             fr.title.toLowerCase().includes(q.toLowerCase())
           )
@@ -33,7 +33,7 @@ export default nextConnect()
 
       // then summary
       // if (!results.length) {
-      //   results = frontMatter.filter((fr) =>
+      //   results = frontMatterCache.filter((fr) =>
       //     fr.summary.toLowerCase().includes(query.toLowerCase())
       //   );
       // }

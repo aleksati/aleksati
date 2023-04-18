@@ -1,0 +1,34 @@
+---
+title: "Using Python to Control Ableton Live"
+date: "2023-03-10"
+keywords: ["audio", "performance", "ableton", "python", "midi"]
+summary: "While designing my band's new liveset, I wrote some code to help me navigate Ableton Live's session view like a 2D matrix using very few MIDI-controls. Here is how I did it."
+---
+
+<MyImage
+  src="/img/abletonmidi-overview1.gif"
+  alt="overview of my setup to navigate Ableton Live using python"
+/>
+
+Designing live performances for <MyLink url="https://theholymountain.net">The Holy Mountain</MyLink> (my band) has always been challenging. We are only three members, and the music is very complicated. During our live sets, we have to manage looping, sample triggering, complex tempo changes, and fast navigation between synthesizer presets. We also insist on playing most of the musical parts ourselves, which is annoying.
+
+Recently, I have been trying to figure out how to play drums and synthesizers simultaneously, drumming with my left hand (and legs) and playing synth with my right hand. This problem inspired me to develop a clever way to navigate <MyLink href="https://ableton.com/">Ableton Live</MyLink> using very few MIDI controls, minimizing time spent fiddling with Ableton while playing without compromising on technical freedom or musical complexity.
+
+In this post, I present my solution and demonstrate how you can use some Python code (especially Generator objects) between your MIDI controller and DAW to achieve awesome MIDI mapping capabilities.
+
+# Contents
+
+<ol>
+  <li>
+    <MyLink href="#system-overview">System overview</MyLink>
+  </li>
+  <li>Python setup / Generators</li>
+  <li>Setting up your Virtual MIDI Driver</li>
+  <li>Ableton config</li>
+</ol>
+
+<hr />
+
+<h1 id="system-overview">System overview</h1>
+
+PICTURE OF DIAGRAM.
