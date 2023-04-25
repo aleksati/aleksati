@@ -2,7 +2,7 @@
 title: "Using Python to Control Ableton Live"
 date: "2023-03-10"
 keywords: ["audio", "performance", "ableton", "python", "midi"]
-summary: "While designing my band's new liveset, I wrote some code to help me navigate Ableton Live's session view like a 2D matrix using very few MIDI-controls. Here is how I did it."
+summary: "While designing a new liveset with my band, I wrote some code to help me better and more efficiently navigate Ableton Live's session view using very few midi controls. Here is how I did it."
 ---
 
 <MyImage
@@ -12,9 +12,9 @@ summary: "While designing my band's new liveset, I wrote some code to help me na
 
 Designing live performances for <MyLink url="https://theholymountain.net">The Holy Mountain</MyLink> (my band) has always been challenging. We are only three members, and the music is very complicated. During our live sets, we have to manage looping, sample triggering, complex tempo changes, and fast navigation between synthesizer presets. We also insist on playing most of the musical parts ourselves, which is annoying.
 
-Recently, I have been trying to figure out how to play drums and synthesizers simultaneously, drumming with my left hand (and legs) and playing synth with my right hand. This problem inspired me to develop a clever way to navigate <MyLink href="https://ableton.com/">Ableton Live</MyLink> using very few MIDI controls, minimizing time spent fiddling with Ableton while playing without compromising on technical freedom or musical complexity.
+Recently, I have been trying to figure out how to play drums and synthesizers simultaneously, drumming with my left hand (and legs) and playing synth with my right hand. This problem inspired me to develop a clever way to navigate <MyLink href="https://ableton.com/">Ableton Live</MyLink> using very few midi controls, minimizing time spent fiddling with Ableton while playing without compromising on technical freedom and musical complexity.
 
-In this post, I present my solution and demonstrate how you can use some Python code (especially Generator objects) between your MIDI controller and DAW to achieve awesome MIDI mapping capabilities.
+In this post, I present my solution and demonstrate how you can use some Python code (especially Generator objects) between your midi controller and DAW to achieve awesome midi mapping capabilities.
 
 # Contents
 
@@ -22,13 +22,164 @@ In this post, I present my solution and demonstrate how you can use some Python 
   <li>
     <MyLink href="#system-overview">System overview</MyLink>
   </li>
-  <li>Python setup / Generators</li>
-  <li>Setting up your Virtual MIDI Driver</li>
-  <li>Ableton config</li>
+  <li>
+    <MyLink href="#python-setup">Python Setup</MyLink>
+  </li>
+  <ol>
+    <li>
+      <MyLink href="#rtmidi">rtmidi</MyLink>
+    </li>
+  </ol>
+  <li>
+    <MyLink href="#ableton-live-setup">
+      Ableton Live and Virtual Midi Setup
+    </MyLink>
+  </li>
+  <li>
+    <MyLink href="#config-and-mapping">Config and Mapping</MyLink>
+  </li>
+  <li>
+    <MyLink href="#source-code">Source Code</MyLink>
+  </li>
 </ol>
 
 <hr />
 
-<h1 id="system-overview">System overview</h1>
+<h1 id="system-overview">System Overview</h1>
 
-PICTURE OF DIAGRAM.
+<MyImage
+  src="/img/abletonmidi-system-diagram.png"
+  alt="system diagram of my setup."
+/>
+
+The system consists of 4 necessary components:
+
+<ul>
+  <li>A USB midi keyboard or controller</li>
+  <li>a Python program using the rtmidi and python-osc libraries</li>
+  <li>A virtual midi driver</li>
+  <li>Ableton Live 11</li>
+</ul>
+
+The Python program intercepts midi messages from the controller before sending the messages to Ableton Live using a virtual midi port.
+
+The program/code enables me to navigate Ableton's session view like a 2D matrix, skipping up and down in the DAW window using only two buttons on the midi controller (one for scene-skipping, and one for track-skipping).
+
+Further, using Python enables me to associate a unique set of synths to each Ableton scene and customize the track-skipping order as I wish.
+
+<MyImage
+  src="/img/abletonmidi-overview2-wkeys.gif"
+  alt="overview of my setup with keys"
+  captio="By associating specific tracks with specific scenes in Ableton Live, I can navigate complex live sets using very few controls."
+/>
+
+In my personal setup I use a MIDIPLUS x4 midi keyboard connected to my thinkpad P53 laptop via USB. As a virtual midi driver, I use <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsens loopMIDI</MyLink>. For Mac users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
+
+<h1 id="python-setup">Python Setup</h1>
+
+In Python, I represent the Ableton Live context as a dictionary. Each key in the dictionary represents a scene in Ableton, and each integer value represents a different track. Using the strategy, I can skip between synths based on the scene I am in.
+
+```Python
+scene_config = {
+  1 : [0],
+  2 : [0, 1],
+  3 : [0, 2],
+  4 : [0, 1, 4]
+}
+```
+
+The skipping functionality between tracks is achieved by asynchronously looping over the scene_config arrays in response to a midi keypress. To achieve asynchronous iteration, I use a Python generator function (yield), a special kind of function that returns a <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>.
+
+```Python
+# ...
+def nextSynth(note, scene):
+  count = 0
+  while True:
+      yield note + scene[count]
+      if count < (len(scene)-1):
+          count += 1
+      else:
+          count = 0
+
+MIDI_NOTE = 60
+current_scene = 4
+note = nextSynth(MIDI_NOTE, scene_config[current_scene])
+
+print(next(note))
+print(next(note))
+print(next(note))
+print(next(note))
+
+# output
+# 60
+# 61
+# 64
+# 60 - looped back to start
+```
+
+In the above example, I offset a base MIDI_NOTE by the values in the scene_config using a nextSynth function. The nextSynth function returns a generator function that I can asynchronously iterate/loop over using next().
+
+<h2 id="rtmidi">rtmidi</h2>
+
+The second key step is to handle the midi messages from the controller on their way to Ableton Live. With the <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi library</MyLink>, it's pretty straight forward to initialize midi communication between desired devices.
+
+```Python
+def midi_INIT():
+    print('Available MIDI input ports:')
+    midi_in = rtmidi.MidiIn()
+    for port, name in enumerate(midi_in.get_ports()):
+        print(port, ': ', name)
+
+    input_port = int(input('which port should I get MIDI from?: '))
+    midi_in_opened = midi_in.open_port(input_port)
+
+    print('Receiving MIDI from port: ', input_port)
+
+    return midi_in_opened
+
+midi_in = midi_INIT()
+
+# output:
+# Available MIDI input ports:
+# 0 :  loopMIDI Port 0
+# 1 :  loopMIDI Port 1
+# 2 :  loopMIDI Port 2
+# which port should I get MIDI from?: USER INPUT...
+```
+
+In the above example, I created a simple midi initialization process where the program reads out the available midi devices and ask which device it should use as its input. The same code has to be repeated for the midi out devices, only substituting rtmidi.MidiIn() with rtmidi.MidiOut().
+
+To send messages, the rtmidi objects have a send_message method that takes the midi channel, note and ON/OFF messages as arguments.
+
+```Python
+# ...
+midi_in = midi_INIT()
+
+midi_channel = 1
+midi_note = 100
+note_on_off = 127
+message = [midi_channel, midi_note, note_on_off]
+
+midi_in.send_message(message)
+```
+
+<h1 id="ableton-live-setup">Ableton Live Setup</h1>
+
+In Ableton, you have to make sure you have the amount of scenes and tracks correspond to the scene_config in the python code.
+
+Arrange tracks and scenes.
+
+<h1 id="ableton-live-setup">Midi Setup</h1>
+To communicate between the Python rtmidi and Ableton Live, we to setup a designated
+port on our virtual midi driver.
+
+<h1 id="config-and-mapping">Config and Mapping</h1>
+
+midi mapping script ++
+offset by a large amount to ensure not crashes.
+
+<h1 id="source-code">Source Code</h1>
+
+The source code of my system is open source and available on my <MyLink href="https://github.com/aleksati/ableton-navigation-system">GitHub page</MyLink>.
+
+If you want to contribute, you are free to do so. Simply fork the repo and make a pull request.

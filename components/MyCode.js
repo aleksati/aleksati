@@ -1,7 +1,7 @@
 const MyCode = ({ children }) => {
   return (
     <pre>
-      <code>{children}</code>
+      <code className="python">{children}</code>
     </pre>
   );
 };
