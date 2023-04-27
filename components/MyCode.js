@@ -1,3 +1,5 @@
+import { Prism } from "@mantine/prism";
+
 const MyCode = ({ children }) => {
   return (
     <pre>

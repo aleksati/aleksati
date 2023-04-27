@@ -31,12 +31,10 @@ In this post, I present my solution and demonstrate how you can use some Python 
     </li>
   </ol>
   <li>
-    <MyLink href="#ableton-live-setup">
-      Ableton Live and Virtual Midi Setup
-    </MyLink>
+    <MyLink href="#ableton-live-setup">Ableton Live</MyLink>
   </li>
   <li>
-    <MyLink href="#config-and-mapping">Config and Mapping</MyLink>
+    <MyLink href="#midi-setup">Midi Setup</MyLink>
   </li>
   <li>
     <MyLink href="#source-code">Source Code</MyLink>
@@ -70,7 +68,7 @@ Further, using Python enables me to associate a unique set of synths to each Abl
 <MyImage
   src="/img/abletonmidi-overview2-wkeys.gif"
   alt="overview of my setup with keys"
-  captio="By associating specific tracks with specific scenes in Ableton Live, I can navigate complex live sets using very few controls."
+  caption="By associating specific tracks with specific scenes in Ableton Live, I can navigate complex live sets using very few controls."
 />
 
 In my personal setup I use a MIDIPLUS x4 midi keyboard connected to my thinkpad P53 laptop via USB. As a virtual midi driver, I use <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsens loopMIDI</MyLink>. For Mac users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
@@ -119,7 +117,7 @@ print(next(note))
 
 In the above example, I offset a base MIDI_NOTE by the values in the scene_config using a nextSynth function. The nextSynth function returns a generator function that I can asynchronously iterate/loop over using next().
 
-<h2 id="rtmidi">rtmidi</h2>
+<h3 id="rtmidi">rtmidi</h3>
 
 The second key step is to handle the midi messages from the controller on their way to Ableton Live. With the <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi library</MyLink>, it's pretty straight forward to initialize midi communication between desired devices.
 
@@ -165,21 +163,35 @@ midi_in.send_message(message)
 
 <h1 id="ableton-live-setup">Ableton Live Setup</h1>
 
-In Ableton, you have to make sure you have the amount of scenes and tracks correspond to the scene_config in the python code.
+In Ableton, it's important to make sure that the amount of scenes and tracks correspond to the scene_config dictionary.
 
-Arrange tracks and scenes.
+The next step is to do the midi mapping so the messages from Python trigger the right behaviour.
 
-<h1 id="ableton-live-setup">Midi Setup</h1>
+To make this process as "safe" as possible, I recommend you make a script that ....
+To make sure that ... one source of truth.
+
+My does it over the same channel, and
+over the midi connection.
+I designed my own midi mapping script (daw-midi-mapping.py)
+
+<MyImage
+  src="/img/abletonmidi-ableton-midi-mapping.png"
+  alt="Ableton Live midi mapping."
+/>
+
+<h1 id="midi-setup">Midi Setup</h1>
+
 To communicate between the Python rtmidi and Ableton Live, we to setup a designated
 port on our virtual midi driver.
 
-<h1 id="config-and-mapping">Config and Mapping</h1>
+python midi-in - midi controller
+python midi-out -
 
 midi mapping script ++
 offset by a large amount to ensure not crashes.
 
 <h1 id="source-code">Source Code</h1>
 
-The source code of my system is open source and available on my <MyLink href="https://github.com/aleksati/ableton-navigation-system">GitHub page</MyLink>.
+The full source code of my system is open source and available on <MyLink href="https://github.com/aleksati/ableton-navigation-system">my GitHub</MyLink>.
 
 If you want to contribute, you are free to do so. Simply fork the repo and make a pull request.
