@@ -27,14 +27,14 @@ In this post, I present my solution and demonstrate how you can use some Python 
   </li>
   <ol>
     <li>
+      <MyLink href="#scene_config">scene_config</MyLink>
+    </li>
+    <li>
       <MyLink href="#rtmidi">rtmidi</MyLink>
     </li>
   </ol>
   <li>
-    <MyLink href="#ableton-live-setup">Ableton Live</MyLink>
-  </li>
-  <li>
-    <MyLink href="#midi-setup">Midi Setup</MyLink>
+    <MyLink href="#ableton-live-setup">Ableton Live Setup</MyLink>
   </li>
   <li>
     <MyLink href="#source-code">Source Code</MyLink>
@@ -75,53 +75,63 @@ In my personal setup I use a MIDIPLUS x4 midi keyboard connected to my thinkpad 
 
 <h1 id="python-setup">Python Setup</h1>
 
-In Python, I represent the Ableton Live context as a dictionary. Each key in the dictionary represents a scene in Ableton, and each integer value represents a different track. Using the strategy, I can skip between synths based on the scene I am in.
+The job of the Python code is to receive messages from the midi controller and alter them, based on the state of the system, before passing them on to Ableton.
+
+<h3 id="scene-config">scene_config</h3>
+
+The key component of the Python setup is the **scene_config** dictionary. This object represents Ableton Live's session view window as key-value pairs (scenes and tracks). Each key represents an Ableton scene, and each value (array) represents a collection of tracks.
+
+Using this strategy, I can skip between track constellations based on the current scene.
 
 ```Python
 scene_config = {
   1 : [0],
   2 : [0, 1],
   3 : [0, 2],
-  4 : [0, 1, 4]
+  4 : [0, 1, 4] # scene nr.4 skips between track/synth 0, 1 and 4.
 }
 ```
 
-The skipping functionality between tracks is achieved by asynchronously looping over the scene_config arrays in response to a midi keypress. To achieve asynchronous iteration, I use a Python generator function (yield), a special kind of function that returns a <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>.
+Skipping between tracks is achieved by looping over the scene_config arrays in response to midi keypresses.
+
+I use a Python generator function called yield to manage track skipping. Python Generators are special functions that return <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>. With these objects, you can iterate over array items asynchronously (one by one) without keeping track of the previous index. The object also handles the looping aspect by returning to start (0th index) when iterating past the last array item (-1st index).
 
 ```Python
 # ...
-def nextSynth(note, scene):
+def nextTrack(scene):
   count = 0
   while True:
-      yield note + scene[count]
+      yield scene[count]
       if count < (len(scene)-1):
           count += 1
       else:
           count = 0
 
-MIDI_NOTE = 60
 current_scene = 4
-note = nextSynth(MIDI_NOTE, scene_config[current_scene])
+track = nextTrack(scene_config[current_scene])
 
-print(next(note))
-print(next(note))
-print(next(note))
-print(next(note))
+print(next(track))
+print(next(track))
+print(next(track))
+print(next(track))
 
-# output
-# 60
-# 61
-# 64
-# 60 - looped back to start
+# outputs:
+# 0
+# 1
+# 4
+# 0 - back to start
 ```
 
-In the above example, I offset a base MIDI_NOTE by the values in the scene_config using a nextSynth function. The nextSynth function returns a generator function that I can asynchronously iterate/loop over using next().
+In the above example, I use the nextTrack function to iterate over a desired scene_config key (Ableton scene). The function returns a generator object I can asynchronously (on demand) loop over using the next() function.
 
 <h3 id="rtmidi">rtmidi</h3>
 
-The second key step is to handle the midi messages from the controller on their way to Ableton Live. With the <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi library</MyLink>, it's pretty straight forward to initialize midi communication between desired devices.
+The second job of the Python program is to mediate the midi connections by handling the messages from the controller before sending them off to Ableton. In this case, the system requires two midi devices; one physical (USB controller) and one virtual (loopMIDI).
+
+The <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> Python library makes it pretty straightforward to initialize midi communication between devices.
 
 ```Python
+# initialize the rtmidi python communication with a simple UI
 def midi_INIT():
     print('Available MIDI input ports:')
     midi_in = rtmidi.MidiIn()
@@ -137,61 +147,71 @@ def midi_INIT():
 
 midi_in = midi_INIT()
 
-# output:
+# outputs:
 # Available MIDI input ports:
-# 0 :  loopMIDI Port 0
+# 0 :  Physical USB controller
 # 1 :  loopMIDI Port 1
-# 2 :  loopMIDI Port 2
 # which port should I get MIDI from?: USER INPUT...
 ```
 
-In the above example, I created a simple midi initialization process where the program reads out the available midi devices and ask which device it should use as its input. The same code has to be repeated for the midi out devices, only substituting rtmidi.MidiIn() with rtmidi.MidiOut().
+In the above example, a simple rtmidi initialization process is defined. The program reads out the available midi devices and asks which device it should use as its input. Here we choose the physical midi controller as our input.
 
-To send messages, the rtmidi objects have a send_message method that takes the midi channel, note and ON/OFF messages as arguments.
+The same code can be repeated for the midi output initialization, only substituting rtmidi.MidiIn() with rtmidi.MidiOut(). Choose the virtual midi driver as your midi output device.
+
+To send messages, the rtmidi objects have a send_message method that only requires the midi channel, note, and ON/OFF messages as arguments.
 
 ```Python
-# ...
-midi_in = midi_INIT()
+# Send a note-on midi message on note 100 to the virtual midi driver
+midi_in, midi_out = midi_INIT()
 
 midi_channel = 1
-midi_note = 100
-note_on_off = 127
+midi_note = 100 # coming from you controller (+ offset)
+note_on_off = 127 # 127 for ON, 0 for off
 message = [midi_channel, midi_note, note_on_off]
 
-midi_in.send_message(message)
+midi_out.send_message(message)
+```
+
+Finally, after initializing your midi communication, you must locate the correct midi note messages from your controller buttons. With rtmidi, we can print out raw midi messages as such:
+
+```Python
+#src/keyboard-test.py
+# Prints out the midi messages from your device to the console.
+midi_in, midi_out = midi_INIT()
+with midi_in:
+    prev_message = []
+    while True:
+        message = midi_in.get_message() # this is important method
+        if message and message is not prev_message:
+            print(message)
+            prev_message = message
 ```
 
 <h1 id="ableton-live-setup">Ableton Live Setup</h1>
 
-In Ableton, it's important to make sure that the amount of scenes and tracks correspond to the scene_config dictionary.
+In Ableton Live's session view, ensure that the number of scenes and tracks corresponds to the scene_config dictionary. Then, you are ready for the midi mapping process.
 
-The next step is to do the midi mapping so the messages from Python trigger the right behaviour.
-
-To make this process as "safe" as possible, I recommend you make a script that ....
-To make sure that ... one source of truth.
-
-My does it over the same channel, and
-over the midi connection.
-I designed my own midi mapping script (daw-midi-mapping.py)
+To make the midi mapping process as safe and reliable as possible, I recommend using Python to guide your mapping based on your scene_config. Having a single source of truth is always a good programming strategy.
 
 <MyImage
   src="/img/abletonmidi-ableton-midi-mapping.png"
   alt="Ableton Live midi mapping."
+  caption="Making a `daw-midi-mapping.py` is recommended when your Ableton setup is so tighly coupled with Python variables."
 />
 
-<h1 id="midi-setup">Midi Setup</h1>
+Finally, we have to set up the correct midi communication between Python, Ableton, and your controller. Per default, Ableton will recognize and enable any compatible midi device it detects. However, we only want Ableton to listen to the data from Python, so we have to configure some settings.
 
-To communicate between the Python rtmidi and Ableton Live, we to setup a designated
-port on our virtual midi driver.
+Hit **ctrl +,** in Ableton to open preferences and navigate to the midi section. Uncheck every box except "Track" and "Sync" on the virtual midi driver input.
 
-python midi-in - midi controller
-python midi-out -
+<MyImage
+  src="/img/abletonmidi-ableton-midi.jpg"
+  alt="Ableton Live midi config."
+/>
 
-midi mapping script ++
-offset by a large amount to ensure not crashes.
+Now you should be ready to go.
 
 <h1 id="source-code">Source Code</h1>
 
-The full source code of my system is open source and available on <MyLink href="https://github.com/aleksati/ableton-navigation-system">my GitHub</MyLink>.
+The full source code of this project is open source and available on <MyLink href="https://github.com/aleksati/ableton-navigation-system">my GitHub</MyLink>.
 
 If you want to contribute, you are free to do so. Simply fork the repo and make a pull request.
