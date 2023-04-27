@@ -8,15 +8,14 @@ export default function handler({ frontMatter, keywords }) {
       pageMeta={{
         title: "posts",
         keywords,
-      }}>
+      }}
+    >
       <PostList frontMatter={frontMatter} />
     </LayoutPage>
   );
 }
 
 import { getKeysFromFr, getAllFr } from "../../functions/loadPosts";
-// import { frontMatterCache } from "../../cache/frontmatter";
-// import { dev } from "../../config";
 
 export async function getStaticProps() {
   // get frontMatter form all posts

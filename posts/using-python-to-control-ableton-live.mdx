@@ -10,11 +10,11 @@ summary: "While designing a new liveset with my band, I wrote some code to help 
   alt="overview of my setup to navigate Ableton Live using python"
 />
 
-Designing live performances for <MyLink url="https://theholymountain.net">The Holy Mountain</MyLink> (my band) has always been challenging. We are only three members, and the music is very complicated. During our live sets, we have to manage looping, sample triggering, complex tempo changes, and fast navigation between synthesizer presets. We also insist on playing most of the musical parts ourselves, which is annoying.
+Designing live performances for <MyLink url="https://theholymountain.net">The Holy Mountain</MyLink> (my band) has always been challenging. During our live sets, we have to manage looping, sample triggering, complex tempo changes, and fast navigation between synthesizer presets.
 
-Recently, I have been trying to figure out how to play drums and synthesizers simultaneously, drumming with my left hand (and legs) and playing synth with my right hand. This problem inspired me to develop a clever way to navigate <MyLink href="https://ableton.com/">Ableton Live</MyLink> using very few midi controls, minimizing time spent fiddling with Ableton while playing without compromising on technical freedom and musical complexity.
+For our upcoming liveset, I have been trying to figure out how to play drums and synthesizers simultaneously, playing synth with my right hand and drumming with my remaining limbs. This problem inspired me to develop a clever way to navigate <MyLink href="https://ableton.com/">Ableton Live</MyLink> using very few midi controls
 
-In this post, I present my solution and demonstrate how you can use some Python code (especially Generator objects) between your midi controller and DAW to achieve awesome midi mapping capabilities.
+In this post, I present my solution and demonstrate how you can use some Python code (essentially Generator objects and rtmidi) to achieve awesome midi mapping capabilities between your midi controller and DAW.
 
 # Contents
 
@@ -50,20 +50,22 @@ In this post, I present my solution and demonstrate how you can use some Python 
   alt="system diagram of my setup."
 />
 
-The system consists of 4 necessary components:
+My solution enables navigatation of Ableton's session view like a 2D matrix, skipping up and down in the DAW window using only two buttons on a midi controller (one for scene-skipping, and one for track-skipping).
+
+The system consists of 4 components:
 
 <ul>
   <li>A USB midi keyboard or controller</li>
-  <li>a Python program using the rtmidi and python-osc libraries</li>
+  <li>a Python setup with rtmidi library installed</li>
   <li>A virtual midi driver</li>
   <li>Ableton Live 11</li>
 </ul>
 
-The Python program intercepts midi messages from the controller before sending the messages to Ableton Live using a virtual midi port.
+In my personal setup I use a MIDIPLUS x4 midi keyboard connected to my thinkpad P53 laptop via USB. As a virtual midi driver, I use <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsens loopMIDI</MyLink>. For Mac users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
 
-The program/code enables me to navigate Ableton's session view like a 2D matrix, skipping up and down in the DAW window using only two buttons on the midi controller (one for scene-skipping, and one for track-skipping).
+<h1 id="python-setup">Python Setup</h1>
 
-Further, using Python enables me to associate a unique set of synths to each Ableton scene and customize the track-skipping order as I wish.
+The Python code as two primary jobs. First, to intercept midi messages from the controller and pass them to Ableton Live using the rtmidi library. And second, to associate collections of Ableton tracks with scenes and customize the track skipping order.
 
 <MyImage
   src="/img/abletonmidi-overview2-wkeys.gif"
@@ -71,17 +73,11 @@ Further, using Python enables me to associate a unique set of synths to each Abl
   caption="By associating specific tracks with specific scenes in Ableton Live, I can navigate complex live sets using very few controls."
 />
 
-In my personal setup I use a MIDIPLUS x4 midi keyboard connected to my thinkpad P53 laptop via USB. As a virtual midi driver, I use <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsens loopMIDI</MyLink>. For Mac users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
-
-<h1 id="python-setup">Python Setup</h1>
-
-The job of the Python code is to receive messages from the midi controller and alter them, based on the state of the system, before passing them on to Ableton.
-
 <h3 id="scene-config">scene_config</h3>
 
-The key component of the Python setup is the scene_config dictionary. This object represents Ableton Live's session view window as key-value pairs (scenes and tracks). Each key represents an Ableton scene, and each value (array) represents a collection of tracks.
+To represent Ableton Live's session view window in Python, define a dictionary called scene_config. The dictionary key-value pairs represent the scenes (keys) and tracks (values) of our Ableton session. Each key represents a scene, and each value represents a collection (array) of tracks (integers).
 
-Using this strategy, I can skip between track constellations based on the current scene.
+Using this strategy, we can skip between different collections of tracks based on the current scene as shown in the code below:
 
 ```Python
 scene_config = {
@@ -92,12 +88,15 @@ scene_config = {
 }
 ```
 
-Skipping between tracks is achieved by looping over the scene_config arrays in response to midi keypresses.
+Skipping between tracks is achieved by asynchronously iterating over the scene_config arrays in response to keypresses from the controller. To handle this functionality, I use a Generator function called yield.
 
-I use a Python generator function called yield to manage track skipping. Python Generators are special functions that return <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>. With these objects, you can iterate over array items asynchronously (one by one) without keeping track of the previous index. The object also handles the looping aspect by returning to start (0th index) when iterating past the last array item (-1st index).
+Python Generators are special functions that return <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>. With these objects, we can iterate over array items one-by-one asynchronously without having to keep track of the previous index.
+
+The yield function also handle looping for us as it returns to start (0th index item) when iterating past the last array item (-1st index).
 
 ```Python
 # ...
+# Use yield to asynchronously iterate and loop over arrays with next()
 def nextTrack(scene):
   count = 0
   while True:
@@ -122,7 +121,7 @@ print(next(track))
 # 0 - back to start
 ```
 
-In the above example, I use the nextTrack function to iterate over a desired scene_config key (Ableton scene). The function returns a generator object I can asynchronously (on demand) loop over using the next() function.
+In the above example, I pass a desired scene (array) from scene_config into the nextTrack function. The function returns a generator object I can use to asynchronously iterate over the array using the next() function.
 
 <h3 id="rtmidi">rtmidi</h3>
 
