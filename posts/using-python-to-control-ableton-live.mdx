@@ -132,7 +132,7 @@ The second job of the Python program is to mediate the midi connections by handl
 The <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> Python library makes it pretty straightforward to initialize midi communication between devices.
 
 ```Python
-# initialize the rtmidi python communication with a simple UI
+# initialize midi in and out communication with a simple UI
 def midi_INIT():
     print('Available MIDI input ports:')
     midi_in = rtmidi.MidiIn()
@@ -155,7 +155,7 @@ midi_in = midi_INIT()
 # which port should I get MIDI from?: USER INPUT...
 ```
 
-In the above example, a simple rtmidi initialization process is defined. The program reads out the available midi devices and asks which device it should use as its input. Here we choose the physical midi controller as our input.
+In the above example, a simple midi initialization process is defined... ins and outs.. The program reads out the available midi devices and asks which device it should use as its input. Here we choose the physical midi controller as our input.
 
 The same code can be repeated for the midi output initialization, only substituting rtmidi.MidiIn() with rtmidi.MidiOut(). Choose the virtual midi driver as your midi output device.
 
