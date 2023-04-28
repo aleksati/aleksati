@@ -92,7 +92,7 @@ Skipping between tracks is achieved by asynchronously iterating over the scene_c
 
 Python Generators are special functions that return <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>. With these objects, we can iterate over array items one-by-one asynchronously without having to keep track of the previous index.
 
-The yield function also handle looping for us as it returns to start (0th index item) when iterating past the last array item (-1st index).
+The yield function also handles the looping aspect by returning to start (0th index item) when iterating past the last array item (-1st index).
 
 ```Python
 # ...
@@ -121,13 +121,15 @@ print(next(track))
 # 0 - back to start
 ```
 
-In the above example, I pass a desired scene (array) from scene_config into the nextTrack function. The function returns a generator object I can use to asynchronously iterate over the array using the next() function.
+In the above example, I pass a scene (array) from scene_config into the nextTrack function. The function returns a generator object I can use to asynchronously iterate over the array using the next() function.
+
+To see how I actually implemented this technique into my live setup, visit the <MyLink href="#source-code">source code section</MyLink> below.
 
 <h3 id="rtmidi">rtmidi</h3>
 
+The second job of the Python program is to handle the midi communication between the controller and Ableton Live.
 {/* I AM HERE */}
-
-The second job of the Python program is to mediate the midi connections by handling the messages from the controller before sending them off to Ableton. In this case, the system requires two midi devices; one physical (USB controller) and one virtual (loopMIDI).
+In this case, the system requires two midi devices; one physical (USB controller) and one virtual (loopMIDI).
 
 The <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> Python library makes it pretty straightforward to initialize midi communication between devices.
 
