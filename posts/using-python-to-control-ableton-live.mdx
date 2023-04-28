@@ -123,15 +123,17 @@ print(next(track))
 
 In the above example, I pass a scene (array) from scene_config into the nextTrack function. The function returns a generator object I can use to asynchronously iterate over the array using the next() function.
 
-To see how I actually implemented this technique into my live setup, visit the <MyLink href="#source-code">source code section</MyLink> below.
+To see how I implemented this technique into my actually live setup, visit the <MyLink href="#source-code">source code section</MyLink> below.
 
 <h3 id="rtmidi">rtmidi</h3>
 
-The second job of the Python program is to handle the midi communication between the controller and Ableton Live.
-{/* I AM HERE */}
-In this case, the system requires two midi devices; one physical (USB controller) and one virtual (loopMIDI).
+The second job of the Python program is to handle the midi communication between the controller and Ableton Live. We have to use two midi devices for this to work, the physical USB controller and one virtual midi driver (loopMIDI).
 
-The <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> Python library makes it pretty straightforward to initialize midi communication between devices.
+The program receives
+
+{/* I AM HERE */}
+
+Fortunatley, it's straightforward to initialize communication between different midi devices using the <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> Python library.
 
 ```Python
 # initialize midi in and out communication with a simple UI
@@ -157,7 +159,7 @@ midi_in = midi_INIT()
 # which port should I get MIDI from?: USER INPUT...
 ```
 
-In the above example, a simple midi initialization process is defined... ins and outs.. The program reads out the available midi devices and asks which device it should use as its input. Here we choose the physical midi controller as our input.
+In the above example, a simple midi input initialization process is defined. The program reads out the available midi devices and asks which device it should use as its input. Here we would choose the physical midi controller as our input device.
 
 The same code can be repeated for the midi output initialization, only substituting rtmidi.MidiIn() with rtmidi.MidiOut(). Choose the virtual midi driver as your midi output device.
 
