@@ -1,29 +1,27 @@
 import NavVerticalTabs from "./NavVerticalTabs";
+import ButtonTheme from "./ButtonTheme";
 import ButtonIcon from "./ButtonIcon";
+import Search from "./Search";
 import Link from "next/link";
-// import Icon from "./Icon";
 
 const NavVertical = ({ onShowVerticalNav }) => {
   return (
-    <nav
-      className="z-50 fixed border-r border-secondary bg-primary-light dark:bg-primary-dark"
-      aria-label="Navbar"
-      role="toolbar"
-    >
-      <div className="flex flex-col p-4 min-h-screen items-start justify-start w-48 md:w-52">
-        <div className="space-x-4 items-center justify-start flex pb-6">
-          <ButtonIcon onClick={onShowVerticalNav} iconId="x" />
-          <Link href="/" className="font-bold text-sm md:text-base">
-            aleksati.net
-          </Link>
+    <div className="flex-none border-r border-secondary space-y-6 p-4 pt-4 min-h-screen items-start justify-start">
+      <div className="items-center w-full justify-start space-y-6">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center justify-center space-x-2">
+            <Link href="/" className="font-bold text-base">
+              aleksati.net
+            </Link>
+          </div>
+          <ButtonTheme iconSize={"text-md"} />
         </div>
-        <div className="flex items-center space-x-4">
-          {/* just a filler */}
-          <div className="p-2"></div>
-          <NavVerticalTabs />
-        </div>
+        <Search />
       </div>
-    </nav>
+      <div className="w-full">
+        <NavVerticalTabs />
+      </div>
+    </div>
   );
 };
 

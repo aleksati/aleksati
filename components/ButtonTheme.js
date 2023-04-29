@@ -2,7 +2,7 @@ import getCurrTheme from "../functions/getCurrTheme";
 import { useState, useEffect } from "react";
 import ButtonIcon from "./ButtonIcon";
 
-const ButtonTheme = ({ tabOrder }) => {
+const ButtonTheme = ({ tabOrder, iconSize }) => {
   const [mounted, setMounted] = useState(false);
   const { currTheme, setTheme } = getCurrTheme();
 
@@ -20,6 +20,7 @@ const ButtonTheme = ({ tabOrder }) => {
       iconId={currTheme === "dark" ? "sun" : "moon"}
       onClick={handleClick}
       label="Toggle light or dark theme"
+      iconSize={iconSize}
     />
   );
 };

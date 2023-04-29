@@ -26,13 +26,7 @@ const ButtonScrollTo = ({ targetId, parentRef }) => {
   // isTouch && isVisible
   if (isVisible) {
     return (
-      <nav className="fixed z-10 flex space-x-2 scrollLock-compensation right-4 bottom-4">
-        <ButtonIcon
-          iconId="upArrow"
-          onClick={handleClick}
-          label="Back to top"
-        />
-      </nav>
+      <ButtonIcon iconId="upArrow" onClick={handleClick} label="Back to top" />
     );
   }
 

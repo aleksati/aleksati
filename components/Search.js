@@ -73,8 +73,8 @@ const Search = ({ focusOnMount = false, onMobileClickOutside = () => {} }) => {
   return (
     <div className="w-full" ref={searchRef}>
       <input
-        className="form-search bg-primary-light dark:bg-primary-dark rounded-sm w-full h-8"
-        placeholder="&#x1F50E;&#xFE0E; search posts .."
+        className="form-search border-gray-200 w-full bg-primary-light dark:bg-primary-dark rounded-sm h-8"
+        placeholder="&#x1F50E;&#xFE0E; search"
         id="search"
         type="search"
         ref={inputRef}
@@ -88,8 +88,7 @@ const Search = ({ focusOnMount = false, onMobileClickOutside = () => {} }) => {
             {results.map((result) => (
               <li
                 key={result.slug}
-                className="border-b hover:bg-blue-200 hover:dark:bg-blue-800 border-secondary p-2 hover:cursor-pointer"
-              >
+                className="border-b hover:bg-blue-200 hover:dark:bg-blue-800 border-secondary p-2 hover:cursor-pointer">
                 <Link href={`/posts/${result.slug}`}>{result.title}</Link>
                 <p className="text-secondary text-xs">
                   {date2text(result.date)}

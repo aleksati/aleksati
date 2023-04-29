@@ -19,7 +19,7 @@ const NavVerticalTabs = () => {
   const page = currTab.length ? currTab[0].key : "";
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {tabs.map((tab, index) => {
         // const brdr = index === 0 ? "" : "pt-2 pb-2 border-t";
         const brdr = "";
@@ -32,8 +32,7 @@ const NavVerticalTabs = () => {
                 active={tab.key === page}
                 href={`/${tab.key}`}
                 key={tab.key}
-                type="nav"
-              >
+                type="nav">
                 {tab.title}
               </MyLink>
             </div>
@@ -42,15 +41,13 @@ const NavVerticalTabs = () => {
               ? tab.categories.map((cat) => (
                   <div
                     key={cat.key}
-                    className="flex space-x-2 items-center justify-start"
-                  >
+                    className="flex space-x-2 items-center justify-start">
                     <Icon id={cat.icon} iconSize={"text-md"} />
                     <MyLink
                       active={cat.key === page}
                       href={`/${cat.key}`}
                       key={cat.key}
-                      type="nav"
-                    >
+                      type="nav">
                       {cat.title}
                     </MyLink>
                   </div>

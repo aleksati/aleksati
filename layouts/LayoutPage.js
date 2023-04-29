@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
 import Meta from "../components/Meta";
+import ButtonIcon from "../components/ButtonIcon";
 
 const widthTresh = 768; // md tailwind default
 let prevWidth = 0;
@@ -37,21 +38,30 @@ const LayoutPage = ({
   return (
     <div className="text-base items-center">
       <Meta {...pageMeta} />
-      <NavTop
-        onShowVerticalNav={handleShowVerticalNav}
-        isMobileSearch={width < widthTresh}
-      />
-      {navIsShown ? (
-        <NavVertical onShowVerticalNav={handleShowVerticalNav} />
+      {!navIsShown ? (
+        <NavTop
+          onShowVerticalNav={handleShowVerticalNav}
+          isMobileSearch={width < widthTresh}
+        />
       ) : null}
-      {/* Compensate for fixed NavTop */}
-      <div className="pt-16 min-h-screen ">
+      <div className="min-h-screen flex">
+        {navIsShown ? (
+          <NavVertical onShowVerticalNav={handleShowVerticalNav} />
+        ) : null}
         <div
-          className={`container mx-auto px-4 md:px-0 pb-6 ${className}`}
+          className={`container blur-sm mx-auto flex-1 px-4 py-4 ${className}`}
           ref={ref}
-          id={pageId}
-        >
+          id={pageId}>
           {children}
+        </div>
+        <div className="fixed scrollLock-compensation right-4 top-4">
+          <ButtonIcon
+            iconId="x"
+            iconSize="text-2xl"
+            onClick={handleShowVerticalNav}
+          />
+        </div>
+        <div className="fixed scrollLock-compensation right-4 bottom-4">
           <ButtonScrollTo targetId={pageId} parentRef={ref} />
         </div>
       </div>
