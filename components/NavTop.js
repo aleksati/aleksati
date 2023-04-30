@@ -4,7 +4,7 @@ import ButtonTheme from "./ButtonTheme";
 import Search from "./Search";
 import Link from "next/link";
 
-const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
+const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
   const [isSearch, setIsSearch] = useState(false);
   const searchRef = useRef(null);
 
@@ -16,21 +16,9 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
 
   return (
     <nav
-      className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
+      className="z-10 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      {/* {isSearch && isMobileSearch ? (
-        <div
-          className="items-center justify-between space-x-4 px-4 py-2.5 flex"
-          ref={searchRef}>
-          <Search
-            focusOnMount={true}
-            onMobileClickOutside={handleMobileClickOutside}
-          />
-          <ButtonIcon onClick={handleSearchToggle} iconId="x" />
-          <ButtonTheme />
-        </div>
-      ) : ( */}
       <div className="flex p-4 items-center justify-between">
         <div className="justify-start space-x-2 items-center flex">
           <Link href="/" className="font-bold text-base items-center">
@@ -38,18 +26,13 @@ const NavTop = ({ onShowVerticalNav, isMobileSearch }) => {
           </Link>
         </div>
         <div>
-          <ButtonIcon onClick={onShowVerticalNav} iconId="threedots" />
+          <ButtonIcon
+            iconId={showNavVertical ? "x" : "threedots"}
+            onClick={onToggleNavVertical}
+            iconSize="text-2xl"
+          />
         </div>
-        {/* <div className="flex space-x-4 items-center justify-end mr-4">
-          {isMobileSearch ? (
-            <ButtonIcon onClick={handleSearchToggle} iconId="search" />
-          ) : (
-            <Search />
-          )}
-          <ButtonTheme />
-        </div> */}
       </div>
-      {/* )} */}
     </nav>
   );
 };
