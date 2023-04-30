@@ -3,7 +3,7 @@ import LayoutPage from "../layouts/LayoutPage";
 
 export default function Music() {
   return (
-    <LayoutPage pageMeta={{ title: "music" }} showSearch={false}>
+    <LayoutPage pageMeta={{ title: "music" }}>
       <div className="flex flex-col space-y-12">
         <MusicListItem
           title="The Holy Mountain"

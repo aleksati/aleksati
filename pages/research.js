@@ -4,7 +4,7 @@ import MyLink from "../components/MyLink";
 
 export default function Research({ data_cleaned, notFound }) {
   return (
-    <LayoutPage pageMeta={{ title: "research" }} showSearch={false}>
+    <LayoutPage pageMeta={{ title: "research" }}>
       {notFound ? (
         <p>Something went wrong while fetching the data...</p>
       ) : (

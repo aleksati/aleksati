@@ -73,8 +73,8 @@ const Search = ({ focusOnMount = false, onMobileClickOutside = () => {} }) => {
   return (
     <div className="w-full" ref={searchRef}>
       <input
-        className="form-search border-gray-200 w-full bg-primary-light dark:bg-primary-dark rounded-sm h-8"
-        placeholder="&#x1F50E;&#xFE0E; search"
+        className="form-search border-gray-200 dark:border-gray-800 w-full bg-primary-light dark:bg-primary-dark rounded-sm h-8"
+        placeholder="&#x1F50E;&#xFE0E; search posts"
         id="search"
         type="search"
         ref={inputRef}

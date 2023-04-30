@@ -2,17 +2,9 @@ import LayoutPage from "../layouts/LayoutPage";
 import profilePic from "../public/img/portrett.jpg";
 import MyImage from "../components/MyImage";
 
-// const pageMeta = {
-//   title: "aleksati.net",
-//   keywords:
-//     "music technology, music, software development, networked audio, programming",
-//   description: "Official homepage of Aleksander Tidemann ",
-//   url: "?",
-// };
-
 export default function About() {
   return (
-    <LayoutPage pageMeta={{ title: "about" }} showSearch={false}>
+    <LayoutPage pageMeta={{ title: "about" }}>
       <h2 className="text-2xl font-bold pb-4">aleksander tidemann</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mx-auto">
         <div>

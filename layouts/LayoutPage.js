@@ -14,7 +14,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const [showNavTop, setShowNavTop] = useState(false);
   const { width } = useWindowSize();
   const isTouch = isTouchDevice();
-  const ref = useRef(null);
+  const pageTopRef = useRef();
 
   // onMount, set the correct nav UI
   useEffect(() => {
@@ -57,13 +57,13 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
         <div
           className={`container ${
             showNavTop && showNavVertical ? "blur-sm" : null
-          } mx-auto flex-1 px-4 py-4 ${className}`}
-          ref={ref}
-          id={pageId}>
+          } mx-auto flex-1 px-4 py-8 ${className}`}
+          id={pageId}
+          ref={pageTopRef}>
           {children}
         </div>
-        <div className="fixed scrollLock-compensation right-4 bottom-4">
-          <ButtonScrollTo targetId={pageId} parentRef={ref} />
+        <div className="fixed right-4 bottom-4">
+          <ButtonScrollTo targetId={pageId} parentRef={pageTopRef} />
         </div>
       </div>
     </div>

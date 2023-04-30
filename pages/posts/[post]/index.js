@@ -10,8 +10,7 @@ export default function handler(props) {
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
-      }}
-      showSearch={false}>
+      }}>
       <Post mdxSource={mdxSource} frontMatter={frontMatter} />
     </LayoutPage>
   );

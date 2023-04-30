@@ -6,7 +6,7 @@ import Icon from "../components/Icon";
 
 export default function Contact() {
   return (
-    <LayoutPage pageMeta={{ title: "contact" }} showSearch={false}>
+    <LayoutPage pageMeta={{ title: "contact" }}>
       <div>
         <div className="pb-4">
           <p>aleksati@aleksati net</p>

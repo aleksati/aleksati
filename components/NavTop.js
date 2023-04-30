@@ -1,19 +1,7 @@
-import { useState, useCallback, useRef } from "react";
 import ButtonIcon from "./ButtonIcon";
-import ButtonTheme from "./ButtonTheme";
-import Search from "./Search";
 import Link from "next/link";
 
 const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
-  const [isSearch, setIsSearch] = useState(false);
-  const searchRef = useRef(null);
-
-  const handleSearchToggle = () => setIsSearch((prevState) => !prevState);
-
-  const handleMobileClickOutside = useCallback(() => {
-    setIsSearch(false);
-  }, [setIsSearch]);
-
   return (
     <nav
       className="z-10 fixed w-full bg-primary-light dark:bg-primary-dark"
