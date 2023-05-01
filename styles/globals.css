@@ -28,6 +28,11 @@
   }
 }
 
+/* compensate for our scrollLock hook. Is applied to Nav*/
+/* [data-scroll-lock] .scrollLock-compensation {
+  margin-right: var(--scrollbar-compensation);
+} */
+
 /* For the active slideshow indicators */
 .indicators .active {
   background-color: #4b5563 !important;

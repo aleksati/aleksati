@@ -16,7 +16,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
     <div
       className={`z-20 ${
         showNavTop ? "w-72 fixed" : "w-64 flex-none"
-      } bg-primary-light dark:bg-primary-dark border-r border-secondary min-h-screen items-start justify-start`}
+      } bg-primary-light dark:bg-primary-dark border-r border-secondary dark:border-secondary-dark min-h-screen items-start justify-start`}
       ref={ref}>
       <div
         className={`fixed space-y-6 ${

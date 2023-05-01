@@ -1,5 +1,4 @@
 import ButtonScrollTo from "../components/ButtonScrollTo";
-import isTouchDevice from "../functions/isTouchDevice";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
@@ -15,7 +14,6 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const [widthBelowThresh, setWidthBelowThresh] = useState();
   const [showNavTop, setShowNavTop] = useState(false);
   const { width } = useWindowSize();
-  const isTouch = isTouchDevice();
   const pageTopRef = useRef();
 
   // handle browser size transitions to open and close the navbars
@@ -26,6 +24,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   }
 
   // also close the verical nav on touch if navigating to new url
+  // using path was the only thing that seemed to work
   const router = useRouter();
   const path = router.query;
   // set navbars based on the current state and window width

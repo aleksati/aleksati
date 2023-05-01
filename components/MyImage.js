@@ -12,7 +12,11 @@ const MyImage = (props) => {
         unoptimized={true} // this is the only way make gifs work with Image component, I found
         quality={100}
       />
-      {caption ? <figcaption className="text-xs">{caption}</figcaption> : null}
+      {caption ? (
+        <figcaption className="text-xs text-secondary dark:text-secondary-dark">
+          {caption}
+        </figcaption>
+      ) : null}
     </div>
   );
 };

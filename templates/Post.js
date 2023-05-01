@@ -12,7 +12,7 @@ export default function Post({ mdxSource, frontMatter }) {
         <h1 className="font-bold text-4xl md:text-6xl mb-2">
           {frontMatter.title}
         </h1>
-        <div className="flex space-x-2 text-secondary flex-wrap text-xs md:text-sm">
+        <div className="flex space-x-2 text-secondary dark:text-secondary-dark flex-wrap text-xs md:text-sm">
           <p>{date2text(frontMatter.date)}</p>
           <div className="flex space-x-2">
             {[...frontMatter.keywords].map((keyword) => (

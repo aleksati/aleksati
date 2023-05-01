@@ -39,7 +39,8 @@ module.exports = {
         // text colors
         "primary-light": "#000",
         "primary-dark": "#fff",
-        secondary: "#8b949e",
+        secondary: "#94a3b8",
+        "secondary-dark": "#6b7280",
       },
     },
   },

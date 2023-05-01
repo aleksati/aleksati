@@ -7,7 +7,6 @@ const tabs = [
   { key: "posts", title: "posts", categories: [], icon: "filter" },
   { key: "music", title: "music", categories: [], icon: "issue" },
   { key: "research", title: "research", categories: [], icon: "x" },
-  { key: "contact", title: "contact", categories: [], icon: "x" },
 ];
 
 const NavVerticalTabs = () => {
