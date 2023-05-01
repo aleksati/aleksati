@@ -1,21 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useClickOutside } from "../hooks/useClickOutside";
 import { date2text } from "../functions/date2text";
 import Link from "next/link";
 
-const Search = ({ focusOnMount = false, onMobileClickOutside = () => {} }) => {
-  const searchRef = useRef(null);
-  const inputRef = useRef(null);
-  const [isMounted, setIsMounted] = useState(false);
+const Search = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [isResults, setIsResults] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  // set OnMount to avoid clickhandler closing the searchbar
-  // immediatly when first clicking the hourglass icon.
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const [ref, isClickOutside] = useClickOutside();
 
   // when typing, call the search api and set results
   const onChange = useCallback(async (e) => {
@@ -34,61 +28,33 @@ const Search = ({ focusOnMount = false, onMobileClickOutside = () => {} }) => {
     }
   }, []);
 
-  // for mobile view:
-  // focus the search bar onMount so you can just start typing
-  // immediatly when hitting the hour-glass.
+  // null the search when clicking outside.
   useEffect(() => {
-    if (inputRef.current && focusOnMount) {
-      inputRef.current.focus();
-    }
-  }, [inputRef, focusOnMount]);
-
-  // to remove the search results window when a user clicks
-  // outside the results window. I raise the event to NavTop to
-  // close the whole search function from there.
-  const handleClickOutside = useCallback(
-    (e) => {
-      if (!isMounted) return;
-      if (searchRef.current && searchRef.current.contains(e.target)) return;
-      onMobileClickOutside();
+    if (isClickOutside) {
       setIsResults(false);
       setResults([]);
       setQuery("");
-    },
-    [
-      onMobileClickOutside,
-      searchRef,
-      isMounted,
-      setResults,
-      setIsResults,
-      setQuery,
-    ]
-  );
-
-  useEffect(() => {
-    window.addEventListener("click", handleClickOutside);
-    return () => window.removeEventListener("click", handleClickOutside);
-  }, [handleClickOutside]);
+    }
+  }, [isClickOutside]);
 
   return (
-    <div className="w-full" ref={searchRef}>
+    <div className="w-full" ref={ref}>
       <input
         className="form-search border-gray-200 dark:border-gray-800 w-full bg-primary-light dark:bg-primary-dark rounded-sm h-8"
         placeholder="&#x1F50E;&#xFE0E; search posts"
         id="search"
         type="search"
-        ref={inputRef}
         value={query}
         onChange={onChange}
         readOnly={isError}
       />
       {isResults ? (
-        <div className="absolute mr-4 mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-secondary">
+        <div className="absolute mr-4 mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           <ul>
             {results.map((result) => (
               <li
                 key={result.slug}
-                className="border-b hover:bg-blue-200 hover:dark:bg-blue-800 border-secondary p-2 hover:cursor-pointer">
+                className="border-b hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-800 p-2 hover:cursor-pointer">
                 <Link href={`/posts/${result.slug}`}>{result.title}</Link>
                 <p className="text-secondary text-xs">
                   {date2text(result.date)}

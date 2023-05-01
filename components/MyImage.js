@@ -1,20 +1,19 @@
 import Image from "next/image";
 
 const MyImage = (props) => {
-  const { caption, ...imgProps } = props;
+  const { caption, width, ...imgProps } = props;
   return (
-    <figure className="py-2">
+    <div className="w-full my-2 flex flex-col items-center justify-center">
       <Image
         {...imgProps}
-        width="0"
+        width={`${width ? width + "" : "0"}`}
         height="0"
-        sizes="100vw"
-        className="w-full h-auto rounded-sm"
+        className={`${width ? "" : "w-full"} h-auto m-0 rounded-sm`}
         unoptimized={true} // this is the only way make gifs work with Image component, I found
         quality={100}
       />
-      <figcaption>{caption}</figcaption>
-    </figure>
+      {caption ? <figcaption className="text-xs">{caption}</figcaption> : null}
+    </div>
   );
 };
 

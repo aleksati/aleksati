@@ -15,12 +15,12 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
   return (
     <div
       className={`z-20 ${
-        showNavTop ? "w-80 fixed" : "w-64 flex-none"
+        showNavTop ? "w-72 fixed" : "w-64 flex-none"
       } bg-primary-light dark:bg-primary-dark border-r border-secondary min-h-screen items-start justify-start`}
       ref={ref}>
       <div
         className={`fixed space-y-6 ${
-          showNavTop ? "w-80 pt-4" : "w-64 pt-8"
+          showNavTop ? "w-72 pt-4" : "w-64 pt-8"
         } p-4`}>
         <div className="items-center w-full justify-start space-y-6">
           <div className="flex justify-between items-center">

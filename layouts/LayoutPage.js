@@ -1,9 +1,10 @@
-import isTouchDevice from "../functions/isTouchDevice";
 import ButtonScrollTo from "../components/ButtonScrollTo";
+import isTouchDevice from "../functions/isTouchDevice";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
+import { useRouter } from "next/router";
 import Meta from "../components/Meta";
 
 const widthTresh = 768; // lg tailwind default - md = 768;
@@ -11,29 +12,27 @@ let prevWidth = 0;
 
 const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const [showNavVertical, setShowNavVertical] = useState(false);
+  const [widthBelowThresh, setWidthBelowThresh] = useState();
   const [showNavTop, setShowNavTop] = useState(false);
   const { width } = useWindowSize();
   const isTouch = isTouchDevice();
   const pageTopRef = useRef();
 
-  // onMount, set the correct nav UI
-  useEffect(() => {
-    setShowNavTop(isTouch ? true : false);
-    setShowNavVertical(isTouch ? false : true);
-  }, [isTouch]);
-
-  // handle transitions to open and close vertical navbar
+  // handle browser size transitions to open and close the navbars
+  // set state when transitioning to avoid uneccessary rendering.
   if (prevWidth !== width) {
-    if (showNavVertical && width < widthTresh) {
-      setShowNavTop(true);
-      setShowNavVertical(false);
-    }
-    if (!showNavVertical && width > widthTresh) {
-      setShowNavTop(false);
-      setShowNavVertical(true);
-    }
+    setWidthBelowThresh(width < widthTresh ? true : false);
     prevWidth = width;
   }
+
+  // also close the verical nav on touch if navigating to new url
+  const router = useRouter();
+  const path = router.query;
+  // set navbars based on the current state and window width
+  useEffect(() => {
+    setShowNavTop(widthBelowThresh ? true : false);
+    setShowNavVertical(widthBelowThresh ? false : true);
+  }, [widthBelowThresh, path]);
 
   const handleToggleNavVertical = () =>
     setShowNavVertical((prevState) => !prevState);
@@ -57,7 +56,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
         <div
           className={`container ${
             showNavTop && showNavVertical ? "blur-sm" : null
-          } mx-auto flex-1 px-4 py-8 ${className}`}
+          } mx-auto flex-1 px-4 ${showNavTop ? "py-16" : "py-8"} ${className}`}
           id={pageId}
           ref={pageTopRef}>
           {children}

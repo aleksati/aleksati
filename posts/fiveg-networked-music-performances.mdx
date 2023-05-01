@@ -5,8 +5,6 @@ keywords: ["audio", "network", "5g", "nmp", "research"]
 summary: "Me and a colleague teamed up with Telenor Research to see what it takes to play music together over next generation 5g networks. Here are the preliminary results."
 ---
 
-{/* <MyImage src="/img/5g-logo.png" alt="5g logo" /> */}
-
 5g is the new paradigm of telecommunication and wireless networking. The greatest difference between 4G to 5g is a massive increase in speed (bandwidth) due to updated network infrastructure. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
 
 Playing music over the network is highly challenging because of exceptionally high demands for low latency and fast communication. In fact, research tells us that the ideal roundtrip latency for synchronous NMPs is between 25-50ms.
@@ -48,7 +46,7 @@ The first experiment we were able to do was on a first-generation commercial 5g 
 
 To transmit audio back and forth, we used custom <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink> built for educational and research purposes at IMV. These hardware bundles are designed specifically for ultra-low-latency AV transmission, given they have the right network conditions and software.
 
-For the software, we ran the <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> and Qjack to transmit uncompressed audio.
+We ran <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> and Qjack as our software solution to transmit uncompressed audio over ther network.
 
 <MySlideshow
   imgs={[
@@ -65,7 +63,7 @@ For the software, we ran the <MyLink href="https://www.jacktrip.org">JackTrip</M
 
 <h1 id="testing-methodology">Testing Methodology</h1>
 
-Having lightning-fast communication is always a high priority for any NMPs. However, having low latency is not synonymous with high-quality signals with minimal dropouts and unwanted artifacts (glitches).
+Having lightning-fast communication is always a high priority for any NMP. However, low latency is not synonymous with high-quality signals with minimal dropouts and unwanted artifacts (glitches).
 
 Therefore, to test whether 5g can accommodate NMPs, we tried to find the best possible tradeoff between stability, quality, and latency on private and commercial 5g networks for audio transmission.
 

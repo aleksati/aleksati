@@ -28,7 +28,6 @@ const NavVerticalTabs = () => {
             <div className="flex space-x-1 items-center justify-start">
               {/* <Icon id={tab.icon} iconSize={"text-sm"} /> */}
               <MyLink
-                className="text-sm md:text-base"
                 active={tab.key === page}
                 href={`/${tab.key}`}
                 key={tab.key}
