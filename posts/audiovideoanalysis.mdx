@@ -55,7 +55,11 @@ Spectrograms are visual representations of the frequency spectrum of audio signa
 
 To read more about motiongrams and how they're made, visit my previous post on the <MyLink href="/posts/videoanalysis">VideoAnalysis</MyLink> software.
 
-<MyImage src="/img/ava-overview-2.gif" alt="audiovideoanalysis overview 2" />
+<MyImage
+  src="/img/ava-overview-2.gif"
+  alt="audiovideoanalysis overview 2"
+  width="600"
+/>
 
 For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
 
@@ -86,19 +90,23 @@ Perhaps the most useful feature of AVA is the ability to apply analysis markers 
 The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
 
 <MyImage
-  src="/img/ava-analysis-markers.GIF"
-  alt="videoanalysis analysis markers."
   caption="Analysis markers and grids can assist with orientation and analysis."
+  src="/img/ava-analysis-markers.GIF"
+  width="600"
+  alt="audiovideoanalysis analysis markers"
 />
 
 Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar.
 
 To accommodate the analysis markers and grid function, AVA features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content.
 
-<MyImage
-  src="/img/ava-clickpoint.jpg"
-  alt="audiovideoanalysis clickpoint"
-  caption="Retrieve Hz, Amplitude, and Time from anywhere on the spectrogram at clickpoint."
+<MySlideshow
+  imgs={["ava-clickpoint-light.jpg", "ava-analysis-logfreq.GIF"]}
+  captions={[
+    "Retrieve Hz, Amplitude, and Time from anywhere on the spectrogram at clickpoint.",
+    "The logarithmic dial controls how logarithmic the spectrogram frequency distribution is. A higher logarithmic value will create a steeper logarithmic curve along the Y-axis of the spectrogram.",
+  ]}
+  width="600"
 />
 
 I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
@@ -109,11 +117,7 @@ To add to the visual and real-time capabilities of AVA, I introduced additional 
 
 The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
 
-<MyImage
-  src="/img/ava-display-options.gif"
-  alt="audiovideoanalysis display options."
-  caption=""
-/>
+<MyImage src="/img/ava-display-options.gif" caption="" width="600" />
 
 <h2 id="export-options">Export Options</h2>
 

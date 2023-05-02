@@ -1,7 +1,7 @@
 export const keyword2color = {
   audio: "#a3e635", //lime-400
   analysis: "#60a5fa", //blue-400
-  "software-dev": "#f87171", //red-400
+  motion: "#f87171", //red-400
   video: "#c084fc", // purple-400
   network: "#facc15", //yellow-400
   "5g": "#22d3ee", //cyan-400
@@ -19,7 +19,7 @@ export const keyword2color = {
 
 export const keyword2text = {
   audio: "audio",
-  "software-dev": "software dev",
+  motion: "motion",
   analysis: "analysis",
   video: "video",
   network: "network",

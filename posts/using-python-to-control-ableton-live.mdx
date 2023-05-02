@@ -201,20 +201,20 @@ In Ableton, all I have to do is midi map my project and enable the right midi se
 
 Before midi mapping, I ensure that the number of scenes and tracks in my Ableton window are correct by running a script that guides me through the mapping process based on my scene_config dictionary. Having a single source of truth is always a good programming strategy to increase reliability and efficiency.
 
-<MyImage
-  src="/img/abletonmidi-ableton-midi-mapping.png"
-  alt="Ableton Live midi mapping."
-  caption="Making a `daw-midi-mapping.py` is recommended when your Ableton setup is tighly coupled with Python variables."
+<MySlideshow
+  imgs={[
+    "abletonmidi-ableton-midi-mapping.png",
+    "abletonmidi-ableton-midi.jpg",
+  ]}
+  captions={[
+    "Making a `daw-midi-mapping.py` is recommended when your Ableton setup is tighly coupled with Python variables.",
+    "Enable settings to listen for midi data from python.",
+  ]}
 />
 
 Finally, I have to configure the correct midi settings. Per default, Ableton will recognize and enable any compatible midi device it detects. However, I only want Ableton to listen to the data from Python.
 
 To open preferences, Hit **"ctrl" + ","** and navigate to the midi section. The only midi input I want is from the virtual midi driver, so I uncheck every other device.
-
-<MyImage
-  src="/img/abletonmidi-ableton-midi.jpg"
-  alt="Ableton Live midi config."
-/>
 
 Now I am ready to go!
 

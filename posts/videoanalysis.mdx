@@ -1,7 +1,7 @@
 ---
 title: "VideoAnalysis"
 date: "2022-12-10"
-keywords: ["video", "analysis", "software-dev", "max"]
+keywords: ["video", "analysis", "motion", "max"]
 summary: "A quick look into VideoAnalysis v2.1; a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
 ---
 
@@ -114,21 +114,17 @@ The centroid of motion (CoM), and area of motion (AoM), are features that can be
 
 In the centroid video in the VA display window, the CoM is visualized by a series of red circles (snake). From the UI, It's possible to customize the length, radius, and threshold of the snake to better track and visualize the motion history.
 
-Finally, motion videos also facilitate motiongrams; images that represent motion over time. These images are good for getting a general sense of the spatiotemporal distribution of videos. They can also be exported and viewed directly from the VA UI.
+Finally, with motion videos we can also create motiongrams; images that represent motion over time. These images are good for getting a general sense of the spatiotemporal distribution of videos. They can also be exported and viewed directly from the VA UI.
 
-<MyImage
-  src="/img/va-mg.JPG"
-  alt="videoanalysis motiongram."
-  caption="A motiongram image exported by VideoAnalyis, showing motion (Y) over time (X)."
+<MySlideshow
+  imgs={["va-mg.JPG", "va-mg-theory.JPG"]}
+  captions={[
+    "A motiongram image exported by VideoAnalyis, showing motion (Y) over time (X).",
+    "Reducing motion video frames into one-dimensional matrices and printing them across a canvas will create motiongrams.",
+  ]}
 />
 
 Motiongrams are composed of columns of pixels, each representing a unique motion video frame. With each motion video frame, the mean values of every row are gathered and used to produce single pixel columns (one-dimensional matrices). These columns are then printed across a canvas (left to right) to create the motiongram effect.
-
-<MyImage
-  src="/img/va-mg-theory.JPG"
-  alt="videoanalysis motiongram theory."
-  caption="Reducing motion video frames into one-dimensional matrices and printing them across a canvas will create motiongrams."
-/>
 
 <h2 id="export-options">Export Options</h2>
 
