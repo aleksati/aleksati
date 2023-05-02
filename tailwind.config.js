@@ -33,7 +33,7 @@ module.exports = {
       backgroundColor: {
         // background colors
         "primary-light": "#fff",
-        "primary-dark": "#1E1E1E", //"#0F0F0F",
+        "primary-dark": "#0F0F0F", //"#1E1E1E",
       },
       colors: {
         // text colors

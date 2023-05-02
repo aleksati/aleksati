@@ -30,6 +30,11 @@ In this post, I present my solution and demonstrate how you can use some Python 
       <MyLink href="#scene_config">scene_config</MyLink>
     </li>
     <li>
+      <MyLink href="#skipping-audio-tracks">
+        Skipping Audio Tracks with Yield
+      </MyLink>
+    </li>
+    <li>
       <MyLink href="#rtmidi">rtmidi</MyLink>
     </li>
   </ol>
@@ -88,7 +93,7 @@ scene_config = {
 }
 ```
 
-<h3 id="">Skipping audio tracks using yield</h3>
+<h3 id="skipping-audio-tracks">Skipping Audio Tracks with Yield</h3>
 
 To skip between audio tracks, I iterating and loop over the scene_config arrays asynchronously in response to keypresses from my USB controller. To handle this kind of functionality, I recommend using the \_yield\* Generator function in Python.
 

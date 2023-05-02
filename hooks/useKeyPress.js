@@ -4,14 +4,17 @@ export const useKeyPress = (targetKey) => {
   const [keyPressed, setKeyPressed] = useState(false);
 
   useEffect(() => {
-    const downHandler = ({ key }) => {
-      if (key === targetKey) {
+    const downHandler = (e) => {
+      if (e.key === targetKey) {
+        e.preventDefault();
         setKeyPressed(true);
       }
     };
 
-    const upHandler = ({ key }) => {
-      if (key === targetKey) {
+    const upHandler = (e) => {
+      e.preventDefault();
+      if (e.key === targetKey) {
+        e.preventDefault();
         setKeyPressed(false);
       }
     };

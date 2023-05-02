@@ -11,7 +11,7 @@ export default function About() {
       <div className="space-y-2">
         <div className="flex flex-col-2 space-x-4 items-start">
           <div>
-            <MyImage src={profilePic} alt="Portrett pic of me" width="100" />
+            <MyImage src={profilePic} alt="Portrett pic of me" width="110" />
           </div>
           <div className="space-y-1">
             <h2 className="text-2xl font-bold">aleksander tidemann</h2>
@@ -38,7 +38,7 @@ export default function About() {
             lecture two master-level courses on Networked Music Performances at
             MCT and work as an engineer for the Department of Musicology at UiO.
             In addition to networked interactions, my professional interests are
-            in audio, video and web programming.
+            in audio-video and web programming.
           </p>
           <br />
           <p>

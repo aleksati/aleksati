@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useClickOutside } from "../hooks/useClickOutside";
-// import { useScrollLock } from "../hooks/useScrollLock";
 import { useKeyPress } from "../hooks/useKeyPress";
 import SearchItem from "./SearchItem";
 import { useRouter } from "next/router";
 
 const Search = () => {
-  // const [isResults, setIsResults] = useState(false);
   const [results, setResults] = useState([]);
   const [isError, setIsError] = useState(false);
   const [query, setQuery] = useState("");
@@ -16,7 +14,6 @@ const Search = () => {
   const arrowUpPressed = useKeyPress("ArrowUp");
 
   const [ref, isClickOutside] = useClickOutside();
-  // const { unlockScroll, lockScroll } = useScrollLock();
 
   const resetComponent = useCallback((error = false) => {
     setKeyNavIndex(0);
@@ -65,21 +62,10 @@ const Search = () => {
       );
   }, [results, arrowDownPressed, arrowUpPressed]);
 
-  // disable scrolling when searching so keydown does not scroll the page.
-  // still issues here..
-  // useEffect(() => {
-  //   if (results.length) {
-  //     lockScroll();
-  //   } else {
-  //     unlockScroll();
-  //   }
-  //   return () => unlockScroll();
-  // }, [results]);
-
   return (
-    <div className="w-full" ref={ref}>
+    <div className="flex flex-col w-56 absolute" ref={ref}>
       <input
-        className="form-search border-gray-200 dark:border-gray-800 w-full bg-primary-light dark:bg-primary-dark rounded-sm h-8"
+        className="form-search border-gray-200 dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
         placeholder="&#x1F50E;&#xFE0E; search posts"
         id="search"
         type="search"
@@ -88,7 +74,7 @@ const Search = () => {
         readOnly={isError}
       />
       {results.length ? (
-        <div className="absolute mr-4 mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
+        <div className="relative mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
             <SearchItem
               key={result.slug}

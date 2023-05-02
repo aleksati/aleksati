@@ -8,7 +8,7 @@ import { date2text } from "../functions/date2text";
 export default function Post({ mdxSource, frontMatter }) {
   return (
     <div>
-      <div className="mb-10">
+      <div className="mb-8">
         <h1 className="font-bold text-4xl md:text-6xl mb-2">
           {frontMatter.title}
         </h1>
@@ -22,11 +22,9 @@ export default function Post({ mdxSource, frontMatter }) {
               </div>
             ))}
           </div>
-          {/* <p>•</p>
-            <p>{frontMatter.readingTime.text}</p> */}
         </div>
       </div>
-      <div className="prose dark:prose-invert prose-h1:pt-4 prose-ol:ml-4 prose-a:font-light prose-a:no-underline !container">
+      <div className="prose !container dark:prose-invert prose-h1:pt-4 prose-ol:ml-4 prose-a:font-light prose-a:no-underline">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}
