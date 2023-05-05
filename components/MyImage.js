@@ -3,7 +3,7 @@ import Image from "next/image";
 const MyImage = (props) => {
   const { caption, width, height, ...imgProps } = props;
   return (
-    <div className="w-full my-2 flex flex-col items-center justify-center">
+    <div className="w-full my-2 flex flex-col justify-center">
       <Image
         {...imgProps}
         width={width ? width + "" : "0"}
@@ -13,7 +13,7 @@ const MyImage = (props) => {
         quality={100}
       />
       {caption ? (
-        <figcaption className="text-xs text-secondary dark:text-secondary-dark">
+        <figcaption className="text-sm text-secondary dark:text-secondary-dark">
           {caption}
         </figcaption>
       ) : null}

@@ -9,10 +9,6 @@ export default function Research({ data_cleaned, notFound }) {
         <p>Something went wrong while fetching the data...</p>
       ) : (
         <div className="flex flex-col space-y-6">
-          <p className="text-sm">
-            Data fetched from{" "}
-            <MyLink href="https://app.cristin.no/">Cristin</MyLink>:
-          </p>
           {data_cleaned.map((item, idx) => {
             if (idx === 1) return;
             return (
@@ -27,6 +23,10 @@ export default function Research({ data_cleaned, notFound }) {
               </div>
             );
           })}
+          <p className="text-sm">
+            Data fetched from{" "}
+            <MyLink href="https://app.cristin.no/">Cristin</MyLink>.
+          </p>
         </div>
       )}
     </LayoutPage>

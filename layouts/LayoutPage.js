@@ -36,10 +36,11 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const handleToggleNavVertical = () =>
     setShowNavVertical((prevState) => !prevState);
 
+  // className="text-base items-center"
   return (
-    <div className="text-base items-center">
+    <>
       <Meta {...pageMeta} />
-      <div className="min-h-screen flex">
+      <div className="min-h-screen max-w-7xl flex">
         {showNavTop ? (
           <NavTop
             onToggleNavVertical={handleToggleNavVertical}
@@ -56,7 +57,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
           className={`container ${
             showNavTop && showNavVertical ? "blur-sm" : null
           } mx-auto flex-1 overflow-hidden px-4 ${
-            showNavTop ? "py-16" : "py-8"
+            showNavTop ? "py-16" : "py-4"
           } ${className}`}
           id={pageId}
           ref={pageTopRef}>
@@ -66,7 +67,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
           <ButtonScrollTo targetId={pageId} parentRef={pageTopRef} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

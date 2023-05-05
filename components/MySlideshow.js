@@ -18,22 +18,23 @@ const properties = {
   indicators: true,
   transitionDuration: 200,
   defaultIndex: 0,
-  // cssClass: "flex flex-col items-stretch",
+  // cssClass: "flex flex-col",
   nextArrow: (
-    <button className="text-gray-400" aria-label="next slideshow image">
+    <button className="text-primary-dark" aria-label="next slideshow image">
       <Icon id="nextArrow" iconSize={"text-2xl"} />
     </button>
   ),
   prevArrow: (
-    <button className="text-gray-400" aria-label="previous slideshow image">
+    <button className="text-primary-dark" aria-label="previous slideshow image">
       <Icon id="prevArrow" iconSize={"text-2xl"} />
     </button>
   ),
 };
 
 const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
+  const w = width ? `w-[${width}px]` : null;
   return (
-    <div aria-label="slideshow container">
+    <div aria-label="slideshow container" className={w}>
       {imgs.length > 1 ? (
         <Slide {...properties} indicators={indicators}>
           {imgs.map((slug, index) => (

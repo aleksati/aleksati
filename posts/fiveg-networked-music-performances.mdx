@@ -7,7 +7,7 @@ summary: "Me and a colleague teamed up with Telenor Research to see what it take
 
 5g is the new paradigm of telecommunication and wireless networking. The greatest difference between 4G to 5g is a massive increase in speed (bandwidth) due to updated network infrastructure. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
 
-Playing music over the network is highly challenging because of exceptionally high demands for low latency and fast communication. In fact, research tells us that the ideal roundtrip latency for synchronous NMPs is between 25-50ms.
+Playing music over the network is highly challenging because of its exceptionally high demands for low latency and fast communication. In fact, research tells us that the ideal roundtrip audio latency for synchronous (real-time) NMPs is between 25-50ms.
 
 **Demo** - For perspective, here is 30ms of audio delay from left to right channel:
 
@@ -26,7 +26,7 @@ In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefan
    2. <MyLink href="#signal-quality">Signal Quality</MyLink>
    3. <MyLink href="#roundtrip-latency">Roundtrip Latency</MyLink>
 3. <MyLink href="#results">Results</MyLink>
-4. <MyLink href="#summary-and-ahead">Summary and Ahead</MyLink>
+4. <MyLink href="#summary">Summary</MyLink>
 
 <hr />
 
@@ -42,6 +42,7 @@ The first experiment we did was on a first-generation commercial 5g network at t
     "Our 5g Routers in action outside the Musicology Department at UiO, ready to test the commercial NSA 5g network.",
     "Telenor's 5gNoW van at Terningmoen Army Base, Elverum. Photo by Olai Bendik Erdal.",
   ]}
+  width="600"
 />
 
 To transmit audio back and forth, we used custom <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink> built for educational and research purposes at IMV. These hardware bundles are designed specifically for ultra-low-latency AV transmission, given they have the right network conditions and software.
@@ -145,15 +146,15 @@ Results in table form:
   ]}
 />
 
-<h1 id="summary-and-ahead">Summary and Ahead </h1>
+<h1 id="summary">Summary</h1>
 
 In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5g networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5g networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5g network (5gNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5g, we achieved an analog RTT audio latency of 165ms.
 
 <MySlideshow
   imgs={["5g-henrik-stefano-salen.jpg", "5g-team.jpg"]}
   captions={[
-    "A big thanks to the Telenor Research team.",
     "Also, a big thanks to research assistant Henrik Harald Sveen for helping out at UiO.",
+    "A big thanks to the Telenor Research team.",
   ]}
 />
 

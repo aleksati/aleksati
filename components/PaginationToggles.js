@@ -15,14 +15,13 @@ const PaginationToggles = ({ currPage, numbPages, onPagination }) => {
             active={index === currPage}
             onClick={onPagination}
             type="pagination"
-            id="numb"
-          >
+            id="numb">
             {index + 1}
           </MyLink>
         </div>
       ))}
       <MyLink type="pagination" onClick={onPagination} id="next">
-        <Icon id={"nextArrow"} iconSize={"text-md md:text-xl"} />
+        <Icon id={"nextArrow"} />
       </MyLink>
     </div>
   );

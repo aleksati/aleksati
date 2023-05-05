@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     container: {
       screens: {
-        sm: "100%",
-        md: "768px",
+        sm: "640px",
+        // md: "768px",
         // lg: "1024px",
         // xl: "768px",
         // md: "768px",
@@ -22,9 +22,28 @@ module.exports = {
         // xl: "768px",
       },
     },
+    // original:
+    fontSize: {
+      xs: "0.7rem",
+      sm: "0.8rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.563rem",
+      "3xl": "1.953rem",
+      "4xl": "2.441rem",
+      "5xl": "3.052rem",
+    },
+    // one up larger
     // fontSize: {
-    //   sm: ".8rem",
-    //   base: "1rem",
+    //   xs: "0.8rem",
+    //   sm: "1rem",
+    //   base: "1.125rem",
+    //   lg: "1.25rem",
+    //   xl: "1.563rem",
+    //   "2xl": "1.953rem",
+    //   "3xl": "2.441rem",
+    //   "4xl": "3.052rem",
     // },
     extend: {
       // fontFamily: {
@@ -33,7 +52,7 @@ module.exports = {
       backgroundColor: {
         // background colors
         "primary-light": "#fff",
-        "primary-dark": "#0F0F0F", //"#1E1E1E",
+        "primary-dark": "#0F0F0F", //"#0F0F0F", //"#1E1E1E", //#202124
       },
       colors: {
         // text colors

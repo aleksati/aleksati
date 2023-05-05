@@ -2,7 +2,7 @@
 title: "Using Python to Control Ableton Live"
 date: "2023-03-10"
 keywords: ["audio", "performance", "ableton", "python", "midi"]
-summary: "While designing a new liveset for my band, I wrote some code to help me navigate Ableton Live more efficiently using very few midi controls. Here is how I did it."
+summary: "While designing a new liveset for my band, I wrote some code to help me navigate Ableton Live more efficiently (like a 2D matrix) using very few midi controls. Here is what I did, and how."
 ---
 
 <MyImage
@@ -31,7 +31,7 @@ In this post, I present my solution and demonstrate how you can use some Python 
     </li>
     <li>
       <MyLink href="#skipping-audio-tracks">
-        Skipping Audio Tracks with Yield
+        Skipping Audio Tracks with Generators
       </MyLink>
     </li>
     <li>
@@ -78,7 +78,7 @@ The Python code as two primary jobs. First, to intercept midi messages from the 
   caption="By associating unique track constellations with specific scenes in Ableton, I can navigate complex live sets using very few controls."
 />
 
-<h3 id="scene-config">scene_config</h3>
+<h3 id="scene_config">scene_config</h3>
 
 To represent Ableton Live's session view window in Python, I define a dictionary called scene_config. The dictionary's key-value pairs represent the Ableton window as a 2D stucture. Each key represents a scene, and each value represents a collection (array) of tracks (integers).
 
@@ -93,7 +93,7 @@ scene_config = {
 }
 ```
 
-<h3 id="skipping-audio-tracks">Skipping Audio Tracks with Yield</h3>
+<h3 id="skipping-audio-tracks">Skipping Audio Tracks with Generators</h3>
 
 To skip between audio tracks, I iterating and loop over the scene_config arrays asynchronously in response to keypresses from my USB controller. To handle this kind of functionality, I recommend using the \_yield\* Generator function in Python.
 
@@ -164,7 +164,7 @@ midi_in = midi_INIT()
 
 In the above example, a simple midi input initialization process is defined. The program reads out the available midi devices and asks which device it should use as its input. Here, I choose the physical controller as my input device.
 
-I repeated the same code for the output initialization, only substituting rtmidi.MidiIn() with rtmidi.MidiOut() and using the virtual midi driver instead.
+To initialize a midi output connection, I repeat the code, only substituting rtmidi.MidiIn() with rtmidi.MidiOut() and using the virtual midi driver as my device.
 
 To send messages, rtmidi objects have a send_message() method to use on initialized midi objects. As arguments, the method requires the midi channel, note value, and ON/OFF message.
 
@@ -180,7 +180,7 @@ message = [midi_channel, midi_note, note_on_off]
 midi_out.send_message(message)
 ```
 
-**Pro tip:** If you're unsure about what kind of messages or midi values your devices in sending, you can print out raw midi messages from your rtmidi connection with a simple keyboard-test script, like this:
+**Pro tip:** If you're unsure about what kind of messages or values your midi devices in sending, you can print out raw midi messages from a rtmidi connection with a simple keyboard-test script. I use this script to orient myself with new midi devices:
 
 ```Python
 # src/keyboard-test.py
@@ -197,7 +197,7 @@ with midi_in:
 
 <h1 id="ableton-live-setup">Ableton Live Setup</h1>
 
-In Ableton, all I have to do is midi map my project and enable the right midi setting.
+In Ableton, I have to do the correct midi mapping and enable the right midi settings.
 
 Before midi mapping, I ensure that the number of scenes and tracks in my Ableton window are correct by running a script that guides me through the mapping process based on my scene_config dictionary. Having a single source of truth is always a good programming strategy to increase reliability and efficiency.
 
@@ -208,15 +208,13 @@ Before midi mapping, I ensure that the number of scenes and tracks in my Ableton
   ]}
   captions={[
     "Making a `daw-midi-mapping.py` is recommended when your Ableton setup is tighly coupled with Python variables.",
-    "Enable settings to listen for midi data from python.",
+    "Configure the midi settings to listen for data from python.",
   ]}
 />
 
-Finally, I have to configure the correct midi settings. Per default, Ableton will recognize and enable any compatible midi device it detects. However, I only want Ableton to listen to the data from Python.
+Finally, I have to set the correct midi settings in Ableton. As default, Ableton will usually recognize and enable any compatible midi device it detects. However, I only want Ableton to listen to the data from Python, not from the controller.
 
-To open preferences, Hit **"ctrl" + ","** and navigate to the midi section. The only midi input I want is from the virtual midi driver, so I uncheck every other device.
-
-Now I am ready to go!
+To open the midi preferences, Hit **"ctrl" + ","** and navigate to the midi section. The only midi input I want is from the virtual midi driver, so I uncheck every other device.
 
 <h1 id="source-code">Source Code</h1>
 

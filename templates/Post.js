@@ -7,12 +7,12 @@ import { date2text } from "../functions/date2text";
 
 export default function Post({ mdxSource, frontMatter }) {
   return (
-    <div>
+    <>
       <div className="mb-8">
-        <h1 className="font-bold text-4xl md:text-6xl mb-2">
+        <h1 className="font-bold text-2xl md:text-4xl mb-2">
           {frontMatter.title}
         </h1>
-        <div className="flex space-x-2 text-secondary dark:text-secondary-dark flex-wrap text-xs md:text-sm">
+        <div className="flex space-x-2 text-secondary dark:text-secondary-dark flex-wrap text-sm">
           <p>{date2text(frontMatter.date)}</p>
           <div className="flex space-x-2">
             {[...frontMatter.keywords].map((keyword) => (
@@ -24,13 +24,13 @@ export default function Post({ mdxSource, frontMatter }) {
           </div>
         </div>
       </div>
-      <div className="prose !container dark:prose-invert prose-h1:pt-4 prose-ol:ml-4 prose-a:font-light prose-a:no-underline">
+      <div className="prose text-base prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg !container dark:prose-invert prose-h1:pt-4 prose-ol:ml-4 prose-a:no-underline">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}
           {...mdxSource}
         />
       </div>
-    </div>
+    </>
   );
 }
