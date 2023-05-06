@@ -1,5 +1,5 @@
 import LayoutPage from "../layouts/LayoutPage";
-import profilePic from "../public/img/portrett.jpg";
+import profilePic from "../public/img/me.jpg";
 import MyImage from "../components/MyImage";
 import MyLink from "../components/MyLink";
 import Icon from "../components/Icon";
@@ -11,7 +11,12 @@ export default function About() {
       <div className="space-y-2">
         <div className="flex flex-col-2 pb-4 space-x-4 items-start">
           <div>
-            <MyImage src={profilePic} alt="Portrett pic of me" width="110" />
+            <MyImage
+              src={profilePic}
+              alt="Portrett pic of me"
+              width="180"
+              priority={true}
+            />
           </div>
           <div className="space-y-1">
             <h3 className="text-xl font-bold">aleksander tidemann</h3>

@@ -13,33 +13,30 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
   }, [isClickOutside, onToggleNavVertical, showNavTop]);
 
   return (
-    // <div
-    // className={`z-20 bg-blue-200 ${
-    //   showNavTop ? "w-72 fixed" : "w-64 flex-none"
-    // } bg-primary-light dark:bg-primary-dark border-r border-secondary dark:border-secondary-dark min-h-screen items-start justify-start`}
-    // className="flex-none bg-red-200 space-y-6"
-    // ref={ref}>
     <div
-      className={`z-20 bg-primary-light dark:bg-primary-dark min-h-screen border-r border-secondary dark:border-secondary-dark space-y-20 ${
+      className={`z-20 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>
-      <div className="items-center w-full justify-start space-y-6">
+      <div className="w-56 fixed z-20">
         <div className="flex justify-between items-center">
-          <div className="flex items-center justify-center space-x-2">
-            <Link href="/" className="font-bold text-base">
+          <div>
+            <Link href="/" className="font-bold">
               aleksati.net
             </Link>
           </div>
-          <ButtonTheme iconSize={"text-md"} />
+          <div>
+            <ButtonTheme iconSize={"text-md"} />
+          </div>
         </div>
+      </div>
+      <div className="fixed z-20">
         <Search />
       </div>
-      <div className="w-full">
+      <div className="fixed z-10 pt-14">
         <NavVerticalTabs />
       </div>
     </div>
-    // </div>
   );
 };
 

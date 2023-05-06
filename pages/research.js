@@ -5,30 +5,35 @@ import MyLink from "../components/MyLink";
 export default function Research({ data_cleaned, notFound }) {
   return (
     <LayoutPage pageMeta={{ title: "research" }}>
-      {notFound ? (
-        <p>Something went wrong while fetching the data...</p>
-      ) : (
-        <div className="flex flex-col space-y-6">
-          {data_cleaned.map((item, idx) => {
-            if (idx === 1) return;
-            return (
-              <div key={idx}>
-                {item.authors} ({item.year}). {item.title}.{" "}
-                <i>{item.journal}.</i>{" "}
-                {item.link ? (
-                  <MyLink href={item.link}>Avaliable from here</MyLink>
-                ) : (
-                  ""
-                )}
-              </div>
-            );
-          })}
-          <p className="text-sm">
+      <div className="flex flex-col bg-red-2 h-full justify-between">
+        {notFound ? (
+          <p>Something went wrong while fetching the data...</p>
+        ) : (
+          <div className="flex flex-col space-y-6">
+            {data_cleaned.map((item, idx) => {
+              if (idx === 1) return;
+              return (
+                <div key={idx}>
+                  {item.authors} ({item.year}). {item.title}.{" "}
+                  <i>{item.journal}.</i>{" "}
+                  {item.link ? (
+                    <MyLink href={item.link}>Avaliable from here</MyLink>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+        <div>
+          <hr />
+          <p className="pt-2 text-sm">
             Data fetched from{" "}
-            <MyLink href="https://app.cristin.no/">Cristin</MyLink>.
+            <MyLink href="https://app.cristin.no/">Cristin</MyLink>
           </p>
         </div>
-      )}
+      </div>
     </LayoutPage>
   );
 }

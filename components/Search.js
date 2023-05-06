@@ -63,7 +63,7 @@ const Search = () => {
   }, [results, arrowDownPressed, arrowUpPressed]);
 
   return (
-    <div className="flex flex-col w-56 absolute" ref={ref}>
+    <div className="flex z-50 flex-col w-56 absolute" ref={ref}>
       <input
         className="form-search border-gray-200 dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
         placeholder="&#x1F50E;&#xFE0E; search posts"
