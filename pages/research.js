@@ -29,7 +29,7 @@ export default function Research({ data_cleaned, notFound }) {
         <div>
           <hr />
           <p className="pt-2 text-sm">
-            Data fetched from{" "}
+            data fetched from{" "}
             <MyLink href="https://app.cristin.no/">Cristin</MyLink>
           </p>
         </div>

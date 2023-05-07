@@ -19,13 +19,13 @@ export default function About() {
             />
           </div>
           <div className="space-y-1">
-            <h3 className="text-xl font-bold">aleksander tidemann</h3>
-            <p className="text-sm">music technologist and developer</p>
+            <h3 className="text-lg font-bold">aleksander tidemann</h3>
+            <p className="text-base">music technologist and developer</p>
             <p className="text-secondary dark:text-secondary-dark text-sm">
-              contact: aleksandertid (at) gmail
+              aleksandertid (at) gmail
             </p>
             <p className="text-secondary dark:text-secondary-dark text-sm">
-              social: @aleksati @alexfürimmer
+              @aleksati @alexfürimmer
             </p>
             <SoMeBar className="space-x-2" />
           </div>

@@ -30,8 +30,8 @@ const defaultSize = "text-xl";
 const icons = {
   key: (s) => <BsKey className={s} />,
   search: (s) => <BsSearch className={s} />,
-  sun: (s) => <BsFillSunFill className={s} />,
-  moon: (s) => <BsFillMoonFill className={s} />,
+  sun: (s) => <BsFillSunFill className={s} id="button-theme" />,
+  moon: (s) => <BsFillMoonFill className={s} id="button-theme" />,
   audio: (s) => <TbWaveSine className={s} />,
   about: (s) => <RiQuestionMark className={s} />,
   details: (s) => <GiMagnifyingGlass className={s} />,
