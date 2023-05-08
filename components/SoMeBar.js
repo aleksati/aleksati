@@ -3,6 +3,10 @@ import Icon from "./Icon";
 const SoMeBar = ({ exclude = [], className }) => {
   const some = [
     {
+      key: "contact",
+      url: "mailto:aleksandertid(at)gmail",
+    },
+    {
       key: "github",
       url: "https://github.com/aleksati",
     },

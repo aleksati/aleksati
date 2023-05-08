@@ -4,7 +4,7 @@ export const keyword2color = {
   motion: "#f87171", //red-400
   video: "#c084fc", // purple-400
   network: "#facc15", //yellow-400
-  "5g": "#22d3ee", //cyan-400
+  "5G": "#22d3ee", //cyan-400
   research: "#2dd4bf", // teal-400
   max: "#38bdf8", // sky-400
   performance: "#fb923c", //orange-400
@@ -23,7 +23,7 @@ export const keyword2text = {
   analysis: "analysis",
   video: "video",
   network: "network",
-  "5g": "5g",
+  "5G": "5G",
   research: "research",
   max: "max",
   performance: "performance",

@@ -42,8 +42,8 @@ const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
               src={"/img/" + slug}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
-              key={slug}
               width={width ? width : null}
+              key={slug}
             />
           ))}
         </Slide>

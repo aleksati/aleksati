@@ -1,11 +1,11 @@
 ---
-title: "5g Networked Music Performances"
+title: "5G Networked Music Performances"
 date: "2023-02-10"
-keywords: ["audio", "network", "5g", "nmp", "research"]
-summary: "Me and a colleague teamed up with Telenor Research to see what it takes to play music together over next generation 5g networks. Here are the preliminary results."
+keywords: ["audio", "network", "5G", "nmp", "research"]
+summary: "Me and a colleague teamed up with Telenor Research to see what it takes to play music together over next generation 5G networks. Here are the preliminary results."
 ---
 
-5g is the new paradigm of telecommunication and wireless networking. The greatest difference between 4G to 5g is a massive increase in speed (bandwidth) due to updated network infrastructure. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
+5G is the new paradigm of telecommunication and wireless networking. The greatest difference between 4G to 5G is a massive increase in speed (bandwidth) due to updated network infrastructure. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
 
 Playing music over the network is highly challenging because of its exceptionally high demands for low latency and fast communication. In fact, research tells us that the ideal roundtrip audio latency for synchronous (real-time) NMPs is between 25-50ms.
 
@@ -16,7 +16,7 @@ Playing music over the network is highly challenging because of its exceptionall
   newOptions={{ splitChannels: true }}
 />
 
-In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the feasibility of conducting NMPs over 5g. During spring, we were able to schedule two experiments where we met and collaborated on a series of audio transmission tests on private and commercial 5g networks. In this post, I present the experiments in detail and the preliminary results.
+In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the feasibility of conducting NMPs over 5G. During spring, we were able to schedule two experiments where we met and collaborated on a series of audio transmission tests on private and commercial 5G networks. In this post, I present the experiments in detail and the preliminary results.
 
 # Content
 
@@ -32,15 +32,15 @@ In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefan
 
 <h1 id="test-sites-and-equipment">Test sites and Equipment</h1>
 
-To connect to their 5g, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5g Routers. The modems were pre-configured to access specific Access-Point-Names (APNs) based on our location to enable faster packet routing and better p2p connectivity at the test site.
+To connect to their 5G, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Routers. The modems were pre-configured to access specific Access-Point-Names (APNs) based on our location to enable faster packet routing and better p2p connectivity at the test site.
 
-The first experiment we did was on a first-generation commercial 5g network at the Musicology Department (IMV), UiO. A little later, we got the opportunity to run some tests on a private 5g Network-on-Wheels (5gNoW) at the Terningmoen Army Base in Elverum. The 5gNoW is apparently only used for specialized field experiments.
+The first experiment we did was on a first-generation commercial 5G network at the Musicology Department (IMV), UiO. A little later, we got the opportunity to run some tests on a private 5G Network-on-Wheels (5GNoW) at the Terningmoen Army Base in Elverum. The 5GNoW is apparently only used for specialized field experiments.
 
 <MySlideshow
-  imgs={["5g-modems-outside-salen.jpg", "5g-now.jpg"]}
+  imgs={["5G-modems-outside-salen.jpg", "5G-now.jpg"]}
   captions={[
-    "Our 5g Routers in action outside the Musicology Department at UiO, ready to test the commercial NSA 5g network.",
-    "Telenor's 5gNoW van at Terningmoen Army Base, Elverum. Photo by Olai Bendik Erdal.",
+    "Our 5G Routers in action outside the Musicology Department at UiO, ready to test the commercial NSA 5G network.",
+    "Telenor's 5GNoW van at Terningmoen Army Base, Elverum. Photo by Olai Bendik Erdal.",
   ]}
   width="600"
 />
@@ -51,9 +51,9 @@ We ran <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> and Qjack as ou
 
 <MySlideshow
   imgs={[
-    "5g-lolaracks.jpg",
-    "5g-meandstefano-elverum.jpg",
-    "5g-racksontheroad.jpg",
+    "5G-lolaracks.jpg",
+    "5G-meandstefano-elverum.jpg",
+    "5G-racksontheroad.jpg",
   ]}
   captions={[
     "NMP kits in action at UiO",
@@ -66,7 +66,7 @@ We ran <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> and Qjack as ou
 
 Having lightning-fast communication is always a high priority for any NMP. However, low latency is not synonymous with high-quality signals with minimal dropouts and unwanted artifacts (glitches).
 
-Therefore, to test whether 5g can accommodate NMPs, we tried to find the best possible tradeoff between stability, quality, and latency on private and commercial 5g networks for audio transmission.
+Therefore, to test whether 5G can accommodate NMPs, we tried to find the best possible tradeoff between stability, quality, and latency on private and commercial 5G networks for audio transmission.
 
 We did three tests at each location:
 
@@ -79,7 +79,7 @@ By using a combination of <MyLink href="https://iperf.fr/">iPerf</MyLink> networ
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
 <MyImage
-  src="/img/5g-latency-method.jpg"
+  src="/img/5G-latency-method.jpg"
   alt="latency measurement diagram"
   caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location."
 />
@@ -95,7 +95,7 @@ With digital RTT, we refer to the time it takes audio to travel from software to
 By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
 
 <MyImage
-  src="/img/5g-latency-method-third-laptop.png"
+  src="/img/5G-latency-method-third-laptop.png"
   alt="latency measurement third laptop diagram"
   caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits."
 />
@@ -104,13 +104,13 @@ To achieve higher accuracy and certainty in our analog RTT measurements, we used
 
 <h1 id="results">Results</h1>
 
-<h3 id="commercial-5g">Commercial 5g</h3>
+<h3 id="commercial-5G">Commercial 5G</h3>
 
-Since the 5g reception inside IMV was poor, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance. Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>), we measured a stable 75% 5g coverage with 60Mbps bandwidth.
+Since the 5G reception inside IMV was poor, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance. Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>), we measured a stable 75% 5G coverage with 60Mbps bandwidth.
 
-The audio quality was consistently bad, with massive dropouts and periodic glitches, on the 5g commercial network when we used buffer sizes below 512. Processing 512 samples at 48Khz takes 10ms. Althought that might sound fast, if we consider that our audio had to pass through our audio interfaces 4x times during our loopback system, we see that a buffer size of 512 is quite borderline for NMP activities.
+The audio quality was consistently bad, with massive dropouts and periodic glitches, on the 5G commercial network when we used buffer sizes below 512. Processing 512 samples at 48Khz takes 10ms. Althought that might sound fast, if we consider that our audio had to pass through our audio interfaces 4x times during our loopback system, we see that a buffer size of 512 is quite borderline for NMP activities.
 
-We measured the average digital and analog RTT to be 110ms and 165ms (respectively) on the commercial 5g network.
+We measured the average digital and analog RTT to be 110ms and 165ms (respectively) on the commercial 5G network.
 
 **Demo** - 165ms audio delay from left to right ear:
 
@@ -119,11 +119,11 @@ We measured the average digital and analog RTT to be 110ms and 165ms (respective
   newOptions={{ splitChannels: true }}
 />
 
-<h3 id="private-5g">Private 5g</h3>
+<h3 id="private-5G">Private 5G</h3>
 
-During our second round of testing, time was of the essence. We only had about 3-4 hours to set up our equipment and run tests on the private 5gNoW in Elverum. From the very start, we ran into unexpected connectivity and bandwidth issues, but we managed to get a stable 14-15Mbps link which is more than enough for stereo uncompressed audio.
+During our second round of testing, time was of the essence. We only had about 3-4 hours to set up our equipment and run tests on the private 5GNoW in Elverum. From the very start, we ran into unexpected connectivity and bandwidth issues, but we managed to get a stable 14-15Mbps link which is more than enough for stereo uncompressed audio.
 
-On the private 5g, we were able to get better overall results overall. When using a buffer size of 256, we measured an average digital and analog RTT of 60ms and 74ms (respectively).
+On the private 5G, we were able to get better overall results overall. When using a buffer size of 256, we measured an average digital and analog RTT of 60ms and 74ms (respectively).
 
 **Demo** - 74ms audio delay from left to right ear:
 
@@ -132,7 +132,7 @@ On the private 5g, we were able to get better overall results overall. When usin
   newOptions={{ splitChannels: true }}
 />
 
-Although this was impressive, the configuration rendered borderline audio quality that would be unpleasant in the long run. When using a buffer size of 512, we got much more stable audio with 90-100ms digital RTT (similar to the commercial 5g, only slightly faster) and an analog RTT at about 140ms.
+Although this was impressive, the configuration rendered borderline audio quality that would be unpleasant in the long run. When using a buffer size of 512, we got much more stable audio with 90-100ms digital RTT (similar to the commercial 5G, only slightly faster) and an analog RTT at about 140ms.
 
 Results in table form:
 
@@ -148,16 +148,16 @@ Results in table form:
 
 <h1 id="summary">Summary</h1>
 
-In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5g networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5g networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5g network (5gNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5g, we achieved an analog RTT audio latency of 165ms.
+In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
 
 <MySlideshow
-  imgs={["5g-henrik-stefano-salen.jpg", "5g-team.jpg"]}
+  imgs={["5G-henrik-stefano-salen.jpg", "5G-team.jpg"]}
   captions={[
     "Also, a big thanks to research assistant Henrik Harald Sveen for helping out at UiO.",
     "A big thanks to the Telenor Research team.",
   ]}
 />
 
-Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5g test results were not particularly promising. I believe we could conduct successful NMPs over 5g if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
+Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5G test results were not particularly promising. I believe we could conduct successful NMPs over 5G if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
 
-Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5g is implemented on future Telenor networks.
+Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5G is implemented on future Telenor networks.

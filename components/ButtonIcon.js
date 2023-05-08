@@ -1,12 +1,17 @@
 import Icon from "./Icon";
+import React from "react";
 
-const ButtonIcon = (props) => {
+const ButtonIcon = React.forwardRef((props, ref) => {
   const { onClick, iconId, iconSize, ...aProps } = props;
   return (
-    <a {...aProps} onClick={onClick} className="hover:cursor-pointer z-20">
+    <a
+      {...aProps}
+      ref={ref}
+      onClick={onClick}
+      className="hover:cursor-pointer z-20">
       <Icon id={iconId} iconSize={iconSize} />
     </a>
   );
-};
+});
 
 export default ButtonIcon;

@@ -18,7 +18,7 @@ import { AiOutlinePause } from "react-icons/ai";
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { MdOutlineReportProblem } from "react-icons/md";
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { TbWorldWww } from "react-icons/tb";
@@ -28,6 +28,7 @@ import { BsMastodon, BsSearch } from "react-icons/bs";
 const defaultSize = "text-xl";
 
 const icons = {
+  expand: (s) => <AiOutlineExpandAlt className={s} />,
   key: (s) => <BsKey className={s} />,
   search: (s) => <BsSearch className={s} />,
   sun: (s) => <BsFillSunFill className={s} id="button-theme" />,
