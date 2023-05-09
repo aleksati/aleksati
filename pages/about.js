@@ -27,9 +27,9 @@ export default function About() {
       </div>
       <div>
         <p>
-          I am a music technologist, drummer, and software developer from
-          Kongsberg, Norway. Curious about all things science and passionate
-          about art, exercising, my partner, and our cat.
+          I am a music technology enthusiast, drummer, and software developer
+          from Kongsberg, Norway. Curious about all things science and
+          passionate about art, exercising, my partner, and our cat.
         </p>
         <br />
         <p>
