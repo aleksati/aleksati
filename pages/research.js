@@ -5,7 +5,14 @@ import MyLink from "../components/MyLink";
 export default function Research({ data_cleaned, notFound }) {
   return (
     <LayoutPage pageMeta={{ title: "research" }}>
-      <div className="flex flex-col bg-red-2 h-full justify-between">
+      <div className="flex flex-col h-full space-y-4">
+        <div className="space-y-1">
+          <p className="text-sm">
+            Data fetched from{" "}
+            <MyLink href="https://app.cristin.no/">Cristin</MyLink>
+          </p>
+          <hr />
+        </div>
         {notFound ? (
           <p>Something went wrong while fetching the data...</p>
         ) : (
@@ -26,13 +33,6 @@ export default function Research({ data_cleaned, notFound }) {
             })}
           </div>
         )}
-        <div>
-          <hr />
-          <p className="pt-2 text-sm">
-            data fetched from{" "}
-            <MyLink href="https://app.cristin.no/">Cristin</MyLink>
-          </p>
-        </div>
       </div>
     </LayoutPage>
   );
