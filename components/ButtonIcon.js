@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 import React from "react";
 
-const ButtonIcon = React.forwardRef(function (props, ref) {
+const ButtonIcon = React.forwardRef((props, ref) => {
   const { onClick, iconId, iconSize, ...aProps } = props;
   return (
     <a
@@ -14,6 +14,6 @@ const ButtonIcon = React.forwardRef(function (props, ref) {
   );
 });
 
-// React.displayName = "";
+ButtonIcon.displayName = "ButtonIcon";
 
 export default ButtonIcon;
