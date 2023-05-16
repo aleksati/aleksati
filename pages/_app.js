@@ -1,4 +1,4 @@
-import LayoutApp from "../layouts/layoutApp";
+import LayoutApp from "../layouts/LayoutApp";
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import "../styles/table.scss";
