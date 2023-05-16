@@ -1,6 +1,5 @@
 # aleksati net
-
-A website to promote me :)
+My homepage
 
 # Run
 
