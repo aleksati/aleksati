@@ -6,7 +6,7 @@ import SoMeBar from "../components/SoMeBar";
 export default function About() {
   return (
     <LayoutPage pageMeta={{ title: "about" }}>
-      <div className="flex flex-col-2 space-x-2 pb-4 items-start">
+      <div className="flex flex-col-2 space-x-4 pb-6 items-start">
         <div>
           <MyImage
             alt="Portrett pic of me"

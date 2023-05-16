@@ -8,8 +8,7 @@ export default function handler({ frontMatter, keywords }) {
       pageMeta={{
         title: "posts",
         keywords,
-      }}
-    >
+      }}>
       <PostList frontMatter={frontMatter} />
     </LayoutPage>
   );

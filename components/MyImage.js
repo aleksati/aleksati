@@ -26,7 +26,7 @@ const MyImage = (props) => {
             onClick={handleImgClick}
           />
           {isExpandable ? (
-            <div className="absolute bottom-0 right-0">
+            <div className="absolute rounded-sm top-0 bg-primary-light bg-opacity-50 right-0">
               <ButtonIcon iconId="expand" />
             </div>
           ) : null}

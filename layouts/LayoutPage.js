@@ -40,7 +40,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   return (
     <>
       <Meta {...pageMeta} />
-      <div className="min-h-screen max-w-7xl flex">
+      <div className="min-h-screen max-w-6xl flex">
         {showNavTop ? (
           <NavTop
             onToggleNavVertical={handleToggleNavVertical}
@@ -54,10 +54,10 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
           />
         ) : null}
         <div
-          className={`container ${
+          className={`container pb-4 ${
             showNavTop && showNavVertical ? "blur-sm" : null
           } mx-auto flex-1 overflow-hidden px-4 ${
-            showNavTop ? "py-16" : "py-4"
+            showNavTop ? "pt-16" : "pt-8"
           } ${className}`}
           id={pageId}
           ref={pageTopRef}>
