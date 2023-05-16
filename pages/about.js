@@ -33,7 +33,7 @@ export default function About() {
         </p>
         <br />
         <p>
-          In 2021, I Graduated with a master's degree in Music, Communication,
+          In 2021, I Graduated with a masters degree in Music, Communication,
           and Technology (MCT) from the University of Oslo (UiO). Currently, I
           lecture two master-level university courses on Networked Music
           Performances and work as an engineer at the UiO Musicology Department.

@@ -14,4 +14,6 @@ const ButtonIcon = React.forwardRef((props, ref) => {
   );
 });
 
+// React.displayName = "";
+
 export default ButtonIcon;
