@@ -21,8 +21,8 @@ const MyImage = (props) => {
             src={img}
             placeholder="blur"
             blurDataURL={placholder}
-            width={width ? width + "" : 0}
-            height={height ? height : 0}
+            width={width ? width + "" : "0"}
+            height={height ? height : "0"}
             className={`${width ? "" : "w-full"} h-auto m-0 rounded-sm ${
               isExpandable ? "hover:cursor-pointer" : null
             }`}

@@ -13,7 +13,6 @@
     "@mantine/core": "^6.0.9",
     "@mantine/hooks": "^6.0.9",
     "@mantine/prism": "^6.0.9",
-    "@netlify/plugin-nextjs": "^4.37.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.8",
     "express-validator": "^6.14.2",

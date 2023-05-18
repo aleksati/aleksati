@@ -10,9 +10,9 @@ const widthTresh = 768; // lg tailwind default - md = 768;
 let prevWidth = 0;
 
 const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
-  const [showNavVertical, setShowNavVertical] = useState(false);
-  const [widthBelowThresh, setWidthBelowThresh] = useState();
+  const [showNavVertical, setShowNavVertical] = useState(true);
   const [showNavTop, setShowNavTop] = useState(false);
+  const [widthBelowThresh, setWidthBelowThresh] = useState();
   const { width } = useWindowSize();
   const pageTopRef = useRef();
 
