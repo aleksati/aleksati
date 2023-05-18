@@ -8,14 +8,9 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/posts",
+        destination: "/about",
         permanent: true,
       },
-      // {
-      //   source: "/posts",
-      //   destination: "/posts/1",
-      //   permanent: true,
-      // },
     ];
   },
   // I do this to use "fs" in getStaticProps
