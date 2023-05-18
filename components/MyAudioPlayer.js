@@ -1,6 +1,7 @@
 import getClockValue from "../functions/getClockValue";
 import { useRef, useEffect, useState } from "react";
 import Icon from "./Icon";
+import ButtonIcon from "./ButtonIcon";
 
 const WaveFormOptions = (ref, opt) => ({
   container: ref,
@@ -27,12 +28,14 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   //   const [stateTheme, setStateTheme] = useState(null);
   //   const { currTheme } = getCurrTheme();
 
+  const audio = `/audio/${src}`;
+
   const create = async () => {
     try {
       const WaveSurfer = (await import("wavesurfer.js")).default;
       const options = WaveFormOptions(containerRef.current, newOptions);
       waveFormRef.current = WaveSurfer.create(options);
-      waveFormRef.current.load(src);
+      waveFormRef.current.load(audio);
 
       waveFormRef.current.on("audioprocess", () => {
         let currTime = waveFormRef.current.getCurrentTime();
@@ -64,21 +67,21 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   };
 
   return (
-    <div className="flex items-center justify-start p-2 py-6">
+    <div className="flex items-center justify-start py-4 py-6">
       {audioIsMounted ? (
         <div className="flex items-center">
-          <div onClick={handlePlayPause} className="cursor-pointer">
-            <Icon id={isPlaying ? "pause" : "play"} />
-          </div>
-          <div className="w-8 ml-2 mr-4">
-            <p id="audiotime">00:00</p>
-          </div>
+          <ButtonIcon
+            onClick={handlePlayPause}
+            iconId={isPlaying ? "pause" : "play"}
+            className="cursor-pointer"
+          />
+          <p id="audiotime">00:00</p>
         </div>
       ) : (
-        <p className="w-1/2">Loading audio...</p>
+        <p className="w-1/3">Loading audio...</p>
       )}
       <div className="relative w-full">
-        <div id="waveform" ref={containerRef} />
+        <div className="px-2" id="waveform" ref={containerRef} />
       </div>
     </div>
   );

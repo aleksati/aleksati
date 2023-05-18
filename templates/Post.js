@@ -9,7 +9,9 @@ export default function Post({ mdxSource, frontMatter }) {
     <>
       <div className="mb-8">
         {/*  text-2xl md:text-4xl */}
-        <h1 className="font-bold text-4xl mb-2">{frontMatter.title}</h1>
+        <h1 className="font-bold leading-10 text-4xl mb-2">
+          {frontMatter.title}
+        </h1>
         <DateAndKeywordViewer
           date={frontMatter.date}
           keywords={[...frontMatter.keywords]}
