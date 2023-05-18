@@ -13,7 +13,7 @@ export default function About() {
             isExpandable={true}
             priority={true}
             src={"me.jpg"}
-            width="180"
+            width="220"
           />
         </div>
         <div className="space-y-1">

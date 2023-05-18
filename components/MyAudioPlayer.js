@@ -4,18 +4,18 @@ import Icon from "./Icon";
 
 const WaveFormOptions = (ref, opt) => ({
   container: ref,
-  //   waveColor: "rgb(33, 31, 36)", // "#211F24",
-  //   progressColor: "rgb(239, 68, 68)", // "#300415",
-  //   cursorColor: "rgb(239, 68, 68)", // "#300415",
-  //   cursorWidth: 3,
+  // waveColor: "rgb(0,0,0)", // "#211F24",
+  // progressColor: "rgb(0,0,0)", // "#300415",
+  // cursorColor: "rgb(20,0,0)", // "#300415",
+  cursorWidth: 2,
   //   barWidth: 1,
   //   barRadius: 5,
   responsive: true,
-  height: 40,
+  height: 80,
   partialRender: false, //true
   hideScrollbar: true,
-  normalize: true,
-  splitChannels: true,
+  // normalize: true,
+  splitChannels: false,
   ...opt,
 });
 
@@ -68,16 +68,14 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
       {audioIsMounted ? (
         <div className="flex items-center">
           <div onClick={handlePlayPause} className="cursor-pointer">
-            <Icon id={isPlaying ? "pause" : "play"} iconSize={"text-md"} />
+            <Icon id={isPlaying ? "pause" : "play"} />
           </div>
-          <div className="w-8 ml-2 mr-4 text-sm">
+          <div className="w-8 ml-2 mr-4">
             <p id="audiotime">00:00</p>
           </div>
         </div>
       ) : (
-        <div className="flex text-sm items-center space-x-2">
-          <p>Loading audio...</p>
-        </div>
+        <p className="w-1/2">Loading audio...</p>
       )}
       <div className="relative w-full">
         <div id="waveform" ref={containerRef} />

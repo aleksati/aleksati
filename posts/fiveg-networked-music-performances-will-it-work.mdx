@@ -25,10 +25,7 @@ Playing music over the network is highly challenging because of its exceptionall
 
 **Demo** - For perspective, here is 30ms of audio delay from left to right channel:
 
-<MyAudioPlayer
-  src="/audio/fiveg-30ms-delay.mp3"
-  newOptions={{ splitChannels: true }}
-/>
+<MyAudioPlayer src="/audio/fiveg-30ms-delay.mp3" />
 
 In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefano Faciani</MyLink>) got in touch with Telenor Research to explore the feasibility of conducting NMPs over 5G. During spring, we were able to schedule two experiments where we met and collaborated on a series of audio transmission tests on private and commercial 5G networks. In this post, I present the experiments in detail and the preliminary results.
 
@@ -128,10 +125,7 @@ We measured the average digital and analog RTT to be 110ms and 165ms (respective
 
 **Demo** - 165ms audio delay from left to right ear:
 
-<MyAudioPlayer
-  src="/audio/fiveg-165ms-delay.mp3"
-  newOptions={{ splitChannels: true }}
-/>
+<MyAudioPlayer src="/audio/fiveg-165ms-delay.mp3" />
 
 ### Private 5G
 
@@ -141,10 +135,7 @@ On the private 5G, we were able to get better overall results overall. When usin
 
 **Demo** - 74ms audio delay from left to right ear:
 
-<MyAudioPlayer
-  src="/audio/fiveg-74ms-delay.mp3"
-  newOptions={{ splitChannels: true }}
-/>
+<MyAudioPlayer src="/audio/fiveg-74ms-delay.mp3" />
 
 Although this was impressive, the configuration rendered borderline audio quality that would be unpleasant in the long run. When using a buffer size of 512, we got much more stable audio with 90-100ms digital RTT (similar to the commercial 5G, only slightly faster) and an analog RTT at about 140ms.
 
