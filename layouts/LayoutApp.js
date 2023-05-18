@@ -1,5 +1,4 @@
 import GoogleAnalytics from "../components/GoogleAnalytics";
-// import Footer from "../templates/Footer";
 
 const LayoutApp = ({ children }) => {
   return (

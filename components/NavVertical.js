@@ -14,11 +14,11 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
 
   return (
     <div
-      className={`z-60 pt-6 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
+      className={`z-50 pt-6 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>
-      <div className="w-56 fixed z-20">
+      <div className="w-56 fixed z-70">
         <div className="flex justify-between items-center">
           <div>
             <Link href="/" className="font-bold">

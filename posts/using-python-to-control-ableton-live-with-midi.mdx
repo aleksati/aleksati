@@ -29,37 +29,17 @@ In this post, I present my solution and demonstrate how you can use some Python 
 
 # Contents
 
-<ol>
-  <li>
-    <MyLink href="#system-overview">System overview</MyLink>
-  </li>
-  <li>
-    <MyLink href="#python-setup">Python Setup</MyLink>
-  </li>
-  <ol>
-    <li>
-      <MyLink href="#scene_config">scene_config</MyLink>
-    </li>
-    <li>
-      <MyLink href="#skipping-audio-tracks">
-        Skipping Audio Tracks with Generators
-      </MyLink>
-    </li>
-    <li>
-      <MyLink href="#rtmidi">rtmidi</MyLink>
-    </li>
-  </ol>
-  <li>
-    <MyLink href="#ableton-live-setup">Ableton Live Setup</MyLink>
-  </li>
-  <li>
-    <MyLink href="#source-code">Source Code</MyLink>
-  </li>
-</ol>
+1. <MyLink href="#system-overview">System overview</MyLink>
+2. <MyLink href="#python-setup">Python Setup</MyLink>
+   1. <MyLink href="#scene-config">scene config</MyLink>
+   2. <MyLink href="#skipping-tracks">Skipping Tracks With Yield</MyLink>
+   3. <MyLink href="#rtmidi">rtmidi</MyLink>
+3. <MyLink href="#ableton-live-setup">Ableton Live Setup</MyLink>
+4. <MyLink href="#source-code">Source Code</MyLink>
 
 <hr />
 
-<h1 id="system-overview">System Overview</h1>
+# System Overview
 
 <MyImage
   src="abletonmidi-system-diagram.png"
@@ -79,7 +59,7 @@ The system consists of 4 components:
 
 In my personal setup I use a MIDIPLUS X4 midi keyboard connected to my windows 10 machine via USB. As a virtual midi driver, I use <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsens loopMIDI</MyLink>. For Mac users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
 
-<h1 id="python-setup">Python Setup</h1>
+# Python Setup
 
 The Python code as two primary jobs. First, to intercept midi messages from the controller and pass them to Ableton Live. And second, to associate collections of Ableton tracks with scenes and customize the track _skipping order_.
 
@@ -89,7 +69,7 @@ The Python code as two primary jobs. First, to intercept midi messages from the 
   caption="By associating unique track constellations with specific scenes in Ableton, I can navigate complex live sets using very few controls."
 />
 
-<h3 id="scene_config">scene_config</h3>
+### scene config
 
 To represent Ableton Live's session view window in Python, I define a dictionary called scene_config. The dictionary's key-value pairs represent the Ableton window as a 2D stucture. Each key represents a scene, and each value represents a collection (array) of tracks (integers).
 
@@ -104,7 +84,7 @@ scene_config = {
 }
 ```
 
-<h3 id="skipping-audio-tracks">Skipping Audio Tracks with Generators</h3>
+### Skipping Tracks
 
 To skip between audio tracks, I iterating and loop over the scene_config arrays asynchronously in response to keypresses from my USB controller. To handle this kind of functionality, I recommend using the Yield generator function in Python.
 
@@ -143,7 +123,7 @@ In the above example, I pass a scene (array) from scene_config into the nextTrac
 
 To see how I implemented this technique into my actual live setup, visit the <MyLink href="#source-code">source code section</MyLink> below.
 
-<h3 id="rtmidi">rtmidi</h3>
+### rtmidi
 
 The second job of the Python program is to handle the midi communication between the controller and Ableton Live. I have to use two midi devices for this to work, one physical USB controller (the input) and one virtual midi driver (the output going to Ableton Live).
 
@@ -206,7 +186,7 @@ with midi_in:
             prev_message = message
 ```
 
-<h1 id="ableton-live-setup">Ableton Live Setup</h1>
+# Ableton Live Setup
 
 In Ableton, I have to do the correct midi mapping and enable the right midi settings.
 
@@ -227,7 +207,7 @@ Finally, I have to set the correct midi settings in Ableton. As default, Ableton
 
 To open the midi preferences, Hit **"ctrl" + ","** and navigate to the midi section. The only midi input I want is from the virtual midi driver, so I uncheck every other device.
 
-<h1 id="source-code">Source Code</h1>
+# Source Code
 
 The full source code of this project is open source and available on <MyLink href="https://github.com/aleksati/ableton-navigation-system">my GitHub</MyLink>.
 

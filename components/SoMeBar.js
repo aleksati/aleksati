@@ -29,13 +29,8 @@ const SoMeBar = ({ exclude = [], className }) => {
       {some.map((some) => {
         if (exclude.includes(some.key)) return;
         return (
-          <div>
-            <a
-              role="link"
-              key={some.key}
-              href={some.url}
-              aria-label={some.key}
-              className="hover:cursor-pointer">
+          <div key={some.key} className="hover:cursor-pointer">
+            <a role="link" href={some.url} aria-label={some.key}>
               <Icon id={some.key} />
             </a>
           </div>

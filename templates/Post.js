@@ -16,7 +16,8 @@ export default function Post({ mdxSource, frontMatter }) {
           keywords={[...frontMatter.keywords]}
         />
       </div>
-      <div className="prose text-base prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg !container dark:prose-invert prose-h1:pt-4 prose-ol:ml-4 prose-a:no-underline">
+      <p>some text</p>
+      <div className="prose text-primary-light dark:text-primary-dark !container dark:prose-invert prose-ol:ml-4 prose-a:no-underline">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}

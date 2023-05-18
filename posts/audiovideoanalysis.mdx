@@ -26,39 +26,18 @@ In 2019, I was assigned to update and refurbish AudioVideoAnalysis, one of the l
 
 # Contents
 
-<ol>
-  <li>
-    <MyLink href="#how-to-use-it"> How To Use It</MyLink>
-  </li>
-  <li>
-    <MyLink href="#key-features"> Key Features</MyLink>
-  </li>
-  <ol>
-    <li>
-      <MyLink href="#rate-of-play">Rate of Play</MyLink>
-    </li>
-    <li>
-      <MyLink href="#analysis-markers">Analysis Markers and Data Retreival</MyLink>
-    </li>
-        <li>
-      <MyLink href="#image-layering">Image Layering</MyLink>
-    </li>
-    <li>
-      <MyLink href="#export-options">Export Options</MyLink>
-    </li>
-
-  </ol>
-  <li>
-    <MyLink href="#downloads">Downloads</MyLink>
-  </li>
-  <li>
-    <MyLink href="#references">References</MyLink>
-  </li>
-</ol>
+1. <MyLink href="#how-to-use-it">How To Use It</MyLink>
+2. <MyLink href="#key-features">Key Features</MyLink>
+   1. <MyLink href="#rate-of-play">Rate of Play</MyLink>
+   2. <MyLink href="#analysis-markers">Analysis Markers</MyLink>
+   3. <MyLink href="#image-layering">Image Layering</MyLink>
+   4. <MyLink href="#export-options">Export Options</MyLink>
+3. <MyLink href="#downloads">Downloads</MyLink>
+4. <MyLink href="#references">References</MyLink>
 
 <hr />
 
-<h1 id="how-to-use-it">How To Use It</h1>
+# How To Use It
 
 AudioVideoAnalysis (AVA) generates motiongrams, videograms (video), and spectrograms (audio) from any connected media source in real-time.
 
@@ -74,13 +53,13 @@ To read more about motiongrams and how they're made, visit my previous post on t
 
 For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
 
-<h1 id="key-features">Key Features</h1>
+# Key Features
 
 AVA sports many advanced audio, video, and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and more.
 
 Let's take a closer look at some of the interesting features of AudioVideoAnalysis v2.0.
 
-<h2 id="rate-of-play">Rate of Play</h2>
+## Rate of Play
 
 AVA works by printing images across the display window from left to right. By default, it takes 60 seconds for the images to loop back to start. However, there is a way to configure the speed of image printing.
 
@@ -94,7 +73,7 @@ The printing rate determines how fast the images are printed across the display 
 
 A nice effect of increasing the printing rate is that it will increase the temporal resolution of the images, enabling you to zoom in on the spectral content. However, the downside of higher printing rates is that it decreases the overall image resolution.
 
-<h2 id="analysis-markers">Analysis Markers and Data Retreival</h2>
+## Analysis Markers
 
 Perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording.
 
@@ -121,7 +100,7 @@ To accommodate the analysis markers and grid function, AVA features clickpoint d
 
 I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
 
-<h2 id="image-layering">Image Layering</h2>
+## Image Layering
 
 To add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view the spectral images in different configurations in the display window.
 
@@ -129,13 +108,13 @@ The layering options include the ability to view the images individually (only a
 
 <MyImage src="ava-display-options.gif" caption="" width="600" />
 
-<h2 id="export-options">Export Options</h2>
+## Export Options
 
 The final images you create in the AVA display window can be exported via the export options in the menubar. The available formats are JPEG, TIFF (lossless), and PNG.
 
 Unfortunately, the image resolution cannot be customized due to several processing constraints. The maximum export image resolution is 1024x720, and it will decrease based on the printing rate you use.
 
-<h1 id="downloads">Downloads</h1>
+# Downloads
 
 AudioVideoAnalysis is open source and available on both OSX and WIN. The software can be downloaded from the <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/releases">FourMS GitHub page</MyLink>. If you want to contribute, you are free to do so. Simply fork the <MyLink href="https://github.com/fourMs/AudioVideoAnalysis">AudioVideoAnalysis repo</MyLink>, and make a pull request for us to review.
 

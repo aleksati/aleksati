@@ -44,7 +44,7 @@ In 2022, me and my colleague (<MyLink href="https://stefanofasciani.com/">Stefan
 
 <hr />
 
-<h1 id="test-sites-and-equipment">Test sites and Equipment</h1>
+# Test sites and Equipment
 
 To connect to their 5G, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Routers. The modems were pre-configured to access specific Access-Point-Names (APNs) based on our location to enable faster packet routing and better p2p connectivity at the test site.
 
@@ -76,7 +76,7 @@ We ran <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> and Qjack as ou
   ]}
 />
 
-<h1 id="testing-methodology">Testing Methodology</h1>
+# Testing Methodology
 
 Having lightning-fast communication is always a high priority for any NMP. However, low latency is not synonymous with high-quality signals with minimal dropouts and unwanted artifacts (glitches).
 
@@ -84,11 +84,11 @@ Therefore, to test whether 5G can accommodate NMPs, we tried to find the best po
 
 We did three tests at each location:
 
-<h3 id="network-coverage">1) Network Coverage</h3>
+### Network Coverage
 
 By using a combination of <MyLink href="https://iperf.fr/">iPerf</MyLink> networking utilities, measurements from the Huawei routers' software, <MyLink href="https://www.telenor.no/dekning/#dekningskart">Telenor’s online coverage map</MyLink>, and <MyLink href="https://www.speedtest.net/">Ookla's online speedtester</MyLink>, we were able to make network bandwidth and coverage estimates throughout the experiments, ensuring that our load did not exceed the capacity of the networks.
 
-<h3 id="signal-quality">2) Signal Quality</h3>
+### Signal Quality
 
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
@@ -100,7 +100,7 @@ To locate the quality and stability sweetspots for our audio transmission, we cr
 
 Upon experiencing unwanted artifacts, glitches, or drops in the audio, we simply adjusted the software and hardware buffer sizes to locate the lowest possible configuration that ensured stable transmission over a significant period.
 
-<h3 id="roundtrip-latency">3) Roundtrip Latency</h3>
+### Roundtrip Latency
 
 With the software and hardware parameters fine-tuned, we used the same loopback system to measure the digital and analog audio roundtrip time (RTT).
 
@@ -116,9 +116,9 @@ By including this additional hardware, we measure the analog RTT. This measureme
 
 To achieve higher accuracy and certainty in our analog RTT measurements, we used a secondary pc+soundcard setup, as shown in the diagram above. With this configuration, we bypass and control unwanted latency compensation mechanisms and other side effects caused by our hardware or software modules.
 
-<h1 id="results">Results</h1>
+# Results
 
-<h3 id="commercial-5G">Commercial 5G</h3>
+### Commercial 5G
 
 Since the 5G reception inside IMV was poor, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance. Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>), we measured a stable 75% 5G coverage with 60Mbps bandwidth.
 
@@ -133,7 +133,7 @@ We measured the average digital and analog RTT to be 110ms and 165ms (respective
   newOptions={{ splitChannels: true }}
 />
 
-<h3 id="private-5G">Private 5G</h3>
+### Private 5G
 
 During our second round of testing, time was of the essence. We only had about 3-4 hours to set up our equipment and run tests on the private 5GNoW in Elverum. From the very start, we ran into unexpected connectivity and bandwidth issues, but we managed to get a stable 14-15Mbps link which is more than enough for stereo uncompressed audio.
 
@@ -160,7 +160,7 @@ Results in table form:
   ]}
 />
 
-<h1 id="summary">Summary</h1>
+# Summary
 
 In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
 
