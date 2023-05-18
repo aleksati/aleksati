@@ -28,6 +28,7 @@ const MyImage = (props) => {
             }`}
             unoptimized={true} // this is the only way make gifs work with Image component, I found
             onClick={handleImgClick}
+            priority
           />
           {isExpandable ? (
             <div className="absolute rounded-sm top-0 bg-primary-light bg-opacity-50 right-0">
@@ -55,6 +56,7 @@ const MyImage = (props) => {
             blurDataURL={placholder}
             unoptimized={true} // this is the only way make gifs work with Image component, I found
             quality={100}
+            priority
           />
         </ModalImage>
       )}

@@ -8,9 +8,11 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
       aria-label="Navbar"
       role="toolbar">
       <div className="flex p-4 items-center justify-between">
-        <Link href="/" className="font-bold">
-          aleksati.net
-        </Link>
+        <h1>
+          <Link href="/" className="font-bold">
+            aleksati.net
+          </Link>
+        </h1>
       </div>
       {/* fixed because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
       <div className="fixed top-3 right-4">

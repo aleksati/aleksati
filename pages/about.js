@@ -29,15 +29,15 @@ export default function About() {
         <p>
           Music technology enthusiast, drummer, and software developer from
           Kongsberg, Norway. Curious about all things science and passionate
-          about art, exercising, my partner, and our cat..
+          about art, exercising, my partner, and our cat.
         </p>
         <br />
         <p>
           I currently work as an engineer for the Musicology Department at the
-          University of Oslo (UiO) and lecture two master courses on Networked
-          Music Performance Technologies. In addition to networked interaction,
-          my professional research interests are mostly in audio, video and web
-          programming.
+          University of Oslo (UiO) and lecture two master-level courses on
+          Networked Music Performance Technologies. In addition to networked
+          interaction, my professional and research interests are mostly in
+          audio, video and web programming.
         </p>
         <br />
         <p>
