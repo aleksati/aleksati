@@ -4,7 +4,7 @@ import Link from "next/link";
 const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
   return (
     <nav
-      className="z-10 fixed w-full bg-primary-light dark:bg-primary-dark"
+      className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
       <div className="flex p-4 items-center justify-between">
@@ -17,7 +17,6 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
           <ButtonIcon
             iconId={showNavVertical ? "x" : "threedots"}
             onClick={onToggleNavVertical}
-            iconSize="text-2xl"
           />
         </div>
       </div>

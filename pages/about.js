@@ -1,5 +1,5 @@
 import LayoutPage from "../layouts/LayoutPage";
-import profilePic from "../public/img/me.jpg";
+// import profilePic from "../public/img/me.jpg";
 import MyImage from "../components/MyImage";
 import SoMeBar from "../components/SoMeBar";
 
@@ -11,8 +11,8 @@ export default function About() {
           <MyImage
             alt="Portrett pic of me"
             isExpandable={true}
-            src={profilePic}
             priority={true}
+            src={"me.jpg"}
             width="180"
           />
         </div>
@@ -22,34 +22,35 @@ export default function About() {
           <p className="text-secondary dark:text-secondary-dark text-sm">
             @aleksati @alexfürimmer
           </p>
-          <SoMeBar className="space-x-2" />
+          <SoMeBar />
         </div>
       </div>
       <div>
         <p>
-          I am a music technology enthusiast, drummer, and software developer
-          from Kongsberg, Norway. Curious about all things science and
-          passionate about art, exercising, my partner, and our cat.
+          Music technology enthusiast, drummer, and software developer from
+          Kongsberg, Norway. Curious about all things science and passionate
+          about art, exercising, my partner, and our cat..
         </p>
         <br />
         <p>
-          In 2021, I Graduated with a masters degree in Music, Communication,
-          and Technology (MCT) from the University of Oslo (UiO). Currently, I
-          lecture two master-level university courses on Networked Music
-          Performances and work as an engineer at the UiO Musicology Department.
-          In addition to networked interactions, my professional interests are
-          in audio, video and web programming.
+          I currently work as an engineer for the Musicology Department at the
+          University of Oslo (UiO) and lecture two master courses on Networked
+          Music Performance Technologies. In addition to networked interaction,
+          my professional research interests are mostly in audio, video and web
+          programming.
         </p>
         <br />
         <p>
           On the artistic side, I play drums, synths, and live electronics with
-          several Oslo-based bands and do some sound art installation work from
+          several Oslo-based bands and do some sound-art installation work from
           time to time.
         </p>
       </div>
     </LayoutPage>
   );
 }
+
+About.displayName = "About";
 
 export async function getStaticProps() {
   return { props: {} };

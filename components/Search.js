@@ -31,18 +31,21 @@ const Search = () => {
   }, [resetComponent, path]);
 
   // when typing, call the search api and set results
-  const onChange = useCallback(async (e) => {
-    const query = e.target.value;
-    setQuery(query);
-    try {
-      const res = await fetch(`/api/search?q=${query}`);
-      const data = await res.json();
-      setResults(data.results);
-    } catch (error) {
-      resetComponent(true);
-      console.log(error);
-    }
-  }, []);
+  const onChange = useCallback(
+    async (e) => {
+      const query = e.target.value;
+      setQuery(query);
+      try {
+        const res = await fetch(`/api/search?q=${query}`);
+        const data = await res.json();
+        setResults(data.results);
+      } catch (error) {
+        resetComponent(true);
+        console.log(error);
+      }
+    },
+    [resetComponent]
+  );
 
   // null the search when clicking outside of the search item
   useEffect(() => {
@@ -89,5 +92,7 @@ const Search = () => {
     </div>
   );
 };
+
+Search.displayName = "Search";
 
 export default Search;

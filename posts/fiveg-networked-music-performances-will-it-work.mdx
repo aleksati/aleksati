@@ -1,7 +1,21 @@
 ---
 title: "5G Networked Music Performances - Will It Work?"
 date: "2023-02-10"
-keywords: ["audio", "network", "5G", "nmp", "jacktrip"]
+keywords:
+  [
+    "audio",
+    "network",
+    "5G",
+    "nmp",
+    "jacktrip",
+    "research",
+    "telenor",
+    "lola",
+    "latency",
+    "telematic",
+    "music",
+    "realtime",
+  ]
 summary: "Me and a colleague teamed up with Telenor Research to see what it takes to play music together over next generation 5G networks. Here are the preliminary results."
 ---
 
@@ -79,7 +93,7 @@ By using a combination of <MyLink href="https://iperf.fr/">iPerf</MyLink> networ
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
 <MyImage
-  src="/img/5G-latency-method.jpg"
+  src="5G-latency-method.jpg"
   alt="latency measurement diagram"
   caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location."
 />
@@ -95,7 +109,7 @@ With digital RTT, we refer to the time it takes audio to travel from software to
 By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
 
 <MyImage
-  src="/img/5G-latency-method-third-laptop.png"
+  src="5G-latency-method-third-laptop.png"
   alt="latency measurement third laptop diagram"
   caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits."
 />

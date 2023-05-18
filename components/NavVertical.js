@@ -14,7 +14,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
 
   return (
     <div
-      className={`z-20 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
+      className={`z-60 pt-6 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>
@@ -26,7 +26,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
             </Link>
           </div>
           <div>
-            <ButtonTheme iconSize={"text-md"} />
+            <ButtonTheme />
           </div>
         </div>
       </div>

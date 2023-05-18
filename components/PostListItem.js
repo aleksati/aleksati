@@ -1,10 +1,9 @@
-import { keyword2color, keyword2text } from "../keywords/posts";
 import { useMouseHover } from "../hooks/useMouseHover";
-import { date2text } from "../functions/date2text";
+import DateAndKeywordViewer from "./DateAndKeywordViewer";
 import Link from "next/link";
 
 const PostListItem = ({
-  readingTime,
+  // readingTime,
   keywords,
   summary,
   title,
@@ -27,19 +26,7 @@ const PostListItem = ({
         <div>
           <p>{summary}</p>
         </div>
-        <div className="flex flex-wrap text-xs md:text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">
-          <p>{date2text(date)}</p>
-          {[...keywords].map((keyword) => (
-            <div className="flex space-x-1 items-center" key={keyword}>
-              <p
-                className="text-lg"
-                style={{ color: `${keyword2color[keyword]}` }}>
-                •
-              </p>
-              <p>{keyword2text[keyword]}</p>
-            </div>
-          ))}
-        </div>
+        <DateAndKeywordViewer date={date} keywords={[...keywords]} />
       </Link>
     </div>
   );

@@ -9,25 +9,29 @@ const MyImage = (props) => {
   const handleImgClick = () => setModalIsShown(true);
   const handleModalClose = () => setModalIsShown(false);
 
+  const img = `/img/${src}`;
+  const placholder = `/img/placeholders/${src}`;
+
   return (
     <>
       <div className="w-full flex flex-col justify-center">
         <div className="relative">
           <Image
             {...imgProps}
-            src={src}
-            width={width ? width + "" : "0"}
-            height={height ? height : "0"}
+            src={img}
+            placeholder="blur"
+            blurDataURL={placholder}
+            width={width ? width + "" : 0}
+            height={height ? height : 0}
             className={`${width ? "" : "w-full"} h-auto m-0 rounded-sm ${
               isExpandable ? "hover:cursor-pointer" : null
             }`}
             unoptimized={true} // this is the only way make gifs work with Image component, I found
-            quality={100}
             onClick={handleImgClick}
           />
           {isExpandable ? (
             <div className="absolute rounded-sm top-0 bg-primary-light bg-opacity-50 right-0">
-              <ButtonIcon iconId="expand" />
+              <ButtonIcon iconId="expand" iconSize="text-md" />
             </div>
           ) : null}
         </div>
@@ -40,9 +44,15 @@ const MyImage = (props) => {
       {modalIsShown && isExpandable && (
         <ModalImage onModalClose={handleModalClose}>
           <Image
+            src={img}
             alt="modal image"
-            src={src}
             object-fit="cover"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-full h-auto"
+            placeholder="blur"
+            blurDataURL={placholder}
             unoptimized={true} // this is the only way make gifs work with Image component, I found
             quality={100}
           />
@@ -51,5 +61,7 @@ const MyImage = (props) => {
     </>
   );
 };
+
+MyImage.displayName = "MyImage";
 
 export default MyImage;

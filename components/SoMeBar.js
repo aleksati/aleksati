@@ -25,18 +25,20 @@ const SoMeBar = ({ exclude = [], className }) => {
   ];
 
   return (
-    <div className={`flex py-1 ${className}`}>
+    <div className={`flex space-x-2 py-1 ${className}`}>
       {some.map((some) => {
         if (exclude.includes(some.key)) return;
         return (
-          <a
-            role="link"
-            key={some.key}
-            href={some.url}
-            aria-label={some.key}
-            className="hover:cursor-pointer">
-            <Icon id={some.key} />
-          </a>
+          <div>
+            <a
+              role="link"
+              key={some.key}
+              href={some.url}
+              aria-label={some.key}
+              className="hover:cursor-pointer">
+              <Icon id={some.key} />
+            </a>
+          </div>
         );
       })}
     </div>

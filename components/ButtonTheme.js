@@ -18,9 +18,9 @@ const ButtonTheme = ({ tabOrder, iconSize }) => {
   return (
     <ButtonIcon
       iconId={currTheme === "dark" ? "sun" : "moon"}
-      onClick={handleClick}
       label="Toggle light or dark theme"
-      iconSize={iconSize}
+      onClick={handleClick}
+      iconSize={"text-lg"}
     />
   );
 };

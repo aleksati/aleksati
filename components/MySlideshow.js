@@ -20,13 +20,17 @@ const properties = {
   defaultIndex: 0,
   // cssClass: "flex flex-col",
   nextArrow: (
-    <button className="text-primary-dark" aria-label="next slideshow image">
-      <Icon id="nextArrow" iconSize={"text-2xl"} />
+    <button
+      className="text-primary-dark brightness-50"
+      aria-label="next slideshow image">
+      <Icon id="nextArrow" />
     </button>
   ),
   prevArrow: (
-    <button className="text-primary-dark" aria-label="previous slideshow image">
-      <Icon id="prevArrow" iconSize={"text-2xl"} />
+    <button
+      className="text-primary-dark brightness-50"
+      aria-label="previous slideshow image">
+      <Icon id="prevArrow" />
     </button>
   ),
 };
@@ -39,7 +43,7 @@ const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
         <Slide {...properties} indicators={indicators}>
           {imgs.map((slug, index) => (
             <MyImage
-              src={"/img/" + slug}
+              src={slug}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
               width={width ? width : null}
@@ -49,7 +53,7 @@ const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
         </Slide>
       ) : (
         <MyImage
-          src={"/img/" + imgs[0]}
+          src={imgs[0]}
           alt={`slideshow image of ${imgs[0]}`}
           width={width ? width : null}
         />

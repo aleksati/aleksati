@@ -25,7 +25,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { BsMastodon, BsSearch } from "react-icons/bs";
 
-const defaultSize = "text-xl";
+const defaultSize = "text-2xl";
 
 const icons = {
   expand: (s) => <AiOutlineExpandAlt className={s} />,

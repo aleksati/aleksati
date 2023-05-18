@@ -4,13 +4,11 @@ import React from "react";
 const ButtonIcon = React.forwardRef((props, ref) => {
   const { onClick, iconId, iconSize, ...aProps } = props;
   return (
-    <a
-      {...aProps}
-      ref={ref}
-      onClick={onClick}
-      className="hover:cursor-pointer z-20">
-      <Icon id={iconId} iconSize={iconSize} />
-    </a>
+    <div ref={ref} className="hover:cursor-pointer p-1 z-20" onClick={onClick}>
+      <a {...aProps}>
+        <Icon id={iconId} iconSize={iconSize} />
+      </a>
+    </div>
   );
 });
 

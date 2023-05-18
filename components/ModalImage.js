@@ -1,5 +1,5 @@
 import ClientOnlyPortal from "./ClientOnlyPortal";
-import React, { memo, useState } from "react";
+import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 // import FocusTrap from "focus-trap-react";
 import ButtonIcon from "./ButtonIcon";
@@ -66,4 +66,4 @@ const ModalImage = ({ onModalClose, children }) => {
 
 ModalImage.displayName = "ModalImage";
 
-export default memo(ModalImage);
+export default ModalImage;

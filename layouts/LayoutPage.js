@@ -57,7 +57,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
           className={`container pb-4 ${
             showNavTop && showNavVertical ? "blur-sm" : null
           } mx-auto flex-1 overflow-hidden px-4 ${
-            showNavTop ? "pt-16" : "pt-8"
+            showNavTop ? "pt-20" : "pt-6"
           } ${className}`}
           id={pageId}
           ref={pageTopRef}>

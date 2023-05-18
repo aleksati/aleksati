@@ -1,12 +1,23 @@
 ---
 title: "Using Python to Control Ableton Live With MIDI"
 date: "2023-03-10"
-keywords: ["audio", "live", "ableton", "python", "midi"]
+keywords:
+  [
+    "audio",
+    "ableton",
+    "live",
+    "python",
+    "midi",
+    "rtmidi",
+    "osc",
+    "music tech",
+    "realtime",
+  ]
 summary: "While designing a new liveset for my band, I wrote some code to help me navigate Ableton Live more efficiently (like a 2D matrix) using very few midi controls. Here is what I did, and how."
 ---
 
 <MyImage
-  src="/img/abletonmidi-overview1.gif"
+  src="abletonmidi-overview1.gif"
   alt="overview of my setup to navigate Ableton Live using python"
 />
 
@@ -51,7 +62,7 @@ In this post, I present my solution and demonstrate how you can use some Python 
 <h1 id="system-overview">System Overview</h1>
 
 <MyImage
-  src="/img/abletonmidi-system-diagram.png"
+  src="abletonmidi-system-diagram.png"
   alt="system diagram of my setup."
 />
 
@@ -73,7 +84,7 @@ In my personal setup I use a MIDIPLUS X4 midi keyboard connected to my windows 1
 The Python code as two primary jobs. First, to intercept midi messages from the controller and pass them to Ableton Live. And second, to associate collections of Ableton tracks with scenes and customize the track _skipping order_.
 
 <MyImage
-  src="/img/abletonmidi-overview2-wkeys.gif"
+  src="abletonmidi-overview2-wkeys.gif"
   alt="overview of my setup with keys"
   caption="By associating unique track constellations with specific scenes in Ableton, I can navigate complex live sets using very few controls."
 />
@@ -95,7 +106,7 @@ scene_config = {
 
 <h3 id="skipping-audio-tracks">Skipping Audio Tracks with Generators</h3>
 
-To skip between audio tracks, I iterating and loop over the scene_config arrays asynchronously in response to keypresses from my USB controller. To handle this kind of functionality, I recommend using the \_yield\* Generator function in Python.
+To skip between audio tracks, I iterating and loop over the scene_config arrays asynchronously in response to keypresses from my USB controller. To handle this kind of functionality, I recommend using the Yield generator function in Python.
 
 Python Generators are special functions that return <MyLink href="https://en.wikipedia.org/wiki/Lazy_evaluation">lazy iterator</MyLink>. With these objects, you can iterate over array items one-by-one asynchronously without having to keep track of the previous or current index.
 
