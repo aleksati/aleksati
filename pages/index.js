@@ -3,13 +3,13 @@ import About from "../templates/About";
 
 export default function handler({ keywords }) {
   return (
-    <LayoutPage pageMeta={{ title: "about", keywords }}>
+    <LayoutPage pageMeta={{ keywords }}>
       <About />
     </LayoutPage>
   );
 }
 
-About.displayName = "About";
+// About.displayName = "About";
 
 import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
 
