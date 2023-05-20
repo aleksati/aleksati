@@ -1,6 +1,6 @@
+import { useRef, useEffect, useState, useCallback } from "react";
 import getClockValue from "../functions/getClockValue";
-import { useRef, useEffect, useState } from "react";
-import Icon from "./Icon";
+import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
 
 const WaveFormOptions = (ref, opt) => ({
@@ -25,8 +25,9 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   const waveFormRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioIsMounted, setAudioIsMounted] = useState(false);
-  //   const [stateTheme, setStateTheme] = useState(null);
-  //   const { currTheme } = getCurrTheme();
+
+  // const [stateTheme, setStateTheme] = useState(null);
+  const { currTheme } = getCurrTheme();
 
   const audio = `/audio/${src}`;
 
@@ -61,6 +62,24 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
     };
   }, []);
 
+  // change the color of the waveform based on the current theme
+  const setAudioColor = useCallback(() => {
+    if (audioIsMounted) {
+      waveFormRef.current.setProgressColor(
+        currTheme === "light" ? "#000" : "#fff"
+      );
+      waveFormRef.current.setWaveColor(currTheme === "light" ? "#000" : "#fff");
+      waveFormRef.current.setCursorColor(
+        currTheme === "light" ? "#000" : "#fff"
+      );
+    }
+  }, [waveFormRef, audioIsMounted, currTheme]);
+
+  useEffect(() => {
+    setAudioColor();
+  }, [setAudioColor]);
+
+  // update play state when pause/play
   const handlePlayPause = () => {
     setIsPlaying((prevstate) => !prevstate);
     waveFormRef.current.playPause();

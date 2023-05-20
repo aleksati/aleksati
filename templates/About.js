@@ -3,18 +3,18 @@ import SoMeBar from "../components/SoMeBar";
 
 const About = () => (
   <>
-    <div className="flex flex-col-2 space-x-4 pb-6 items-start">
+    <div className="flex flex-col-2 space-x-4 pb-4 items-start">
       <div>
         <MyImage
           alt="Portrett pic of me"
           isExpandable={true}
           src="me.jpg"
-          width="220"
+          width="120" //220
         />
       </div>
       <div className="space-y-1">
         <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
-        <p className="text-base">music technologist and developer</p>
+        <p className="text-sm md:text-base">music technologist and developer</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
