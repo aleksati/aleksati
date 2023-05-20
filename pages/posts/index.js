@@ -2,7 +2,6 @@ import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 
 export default function handler({ frontMatter, keywords }) {
-  // I inject keywords straight into the <Head>
   return (
     <LayoutPage
       pageMeta={{

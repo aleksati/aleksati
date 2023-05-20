@@ -9,8 +9,6 @@ export default function handler({ keywords }) {
   );
 }
 
-// About.displayName = "About";
-
 import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
 
 export async function getStaticProps() {
