@@ -8,6 +8,7 @@ const About = () => (
         <MyImage
           alt="Portrett pic of me"
           isExpandable={true}
+          priority={true}
           src="me.jpg"
           width="120" //220
         />

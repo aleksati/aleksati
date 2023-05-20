@@ -1,42 +1,53 @@
 import ButtonScrollTo from "../components/ButtonScrollTo";
+import { useIsMounted } from "../hooks/useIsMounted";
 import NavVertical from "../components/NavVertical";
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import NavTop from "../components/NavTop";
-import { useRouter } from "next/router";
 import Meta from "../components/Meta";
 
-const widthTresh = 768; // lg tailwind default - md = 768;
+import { useRouter } from "next/router";
+
+const widthTresh = 768; // tailwind md = 768;
 let prevWidth = 0;
 
 const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
-  const [showNavVertical, setShowNavVertical] = useState(true);
+  const [showNavVertical, setShowNavVertical] = useState(false);
+  const [widthBelowThresh, setWidthBelowThresh] = useState(false);
   const [showNavTop, setShowNavTop] = useState(false);
-  const [widthBelowThresh, setWidthBelowThresh] = useState();
+  const [isMounted, setIsMounted] = useIsMounted();
   const { width } = useWindowSize();
   const pageTopRef = useRef();
 
-  // handle browser size transitions to open and close the navbars
-  // set state when transitioning to avoid uneccessary rendering.
+  // handle browser size transitions to open+close the navbars
+  // to avoid uneccessary rendering.
   if (prevWidth !== width) {
-    setWidthBelowThresh(width < widthTresh ? true : false);
+    // when changing urls on the site, this component does not
+    // necessarily re-render because its used on all pages. However,
+    // I need to close the verical nav on touch if navigating to new url.
+    // to fix this, I evaluate !width as false to force re-render the component
+    // on a new route, after the isMount is true.
+    setWidthBelowThresh(!width || width < widthTresh);
     prevWidth = width;
   }
 
-  // also close the verical nav on touch if navigating to new url
-  // using path was the only thing that seemed to work
+  // also, when changing urls the the site from the search(!),
+  // I need to force re-render this component. Use path for this.
   const router = useRouter();
-  const path = router.query;
-  // set navbars based on the current state and window width
+  const path = router.pathname;
+
+  // on mount or a window size transition, re-evaluate which navbars
+  // should be showing.
   useEffect(() => {
-    setShowNavTop(widthBelowThresh ? true : false);
-    setShowNavVertical(widthBelowThresh ? false : true);
-  }, [widthBelowThresh, path]);
+    if (isMounted) {
+      setShowNavTop(widthBelowThresh ? true : false);
+      setShowNavVertical(widthBelowThresh ? false : true);
+    }
+  }, [isMounted, widthBelowThresh, path]);
 
   const handleToggleNavVertical = () =>
     setShowNavVertical((prevState) => !prevState);
 
-  // className="text-base items-center"
   return (
     <>
       <Meta {...pageMeta} />

@@ -55,7 +55,7 @@ VA supports batch video processing for those interested in working with multiple
 <MyImage
   src="va-batch.gif"
   alt="videoanalysis batch processing"
-  caption="Drag'n drop video folders into VideoAnalysis for batch processing."
+  caption="Drag'n drop video folders into VideoAnalysis for batch processing. (gif by Balint Lazcko)"
 />
 
 Also, VA includes export options designed to create better batch-processing workflows. For example, you can use the same processing settings for all videos or choose to configure custom settings for each file. Also, to ensure that users can continue their work later and use the same settings for multiple batches, it's possible to save and recall presets when needed.
@@ -107,12 +107,13 @@ In the centroid video in the VA display window, the CoM is visualized by a serie
 Finally, with motion videos we can also create motiongrams; images that represent motion over time. These images are good for getting a general sense of the spatiotemporal distribution of videos. They can also be exported and viewed directly from the VA UI.
 
 <MySlideshow
-  imgs={["va-mg.JPG", "va-mg-theory.JPG"]}
+  imgs={["va-mg-image.png", "va-mg.jpg", "va-mg2.jpg", "va-mg-theory.jpg"]}
   captions={[
-    "A motiongram image exported by VideoAnalyis, showing motion (Y) over time (X).",
-    "Reducing motion video frames into one-dimensional matrices and printing them across a canvas will create motiongrams.",
+    "A motion video snapshot of a pianist in the FourMs lab. The next slide shows the motiongram of the same video.",
+    "A motiongram representation of the video from the previous slide. Here we can get a sense of the motion (Y-axis) of the musician over time (X-axis).",
+    "Another motiongram I exported using VideoAnalysis.",
+    "To create motiongrams, you reduce motion video frames into one-dimensional matrices and print them across a canvas.",
   ]}
-  width="600"
 />
 
 Motiongrams are composed of columns of pixels, each representing a unique motion video frame. With each motion video frame, the mean values of every row are gathered and used to produce single pixel columns (one-dimensional matrices). These columns are then printed across a canvas (left to right) to create the motiongram effect.

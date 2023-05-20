@@ -18,7 +18,11 @@ keywords:
 summary: "A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo."
 ---
 
-<MyImage src="ava-overview.jpg" alt="audiovideoanalysis overview" />
+<MyImage
+  priority={true}
+  src="ava-overview.jpg"
+  alt="audiovideoanalysis overview"
+/>
 
 AudioVideoAnalysis is part of the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/">Musical Gestures Toolbox for MaxMSP</MyLink> (MGT), created by Alexander Refsum Jensenius for the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/">RITMO FourMS lab</MyLink> at the University of Oslo in the early 2000s.
 
@@ -45,11 +49,7 @@ Spectrograms are visual representations of the frequency spectrum of audio signa
 
 To read more about motiongrams and how they're made, visit my previous post on the <MyLink href="/posts/videoanalysis">VideoAnalysis</MyLink> software.
 
-<MyImage
-  src="ava-overview-2.gif"
-  alt="audiovideoanalysis overview 2"
-  width="600"
-/>
+<MyImage src="ava-overview-2.gif" alt="audiovideoanalysis overview 2" />
 
 For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
 
@@ -95,7 +95,6 @@ To accommodate the analysis markers and grid function, AVA features clickpoint d
     "Retrieve Hz, Amplitude, and Time from anywhere on the spectrogram at clickpoint.",
     "The logarithmic dial controls how logarithmic the spectrogram frequency distribution is. A higher logarithmic value will create a steeper logarithmic curve along the Y-axis of the spectrogram.",
   ]}
-  width="600"
 />
 
 I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
@@ -106,7 +105,10 @@ To add to the visual and real-time capabilities of AVA, I introduced additional 
 
 The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
 
-<MyImage src="ava-display-options.gif" caption="" width="600" />
+<MyImage
+  src="ava-display-options.gif"
+  alt="audiovideoanalysis display options"
+/>
 
 ## Export Options
 

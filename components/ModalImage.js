@@ -3,15 +3,12 @@ import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 // import FocusTrap from "focus-trap-react";
 import ButtonIcon from "./ButtonIcon";
+import { useIsMounted } from "../hooks/useIsMounted";
 
 const ModalImage = ({ onModalClose, children }) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useIsMounted(false);
   const closeBtnRef = useRef();
   const modalRef = useRef();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     if (closeBtnRef.current && isMounted) {

@@ -1,16 +1,14 @@
 import { useEffect, useState, useRef } from "react";
+import { useIsMounted } from "./useIsMounted";
 
 export const useClickOutside = () => {
   const [isClickOutside, setIsClickOutside] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const ref = useRef(null);
 
   // define and use mount state to solve following issue:
   // NavVertical closes immediatley after it is toggled.
   // i.e we dont want to evaluate the first click on the menu icon
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const [isMounted, setIsMounted] = useIsMounted();
+  const ref = useRef(null);
 
   // if the ref.current matches the e.target
   const handleClick = (e) => {

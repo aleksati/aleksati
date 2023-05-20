@@ -97,9 +97,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
           <p id="audiotime">00:00</p>
         </div>
       ) : (
-        <p className="w-1/3">
-          <i>Loading audio...</i>
-        </p>
+        <p className="w-1/3">Loading audio...</p>
       )}
       <div className="relative w-full">
         <div className="px-2" id="waveform" ref={containerRef} />
