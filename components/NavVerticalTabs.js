@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Icon from "./Icon";
+// import Icon from "./Icon";
 import MyLink from "./MyLink";
 
 const tabs = [
@@ -25,8 +25,6 @@ const NavVerticalTabs = () => {
   return (
     <div className="space-y-4">
       {tabs.map((tab, index) => {
-        // const brdr = index === 0 ? "" : "pt-2 pb-2 border-t";
-        // const brdr = "";
         return (
           <div className={`space-y-2`} key={tab.key}>
             <div className="flex space-x-1 items-center justify-start">
@@ -37,7 +35,7 @@ const NavVerticalTabs = () => {
             </div>
             {/* If the categories has sub-categories */}
             {/* Not in use atm */}
-            {tab.categories
+            {/* {tab.categories
               ? tab.categories.map((cat) => (
                   <div
                     key={cat.key}
@@ -52,7 +50,7 @@ const NavVerticalTabs = () => {
                     </MyLink>
                   </div>
                 ))
-              : null}
+              : null} */}
           </div>
         );
       })}
