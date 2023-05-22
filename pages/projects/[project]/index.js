@@ -19,19 +19,19 @@ export default function handler(props) {
 import { getPostFromSlug, getAllFr } from "../../../functions/loadPosts";
 
 export async function getStaticProps({ params }) {
-  const post = await getPostFromSlug("posts", params.post);
+  const post = await getPostFromSlug("projects", params.project);
   return { props: { ...post } };
 }
 
 export async function getStaticPaths() {
-  const frontMatter = getAllFr("posts");
+  const frontMatter = getAllFr("projects");
   const slugs = frontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]
   const paths = [...slugs];
 
   return {
-    paths: paths.map((item) => ({ params: { post: item } })),
+    paths: paths.map((item) => ({ params: { project: item } })),
     fallback: false,
   };
 }

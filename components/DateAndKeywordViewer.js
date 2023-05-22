@@ -34,6 +34,7 @@ const keyword2color = {
   "creative-computing": "#9f1239", //rose-800
   jitter: "#9d174d", //pink-800
   rtmidi: "#92400e", //amber-800
+  band: "#86198f", //fuchsia-800
 };
 
 // https://tailwindcss.com/docs/customizing-colors
@@ -72,6 +73,7 @@ export const keyword2text = {
   "creative computing": "creative computing",
   jitter: "jitter",
   rtmidi: "rtmidi",
+  band: "band",
 };
 
 const maxKeywords = 4;

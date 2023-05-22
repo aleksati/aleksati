@@ -14,9 +14,9 @@ const PostList = ({ frontMatter }) => (
             date={post.date}
             title={post.title}
             summary={post.summary}
-            pageNumber={post.page}
             keywords={post.keywords}
-            readingTime={post.readingTime}
+            type={post.type}
+            // readingTime={post.readingTime}
           />
         ))
       }
@@ -25,8 +25,3 @@ const PostList = ({ frontMatter }) => (
 );
 
 export default PostList;
-
-{
-  /* <ClientOnly className="grid grid-cols-1 gap-12"> */
-  /* </ClientOnly> */
-}

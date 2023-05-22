@@ -1,15 +1,16 @@
 import MDXComponents from "../components/MDXComponents";
 import { serialize } from "next-mdx-remote/serialize";
-import readingTime from "reading-time";
+// import readingTime from "reading-time";
 import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
 
 const root = process.cwd();
-const postFolder = "posts";
+// postType can be either "posts" or "projects"
+// is actually just the name of the folder with the mdx files
 
-export function getSlugs() {
-  const paths = path.join(root, postFolder);
+export function getSlugs(postType = "posts") {
+  const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
   return posts.map((path) => {
@@ -40,17 +41,17 @@ function sortFrByDate(fr) {
 }
 
 // gather all frontmatter data from posts into correct format
-export function getAllFr() {
-  const paths = path.join(root, postFolder);
+export function getAllFr(postType = "posts") {
+  const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
   const fr = posts.reduce((accumFrontMatter, postSlug) => {
-    const post = fs.readFileSync(path.join(root, postFolder, postSlug));
-    const { data, content } = matter(post);
+    const post = fs.readFileSync(path.join(root, postType, postSlug));
+    const { data } = matter(post); //const { data, content }
     return [
       {
         slug: postSlug.replace(".mdx", ""),
-        readingTime: readingTime(content),
+        // readingTime: readingTime(content),
         ...data,
       },
       ...accumFrontMatter,
@@ -75,8 +76,8 @@ export function getKeysFromFr(frontMatter) {
   return keywords;
 }
 
-export async function getPostFromSlug(slug) {
-  const postPath = path.join(root, postFolder, `${slug}.mdx`);
+export async function getPostFromSlug(postType = "posts", slug) {
+  const postPath = path.join(root, postType, `${slug}.mdx`);
   const post = fs.readFileSync(postPath, "utf-8");
   const { data, content } = matter(post);
 
@@ -89,7 +90,7 @@ export async function getPostFromSlug(slug) {
     mdxSource,
     frontMatter: {
       // wordCount: content.split(/\s+/gu).length,
-      readingTime: readingTime(content),
+      // readingTime: readingTime(content),
       slug: slug || null,
       ...data,
     },

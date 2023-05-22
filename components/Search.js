@@ -69,7 +69,7 @@ const Search = () => {
     <div className="flex z-50 flex-col w-56 absolute" ref={ref}>
       <input
         className="border-gray-200 dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
-        placeholder="search posts"
+        placeholder="search site"
         id="search"
         type="search"
         value={query}
@@ -80,6 +80,7 @@ const Search = () => {
         <div className="relative mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
             <SearchItem
+              type={result.type}
               key={result.slug}
               slug={result.slug}
               title={result.title}
