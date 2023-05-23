@@ -20,11 +20,12 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
       ref={ref}>
       <div className="w-56 fixed z-70">
         <div className="flex justify-between items-start">
-          <h1>
-            <Link href="/" className="font-bold">
-              aleksati.net
-            </Link>
-          </h1>
+          {/* <div className="flex"> */}
+          <Link href="/" className="font-bold">
+            aleksati.net
+          </Link>
+          {/* <p className="font-bold items-center">&nbsp;/ {currPage}</p>
+          </div> */}
           <ButtonTheme />
         </div>
       </div>

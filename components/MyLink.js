@@ -2,8 +2,9 @@ import Link from "next/link";
 
 const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   // url or tab
-  // const isActive = active ? "border-b-2" : null;
-  const isActive = active ? "font-bold" : null;
+  const isActive = active ? "border-b-2" : null;
+  // const isActive = active ? "font-bold" : null;
+  // const isActive = "";
 
   // hover:border-b-2
   // hover:font-bold
@@ -12,7 +13,7 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
     return (
       <div>
         <Link
-          className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${isActive} ${className}`}
+          className={`hover:cursor-pointer hover:border-b-2 border-primary-light dark:border-primary-dark ${isActive} ${className}`}
           href={href + ""}>
           {children}
         </Link>
