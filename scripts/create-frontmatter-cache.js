@@ -34,10 +34,11 @@ function getAllCacheFr(postType = "posts") {
 
 // gather all frontmatter and make one big list
 const posts = getAllCacheFr("posts");
-const projects = getAllCacheFr("projects");
-const allFr = posts.concat(projects);
+// const projects = getAllCacheFr("projects");
+// const allFr = posts.concat(projects);
 
-const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;
+// const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;
+const fileContents = `export const frontMatterCache = ${JSON.stringify(posts)}`;
 
 // if the cache directory does not exist, create it
 try {
