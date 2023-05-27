@@ -21,7 +21,7 @@ import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
 import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
-import { TbWorldWww } from "react-icons/tb";
+// import { TbWorldWww } from "react-icons/tb";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
 import { BsMastodon, BsSearch } from "react-icons/bs";
 
@@ -71,7 +71,7 @@ const icons = {
   filter: (s) => (
     <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
   ),
-  web: (s) => <TbWorldWww className={s} />,
+  // web: (s) => <TbWorldWww className={s} />,
   mastodon: (s) => <BsMastodon className={s} />,
   linkedin: (s) => <AiFillLinkedin className={s} />,
   github: (s) => <AiFillGithub className={s} />,

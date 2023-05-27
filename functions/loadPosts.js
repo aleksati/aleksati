@@ -1,6 +1,5 @@
 import MDXComponents from "../components/MDXComponents";
 import { serialize } from "next-mdx-remote/serialize";
-// import readingTime from "reading-time";
 import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
