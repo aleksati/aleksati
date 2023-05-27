@@ -8,10 +8,10 @@ const matter = require("gray-matter");
 // Most of this code is a copy from "functions/loadPosts" but there is issus with ES importing it here
 
 const root = process.cwd();
-const postFolder = "posts";
+// const postFolder = "posts";
 
 // gather all frontmatter data from posts into correct format
-function getAllFr(postType = "posts") {
+function getAllCacheFr(postType = "posts") {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -33,8 +33,8 @@ function getAllFr(postType = "posts") {
 }
 
 // gather all frontmatter and make one big list
-const posts = getAllFr("posts");
-const projects = getAllFr("projects");
+const posts = getAllCacheFr("posts");
+const projects = getAllCacheFr("projects");
 const allFr = posts.concat(projects);
 
 const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;
