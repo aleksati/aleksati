@@ -9,7 +9,7 @@ const root = process.cwd();
 // postType can be either "posts" or "projects"
 // is actually just the name of the folder with the mdx files
 
-export function getSlugs(postType) {
+export function getSlugs(postType = "posts") {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -33,7 +33,7 @@ function sortFrByDate(fr) {
 }
 
 // gather all frontmatter data from posts into correct format
-export function getAllFr(postType) {
+export function getAllFr(postType = "posts") {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -68,7 +68,7 @@ export function getKeysFromFr(frontMatter) {
   return keywords;
 }
 
-export async function getPostFromSlug(postType, slug) {
+export async function getPostFromSlug(postType = "posts", slug) {
   const postPath = path.join(root, postType, `${slug}.mdx`);
   const post = fs.readFileSync(postPath, "utf-8");
   const { data, content } = matter(post);
