@@ -15,7 +15,7 @@ import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
 
 export async function getStaticProps() {
   // get frontMatter form all posts
-  const frontMatter = getAllFr();
+  const frontMatter = getAllFr("posts");
   // get all used keywords in array
   const keywords = getKeysFromFr(frontMatter);
   return { props: { keywords } };
