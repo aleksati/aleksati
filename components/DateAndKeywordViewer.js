@@ -1,4 +1,5 @@
 import { date2text } from "../functions/date2text";
+import useWindowSize from "../hooks/useWindowSize";
 
 const keyword2color = {
   audio: "#a3e635", //lime-400
@@ -33,7 +34,21 @@ const keyword2color = {
   nodejs: "#065f46", //emerald-800
   "creative-computing": "#9f1239", //rose-800
   jitter: "#9d174d", //pink-800
-  rtmidi: "#92400e", //amber-800
+  "python-rtmidi": "#92400e", //amber-800
+  band: "#86198f", //fuchsia-800
+  "avant-garde": "#292524",
+  // starting over !!
+  pop: "#ecfccb", //lime-100
+  minimalism: "#dbeafe", //blue-100
+  drums: "#fee2e2", //red-100
+  synth: "#f3e8ff", //purple-100
+  accordion: "#fef9c3", //yellow-100
+  vocals: "#cffafe", //cyan-100
+  improvisation: "#ccfbf1", //teal-100
+  "live electronics": "#e0f2fe", //sky-100
+  guitar: "#ffedd5", //orange-100
+  visuals: "#e0e7ff", //indigo-100
+  art: "#ede9fe", //violet-100
 };
 
 // https://tailwindcss.com/docs/customizing-colors
@@ -65,18 +80,36 @@ export const keyword2text = {
   music: "music",
   "music tech": "music tech",
   lola: "lola",
-  osc: "osc",
+  "python-osc": "python-osc",
   "software dev": "software dev",
   realtime: "realtime",
   nodejs: "nodejs",
   "creative computing": "creative computing",
   jitter: "jitter",
-  rtmidi: "rtmidi",
+  "python-rtmidi": "python-rtmidi",
+  band: "band",
+  "avant-garde": "avant-garde",
+  pop: "pop",
+  minimalism: "minimalism",
+  drums: "drums",
+  synth: "synth",
+  accordion: "accordion",
+  vocals: "vocals",
+  improvisation: "improvisation",
+  "live electronics": "live electronics",
+  guitar: "guitar",
+  visuals: "visuals",
+  art: "art",
 };
 
-const maxKeywords = 4;
+const widthTresh = 768; // tailwind md = 768;
 
 const DateAndKeywordViewer = ({ keywords = [], date }) => {
+  const { width } = useWindowSize();
+
+  // On mobile view, we show less keywords.
+  const maxKeywords = width < widthTresh ? 4 : 5;
+
   return (
     <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">
       <p>{date2text(date)}</p>

@@ -1,26 +1,21 @@
-import { useRouter } from "next/router";
-// import Icon from "./Icon";
+import useCurrRoute from "../hooks/useCurrRoute";
 import MyLink from "./MyLink";
 
 const tabs = [
   { key: "about", title: "about", categories: [], icon: "about" },
   { key: "posts", title: "posts", categories: [], icon: "filter" },
-  { key: "music", title: "music", categories: [], icon: "issue" },
+  { key: "projects", title: "projects", categories: [], icon: "issue" },
   { key: "research", title: "research", categories: [], icon: "x" },
 ];
 
 const NavVerticalTabs = () => {
-  // find the ending of the current url route.
-  // underline the current page the user is on
-  const router = useRouter();
-  const path = router.pathname.slice(1);
-  // if its a post, then just underline post
-  const route = path.replace("/[post]", "");
+  const route = useCurrRoute();
+
   const currTab = tabs.filter((tab) => tab.key === route);
-  const currPage = currTab.length ? currTab[0].key : "";
+  const currRoute = currTab.length ? currTab[0].key : "";
 
   // I have the landing page (index.js) to about, so it defaults to the about page
-  const page = currPage ? currPage : "about";
+  const page = currRoute ? currRoute : "about";
 
   return (
     <div className="space-y-4">

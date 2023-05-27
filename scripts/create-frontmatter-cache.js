@@ -1,41 +1,38 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const readingTime = require("reading-time");
+// const readingTime = require("reading-time");
 
-// get and store all the frontmatter for the blog posts.
+// get and store all the frontmatter for the blog posts and projects
 // must be run in the root dir to work, "npm run ..."
-
-// I do all this there because there is issus with importing it
-// from the functions folder.
+// Most of this code is a copy from "functions/loadPosts" but there is issus with ES importing it here
 
 const root = process.cwd();
 const postFolder = "posts";
 
 // sort by date
-function sortFrByDate(fr) {
-  const frSorted = fr.sort((a, b) => {
-    if (a.date > b.date) return 1;
-    if (a.date < b.date) return -1;
-    return 0;
-  });
-
-  return frSorted.reverse();
-}
+// function sortFrByDate(fr) {
+//   const frSorted = fr.sort((a, b) => {
+//     if (a.date > b.date) return 1;
+//     if (a.date < b.date) return -1;
+//     return 0;
+//   });
+//   return frSorted.reverse();
+// }
 
 // gather all frontmatter data from posts into correct format
-function getAllFr() {
-  const paths = path.join(root, postFolder);
+function getAllFr(postType = "posts") {
+  const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
-  const fr = posts.reduce((accumFrontMatter, postSlug) => {
-    const post = fs.readFileSync(path.join(root, postFolder, postSlug));
-    const { data, content } = matter(post);
+  const frontMatter = posts.reduce((accumFrontMatter, postSlug) => {
+    const post = fs.readFileSync(path.join(root, postType, postSlug));
+    const { data } = matter(post);
 
     return [
       {
         slug: postSlug.replace(".mdx", ""),
-        readingTime: readingTime(content),
+        // readingTime: readingTime(content),
         ...data,
       },
       ...accumFrontMatter,
@@ -43,12 +40,17 @@ function getAllFr() {
   }, []);
 
   // sort by date
-  const frontMatter = sortFrByDate(fr);
+  // const frontMatter = sortFrByDate(fr);
 
-  return JSON.stringify(frontMatter);
+  return frontMatter;
 }
 
-const fileContents = `export const frontMatterCache = ${getAllFr()}`;
+// gather all frontmatter and make one big list
+const posts = getAllFr("posts");
+const projects = getAllFr("projects");
+const allFr = posts.concat(projects);
+
+const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;
 
 // if the cache directory does not exist, create it
 try {
@@ -58,7 +60,7 @@ try {
 }
 
 fs.writeFile("cache/frontmatter.js", fileContents, (err) => {
-  // writing to the posts-cache.js file
+  // writing to the frontmatter.js file
   if (err) return console.log(err);
   console.log("Frontmatter cached.");
 });

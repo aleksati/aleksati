@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { useKeyPress } from "../hooks/useKeyPress";
-import SearchItem from "./SearchItem";
 import { useRouter } from "next/router";
+import SearchItem from "./SearchItem";
 
 const Search = () => {
   const [results, setResults] = useState([]);
@@ -69,7 +69,7 @@ const Search = () => {
     <div className="flex z-50 flex-col w-56 absolute" ref={ref}>
       <input
         className="border-gray-200 dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
-        placeholder="search posts"
+        placeholder="search .."
         id="search"
         type="search"
         value={query}
@@ -77,9 +77,10 @@ const Search = () => {
         readOnly={isError}
       />
       {results.length ? (
-        <div className="relative mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
+        <div className="relative max-h-full overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
             <SearchItem
+              type={result.type}
               key={result.slug}
               slug={result.slug}
               title={result.title}

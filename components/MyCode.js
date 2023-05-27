@@ -14,8 +14,7 @@ const MyCode = (props) => {
     <Prism
       className="bg-primary-light dark:bg-primary-dark"
       language={language}
-      colorScheme={currTheme}
-    >
+      colorScheme={currTheme}>
       {code}
     </Prism>
   );
