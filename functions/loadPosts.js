@@ -22,14 +22,6 @@ export function getSlugs(postType = "posts") {
   });
 }
 
-// function addPagesToFr(fr) {
-//   const frontMatter = fr.map((item, i) => ({
-//     ...item,
-//     page: Math.floor(i / paginationThresh) + 1,
-//   }));
-//   return frontMatter;
-// }
-
 // sort by date
 function sortFrByDate(fr) {
   const frSorted = fr.sort((a, b) => {

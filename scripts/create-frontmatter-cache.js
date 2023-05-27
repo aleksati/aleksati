@@ -10,16 +10,6 @@ const matter = require("gray-matter");
 const root = process.cwd();
 const postFolder = "posts";
 
-// sort by date
-// function sortFrByDate(fr) {
-//   const frSorted = fr.sort((a, b) => {
-//     if (a.date > b.date) return 1;
-//     if (a.date < b.date) return -1;
-//     return 0;
-//   });
-//   return frSorted.reverse();
-// }
-
 // gather all frontmatter data from posts into correct format
 function getAllFr(postType = "posts") {
   const paths = path.join(root, postType);
@@ -38,9 +28,6 @@ function getAllFr(postType = "posts") {
       ...accumFrontMatter,
     ];
   }, []);
-
-  // sort by date
-  // const frontMatter = sortFrByDate(fr);
 
   return frontMatter;
 }
