@@ -35,7 +35,12 @@ const properties = {
   ),
 };
 
-const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
+const MySlideshow = ({
+  imgs = [],
+  captions = [],
+  width = null,
+  priority = false,
+}) => {
   const w = width ? `w-[${width}px]` : null;
   return (
     <div aria-label="slideshow container" className={w}>
@@ -44,6 +49,7 @@ const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
           {imgs.map((slug, index) => (
             <MyImage
               src={slug}
+              priority={priority}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
               width={width ? width : null}
@@ -53,6 +59,7 @@ const MySlideshow = ({ imgs = [], captions = [], width = null }) => {
         </Slide>
       ) : (
         <MyImage
+          priority={priority}
           src={imgs[0]}
           alt={`slideshow image of ${imgs[0]}`}
           width={width ? width : null}
