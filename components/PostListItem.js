@@ -27,7 +27,11 @@ const PostListItem = ({
         <div>
           <p>{summary}</p>
         </div>
-        <DateAndKeywordViewer date={date} keywords={[...keywords]} />
+        <DateAndKeywordViewer
+          date={date}
+          keywords={[...keywords]}
+          type={type}
+        />
       </Link>
     </div>
   );

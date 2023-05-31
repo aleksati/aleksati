@@ -9,7 +9,7 @@ const Meta = ({ title, keywords, description }) => {
       <meta
         name="keywords"
         content={
-          keywords ||
+          ...keywords ||
           "music technology, music, video, analysis, software development, max, maxMSP, audio, opengl, network, 5g, networked music performances, research, live performance, ableton live, python, javascript, typescript, nextjs, vuejs, p5js, nodejs, web, jacktrip, lola, sonobus, midi, motiongrams"
         }
       />

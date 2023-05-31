@@ -49,6 +49,10 @@ const keyword2color = {
   guitar: "#ffedd5", //orange-100
   visuals: "#e0e7ff", //indigo-100
   art: "#ede9fe", //violet-100
+  rock: "#d1fae5", // emerald-100
+  krautrock: "#ffe4e6", //rose-100
+  bass: "#fce7f3", //pink-100
+  electronic: "#fef3c7", //amber-100
 };
 
 // https://tailwindcss.com/docs/customizing-colors
@@ -100,11 +104,17 @@ export const keyword2text = {
   guitar: "guitar",
   visuals: "visuals",
   art: "art",
+  rock: "rock",
+  krautrock: "krautrock",
+  bass: "bass",
+  electronic: "electronic",
 };
+
+// rock, krautrock, bass, electronic
 
 const widthTresh = 768; // tailwind md = 768;
 
-const DateAndKeywordViewer = ({ keywords = [], date }) => {
+const DateAndKeywordViewer = ({ keywords = [], date, type }) => {
   const { width } = useWindowSize();
 
   // On mobile view, we show less keywords.
@@ -112,7 +122,7 @@ const DateAndKeywordViewer = ({ keywords = [], date }) => {
 
   return (
     <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">
-      <p>{date2text(date)}</p>
+      <p>{type === "post" ? date2text(date) : date}</p>
       {keywords.map(
         (keyword, idx) =>
           idx < maxKeywords && (
