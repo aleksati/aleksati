@@ -122,14 +122,15 @@ const DateAndKeywordViewer = ({ keywords = [], date, type }) => {
 
   return (
     <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">
-      <p>{type === "post" ? date2text(date) : date}</p>
+      <p>{date2text(date, type)}</p>
       {keywords.map(
         (keyword, idx) =>
           idx < maxKeywords && (
             <div className="flex space-x-1 items-center" key={keyword}>
               <p
                 className="text-lg"
-                style={{ color: `${keyword2color[keyword]}` }}>
+                style={{ color: `${keyword2color[keyword]}` }}
+              >
                 •
               </p>
               <p>{keyword2text[keyword]}</p>

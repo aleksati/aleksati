@@ -36,7 +36,7 @@ export function getAllFr(postType = "posts") {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
-  const fr = posts.reduce((accumFrontMatter, postSlug) => {
+  const frontMatter = posts.reduce((accumFrontMatter, postSlug) => {
     const post = fs.readFileSync(path.join(root, postType, postSlug));
     const { data } = matter(post); //const { data, content }
     return [
@@ -50,8 +50,8 @@ export function getAllFr(postType = "posts") {
   }, []);
 
   // sort by date
-  const frontMatter = sortFrByDate(fr);
-  return frontMatter;
+  const allFrontMatter = sortFrByDate(frontMatter);
+  return allFrontMatter;
 }
 
 // extract all used keywords in posts
@@ -62,9 +62,9 @@ export function getKeysFromFr(frontMatter) {
   );
 
   // only unique values
-  const keywords = [...new Set(keywords_raw)];
+  const allKeywords = [...new Set(keywords_raw)];
 
-  return keywords;
+  return allKeywords;
 }
 
 export async function getPostFromSlug(postType = "posts", slug) {

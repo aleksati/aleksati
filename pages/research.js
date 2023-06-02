@@ -1,8 +1,12 @@
 import cleanCristinData from "../functions/cleanCristinData";
 import LayoutPage from "../layouts/LayoutPage";
 import Research from "../templates/Research";
+// import { useRouter } from "next/router";
 
 export default function handler({ data_cleaned, notFound }) {
+  // const router = useRouter();
+  // console.log(router.isFallback);
+
   return (
     <LayoutPage pageMeta={{ title: "research" }}>
       <Research data={data_cleaned} notFound={notFound} />

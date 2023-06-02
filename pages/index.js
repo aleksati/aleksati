@@ -1,20 +1,21 @@
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
 
-export default function handler({ keywords }) {
+export default function handler() {
   return (
-    <LayoutPage pageMeta={{ keywords }}>
+    // pageMeta={{ keywords }}
+    <LayoutPage>
       <About />
     </LayoutPage>
   );
 }
 
-import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
+// import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
 
 export async function getStaticProps() {
   // get frontMatter form all posts
-  const frontMatter = getAllFr();
+  // const frontMatter = getAllFr();
   // get all used keywords in array
-  const keywords = getKeysFromFr(frontMatter);
-  return { props: { keywords } };
+  // const keywords = getKeysFromFr(frontMatter);
+  return { props: {} };
 }

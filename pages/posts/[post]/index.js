@@ -1,16 +1,14 @@
 import LayoutPage from "../../../layouts/LayoutPage";
 import Post from "../../../templates/Post";
 
-export default function handler(props) {
-  const { frontMatter, mdxSource } = props;
-
-  // I inject keywords straight into the <Head>
+export default function handler({ frontMatter, mdxSource }) {
   return (
     <LayoutPage
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
-      }}>
+      }}
+    >
       <Post mdxSource={mdxSource} frontMatter={frontMatter} />
     </LayoutPage>
   );
@@ -24,8 +22,8 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const frontMatter = getAllFr("posts");
-  const slugs = frontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
+  const allFrontMatter = getAllFr("posts");
+  const slugs = allFrontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]
   const paths = [...slugs];

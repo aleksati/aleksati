@@ -1,4 +1,6 @@
-export const date2text = (dateString) => {
+export const date2text = (dateString, type = "posts") => {
+  if (type === "project") return dateString;
+
   // for instance: "2022-12-22"
   const dateArray = dateString.split("-");
   return `${dateArray[2]} ${month2text[dateArray[1]]} ${dateArray[0]}`;

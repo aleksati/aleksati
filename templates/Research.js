@@ -4,7 +4,8 @@ const Research = ({ data = [], notFound }) => (
   <div className="flex flex-col h-full space-y-4">
     <div className="space-y-1">
       <p className="text-sm">
-        Fetched from <MyLink href="https://app.cristin.no/">Cristin</MyLink>
+        Data fetched from{" "}
+        <MyLink href="https://app.cristin.no/">Cristin</MyLink>
       </p>
       <hr />
     </div>
