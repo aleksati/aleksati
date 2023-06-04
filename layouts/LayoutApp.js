@@ -1,4 +1,5 @@
 import GoogleAnalytics from "../components/GoogleAnalytics";
+import Router from "next/router";
 
 const LayoutApp = ({ children }) => {
   return (

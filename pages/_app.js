@@ -4,14 +4,12 @@ import "../styles/globals.css";
 import "../styles/table.scss";
 import React from "react";
 
-const App = ({ Component, pageProps }) => {
-  return (
-    <ThemeProvider attribute="class">
-      <LayoutApp>
-        <Component {...pageProps} />
-      </LayoutApp>
-    </ThemeProvider>
-  );
-};
+const App = ({ Component, pageProps }) => (
+  <ThemeProvider attribute="class">
+    <LayoutApp>
+      <Component {...pageProps} />
+    </LayoutApp>
+  </ThemeProvider>
+);
 
 export default App;
