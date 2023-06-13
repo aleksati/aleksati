@@ -24,9 +24,9 @@ const About = () => (
     </div>
     <div>
       <p>
-        Music technology enthusiast, drummer, and software developer from
-        Kongsberg, Norway. Curious about all things science and passionate about
-        art, exercising, my partner, and our cat.
+        Music an sound technologist, drummer, and software developer from
+        Norway. Curious about all things science and passionate about art,
+        exercising, my partner, and our cat.
       </p>
       <br />
       <p>

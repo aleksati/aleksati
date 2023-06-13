@@ -32,11 +32,11 @@ export default nextConnect()
       }
 
       // then summary
-      // if (!results.length) {
-      //   results = frontMatterCache.filter((fr) =>
-      //     fr.summary.toLowerCase().includes(query.toLowerCase())
-      //   );
-      // }
+      if (!results.length) {
+        results = frontMatterCache.filter((fr) =>
+          fr.summary.toLowerCase().includes(query.toLowerCase())
+        );
+      }
     }
 
     res.status(200).json({ results });
