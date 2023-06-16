@@ -15,7 +15,8 @@ const PaginationToggles = ({ currPage, numbPages, onPagination }) => {
             active={index === currPage}
             onClick={onPagination}
             type="pagination"
-            id="numb">
+            id="numb"
+          >
             {index + 1}
           </MyLink>
         </div>

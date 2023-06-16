@@ -29,8 +29,8 @@ const keyword2color = {
   "music-tech": "#115e59", //teal-800
   lola: "#075985", //sky-800
   "python-osc": "#9a3412", //orange-800
-  "software-dev": "#3730a3", //indigo-800
-  "real-time": "#5b21b6", //violet-800
+  "software dev": "#3730a3", //indigo-800
+  realtime: "#5b21b6", //violet-800
   nodejs: "#065f46", //emerald-800
   "creative-computing": "#9f1239", //rose-800
   jitter: "#9d174d", //pink-800

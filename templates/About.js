@@ -24,9 +24,9 @@ const About = () => (
     </div>
     <div>
       <p>
-        Music an sound technologist, drummer, and software developer from
-        Norway. Curious about all things science and passionate about art,
-        exercising, my partner, and our cat.
+        Music/sound technologist, drummer, and software developer from Norway.
+        Curious about all things science and passionate about art, exercising,
+        my partner and our cat.
       </p>
       <br />
       <p>
@@ -38,9 +38,10 @@ const About = () => (
       </p>
       <br />
       <p>
-        On the artistic side, I play drums, synths, and live electronics with
-        several Oslo-based bands and do some sound-art installation work from
-        time to time.
+        On the artistic side, I have years of experience playing drums, synths,
+        and live electronics with multiple Oslo-based acts. However, my most
+        recent and exciting interests are creative computing and sound-art
+        installation work.
       </p>
     </div>
   </>
