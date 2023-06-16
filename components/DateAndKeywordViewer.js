@@ -39,7 +39,7 @@ const keyword2color = {
   "avant-garde": "#292524",
   // starting over !!
   pop: "#ecfccb", //lime-100
-  minimalism: "#dbeafe", //blue-100
+  minimalism: "#dbeafe", //blue-100 // FREE!
   drums: "#fee2e2", //red-100
   synth: "#f3e8ff", //purple-100
   accordion: "#fef9c3", //yellow-100
@@ -53,6 +53,7 @@ const keyword2color = {
   krautrock: "#ffe4e6", //rose-100
   bass: "#fce7f3", //pink-100
   electronic: "#fef3c7", //amber-100
+  "machine learning": "#fae8ff", //fuchsia-100
 };
 
 // https://tailwindcss.com/docs/customizing-colors
@@ -108,6 +109,7 @@ export const keyword2text = {
   krautrock: "krautrock",
   bass: "bass",
   electronic: "electronic",
+  "machine learning": "machine learning",
 };
 
 // rock, krautrock, bass, electronic
@@ -129,8 +131,7 @@ const DateAndKeywordViewer = ({ keywords = [], date, type }) => {
             <div className="flex space-x-1 items-center" key={keyword}>
               <p
                 className="text-lg"
-                style={{ color: `${keyword2color[keyword]}` }}
-              >
+                style={{ color: `${keyword2color[keyword]}` }}>
                 •
               </p>
               <p>{keyword2text[keyword]}</p>
