@@ -11,11 +11,11 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="flex p-4 items-center">
+      <div className="flex p-4 items-center space-x-1">
         {/* <Link href="/" className="font-bold hover:cursor-pointer">
           aleksati.net
         </Link> */}
-        <p className="font-bold">/&nbsp;</p>
+        <p className="font-bold">/</p>
         <Link href={`/${currPage}`} className="font-bold hover:cursor-pointer">
           {currPage}
         </Link>

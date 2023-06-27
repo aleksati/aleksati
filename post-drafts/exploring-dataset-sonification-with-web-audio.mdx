@@ -1,0 +1,144 @@
+---
+title: "Exploring Dataset Sonification with Web Audio"
+date: "2023-06-10"
+keywords:
+  [
+    "web",
+    "audio",
+    "data",
+    "sonification",
+    "javascript",
+    "visuals",
+    "p5js",
+    "nodejs",
+    "creative computing",
+    "analysis",
+    "machine learning",
+  ]
+type: "post"
+summary: "Modern web browsers are astounding pieces of software capable of most computational tasks and creative exploration. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+---
+
+inspired by the capabilities of modern web browsers and the community-driven creative coding libraries, I ran a workshop in collaboration C2HO, in early 2023, focusing on how we can explore Big data using sonification and dynamic visuals in a web browser.
+
+Creating audio-visual art with code is easier than ever, much thanks to modern web browsers and great open source creative coding libraries. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library.
+
+thanks to community-driven creative coding libraries,
+
+IMAGE
+
+Modern web browsers are powerful apps capable of most computational tasks and creative exploration.
+
+Also, comprehensive community-driven coding libraries enable non-web developers to create meaningful audio-visual and interactive art in the browser.
+
+Inspired by these ideas, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink> in early 2023, focusing on how we can explore Big data using sonification and dynamic visuals in a web browser.
+
+The term Sonification refers to the use of non-speech audio to convey information or perceptualize data. Therefore, it's possible to use sonification in addition to visually represented data as a tool to extract valuable and coherent information in realtime.
+
+In this post, I present two examples you can take to model-based sonification and visualization of datasets in a web browser, using a using the <MyLink href="https://p5js.org/">p5js</MyLink> coding library.
+
+# Contents
+
+1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
+2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
+3. <MyLink href="#multi-dimensional-graph">Multi-dimensional Graph</MyLink>
+4. <MyLink href="#object-oriented-approach">Object-oriented Approach</MyLink>
+5. <MyLink href="#summary">Summary</MyLink>
+6. <MyLink href="#summary">Source Code</MyLink>
+
+<hr />
+
+# Follow The Code
+
+If you want to follow the post code examples, you can download the repository from my <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">GitHub page</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as it takes care of your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server.
+
+Finally, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into issues there.
+
+To set up the development environment with p5, follow these simple steps:
+
+1. Download the code repository as a .zip file.
+2. Create an account on the p5js Web Editor.
+3. Go to "My Sketches" (click on "Hello, username!" on the top right) and create a new sketch.
+4. In the web editor of your new sketch, open the sidebar (black arrow on gray backgroun) to access your files.
+5. Via the small dropdown menu "Sketch Files" in the left column, choose to "upload file" and upload the folder entitled "browser/examples".
+
+<MyImage
+  src="datason-p5-editor.png"
+  caption="p5js Web Editor in a Brave browser tab anno june 2023."
+  alt="p5js web editor"
+/>
+
+**Important note:** the p5js Web Editor might change over time, meaning the above description might not be 100% accurate.
+
+# Why Sonify?
+
+Perhaps the most common approach to visualizing data is through graphs and plots where various axis represent different data dimensions, such as time on the (x) horizontal axis and some other variable on the vertical (y) axis. Although there are many advantages to engaging with data in this particular way, one obvious limitation is that we cannot physically perceive more than three dimensions of space. This is not to say that 3D spaces present any serious constraints for data analysis, but only to stress that we usually deploy limited sensing when exploring complex data structures.
+
+auditory displays
+
+PICTURE?
+
+By augmenting our data visualizations with sound, we can perceive additional dimensions of data without compromizing on visual aspects. Sonification can also facilitate better accessibility practices and sometimes even be more efficient than visualization techniques for analysis.
+
+Imagine a geology researcher trying to process and clean thousands, maybe millions, of time-series data points in search of anomalies. Here, visual inspection can be tedious and inefficient work. This is an example where Sonfication through audification can be of great assistance. By feeding the time-series dataset into an oscillator, using the data points directly as the basis for a waveform, we can perceive the data in record time and get a good sense of patterns and irregularities.
+
+Another example of meaningful sonification could be to imagine a feature on your smartphone that enables you to hear how many messages you have received simply by shaking your device. The shaking would produce a sound reminiscent of a metal container filled with bells. By listening to the number of bells "bouncing around" inside your phone, you would disseminate how many messages you'd received.
+
+# Multi-dimensional Graph
+
+Audio researchers often differentiate between different types of sonification (Hermann et.al, 2011). The above examples are illustrations of audification (geologist) and model-based sonification (smartphone). With model-based sonification, we create virtual environments (models) that provide audible information in response to some kind of user interaction.
+
+My first Web Audio-based sonification example is an instance of model-based sonification where I've augmented a traditional 2D plot with sound. The dataset I am using is a simple and generic spreadsheet found on Kaggle.com, detailing coffee quality from many different regions and farms over several years.
+
+In the plot, the height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis) from different farms. When you click the dots, the frequency of the synth note played represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
+
+<P5SonifyPlot />
+
+p5 library is built op top of the famous Web Audio API and includes
+
+declarative
+
+ton of utility functions for drawing high-level objects, controlling audio oscillators, and more. With these tools, I can build complex, interactive, and dynamic audio-visual apps at record speed.
+
+web audio's declarative approach to audio processing... show a simple oscillator
+makes it ideal for model-based sonification
+
+meaning I can easily update audio parameters with data points.
+
+If we take this idea a little further ..
+
+IF we plot, we could assign another coloumn.
+
+You have to show some code...
+audio.
+
+In this example, we see coffee... taken from Kaggle.
+
+In the r provided on GitHub, the first three js files, entited <i>template_1</i>, <i>template_2</i>, and <i>template_3</i>
+
+are
+
+Model-based sonification is ...
+
+For the actual data
+
+The dataset used in the examples in downloaded from Kaggle.
+
+On Kaggle, you can find large good quality datasets to use for you projects.
+can use anything you have, as long as the data in multi-dimension and preferably based on time-series
+
+By interacting with the model environment, you gain important information about the dataset via sound.
+
+Then, the approach.
+
+X and Y (+++ color, size), sound .. also simple LFO for double.
+
+# Object-oriented Approach
+
+# Summary
+
+# Source Code
+
+# References
+
+- Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.

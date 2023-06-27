@@ -7,6 +7,9 @@ import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import MyCode from "./MyCode";
 
+import P5SonifyPlot from "./P5SonifyPlot";
+import P5NoiseDrum from "./P5NoiseDrum";
+
 const MDXComponents = {
   MyImage,
   MyLink,
@@ -16,6 +19,8 @@ const MDXComponents = {
   MyTable,
   MySpotifyPlayer,
   SoMeBar,
+  P5NoiseDrum,
+  P5SonifyPlot,
   pre: (props) => <MyCode {...props} />,
   h1: (props) => {
     // take the title and convert all spaces to "-" and text to lowercase.

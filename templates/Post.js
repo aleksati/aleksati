@@ -18,7 +18,7 @@ export default function Post({ mdxSource, frontMatter }) {
           type={frontMatter.type}
         />
       </div>
-      <div className="prose text-primary-light dark:text-primary-dark !container dark:prose-invert prose-ol:ml-4 prose-a:no-underline">
+      <div className="prose text-primary-light dark:text-primary-dark !container dark:prose-invert prose-a:font-normal prose-ol:ml-4">
         <MDXRemote
           components={MDXComponents}
           frontmatter={frontMatter}

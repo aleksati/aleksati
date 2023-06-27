@@ -11,15 +11,15 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   // hover:font-bold
 
   const [divRef, divHovered] = useMouseHover();
+  // &nbsp;
 
   if (type === "nav") {
     return (
-      <div ref={divRef} className="flex">
-        {(active || divHovered) && <p className="font-bold">/&nbsp;</p>}
+      <div ref={divRef} className="flex space-x-1">
+        {(active || divHovered) && <p className="font-bold">/</p>}
         <Link
           className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
-          href={href + ""}
-        >
+          href={href + ""}>
           {children}
         </Link>
       </div>
@@ -31,18 +31,23 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
       <a
         className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${isActive} ${className}`}
         onClick={onClick}
-        id={id}
-      >
+        id={id}>
         {children}
       </a>
     );
   }
 
+  // return (
+  //   <a
+  //     href={href}
+  //     className={`text-blue-400 hover:cursor-pointer dark:text-blue-300 hover:text-blue-600 hover:dark:text-blue-400 ${className}`}
+  //   >
+  //     {children}
+  //   </a>
+  // );
+
   return (
-    <a
-      href={href}
-      className={`text-blue-400 hover:cursor-pointer dark:text-blue-300 hover:text-blue-600 hover:dark:text-blue-400 ${className}`}
-    >
+    <a href={href} className={`hover:cursor-pointer underline ${className}`}>
       {children}
     </a>
   );
