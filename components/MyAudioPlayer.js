@@ -64,7 +64,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
 
   // change the color of the waveform based on the current theme
   const setAudioColor = useCallback(() => {
-    if (audioIsMounted) {
+    if (audioIsMounted && waveFormRef.current) {
       waveFormRef.current.setProgressColor(
         currTheme === "light" ? "#000" : "#fff"
       );

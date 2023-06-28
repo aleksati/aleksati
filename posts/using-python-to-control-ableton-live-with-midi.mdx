@@ -33,7 +33,7 @@ In this post, I demonstrate how you can use some Python code ++ to acheive more 
 
 # Contents
 
-1. <MyLink href="#introduction">Introduction</MyLink>
+1. <MyLink href="#overview">Overview</MyLink>
 2. <MyLink href="#requirements">Requirements</MyLink>
 3. <MyLink href="#python-setup">Python Setup</MyLink>
 4. <MyLink href="#live-setup">Live Setup</MyLink>
@@ -42,7 +42,7 @@ In this post, I demonstrate how you can use some Python code ++ to acheive more 
 
 <hr />
 
-# Introduction
+# Overview
 
 One of the best arguments for using Live is its rich midi capabilities and visual design, enabling control of just about anything from anywhere. In early 2023, I explored and pushed the limits of these capabilities while building a new liveset for my band. I needed a way to navigate complex Live sessions with as few midi controls as possible. The frustration resulted in a system that helped me navigate sessions more efficiently by treating the Live interface like a 2D matrix.
 
@@ -56,7 +56,7 @@ However, XY navigation (and remote control) of Live's session view window is con
 
 What makes my system unique is that I use Python code to associate custom collections of audio tracks with individual scenes in Live. With this mapping approach, it's possible (and easy) to jump between different mapping presets for each scene, dramatically limiting the number of controls needed to navigate fairly complex Live sessions. To achieve this special mapping, I built custom software to skip up and down scenes (vertical axis) and between audio tracks (horizontal axis) using very few controls.
 
-In this post, I share the design, important code snippets, and general Live specs used to build this system for my liveset.
+Below you'll find important details about the design, code, and general Live specs I used to build this custom navigation system for my liveset.
 
 # Requirements
 

@@ -16,7 +16,11 @@ type: "project"
 summary: "A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo."
 ---
 
-<MyImage src="va-overview.png" alt="videoanalysis overview" />
+<MyImage
+  isExpandable={true}
+  src="va-overview.png"
+  alt="videoanalysis overview"
+/>
 
 VideoAnalysis is part of the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/">Musical Gestures Toolbox for MaxMSP</MyLink> (MGT), created by Alexander Refsum Jensenius for the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/">RITMO FourMS lab</MyLink> at the University of Oslo in the early 2000s. In 2019, I was assigned to update and refurbish VideoAnalysis, one of the larger MGT applications, together with <MyLink href="https://balintlaczko.com">Balint Lackzo</MyLink>.
 
@@ -26,22 +30,15 @@ This post is a quick look at VideoAnalysis v2.1; a standalone beginners tool for
 
 1. <MyLink href="#how-to-use-it">How To Use It</MyLink>
 2. <MyLink href="#key-features">Key Features</MyLink>
-   1. <MyLink href="#batch-processing">Batch Processing</MyLink>
-   2. <MyLink href="#crop-trim-and-skip">Crop Trim and Skip</MyLink>
-   3. <MyLink href="#motion-visualizations">Motion Visualizations</MyLink>
 3. <MyLink href="#export-options">Export Options</MyLink>
 4. <MyLink href="#downloads">Downloads</MyLink>
-5. <MyLink href="">References</MyLink>
+5. <MyLink href="#references">References</MyLink>
 
 <hr />
 
 # How To Use It
 
-VideoAnalysis (VA) is an asynchronous analysis software, designed to locate movement in pre-recorded videos. After uploading video content, the goal is to isolate motion using various pre-processing and visualization techniques. To guide the user in this process, VA includes an adjustable display window where you can view the processed videos in real-time.
-
-Finally, VA features export options for extracting motion features and images for further analysis.
-
-<MyImage src="va-overview2.jpg" alt="videoanalysis interface motiongram" />
+VideoAnalysis (VA) is an asynchronous analysis software, designed to locate movement in pre-recorded videos. After uploading video content, the goal is to isolate motion using various pre-processing and visualization techniques. To guide the user in this process, VA includes an adjustable display window where you can view the processed videos in real-time, and a range of export options for extracting motion features and images for further analysis.
 
 For documentation and guides, visit <MyLink href="https://github.com/fourMs/VideoAnalysis/wiki">the official VideAnalysis Wiki</MyLink>. You can also get a detailed overview of all software operations from the app itself, under "help".
 

@@ -20,6 +20,7 @@ summary: "A quick look into AudioVideoAnalysis (v2.0); a standalone application 
 ---
 
 <MyImage
+  isExpandable={true}
   priority={true}
   src="ava-overview.jpg"
   alt="audiovideoanalysis overview"
@@ -33,10 +34,6 @@ In 2019, I was assigned to update and refurbish AudioVideoAnalysis, one of the l
 
 1. <MyLink href="#how-to-use-it">How To Use It</MyLink>
 2. <MyLink href="#key-features">Key Features</MyLink>
-   1. <MyLink href="#rate-of-play">Rate of Play</MyLink>
-   2. <MyLink href="#analysis-markers">Analysis Markers</MyLink>
-   3. <MyLink href="#image-layering">Image Layering</MyLink>
-   4. <MyLink href="#export-options">Export Options</MyLink>
 3. <MyLink href="#downloads">Downloads</MyLink>
 4. <MyLink href="#references">References</MyLink>
 
@@ -44,21 +41,13 @@ In 2019, I was assigned to update and refurbish AudioVideoAnalysis, one of the l
 
 # How To Use It
 
-AudioVideoAnalysis (AVA) generates motiongrams, videograms (video), and spectrograms (audio) from any connected media source in real-time.
+AudioVideoAnalysis (AVA) generates motiongrams, videograms (video), and spectrograms (audio) from any connected media source in real-time. Spectrograms are visual representations of the frequency spectrum of audio signals over time. Similarly, motion- and videograms are visual representations of motion in a video over time. We can call both of these representations _spectral images_.
 
-Spectrograms are visual representations of the frequency spectrum of audio signals over time. Similarly, motion- and videograms are visual representations of motion in a video over time. We can call both of these representations _spectral images_.
-
-To read more about motiongrams and how they're made, visit my previous post on the <MyLink href="/posts/videoanalysis">VideoAnalysis</MyLink> software.
-
-<MyImage src="ava-overview-2.gif" alt="audiovideoanalysis overview 2" />
-
-For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
+To read more about motiongrams and how they're made, visit my previous post on the <MyLink href="/projects/videoanalysis">VideoAnalysis</MyLink> software. For documentation and guides on AudioVideoAnalysis, visit <MyLink href="https://github.com/fourMs/AudioVideoAnalysis/wiki">the official AVA Wiki</MyLink>. You can also get a detailed overview of all software operations from the app's help section.
 
 # Key Features
 
-AVA sports many advanced audio, video, and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and more.
-
-Let's take a closer look at some of the interesting features of AudioVideoAnalysis v2.0.
+AVA sports many advanced audio, video, and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and more. Let's take a closer look at some of the interesting features of AudioVideoAnalysis v2.0.
 
 ## Rate of Play
 
@@ -76,9 +65,7 @@ A nice effect of increasing the printing rate is that it will increase the tempo
 
 ## Analysis Markers
 
-Perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording.
-
-The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
+Perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording. The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
 
 <MyImage
   caption="Analysis markers and grids can assist with orientation and analysis."
@@ -86,9 +73,7 @@ The analysis markers are frequency and time labels on the X and Y-axis of the im
   alt="audiovideoanalysis analysis markers"
 />
 
-Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar.
-
-To accommodate the analysis markers and grid function, AVA features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content.
+Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar. To accommodate the analysis markers and grid function, AVA also features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content.
 
 <MySlideshow
   imgs={["ava-clickpoint-light.jpg", "ava-analysis-logfreq.gif"]}
@@ -102,9 +87,7 @@ I first learned about clickpoint data retrieval in this paper by Jean-Francois C
 
 ## Image Layering
 
-To add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view the spectral images in different configurations in the display window.
-
-The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
+To add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view the spectral images in different configurations in the display window. The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
 
 <MyImage
   src="ava-display-options.gif"
