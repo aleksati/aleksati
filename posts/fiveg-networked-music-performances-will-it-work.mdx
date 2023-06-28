@@ -83,7 +83,6 @@ These metrics made us confident that our transmission load did not exceed the ca
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
 <MyImage
-  isExpandable={true}
   src="5G-latency-method.jpg"
   alt="latency measurement diagram"
   caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location."
@@ -98,7 +97,6 @@ With the software and hardware parameters fine-tuned, we used the same loopback 
 With digital RTT, we refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware. By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
 
 <MyImage
-  isExpandable={true}
   src="5G-latency-method-third-laptop.png"
   alt="latency measurement third laptop diagram"
   caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits."
@@ -116,7 +114,7 @@ When monitoring the audio quality on the commercial 5G, we experienced aweful re
 
 We measured the average digital and analog RTT to be 110ms and 165ms (respectively) on the commercial 5G network, using a buffersize of 512, sampled at 48khz.
 
-**For perspective - ** here is 165ms audio delay from left to right ear:
+**For perspective -** here is 165ms audio delay from left to right ear:
 
 <MyAudioPlayer src="fiveg-165ms-delay.mp3" />
 
@@ -126,11 +124,15 @@ During our second round of testing, time was of the essence. We only had about 3
 
 On the private 5G, we were able to get better overall results overall, meaning we got better audio quality using a lower buffersize on our audio interfaces. We measured an average digital and analog RTT of 60ms and 74ms (respectively), using a buffersize of 256, sampled at 48khz.
 
-**For perspective - ** here is 74ms audio delay from left to right ear:
+**For perspective -** here is 74ms audio delay from left to right ear:
 
 <MyAudioPlayer src="fiveg-74ms-delay.mp3" />
 
 Although this was impressive, the configuration rendered borderline audio quality that would be unpleasant in the long run. When using a buffersize of 512, we got much more stable audio with 90-100ms digital RTT (similar to the commercial 5G, only slightly faster) and an analog RTT at about 140ms.
+
+# Summary
+
+In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
 
 Results in table form:
 
@@ -144,9 +146,9 @@ Results in table form:
   ]}
 />
 
-# Summary
+Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5G test results were not particularly promising. I believe we could conduct successful NMPs over 5G if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
 
-In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
+Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5G is implemented on future Telenor networks.
 
 <MySlideshow
   imgs={["5G-henrik-stefano-salen.jpg", "5G-team.jpg"]}
@@ -155,7 +157,3 @@ In early 2022, me and a UiO colleague investigated the feasibility of conducting
     "A big thanks to the Telenor Research team.",
   ]}
 />
-
-Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5G test results were not particularly promising. I believe we could conduct successful NMPs over 5G if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
-
-Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5G is implemented on future Telenor networks.
