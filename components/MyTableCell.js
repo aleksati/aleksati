@@ -1,9 +1,9 @@
 const MyTableCell = ({ children, heading, invisible }) => {
   return (
     <div
-      className={`bg-primary-light dark:bg-primary-dark p-2 ${
+      className={`bg-primary-light dark:bg-primary-dark p-1 ${
         heading ? "font-bold" : "font-normal"
-      } rounded-sm border ${invisible ? "invisible" : "visible"}`}>
+      } border ${invisible ? "invisible" : "visible"}`}>
       {children}
     </div>
   );

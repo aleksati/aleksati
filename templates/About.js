@@ -38,8 +38,7 @@ const About = () => (
       <p>
         On the artistic side, I have many years experience playing drums,
         synths, and electronics with several Oslo-based acts. Besides music, I
-        am also heavily invested in creative computing and sound-art
-        installation work.
+        am also invested in creative computing and sound-art installation work.
       </p>
     </div>
   </>

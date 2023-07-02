@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 const Meta = ({ title, keywords, description }) => {
-  const newTitle = title ? "aleksati | " + title : "aleksati";
+  const newTitle = title ? "aleksati / " + title : "aleksati";
 
   return (
     <Head>

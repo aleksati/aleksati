@@ -9,33 +9,25 @@ keywords:
     "sonification",
     "javascript",
     "visuals",
-    "p5js",
     "nodejs",
-    "creative computing",
+    "computing",
     "analysis",
-    "machine learning",
+    "machine",
+    "learning",
+    "open",
+    "source",
   ]
 type: "post"
-summary: "Modern web browsers are astounding pieces of software capable of most computational tasks and creative exploration. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+summary: "Creating audio-visual art on the Web is easier than ever, thanks to modern browser tech and open source creative coding libraries. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
 ---
-
-inspired by the capabilities of modern web browsers and the community-driven creative coding libraries, I ran a workshop in collaboration C2HO, in early 2023, focusing on how we can explore Big data using sonification and dynamic visuals in a web browser.
-
-Creating audio-visual art with code is easier than ever, much thanks to modern web browsers and great open source creative coding libraries. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library.
-
-thanks to community-driven creative coding libraries,
 
 IMAGE
 
-Modern web browsers are powerful apps capable of most computational tasks and creative exploration.
+Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
 
-Also, comprehensive community-driven coding libraries enable non-web developers to create meaningful audio-visual and interactive art in the browser.
+As an audio enthusiast, I have been interested in the audio capabilities of these libraries and how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
 
-Inspired by these ideas, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink> in early 2023, focusing on how we can explore Big data using sonification and dynamic visuals in a web browser.
-
-The term Sonification refers to the use of non-speech audio to convey information or perceptualize data. Therefore, it's possible to use sonification in addition to visually represented data as a tool to extract valuable and coherent information in realtime.
-
-In this post, I present two examples you can take to model-based sonification and visualization of datasets in a web browser, using a using the <MyLink href="https://p5js.org/">p5js</MyLink> coding library.
+In this post, I share some examples from my workshop, presenting two approaches to model-based sonification of large datasets in a web browser using the <MyLink href="https://p5js.org/">p5js</MyLink> library.
 
 # Contents
 
@@ -50,17 +42,17 @@ In this post, I present two examples you can take to model-based sonification an
 
 # Follow The Code
 
-If you want to follow the post code examples, you can download the repository from my <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">GitHub page</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as it takes care of your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server.
+If you want to follow my code examples, you can download the repository from my <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">GitHub</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
 
-Finally, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into issues there.
+In any case, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into unforseen issues there.
 
 To set up the development environment with p5, follow these simple steps:
 
 1. Download the code repository as a .zip file.
 2. Create an account on the p5js Web Editor.
-3. Go to "My Sketches" (click on "Hello, username!" on the top right) and create a new sketch.
-4. In the web editor of your new sketch, open the sidebar (black arrow on gray backgroun) to access your files.
-5. Via the small dropdown menu "Sketch Files" in the left column, choose to "upload file" and upload the folder entitled "browser/examples".
+3. Go to "My Ses" (click on "Hello, username!" on the top right) and create a new s.
+4. In the web editor of your new s, open the sidebar (black arrow on gray backgroun) to access your files.
+5. Via the small dropdown menu "S Files" in the left column, choose to "upload file" and upload the folder entitled "browser/examples".
 
 <MyImage
   src="datason-p5-editor.png"
@@ -72,43 +64,70 @@ To set up the development environment with p5, follow these simple steps:
 
 # Why Sonify?
 
-Perhaps the most common approach to visualizing data is through graphs and plots where various axis represent different data dimensions, such as time on the (x) horizontal axis and some other variable on the vertical (y) axis. Although there are many advantages to engaging with data in this particular way, one obvious limitation is that we cannot physically perceive more than three dimensions of space. This is not to say that 3D spaces present any serious constraints for data analysis, but only to stress that we usually deploy limited sensing when exploring complex data structures.
+Perhaps the most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, this is far from the only way that we can interact with and explore data online. The term Sonification, or Auditory Displays, refers to the use of non-speech audio to convey information or perceptualize data (Hermann et.al, 2011). Using sonification methods can facilitate better accessibility practices and sometimes even be more efficient than data visualization techniques.
 
-auditory displays
+IMAGE
 
-PICTURE?
+The research literature often differentiates among methods of sonification. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
 
-By augmenting our data visualizations with sound, we can perceive additional dimensions of data without compromizing on visual aspects. Sonification can also facilitate better accessibility practices and sometimes even be more efficient than visualization techniques for analysis.
-
-Imagine a geology researcher trying to process and clean thousands, maybe millions, of time-series data points in search of anomalies. Here, visual inspection can be tedious and inefficient work. This is an example where Sonfication through audification can be of great assistance. By feeding the time-series dataset into an oscillator, using the data points directly as the basis for a waveform, we can perceive the data in record time and get a good sense of patterns and irregularities.
-
-Another example of meaningful sonification could be to imagine a feature on your smartphone that enables you to hear how many messages you have received simply by shaking your device. The shaking would produce a sound reminiscent of a metal container filled with bells. By listening to the number of bells "bouncing around" inside your phone, you would disseminate how many messages you'd received.
+However, most sonification applications augment existing visual-based data analysis tools, helping to extract valuable and coherent information in realtime. Model-based sonification is another and more advanced method where the goal is to investigate how acoustic responses from dynamic (sometimes visual) environments can provide valuable information in response to user interactions. As such, model-based sonification systems are great for explorative data analysis and augmenting existing visual analysis methods.
 
 # Multi-dimensional Graph
 
-Audio researchers often differentiate between different types of sonification (Hermann et.al, 2011). The above examples are illustrations of audification (geologist) and model-based sonification (smartphone). With model-based sonification, we create virtual environments (models) that provide audible information in response to some kind of user interaction.
+Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. The height (vertical Y-axis) of the red dots equals coffee acidity levels from different farms over time (horizontal X-axis). When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
 
-My first Web Audio-based sonification example is an instance of model-based sonification where I've augmented a traditional 2D plot with sound. The dataset I am using is a simple and generic spreadsheet found on Kaggle.com, detailing coffee quality from many different regions and farms over several years.
-
-In the plot, the height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis) from different farms. When you click the dots, the frequency of the synth note played represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
+The dataset I am using is a simple and generic csv spreadsheet detailing coffee quality from many different regions and farms over several years, found on Kaggle.com. For my example, I am only using a fraction of the dataset for demonstration purposes.
 
 <P5SonifyPlot />
 
-p5 library is built op top of the famous Web Audio API and includes
+One of the great things about p5 is that it includes a ton of Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the Web.
 
-declarative
+In the code block below, I define an example p5 sketch with a 200x200 canvas and a simple sinewave oscillator. The frequency of the sinewave is gradually incremented (from 0 to 10kHz) on every new window frame, resulting in a continuous sine sweep.
 
-ton of utility functions for drawing high-level objects, controlling audio oscillators, and more. With these tools, I can build complex, interactive, and dynamic audio-visual apps at record speed.
+```javascript
+// sinesweep sketch
+const sketch = (p) => {
+  let sine;
+  let myFreq;
+  let threshold = 10000;
 
-web audio's declarative approach to audio processing... show a simple oscillator
-makes it ideal for model-based sonification
+  p.setup = () => {
+    p.createCanvas(200, 200);
+    loadAudio();
+  };
 
-meaning I can easily update audio parameters with data points.
+  p.draw = () => {
+    updateAudio();
+  };
+
+  loadAudio() => {
+    // load an oscillator with a sine-wave and set initial amplitude
+    sine = new p5.Oscillator("sine");
+    sine.amp(0.5);
+    sine.freq(0);
+    sine.start();
+  }
+
+  updateAudio() => {
+    // update the frequency of the sine on every new window frame
+    myFreq = myFreq > threshold ? 0 : myFreq += 1;
+    sine.freq(myFreq);
+  }
+};
+
+let myp5 = new p5(sketch);
+```
+
+Let's take this idea of an augmented 2D plot one step further.
+
+now that ... we can multi-dimensional approach.
+
+data dimensions to audio
+
+If we go back to our coffee quality example,
 
 If we take this idea a little further ..
-
 IF we plot, we could assign another coloumn.
-
 You have to show some code...
 audio.
 

@@ -2,7 +2,7 @@ import MyLink from "./MyLink";
 import Icon from "./Icon";
 
 const PaginationToggles = ({ currPage, numbPages, onPagination }) => {
-  const numbPagesArray = Array(numbPages + 1).fill(0);
+  const numbPagesArray = Array(numbPages).fill(0);
 
   return (
     <div className="flex space-x-6 w-full items-center justify-center">
@@ -12,11 +12,10 @@ const PaginationToggles = ({ currPage, numbPages, onPagination }) => {
       {numbPagesArray.map((item, index) => (
         <div key={index} className="text-base">
           <MyLink
-            active={index === currPage}
+            active={index + 1 === currPage}
             onClick={onPagination}
             type="pagination"
-            id="numb"
-          >
+            id="numb">
             {index + 1}
           </MyLink>
         </div>

@@ -13,6 +13,7 @@ export default nextConnect()
     let results = [];
 
     if (query.length) {
+      // make each search word an item of an array.
       const query_array = query.split(" ");
 
       // first full keywords
@@ -41,5 +42,3 @@ export default nextConnect()
 
     res.status(200).json({ results });
   });
-
-// filter first through the keywords, then through title, then through summary

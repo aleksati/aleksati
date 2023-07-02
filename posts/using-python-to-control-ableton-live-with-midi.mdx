@@ -3,18 +3,20 @@ title: "Using Python to Control Ableton Live With MIDI"
 date: "2023-04-10"
 keywords:
   [
-    "music tech",
+    "music",
+    "tech",
     "python",
     "midi",
     "realtime",
     "audio",
     "ableton",
-    "live",
-    "python-rtmidi",
-    "python-osc",
+    "performance",
+    "osc",
     "drums",
     "synth",
-    "live electronics",
+    "electronic",
+    "open",
+    "source",
   ]
 type: "post"
 summary: "While designing a new liveset for my band, I wrote some Python code to help me navigate Ableton Live more efficiently using very few midi controls. Here is what I did, and how."
@@ -215,7 +217,7 @@ To open the midi preferences in Live, Hit **"ctrl" + ","** and navigate to the m
 
 So there you have it. We can easily expand the capabilities of our Live projects with some creative coding and a virtual midi driver. By using the free and open-source Python rtmidi library, bridging Live with Python is practically effortless. From there, I recommend optimizing your state management and asynchronous parameter control with Python Generators and lazy iterators. Together, this is a force to be reckoned with.
 
-On a side note, there are alternatives to writing custom software for midi communication between Live and elsewhere. For instance, AbletonOSC is a MIDI remote script that provides an Open Sound Control (OSC) interface to control Live. Using OSC will eliminate the need for a virtual midi driver and provide more advanced remote control options.
+On a side note, there are alternatives to writing custom software for midi communication between Live and elsewhere. For instance, <MyLink href="https://github.com/ideoforms/AbletonOSC">AbletonOSC</MyLink> is a MIDI remote script that provides an Open Sound Control (OSC) interface to control Live. Using OSC will eliminate the need for a virtual midi driver and provide more advanced remote control options.
 
 # Source Code
 
