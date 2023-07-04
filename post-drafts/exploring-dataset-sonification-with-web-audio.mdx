@@ -89,6 +89,7 @@ One of the great things about p5 is that it includes a ton of Web Audio API util
 // The frequency of a sinewave oscaillator is gradually
 // incremented (from 0 to 10kHz), on every new window frame,
 // resulting in a continuous sinesweep effect.
+
 const sketch = (p) => {
   let sine;
   let myFreq;
@@ -144,7 +145,7 @@ By interacting with a slider
 
 -SKETCH-
 
-In the code, I define a global class where each instance of the class represents an indvidual coffee owner/company. Every class instance (usually refered to as an object) posesses a range of properties that are defined by the coffee owners data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
+In the code, I define a global class where each instance of that class represents an individual coffee owner/company. Every class instance (usually referred to as an object) possesses a range of properties defined by the coffee owners' data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
 
 Something about the sound..
 every body-part has a unique oscillator with a frequency.
@@ -153,9 +154,10 @@ every body-part has a unique oscillator with a frequency.
 // A simplified version of my Snake class, only demonstrating how I
 // initialize a new oscillator for every new body part I recevie and store
 // them in seperate object variables.
+
 class Snake {
   constructor(owner, point_size, rgbcolor=[]) {
-    this.body = []; // array of positions. [[x, y], [x, y], [x, y]]
+    this.body = []; // array of positions. [[x, y], [x, y] ...]
     this.sines = []; // array of oscillators
   }
 

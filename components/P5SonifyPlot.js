@@ -1,3 +1,4 @@
+import getCurrTheme from "../functions/getCurrTheme";
 // do need to do this beacuse p5 sound doesnt like SSR.
 // Will only import `react-p5` on client-side
 import dynamic from "next/dynamic";
@@ -37,6 +38,7 @@ let offsetFrequency = 300;
 let audioState;
 
 const P5SonifyPlot = (props) => {
+  const { currTheme } = getCurrTheme();
   const setup = (p5, canvasParentRef) => {
     audioState = p5.getAudioContext();
 
@@ -75,7 +77,7 @@ const P5SonifyPlot = (props) => {
   };
 
   const draw = (p5) => {
-    p5.background("white");
+    p5.background(currTheme === "light" ? [250, 250, 250] : [20, 20, 20]);
     p5.strokeWeight(point_size);
     drawText(p5);
     drawDots(p5);
@@ -84,6 +86,7 @@ const P5SonifyPlot = (props) => {
   const drawText = (p5) => {
     p5.noStroke();
     p5.textSize(20);
+    p5.fill(currTheme === "light" ? [0, 0, 0] : [255, 255, 255]);
     p5.text(match_owner, 40, cnvHeight - 20);
     p5.textAlign("CENTER");
   };
@@ -110,7 +113,7 @@ const P5SonifyPlot = (props) => {
 
     // The envolope is used to make the sine play as a note
     // set attackTime, decayTime, sustainRatio, releaseTime
-    env = new window.p5.Env();
+    env = new window.p5.Envelope();
     env.setADSR(0.01, 0.1, 0.7, 0.7);
   };
 
