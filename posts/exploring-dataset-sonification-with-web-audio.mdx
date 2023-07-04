@@ -18,7 +18,7 @@ keywords:
     "source",
   ]
 type: "post"
-summary: "Creating audio-visual art on the Web is easier than ever, thanks to modern browser tech and open source creative coding libraries. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
 ---
 
 IMAGE
@@ -34,9 +34,9 @@ In this post, I share some examples from my workshop, presenting two approaches 
 1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
 2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
 3. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
-4. <MyLink href="#object-oriented-approach">Object-oriented Approach</MyLink>
+4. <MyLink href="#the-sonic-snake">The Sonic Snake</MyLink>
 5. <MyLink href="#summary">Summary</MyLink>
-6. <MyLink href="#summary">Source Code</MyLink>
+6. <MyLink href="#source-code">Source Code</MyLink>
 
 <hr />
 
@@ -76,16 +76,19 @@ However, most sonification applications augment existing visual-based data analy
 
 Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. The height (vertical Y-axis) of the red dots equals coffee acidity levels from different farms over time (horizontal X-axis). When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
 
+!!!! THE DOTS ARE NOT FARMS. THEY ARE JUST COLUMNS OF DATA. !!!!
+
 The dataset I am using is a simple and generic csv spreadsheet detailing coffee quality from many different regions and farms over several years, found on Kaggle.com. For my example, I am only using a fraction of the dataset for demonstration purposes.
 
 <P5SonifyPlot />
 
-One of the great things about p5 is that it includes a ton of Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the Web.
-
-The code block below demonstrates how we can initalize and control a simple sinewave oscillator in p5. The frequency of the sinewave is gradually incremented (from 0 to 10kHz), on every new window frame, resulting in a continuous sine sweep.
+One of the great things about p5 is that it includes a ton of Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the Web. The code block below demonstrates how straightforward it can be initialize and control audio oscillator with p5.
 
 ```Javascript
-// sinesweep sketch
+// Example of a simple p5 sketch in instance mode.
+// The frequency of a sinewave oscaillator is gradually
+// incremented (from 0 to 10kHz), on every new window frame,
+// resulting in a continuous sinesweep effect.
 const sketch = (p) => {
   let sine;
   let myFreq;
@@ -118,13 +121,78 @@ const sketch = (p) => {
 let myp5 = new p5(sketch);
 ```
 
-Knowing this, together with some knowledge of sound synthesis, we can start to build more complex sounds that can tell us more in-depth information about our data.
+With these utilities, and some basic knowledge of sound synthesis, we can start to build more complex sounds that can tell us more about our data. Below is an upgraded example of the red dot (now blue) coffee plot that features a second oscillator used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
 
-Below is a sonically upgraded example of our previous red-dot (now blue) coffee plot. The plot features a second oscillator used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process. By listening to the frequency of the LFO, we can disseminate information about how many bags of coffee were produced by the given farm that given year.
+By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were produced by the given data point that year. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
 <P5SonifyPlotAmpMod />
 
-# Object-oriented Approach
+Although ....
+re-creating traditional plots and graph structures with p5 is tedious work. Unlike libraries such as Plotly and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis (with a few exceptions, like <MyLink href="https://github.com/jagracar/grafica.js">grafica.js</MyLink>). So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the strong visual capabilities and object-oriented affordances of p5 and create more tailored platforms.
+
+# The Sonic Snake
+
+Below is my second example of a model-based sonification system where I have opted for a more object-oriented approach, both visually and sonically.
+
+In the sketch, users can move, record and analyze the motion and sound of different coffee owners/companies through a 2D space, creating different colored snakes (dots) in the process.
+
+The slider represents year.
+by interacting, the snake will move and the
+as the snakes get bigger, more sine tones start playing.
+The sound is the Y position of the
+By interacting with a slider
+
+-SKETCH-
+
+In the code, I define a global class where each instance of the class represents an indvidual coffee owner/company. Every class instance (usually refered to as an object) posesses a range of properties that are defined by the coffee owners data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
+
+Something about the sound..
+every body-part has a unique oscillator with a frequency.
+
+```Javascript
+// A simplified version of my Snake class, only demonstrating how I
+// initialize a new oscillator for every new body part I recevie and store
+// them in seperate object variables.
+class Snake {
+  constructor(owner, point_size, rgbcolor=[]) {
+    this.body = []; // array of positions. [[x, y], [x, y], [x, y]]
+    this.sines = []; // array of oscillators
+  }
+
+  drawSnake() {
+    this.body.forEach((bodyPart) => {
+      // draw each bodyPart as dots on the canvas
+    });
+
+    this.sines.forEach((sine) => {
+      // bring up the amplitude of each sine.
+    });
+  }
+
+  addToBody(newPosition) {
+    this.body.push([...newPosition]);
+    this.addSound(newPosition);
+  }
+
+  addSound(newPosition) {
+    let sine = new p5.Oscillator("sine");
+    let sine_freq = this.body.length ? newPosition[1] : 0;
+    sine.freq(sine_freq);
+    sine.amp(0);
+    sine.start();
+    this.sines.push(sine);
+  }
+}
+```
+
+The sketch
+
+SKETCH
+
+Why is this good? Why is it bad?
+
+This approach is
+HIGHLY scalable... you can make as many object as you want.
 
 # Summary
 
@@ -132,4 +200,4 @@ Below is a sonically upgraded example of our previous red-dot (now blue) coffee 
 
 # References
 
-- Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.
+Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.
