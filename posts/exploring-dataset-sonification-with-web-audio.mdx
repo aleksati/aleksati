@@ -25,7 +25,8 @@ IMAGE
 
 Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
 
-As an audio enthusiast, I have been interested in the audio capabilities of these libraries and how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
+???As an audio enthusiast
+I have been interested in the audio capabilities of these libraries for some time, and speficially how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
 
 In this post, I share some examples from my workshop, presenting two approaches to model-based sonification of large datasets in a web browser using the <MyLink href="https://p5js.org/">p5js</MyLink> library.
 
@@ -34,7 +35,7 @@ In this post, I share some examples from my workshop, presenting two approaches 
 1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
 2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
 3. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
-4. <MyLink href="#the-sonic-snake">The Sonic Snake</MyLink>
+4. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
 5. <MyLink href="#summary">Summary</MyLink>
 6. <MyLink href="#source-code">Source Code</MyLink>
 
@@ -65,8 +66,6 @@ To set up the development environment with p5, follow these simple steps:
 # Why Sonify?
 
 Perhaps the most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, this is far from the only way that we can interact with and explore data online. The term Sonification, or Auditory Displays, refers to the use of non-speech audio to convey information or perceptualize data (Hermann et.al, 2011). Using sonification methods can facilitate better accessibility practices and sometimes even be more efficient than data visualization techniques.
-
-IMAGE
 
 The research literature often differentiates among methods of sonification. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
 
@@ -122,16 +121,21 @@ const sketch = (p) => {
 let myp5 = new p5(sketch);
 ```
 
-With these utilities, and some basic knowledge of sound synthesis, we can start to build more complex sounds that can tell us more about our data. Below is an upgraded example of the red dot (now blue) coffee plot that features a second oscillator used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
+Together with some basic knowledge of sound synthesis, these p5 audio utilities make it possible to build complex synths that can tell us alot of information about certain datasets.
+
+Below is an upgraded example of the red dot (now blue) coffee plot that features a second oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
 
 By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were produced by the given data point that year. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
 <P5SonifyPlotAmpMod />
 
-Although ....
-re-creating traditional plots and graph structures with p5 is tedious work. Unlike libraries such as Plotly and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis (with a few exceptions, like <MyLink href="https://github.com/jagracar/grafica.js">grafica.js</MyLink>). So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the strong visual capabilities and object-oriented affordances of p5 and create more tailored platforms.
+But re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the strong visual capabilities and object-oriented affordances of p5 and create more tailored platforms.
 
-# The Sonic Snake
+# The Sonic Orbs
+
+Its the same amp mod, but a whole differnet appraoch (OOP), that is valuable for comparing many companies at the same time. also great for working with large datasets. as the approach/design is highly scalable.
+
+DOT - hearing harmoniew between owners..
 
 Below is my second example of a model-based sonification system where I have opted for a more object-oriented approach, both visually and sonically.
 
@@ -143,17 +147,17 @@ as the snakes get bigger, more sine tones start playing.
 The sound is the Y position of the
 By interacting with a slider
 
--SKETCH-
+<P5SonicOrbs />
 
-In the code, I define a global class where each instance of that class represents an individual coffee owner/company. Every class instance (usually referred to as an object) possesses a range of properties defined by the coffee owners' data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
+In the code, I define a global class where each instance represents an individual coffee owner/company. Every class instance (usually referred to as an object) possesses a range of properties defined by the coffee owners' data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
 
 Something about the sound..
 every body-part has a unique oscillator with a frequency.
 
 ```Javascript
-// A simplified version of my Snake class, only demonstrating how I
-// initialize a new oscillator for every new body part I recevie and store
-// them in seperate object variables.
+// A simplified demo of my Snake class, demonstrating how I
+// initialize a new oscillator for every new body part (data point)
+//  received and store them in seperate object variables.
 
 class Snake {
   constructor(owner, point_size, rgbcolor=[]) {

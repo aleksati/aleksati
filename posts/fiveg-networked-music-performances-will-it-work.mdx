@@ -64,9 +64,7 @@ Our first experiment was on a first-generation commercial 5G network at the Musi
 
 To transmit the audio over 5G, we used a pair of custom-built <MyLink href="https://github.com/MCT-master/NMP-Portable-Kits/wiki">NMP hardware kits</MyLink> from IMV. These hardware bundles are designed specifically for ultra-low-latency AV transmission making them perfect for NMP-related education and research. The kits use high-end RME PCI audio interfaces connected to Behringer ADAT converters for XLR inn/out.
 
-Finally, we needed lightweight transmission software that was agnostic about network conditions, could support uncompressed formats, and worked well cross-platform. Here, <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> from the Jack-audio connection kit seemed to fit the bill.
-
-For the record, we also did experiments with the software called LoLa but never managed to connect the two 5g routers using it.
+Finally, we needed lightweight transmission software that was agnostic about network conditions, could support uncompressed formats, and worked well cross-platform. Here, <MyLink href="https://www.jacktrip.org">JackTrip</MyLink> from the Jack-audio connection kit seemed to fit the bill. For the record, we also did several experiments with the high-quality audio-video transmission software called <MyLink href="https://lola.conts.it/">Lola</MyLink>. Unfortunatley, it seems that Lola is+currently uncompatible with the 5G protocol due to its high packet transmission rate, sending fixed-size packets as small as 1kb.
 
 # 5G Experiments
 

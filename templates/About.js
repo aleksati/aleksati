@@ -24,21 +24,21 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        Music technologist, drummer, and software developer from Norway. Curious
-        about all things science and passionate about art, exercising, my
-        partner and our cat.
+        Music/sound technologist, drummer, and software developer from Norway.
+        Curious about all things science and passionate about art, exercising,
+        my partner, and our cat.
       </p>
       <p>
         I currently work as an engineer for the Musicology Department at the
         University of Oslo (UiO) and lecture two master-level courses on
         Networked Music Performance Technologies. In addition to networked
         interaction, my professional and research interests are mostly in audio,
-        video and web programming.
+        video, and web programming.
       </p>
       <p>
-        On the artistic side, I have been playing drums, synths, and electronics
-        with several Oslo-based acts for many years. Besides music, I also
-        invest a great deal of time in creative computing projects and sound-art
+        On the artistic side, I have many years of experience playing drums,
+        synths, and electronics with several Oslo-based acts. Besides music, I
+        spend most of my time on creative software projects and sound-art
         installation work.
       </p>
     </div>

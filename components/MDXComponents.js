@@ -8,6 +8,7 @@ import MyLink from "./MyLink";
 import MyCode from "./MyCode";
 import P5SonifyPlot from "./P5SonifyPlot";
 import P5SonifyPlotAmpMod from "./P5SonifyPlotAmpMod";
+import P5SonicOrbs from "./P5SonicOrbs";
 // import P5NoiseDrum from "./P5NoiseDrum";
 
 const MDXComponents = {
@@ -22,6 +23,7 @@ const MDXComponents = {
   // P5NoiseDrum,
   P5SonifyPlot,
   P5SonifyPlotAmpMod,
+  P5SonicOrbs,
   pre: (props) => <MyCode {...props} />,
   h1: (props) => {
     // take the title and convert all spaces to "-" and text to lowercase.
