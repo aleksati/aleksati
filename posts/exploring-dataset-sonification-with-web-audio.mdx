@@ -25,8 +25,7 @@ IMAGE
 
 Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
 
-???As an audio enthusiast
-I have been interested in the audio capabilities of these libraries for some time, and speficially how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
+As an audio enthusiast, I have been interested in the audio capabilities of these libraries for some time, and speficially how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
 
 In this post, I share some examples from my workshop, presenting two approaches to model-based sonification of large datasets in a web browser using the <MyLink href="https://p5js.org/">p5js</MyLink> library.
 
@@ -34,10 +33,11 @@ In this post, I share some examples from my workshop, presenting two approaches 
 
 1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
 2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
-3. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
-4. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
-5. <MyLink href="#summary">Summary</MyLink>
-6. <MyLink href="#source-code">Source Code</MyLink>
+3. <MyLink href="#dataset">Dataset</MyLink>
+4. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
+5. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
+6. <MyLink href="#summary">Summary</MyLink>
+7. <MyLink href="#source-code">Source Code</MyLink>
 
 <hr />
 
@@ -71,17 +71,36 @@ The research literature often differentiates among methods of sonification. For 
 
 However, most sonification applications augment existing visual-based data analysis tools, helping to extract valuable and coherent information in realtime. Model-based sonification is another and more advanced method where the goal is to investigate how acoustic responses from dynamic (sometimes visual) environments can provide valuable information in response to user interactions. As such, model-based sonification systems are great for explorative data analysis and augmenting existing visual analysis methods.
 
+# Dataset
+
+The dataset I am using for my examples is a simple, and quite generic, CSV spreadsheet detailing Arabic coffee quality from different regions and farms over several years. I sourced the dataset on Kaggle.com, where you can find lots of high-quality and free datasets for your projects, in a variety of different formats.
+
+Here is a taste of what my dataset looks like:
+
+<MyTable
+  cols={[
+    ["Country of Origin", "Brazil", "Brazil", "United States (Hawaii)"],
+    ["Number of Bags", "300", "300", "25"],
+    ["Year", "2010", "2010", "2010"],
+    ["Owner.1", "JP Carneiro", "JP Carneiro", "Kona Pacific Farmers Co"],
+  ]}
+/>
+
+Each of the 1300 rows in the spreadsheet represents a specific coffee shipment in a particular period between 2010 - 2017. On the other hand, the columns tell us information about the shipments, detailing everything from the quality of the coffee to the number of bags in the shipment.
+
+It should be noted that I am only using a small fraction of this dataset in my examples in this post.
+
 # Multi-dimensional Plot
 
-Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. The height (vertical Y-axis) of the red dots equals coffee acidity levels from different farms over time (horizontal X-axis). When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
+Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. Each red dot reprents a row in the dataset. The height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis).
 
-!!!! THE DOTS ARE NOT FARMS. THEY ARE JUST COLUMNS OF DATA. !!!!
-
-The dataset I am using is a simple and generic csv spreadsheet detailing coffee quality from many different regions and farms over several years, found on Kaggle.com. For my example, I am only using a fraction of the dataset for demonstration purposes.
+When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is.
 
 <P5SonifyPlot />
 
-One of the great things about p5 is that it includes a ton of Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the Web. The code block below demonstrates how straightforward it can be initialize and control audio oscillator with p5.
+One of the great things about p5 is that it includes a ton of Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems. Together with some basic knowledge of sound synthesis, these utilities make it possible to build complex synths, fast, that can react to user input or any other dynamic data.
+
+The code block below demonstrates some key p5 audio utilities and how easy it is to update audio parameters.
 
 ```Javascript
 // Example of a simple p5 sketch in instance mode.
@@ -121,84 +140,86 @@ const sketch = (p) => {
 let myp5 = new p5(sketch);
 ```
 
-Together with some basic knowledge of sound synthesis, these p5 audio utilities make it possible to build complex synths that can tell us alot of information about certain datasets.
-
-Below is an upgraded example of the red dot (now blue) coffee plot that features a second oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
+But let's take it one step further. Below is an upgraded example of the red dot (now blue) coffee plot that features a second audio oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
 
 By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were produced by the given data point that year. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
 <P5SonifyPlotAmpMod />
 
-But re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the strong visual capabilities and object-oriented affordances of p5 and create more tailored platforms.
+But re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the dynamic and strong visual capabilities of p5 to create more tailored platforms.
 
 # The Sonic Orbs
 
-Its the same amp mod, but a whole differnet appraoch (OOP), that is valuable for comparing many companies at the same time. also great for working with large datasets. as the approach/design is highly scalable.
+Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design.
 
-DOT - hearing harmoniew between owners..
-
-Below is my second example of a model-based sonification system where I have opted for a more object-oriented approach, both visually and sonically.
-
-In the sketch, users can move, record and analyze the motion and sound of different coffee owners/companies through a 2D space, creating different colored snakes (dots) in the process.
-
-The slider represents year.
-by interacting, the snake will move and the
-as the snakes get bigger, more sine tones start playing.
-The sound is the Y position of the
-By interacting with a slider
+Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot. Each orb represents a unique company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb! In my example, the XY position of the orbs communicates the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing, namely the "body" and "balance" qualities, using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation.
 
 <P5SonicOrbs />
 
-In the code, I define a global class where each instance represents an individual coffee owner/company. Every class instance (usually referred to as an object) possesses a range of properties defined by the coffee owners' data points in the dataset. In my example, I use class properties that define the shape, color, sound, position, and body length of my object instances.
-
-Something about the sound..
-every body-part has a unique oscillator with a frequency.
+But any data point can be mapped to any property of these orbs. In the code, I define an Orb class with some utility methods where each class instance represents a unique coffee owner/company from the dataset. This way, I know that every Orbs has the same basic features, such as shape, size, movement, sound, etc. Then, when I create a new orb, I simply pass whatever data I want to plot and sonify as arguments and ensure update that information in my p5 draw function based on the value of my slider.
 
 ```Javascript
-// A simplified demo of my Snake class, demonstrating how I
-// initialize a new oscillator for every new body part (data point)
-//  received and store them in seperate object variables.
+// A simplified version of my Sonic Orb example as a p5 sketch in instance mode.
+// ..
 
-class Snake {
-  constructor(owner, point_size, rgbcolor=[]) {
-    this.body = []; // array of positions. [[x, y], [x, y] ...]
-    this.sines = []; // array of oscillators
+const sketch = (p) => {
+  p.setup = () => {
+    p.createCanvas(200, 200);
+    loadOrbs();
+  };
+
+  p.draw = () => {
+    orb_1.updatePos();
+    orb_1.drawOrb();
+    orb_1.makeSound();
+    // etc..
+  };
+
+  loadOrbs() => {
+    // these variables should come from a dataset. Hear instead, they are hard-coded.
+    let owner_1 = "Kona Pacific Farmers Cooperative";
+    let body = 20;
+    let balance = 40;
+
+    orb_1 = new Orb(owner_1, body, balance); // ++ other data points
+    // etc..
   }
+};
 
-  drawSnake() {
-    this.body.forEach((bodyPart) => {
-      // draw each bodyPart as dots on the canvas
-    });
+let myp5 = new p5(sketch);
 
-    this.sines.forEach((sine) => {
-      // bring up the amplitude of each sine.
-    });
+class Orb {
+  constructor(owner, body, balance) {
+    this.owner = owner;
+    this.position = [body, balance];
+    this.oscillators = [];
+    // etc..
   }
-
-  addToBody(newPosition) {
-    this.body.push([...newPosition]);
-    this.addSound(newPosition);
-  }
-
-  addSound(newPosition) {
-    let sine = new p5.Oscillator("sine");
-    let sine_freq = this.body.length ? newPosition[1] : 0;
-    sine.freq(sine_freq);
-    sine.amp(0);
-    sine.start();
-    this.sines.push(sine);
-  }
+  updatePos(){}
+  drawOrb() {}
+  makeSound() {}
+  // etc..
 }
 ```
 
-The sketch
+As you might have guessed, there are several advantages to using this object-oriented approach for data visualization and(!) sonification. First off, creating objects in code that can represent high-level data structures from your dataset is always a good programming strategy. A structure like this is highly scalable and maintainable for the future, making it more compatible when working with larger, varying, and more complex datasets.
 
-SKETCH
+But more importantly, using these objects to create complex sound textures and musical harmonies can really help generate meaningful content.
+
+Together with looking at numbers or visually tracking objects on screen, this kind of combined visual and auditory sensing can benefit analysis work by giving the user a better impression of the data much quicker than usual. Personally speaking, it's also great for making comparisons and getting a sense of subtle differences between high-level data structures.
+IKKE DEN OVER!
+
+But more importantly, the Sonic Orb example leverages of our innate ability to listen, deconstruct, and differentiate amongst subtle complex sound textures and musical harmonies.
+
+combining visual and auditory displays ...
+
+Also in a browser setting? why is this cool?
+
+The bad?
 
 Why is this good? Why is it bad?
 
-This approach is
-HIGHLY scalable... you can make as many object as you want.
+not as linear.
 
 # Summary
 

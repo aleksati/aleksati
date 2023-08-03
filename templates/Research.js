@@ -43,7 +43,7 @@ const Research = () => {
           <MyLink href="https://app.cristin.no/">Cristin</MyLink>...
         </p>
       ) : (
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-8">
           {researchData.map((item, idx) => {
             if (idx === 1) return;
             return (

@@ -37,17 +37,17 @@ let offsetFrequency = 300;
 
 let audioState;
 
-const P5SonifyPlot = (props) => {
+export default function P5SonifyPlot(props) {
   const { currTheme } = getCurrTheme();
   const setup = (p5, canvasParentRef) => {
-    audioState = p5.getAudioContext();
-
     // use parent to render the canvas in this ref
     // (without that p5 will render the canvas outside of your component)
     cnvWidth = canvasParentRef.offsetWidth * 0.99;
     cnvHeight = canvasParentRef.offsetWidth * 0.4;
-    cnv = p5.createCanvas(cnvWidth, cnvHeight).parent(canvasParentRef);
 
+    cnv = p5.createCanvas(cnvWidth, cnvHeight).parent(canvasParentRef);
+    audioState = p5.getAudioContext();
+    audioState.suspend();
     cnv.mouseClicked((e) => {
       audioState.state !== "running" ? audioState.resume() : null;
 
@@ -68,7 +68,6 @@ const P5SonifyPlot = (props) => {
         match_coords = [];
       }
     });
-    //////////////////////////////////////
 
     loadData();
     setXandYfactor();
@@ -220,6 +219,6 @@ const P5SonifyPlot = (props) => {
       <Sketch preload={preload} setup={setup} draw={draw} />
     </div>
   );
-};
+}
 
-export default P5SonifyPlot;
+// export default P5SonifyPlot;

@@ -10,13 +10,15 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   // hover:border-b-2
   // hover:font-bold
 
-  const [divRef, divHovered] = useMouseHover();
+  // const [divRef, divHovered] = useMouseHover();
   // &nbsp;
 
   if (type === "nav") {
     return (
-      <div ref={divRef} className="flex space-x-1">
-        {(active || divHovered) && <p className="font-bold">/</p>}
+      <div className="flex space-x-1">
+        {/* <div ref={divRef} className="flex space-x-1"> */}
+        {active && <p className="font-bold">/</p>}
+        {/* (active || divHovered) */}
         <Link
           className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
           href={href + ""}>

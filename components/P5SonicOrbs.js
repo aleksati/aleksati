@@ -19,8 +19,7 @@ const Sketch = dynamic(
 // balance of different coffee dispaches over the years. Uses an object oriented
 // method to create dots from differ coffee owners/companies.
 
-let cnvWidth;
-let cnvHeight;
+let cnv, cnvWidth, cnvHeight;
 let scaleFactor;
 
 let data;
@@ -31,10 +30,11 @@ let data_x_y_min;
 let data_x_y_max;
 
 let data_size = 200;
-let dot_size = 40;
 
-let slider;
-let slider_val;
+let slider_data;
+let slider_data_val;
+let slider_freq;
+let slider_freq_val;
 
 // More owner-specifc data graphing and sonification over time.
 // look at relationships between data and clustering
@@ -45,13 +45,15 @@ let owner_3 = "Exportadora de Cafe Condor S.A";
 let curr_owner;
 let curr_pos;
 
-let dot_1;
-let dot_2;
-let dot_3;
+let orb_1;
+let orb_2;
+let orb_3;
+
+let orb_size = 20;
 
 let audioState;
 
-const P5SonicOrbs = (props) => {
+export default function P5SonicOrbs(props) {
   const { currTheme } = getCurrTheme();
 
   const setup = (p5, canvasParentRef) => {
@@ -59,8 +61,8 @@ const P5SonicOrbs = (props) => {
     // (without that p5 will render the canvas outside of your component)
     cnvWidth = canvasParentRef.offsetWidth * 0.99;
     cnvHeight = canvasParentRef.offsetWidth * 0.4;
-    p5.createCanvas(cnvWidth, cnvHeight).parent(canvasParentRef);
 
+    p5.createCanvas(cnvWidth, cnvHeight).parent(canvasParentRef);
     audioState = p5.getAudioContext();
     audioState.suspend();
 
@@ -69,73 +71,83 @@ const P5SonicOrbs = (props) => {
     data_x = scaleAxis(data_x, cnvWidth);
     data_y = scaleAxis(data_y, cnvHeight);
     loadSlider(p5, canvasParentRef);
-    loadDots();
+    loadOrbs();
   };
 
   const draw = (p5) => {
     p5.background(currTheme === "light" ? [250, 250, 250] : [20, 20, 20]);
-    slider_val = slider.value();
-    handleAudioContext(slider_val);
     drawText(p5);
-    drawDots(p5);
-  };
 
-  const handleAudioContext = (slider_val) => {
-    return slider_val > 0
-      ? audioState.state !== "running"
-        ? audioState.resume()
-        : null
-      : audioState.state === "running"
-      ? audioState.suspend()
-      : null;
+    slider_data_val = slider_data.value();
+    slider_freq_val = slider_freq.value() / 100;
+    if (slider_data_val === 0) return stopOrbs();
+
+    audioState.state !== "running" ? audioState.resume() : null;
+
+    drawOrbs(p5);
   };
 
   const drawText = (p5) => {
     p5.noStroke();
-    p5.textSize(12);
+    p5.textSize(14);
     p5.fill(currTheme === "light" ? [0, 0, 0] : [255, 255, 255]);
 
     p5.textAlign("CENTER");
-    p5.text("Body", cnvWidth / 2, cnvHeight - 10);
+    p5.text("Body (x)", cnvWidth / 2, cnvHeight - 10);
 
     p5.textAlign("LEFT");
-    p5.text("Balance", 10, cnvHeight / 2);
+    p5.text("Balance (y)", 10, cnvHeight / 2);
 
+    p5.textSize(10);
     p5.textAlign("LEFT");
     p5.text(
-      "Year: " + data.getColumn("Year").slice(0, data_size + 1)[slider_val],
-      10,
+      "Year: " +
+        data.getColumn("Year").slice(0, data_size + 1)[slider_data_val],
+      5,
       cnvHeight - 25
     );
 
-    p5.textSize(8);
     p5.textAlign("LEFT");
-    p5.text("Data index: " + slider_val, 10, cnvHeight - 5);
+    p5.text("Data index: " + slider_data_val, 5, cnvHeight - 5);
+
+    p5.textAlign("LEFT");
+    p5.text("Carrier frequency factor: " + slider_freq_val, 130, cnvHeight - 5);
   };
 
-  const drawDots = (p5) => {
-    curr_owner = owners[slider_val];
-    curr_pos = [data_x[slider_val], data_y[slider_val]];
+  const drawOrbs = (p5) => {
+    curr_owner = owners[slider_data_val];
+    curr_pos = [data_x[slider_data_val], data_y[slider_data_val]];
 
-    if (curr_owner === dot_1.owner) dot_1.updatePos(p5, curr_pos);
-    if (curr_owner === dot_2.owner) dot_2.updatePos(p5, curr_pos);
-    if (curr_owner === dot_3.owner) dot_3.updatePos(p5, curr_pos);
+    if (curr_owner === orb_1.owner) orb_1.updatePos(p5, curr_pos);
+    if (curr_owner === orb_2.owner) orb_2.updatePos(p5, curr_pos);
+    if (curr_owner === orb_3.owner) orb_3.updatePos(p5, curr_pos);
 
-    dot_1.drawDot(p5);
-    dot_2.drawDot(p5);
-    dot_3.drawDot(p5);
+    orb_1.drawOrb(p5);
+    orb_1.makeSound(slider_freq_val);
+
+    orb_2.drawOrb(p5);
+    orb_2.makeSound(slider_freq_val);
+
+    orb_3.drawOrb(p5);
+    orb_3.makeSound(slider_freq_val);
+  };
+
+  const stopOrbs = () => {
+    orb_1.stopOrb();
+    orb_2.stopOrb();
+    orb_3.stopOrb();
+  };
+
+  const loadOrbs = () => {
+    orb_1 = new Orb(owner_1, orb_size, [255, 0, 0]);
+    orb_2 = new Orb(owner_2, orb_size, [0, 255, 0]);
+    orb_3 = new Orb(owner_3, orb_size, [0, 0, 255]);
   };
 
   const loadSlider = (p5, canvasParentRef) => {
     // min, max, value
-    slider = p5.createSlider(0, data_size, 0).parent(canvasParentRef);
-    // slider.style("width", "100px");
-  };
-
-  const loadDots = () => {
-    dot_1 = new Dot(owner_1, dot_size, [255, 0, 0]);
-    dot_2 = new Dot(owner_2, dot_size, [0, 255, 0]);
-    dot_3 = new Dot(owner_3, dot_size, [0, 0, 255]);
+    slider_data = p5.createSlider(0, data_size, 0).parent(canvasParentRef);
+    slider_freq = p5.createSlider(0, 1000, 500).parent(canvasParentRef);
   };
 
   const scaleAxis = (data_array, target_range) => {
@@ -172,12 +184,11 @@ const P5SonicOrbs = (props) => {
       <Sketch preload={preload} setup={setup} draw={draw} />
     </div>
   );
-};
-
-export default P5SonicOrbs;
+}
 
 // my dot class
-class Dot {
+// the sound of the dot is defined by the X and Y position of the Dot
+class Orb {
   constructor(owner, point_size, rgbColor = []) {
     this.pointSize = point_size;
     this.currPos = [0, 0];
@@ -192,9 +203,11 @@ class Dot {
     this.initSound();
   }
 
-  makeSound() {
-    this.sine.freq(this.currPos[1] + 100);
-    this.LFO.freq(this.currPos[0] / 100);
+  makeSound(slider_freq_val) {
+    this.sine.freq(this.currPos[1] * slider_freq_val);
+    this.sine.amp(this.amp);
+    this.LFO.freq(this.currPos[0] * slider_freq_val);
+    this.LFO.amp(this.amp);
 
     // this.env.play(this.sine);
     // this.env.play(this.LFO);
@@ -203,11 +216,9 @@ class Dot {
   initSound() {
     this.sine = new p5.Oscillator("sine");
     this.sine.freq(0);
-    this.sine.amp(this.amp);
     this.sine.start();
 
     this.LFO = new p5.Oscillator("sine");
-    this.LFO.amp(this.amp);
     this.LFO.freq(0);
     this.LFO.disconnect();
     this.LFO.start();
@@ -218,12 +229,16 @@ class Dot {
     // this.env.setADSR(0.01, 0.1, 0.5, 0.7);
   }
 
-  drawDot(p5) {
+  stopOrb() {
+    this.sine.amp(0);
+    this.LFO.amp(0);
+    this.currPos = [0, 0];
+  }
+
+  drawOrb(p5) {
     p5.stroke(this.color);
     p5.strokeWeight(this.pointSize);
     p5.point(...this.currPos);
-
-    this.makeSound();
   }
 
   updatePos(p5, newPos) {
