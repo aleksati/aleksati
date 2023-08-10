@@ -19,16 +19,25 @@ import { GiMagnifyingGlass } from "react-icons/gi";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
-import { HiDotsHorizontal, HiAdjustments } from "react-icons/hi";
+import { HiAdjustments } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
-// import { TbWorldWww } from "react-icons/tb";
-import { AiFillGithub, AiFillLinkedin, AiOutlineMenu } from "react-icons/ai";
-import { BsMastodon, BsSearch } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
+import {
+  BsBuildings,
+  BsInstagram,
+  BsLinkedin,
+  BsMastodon,
+  BsSearch,
+  BsGithub,
+} from "react-icons/bs";
+
+// from react-icons
 
 const defaultSize = "text-2xl";
 
 const icons = {
   expand: (s) => <AiOutlineExpandAlt className={s} />,
+  office: (s) => <BsBuildings className={s} />,
   key: (s) => <BsKey className={s} />,
   search: (s) => <BsSearch className={s} />,
   sun: (s) => <BsFillSunFill className={s} id="button-theme" />,
@@ -52,7 +61,7 @@ const icons = {
   ),
   x: (s) => <RiCloseLine className={s} />,
   facebook: (s) => <BsFacebook className={s} />,
-  instagram: (s) => <RiInstagramFill className={s} />,
+  instagram: (s) => <BsInstagram className={s} />,
   bandcamp: (s) => <FaBandcamp className={s} />,
   youtube: (s) => <AiFillYoutube className={s} />,
   spotify: (s) => <BsSpotify className={s} />,
@@ -73,8 +82,8 @@ const icons = {
   ),
   // web: (s) => <TbWorldWww className={s} />,
   mastodon: (s) => <BsMastodon className={s} />,
-  linkedin: (s) => <AiFillLinkedin className={s} />,
-  github: (s) => <AiFillGithub className={s} />,
+  linkedin: (s) => <BsLinkedin className={s} />,
+  github: (s) => <BsGithub className={s} />,
 };
 
 const Icon = ({ iconSize, id }) => {

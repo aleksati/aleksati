@@ -3,6 +3,10 @@ import Icon from "./Icon";
 const SoMeBar = ({ exclude = [], className }) => {
   const some = [
     {
+      key: "office",
+      url: "https://www.hf.uio.no/imv/english/people/adm/aleksati/index.html",
+    },
+    {
       key: "contact",
       url: "mailto:aleksandertid(at)gmail",
     },
@@ -31,7 +35,7 @@ const SoMeBar = ({ exclude = [], className }) => {
         return (
           <div key={some.key} className="hover:cursor-pointer">
             <a role="link" href={some.url} aria-label={some.key}>
-              <Icon id={some.key} />
+              <Icon id={some.key} iconSize={"text-xl"} />
             </a>
           </div>
         );

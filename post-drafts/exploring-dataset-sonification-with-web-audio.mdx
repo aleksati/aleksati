@@ -1,0 +1,254 @@
+---
+title: "Exploring Dataset Sonification with Web Audio"
+date: "2023-06-10"
+keywords:
+  [
+    "web",
+    "audio",
+    "data",
+    "sonification",
+    "javascript",
+    "visuals",
+    "nodejs",
+    "computing",
+    "analysis",
+    "machine",
+    "learning",
+    "open",
+    "source",
+  ]
+type: "post"
+summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+---
+
+<MyImage src="datason-cover.png" alt="cover image of data visualizations" />
+
+Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
+
+As an audio enthusiast, I have been interested in the audio capabilities of these libraries for some time, and speficially how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
+
+In this post, I share some examples from my workshop, presenting two approaches to model-based sonification of large datasets in a web browser using the <MyLink href="https://p5js.org/">p5js</MyLink> library.
+
+# Contents
+
+1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
+2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
+3. <MyLink href="#example-dataset">Example Dataset</MyLink>
+4. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
+5. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
+6. <MyLink href="#summary">Summary</MyLink>
+7. <MyLink href="#source-code">Source Code</MyLink>
+
+<hr />
+
+# Follow The Code
+
+If you want to follow my code examples, you can download the repository from my <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">GitHub</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
+
+In any case, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into unforseen issues there.
+
+To set up the development environment with p5, follow these simple steps:
+
+1. Download the code repository as a .zip file.
+2. Create an account on the p5js Web Editor.
+3. Go to "My Ses" (click on "Hello, username!" on the top right) and create a new s.
+4. In the web editor of your new s, open the sidebar (black arrow on gray backgroun) to access your files.
+5. Via the small dropdown menu "S Files" in the left column, choose to "upload file" and upload the folder entitled "browser/examples".
+
+<MyImage
+  src="datason-p5-editor.png"
+  caption="p5js Web Editor in a Brave browser tab anno june 2023."
+  alt="p5js web editor"
+/>
+
+**Important note:** the p5js Web Editor might change over time, meaning the above description might not be 100% accurate.
+
+# Why Sonify?
+
+Perhaps the most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, with sonification, or Auditory Displays, we can use (non-speech) audio to convey information or perceptualize data (Hermann et.al, 2011). As you may not know, sonification is an established field of research, and the literature often differentiates among many kinds of sonification methods. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
+
+Most real-world sonification applications augment existing visual-based tools, helping to extract valuable and coherent information in realtime. For example, the goal of model-based sonification (another sonification method) is to investigate how acoustic responses from dynamic (sometimes visual) environments can provide valuable information in response to user interactions. As such, model-based sonification systems are great for explorative data analysis and augmenting existing visual analysis methods.
+
+We know that sonification applications can facilitate better accessibility practices and sometimes even be more efficient than data visualization techniques. We also know that rapidly developing technologies, such as the Web Audio API and WebAssembly, etc., make it easy to create powerful and fast DSP engines on the web. But how can we use sonification to navigate Big Data on the web? How useful would this be? And how do we do this from a practical standpoint? These questions inspired me to spend some time exploring dataset sonification using the p5js library and a big dataset of coffee quality.
+
+# Example Dataset
+
+The dataset I am using for my examples is a simple, and quite generic, CSV spreadsheet detailing Arabic coffee quality from different regions and farms over several years. I sourced the dataset on Kaggle.com, where you can find lots of high-quality and free datasets for your projects, in a variety of different formats.
+
+Here is a taste of what my dataset looks like:
+
+<MyTable
+  cols={[
+    ["Country of Origin", "Brazil", "Brazil", "United States (Hawaii)"],
+    ["Number of Bags", "300", "300", "25"],
+    ["Year", "2010", "2010", "2010"],
+    ["Owner.1", "JP Carneiro", "JP Carneiro", "Kona Pacific Farmers Co"],
+  ]}
+/>
+
+Each of the 1300 rows in the spreadsheet represents a specific coffee shipments (dispatches) between 2010 - 2017. On the other hand, the columns tell us useful information about the dispatches, detailing everything from the quality of the coffee to the number of bags in the shipment.
+
+It should be noted that I am only using a small fraction of this dataset in my examples in this post.
+
+# Multi-dimensional Plot
+
+Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. Each red dot reprents unique coffee dispatches; rows in the dataset spreadsheet. The height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis).
+
+When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is. The farm name is also printed for reference.
+
+<P5SonifyPlot />
+
+A great thing about p5 are its Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the web. Together with some basic knowledge of sound synthesis, these utilities make it possible to build complex synths, fast, that can react to user input or any other dynamic data.
+
+The code block below demonstrates some key p5 audio utilities and how easy it can be to manipulate parameters dynamically.
+
+```Javascript
+// Example of a simple p5 sketch in instance mode.
+// The frequency of a sinewave is determined by a
+// values in a dataset csv column.
+
+const sketch = (p5) => {
+  let data, data_col, i, sine;
+  let threshold = 10000;
+
+  // The preload method is called first.
+  p5.preload = () => {
+    // load a dataset .csv file
+    data = p5.loadTable("PATH/TO/DATASET");
+    // get a specific column of the dataset as an array.
+    data_col = data.getColumn("CSV COLUMN NAME")
+  }
+
+  // the setup method get called once at the start of a new runtime.
+  p5.setup = () => {
+    // create a canvas.
+    p5.createCanvas(200, 200);
+    // load an oscillator with a sinewave and set initial amplitude.
+    sine = new p5.Oscillator("sine");
+    sine.amp(0.5);
+    sine.freq(0);
+    sine.start();
+  };
+
+  // the draw method is called in loop on every new window frame.
+  p5.draw = () => {
+    // reset increment variable if necessary
+    i = i > data.length ? 0 : i
+    // update the frequency of the sine with data value.
+    sine.freq(data_col[increment]);
+    // increment i
+    i++
+  };
+};
+
+let myp5 = new p5(sketch);
+```
+
+But let's take it one step further. Below is an upgraded example of the red dot (now blue) coffee plot that features a second audio oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
+
+By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were part of every shipment. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
+
+<P5SonifyPlotAmpMod />
+
+But in a more general sense, re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the dynamic and strong visual capabilities of p5 to create more tailored platforms.
+
+# The Sonic Orbs
+
+Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design.
+
+Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot. Each orb represents a unique company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb! In my example, the XY position of the orbs communicates the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing, namely the "body" and "balance" qualities, using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation. Try to find some nice harmonies yourself.
+
+<P5SonicOrbs />
+
+But any data point can be mapped to any property of these orbs. In the code, I define
+an Orb class with some utility methods where each class instance represents a unique
+coffee owner/company from the dataset. So every Orb has the same basic features,
+such as shape, size, movement, sound, etc. This approach also elegantly handles the polyphony/harmonic content/complex sounds you hear so I don't need to individually keep track of a bunch of oscillators in my code.
+
+When I create a "new Orb" I simply pass whatever data I want to see and hear as arguments and ensure that the current value of my slider is passed to every Orb in the draw function.
+
+```Javascript
+// Example of a simple p5 sketch in instance mode.
+// I create an Orb class where whose visual and sound
+// is dynamically shaped by the current slider value.
+
+const sketch = (p5) => {
+  let data, data_body, data_balance, i, sliderHTML, sliderVal, orb1;
+  let owner_1 = "Kona Pacific Farmers Cooperative";
+  let color_1 = [150, 100, 190];
+  let size_1 = 12;
+
+  p5.preload = () => {
+    data = p5.loadTable("PATH/TO/DATASET");
+    data_balance = data.getColumn("balance")
+    data_body = data.getColumn("body")
+  }
+
+  p5.setup = () => {
+    p5.createCanvas(200, 200);
+    // create a HTML slider
+    slider_html = p5.createSlider(0, 100, 0);
+    // initialize a new Orb
+    orb1 = new Orb(owner_1, color_1, size_1);
+  };
+
+  p5.draw = () => {
+    // get the current slider value
+    sliderVal = sliderHTML.value();
+    // update my orbs on every new window frame.
+    orb1.update(data_balance[sliderVal], data_body[sliderVal]);
+    orb1.draw();
+    orb1.play();
+  };
+};
+
+let myp5 = new p5(sketch);
+
+class Orb {
+  constructor(owner, color, size) {
+    this.owner = owner;
+    this.color = color;
+    this.size = size;
+    this.position = [0,0];
+    this.oscillator = [];
+    // etc..
+  }
+  update(sliderVal, x, y){}
+  draw() {}
+  play() {}
+  // etc..
+}
+```
+
+There are several advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
+
+But how useful are these audio-augmented plots? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
+
+# Summary
+
+So there you have it, three examples of how we create model-based sonification systems with the p5js coding library to help navigate and explore Big data on the Web.
+
+All three examples
+
+explored.. how to use audio to augment.. more traditional and linear 2D plots
+
+visual displays of data
+
+complimenting visual displays with
+sonification applications with complex data-driven sound enginges
+can be great,
+but need to be vary of the consitency.
+dont overdo it. if its supposed to be helpful.
+
+and how useful is it?
+
+The possibiltites that p5js delivers for web distribution are also major advantages in themselves.
+
+issues.
+not to fast, limitation of browsers. internet dependent.
+
+# References
+
+Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.
+
+If I were to take my orb example one step further, I would experiment with adding more oscillators to each orb. Specifically, I think I would try to add a new sound for every position of the orbs to try to sonically trace their journey as they move "through time", like a Sound Snake. Or something similar.

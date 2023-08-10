@@ -75,7 +75,9 @@ const Search = () => {
         value={query}
         onChange={onChange}
         readOnly={isError}
+        autoComplete="off"
       />
+      {/* to edit the height of the results list, edit max-h */}
       {results.length ? (
         <div className="relative max-h-full overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
