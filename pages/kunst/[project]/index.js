@@ -19,12 +19,12 @@ export default function handler(props) {
 import { getPostFromSlug, getAllFr } from "../../../functions/loadPosts";
 
 export async function getStaticProps({ params }) {
-  const post = await getPostFromSlug("projects", params.project);
-  return { props: { ...post } };
+  const kunst = await getPostFromSlug("kunst", params.project);
+  return { props: { ...kunst } };
 }
 
 export async function getStaticPaths() {
-  const frontMatter = getAllFr("projects");
+  const frontMatter = getAllFr("kunst");
   const slugs = frontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]

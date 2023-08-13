@@ -4,7 +4,7 @@ import MyLink from "./MyLink";
 const tabs = [
   { key: "about", title: "about", categories: [], icon: "about" },
   { key: "posts", title: "posts", categories: [], icon: "filter" },
-  { key: "projects", title: "projects", categories: [], icon: "issue" },
+  { key: "kunst", title: "kunst", categories: [], icon: "issue" },
   { key: "research", title: "research", categories: [], icon: "x" },
 ];
 

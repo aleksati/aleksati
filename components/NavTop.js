@@ -6,15 +6,14 @@ import Link from "next/link";
 const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
   const route = useCurrRoute();
   const currPage = route ? route : "about";
+
   return (
     <nav
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
       <div className="flex p-4 items-center space-x-1">
-        {/* <Link href="/" className="font-bold hover:cursor-pointer">
-          aleksati.net
-        </Link> */}
+        {/* This is the path link at the top */}
         <p className="font-bold">/</p>
         <Link href={`/${currPage}`} className="font-bold hover:cursor-pointer">
           {currPage}
@@ -23,7 +22,7 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
           {currPage}
         </MyLink> */}
       </div>
-      {/* fixed because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
+      {/* fixed class, because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
       <div className="fixed top-3 right-4">
         <ButtonIcon
           iconId={showNavVertical ? "x" : "threedots"}

@@ -5,7 +5,7 @@ export default function handler({ frontMatter, keywords }) {
   return (
     <LayoutPage
       pageMeta={{
-        title: "projects",
+        title: "kunst",
         keywords,
       }}>
       <PostList frontMatter={frontMatter} />
@@ -17,7 +17,7 @@ import { getKeysFromFr, getAllFr } from "../../functions/loadPosts";
 
 export async function getStaticProps() {
   // get frontMatter form all posts
-  const frontMatter = getAllFr("projects");
+  const frontMatter = getAllFr("kunst");
   // get all used keywords in array
   const keywords = getKeysFromFr(frontMatter);
   return { props: { frontMatter, keywords } };

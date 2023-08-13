@@ -27,35 +27,29 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a drummer, music technologist, and software developer from
-        Kongsberg, Norway, now living in Oslo. Personally curious about all
-        things science and passionate about art, exercising, my partner, and our
-        cat. I Currently work as a Department Engineer for the Musicology
-        Department at the University of Oslo (UiO), where I also lecture two
-        master-level courses on Networked Music Performance Technologies (
+        I am a drummer, music technologist, and software enthusiast living in
+        Oslo, Norway. Personally curious about all things science and passionate
+        about art, exercising, my partner, and our cat. My current work is as a
+        Department Engineer for the Musicology Department at the University of
+        Oslo (UiO). There I also lecture and coordinate two courses on Networked
+        Music Performance Technologies (
         <MyLink href="https://www.uio.no/studier/emner/hf/imv/MCT4024/index.html">
           MCT4024
         </MyLink>{" "}
-        and MCT4025). In addition to networked interaction, my main
-        professional/research interests are in audio, video, and web
-        programming.
+        and MCT4025) for the MCT masters programme.
+        {/* In addition to networked
+        interaction, I would characterize my main professional/research
+        interests to be audio, video, and web programming. */}
       </p>
-      {/* <p>
-        I currently work as a Department Engineer for the Musicology Department
-        at the University of Oslo (UiO), where I also lecture two master-level
-        courses on Networked Music Performances (MCT4024 and MCT4025). In
-        addition to networked interaction, my main professional/research
-        interests are in audio, video, and web programming.
-      </p> */}
       <p>
         On the artistic side, I have many years of experience playing drums,
         synths, and electronics with several Oslo-based acts. My musical career
-        has enabled me to travel the world to play shows on most continents in
-        many exciting constellations. But besides the performing arts, my
-        biggest artistic ventures are in creative computing and sound-art
-        installation work. I spend most of my free time building audio-visual
-        tools, small embedded systems, websites, various analysis apps,
-        controllers, and more.
+        has enabled me to travel and play shows on most continents in many
+        exciting constellations. But besides the performing arts, my biggest
+        artistic ventures are in creative computing and sound-art installation
+        work. I spend most of my free time building audio-visual tools, small
+        embedded systems, websites, various analysis apps, controllers, and
+        more.
       </p>
       <p>
         This page is one of my projects, part portfolio and part blog. It's a
