@@ -1,6 +1,6 @@
 ---
 title: "Exploring Dataset Sonification with Web Audio"
-date: "2023-06-10"
+date: "2023-07-10"
 keywords:
   [
     "web",
@@ -17,8 +17,8 @@ keywords:
     "open",
     "source",
   ]
-type: "post"
-summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share two examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+type: "posts"
+summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
 ---
 
 <MyImage src="datason-cover.png" alt="cover image of data visualizations" />
@@ -154,18 +154,15 @@ But in a more general sense, re-creating traditional plots and graph structures 
 
 # The Sonic Orbs
 
-Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design.
+Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design. Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot.
 
-Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot. Each orb represents a unique company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb! In my example, the XY position of the orbs communicates the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing, namely the "body" and "balance" qualities, using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation. Try to find some nice harmonies yourself.
+Each orb represents a unique company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation.
 
 <P5SonicOrbs />
 
-But any data point can be mapped to any property of these orbs. In the code, I define
-an Orb class with some utility methods where each class instance represents a unique
-coffee owner/company from the dataset. So every Orb has the same basic features,
-such as shape, size, movement, sound, etc. This approach also elegantly handles the polyphony/harmonic content/complex sounds you hear so I don't need to individually keep track of a bunch of oscillators in my code.
+In the code, I define an Orb class with some utility methods where each class instance represents a unique coffee owner/company from the dataset. So every Orb has the same basic features, such as shape, size, movement, sound, etc.
 
-When I create a "new Orb" I simply pass whatever data I want to see and hear as arguments and ensure that the current value of my slider is passed to every Orb in the draw function.
+But any data point can be mapped to any property of these orbs. When I create a "new Orb" I simply pass whatever data I want to see and hear as arguments and ensure that the current value of my slider is passed to every Orb in the draw function.
 
 ```Javascript
 // Example of a simple p5 sketch in instance mode.
@@ -204,6 +201,7 @@ const sketch = (p5) => {
 
 let myp5 = new p5(sketch);
 
+// My orb class where I define the various behavior of my orbs.
 class Orb {
   constructor(owner, color, size) {
     this.owner = owner;
@@ -220,32 +218,30 @@ class Orb {
 }
 ```
 
-There are several advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
+There are several notable advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. For sonificatin purposes, its also an elegant way to handle polyphony and complex harmonic content. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
 
-But how useful are these audio-augmented plots? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
+But how useful are these audio-augmented plots, really? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
 
 # Summary
 
-So there you have it, three examples of how we create model-based sonification systems with the p5js coding library to help navigate and explore Big data on the Web.
+So there you have it, three examples of how we create model-based sonification systems with the p5js coding library to help navigate and explore Big data on the Web. More specifically, my examples have explored how to use audio to augment traditional visual 2D plots in a web browser, exploring how sonification can help us to reveal greater dimensionality of datasets in realtime.
 
-All three examples
+To date, libraries like p5js are great for prototyping interactive applications for the web. They're easy-to-use, compatible, widely used, and audio-visually robust.
 
-explored.. how to use audio to augment.. more traditional and linear 2D plots
+From my experiences,
+Downsides...
+might be slow, network dependent.
+hard to code usable systems for production. more as prototyping tools. art projects than robust analysis software.
 
-visual displays of data
+Although this might change over time, I think the principles stay. should be helpful(!), aid, consistent.
+great for accessibility.
+interactive stuff.
+
+Be sure to check out my github page for the full source code.
 
 complimenting visual displays with
 sonification applications with complex data-driven sound enginges
 can be great,
-but need to be vary of the consitency.
-dont overdo it. if its supposed to be helpful.
-
-and how useful is it?
-
-The possibiltites that p5js delivers for web distribution are also major advantages in themselves.
-
-issues.
-not to fast, limitation of browsers. internet dependent.
 
 # References
 

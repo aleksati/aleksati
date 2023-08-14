@@ -36,7 +36,7 @@ const Search = () => {
       const query = e.target.value;
       setQuery(query);
       try {
-        const res = await fetch(`/api/search?q=${query}`);
+        const res = await fetch(`/api/search-edge?q=${query}`);
         const data = await res.json();
         setResults(data.results);
       } catch (error) {

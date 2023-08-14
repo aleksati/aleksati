@@ -1,4 +1,4 @@
-import { initValidation, get, query } from "../../middleware/middlewareApi";
+// import { initValidation, get, query } from "../../middleware/middlewareApi";
 import { frontMatterCache } from "../../cache/frontmatter";
 import nextConnect from "next-connect";
 
@@ -7,14 +7,14 @@ import nextConnect from "next-connect";
 // but first, try this:
 // https://nextjs.org/docs/pages/building-your-application/routing/api-routes#edge-api-routes
 
-// handles my page search function.
+// handles my page search queries.
 
-const searchValidation = initValidation([
-  query("q").exists().withMessage("search request must include query (q)."),
-]);
+// const searchValidation = initValidation([
+//   query("q").exists().withMessage("search request must include query (q)."),
+// ]);
 
 export default nextConnect()
-  .use(get(searchValidation))
+  // .use(get(searchValidation))
   .get(async (req, res) => {
     const query = req.query.q;
     let results = [];
@@ -48,4 +48,5 @@ export default nextConnect()
     }
 
     res.status(200).json({ results });
+    // return new Response(JSON.stringify(results));
   });
