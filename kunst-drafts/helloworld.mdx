@@ -1,25 +1,126 @@
 ---
-title: "Hello World"
+title: "0101101000 ... (Hello World)"
 date: "2023"
 keywords:
   [
-    "audio",
-    "art",
+    "sculpture",
     "network",
     "sonification",
-    "installation",
     "python",
-    "realtime",
-    "performance",
-    "electronic",
     "max",
+    "audio",
+    "installation",
+    "realtime",
+    "electronic",
     "computing",
+    "art",
     "osc",
     "music",
     "tech",
   ]
-type: "project"
+type: "kunst"
 summary: "sound sculpture installation piece with Nordahl. Sonification of web traffic"
 ---
 
-"add sculpture and installation.
+<MySlideshow
+  priority={true}
+  imgs={[
+    "helloworld-1.jpg",
+    "helloworld-2.jpg",
+    "helloworld-3.jpg",
+    "helloworld-4.gif",
+  ]}
+/>
+
+In late 2022, I was asked by artist and friend <MyLink href="https://henriknordahl.com/">Henrik Nordahl</MyLink> to collaborate on a sound sculpture entitled _01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 (hello world)_, for his MFA thesis project at the Parsons, National Academy of Arts, NYC. Hello world in binary numbers is a coding phrase traditionally used in a sanity test to ensure that software is running smoothly.
+
+My contribution to the project was to ensure that the drywall sculpture reacted to its surrounding WiFi traffic, using Bluetooth transducers in combination with MaxMSP and Python software.
+
+The sculpture was exhibited in April 2023 at The Sheila Johnson Design Center, Parsons, NYC.
+
+---
+
+# Materials
+
+Hello world is one of two sculptures in a series that interpret Nature (<MyLink href="https://henriknordahl.com/Gjallarhorn">Gjallarhorn</MyLink>) and Architecture (hello world). Both sculptures are made from burned drywall paper tape, methylcellulose, aluminum flashing, concrete and steel rods where the drywall paper tape rolls have been pulled from the center to create cones that are repeated in iterations.
+
+Overall, the works focus on the multiplicity of one form and are the results of Nordahl's research and process-led experimentation into the behavior of these materials.
+
+# Hardware and Software
+
+To make the sculpture physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into speaker elements that we use from a nearby Macbook Pro.
+
+<MyImage
+  src="helloworld-5.jpg"
+  alt="bluetooth tranducers placement on hello world"
+  caption="Two sets of bluetooth tranducers placed on hello world. These Bluetooth devices work great if you don't care about latency. They also elleviate the need for cables, amplifiers and other audio gear that can complicate aesthetic pieces like this."
+/>
+
+Sonifying network traffic first requires a method to extract packets from your network. Using Python, the current goto method for such activity is to use [pyshark](https://pypi.org/project/pyshark/), a Python wrapper for tshark, allowing network packet parsing using Wireshark dissectors. [WireShark](https://www.wireshark.org/) is a free desktop application for network protocol analysis, and Pyshark lets you use interface with Wireshark through Python.
+
+With pyshark and python-osc, I was able to capture WiFi packets sent from our Macbook pro in the exbitiion area "out to the world". Ideally, I would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
+
+```Python
+from pythonosc import udp_client
+import argparse
+import pyshark
+
+# wifi IP of my machine
+host_ip = "192.168.86.39"
+max_port = 8888
+max_ip = "127.0.0.1"
+
+prev_pkt_len = ""
+
+if __name__ == "__main__":
+    # define a simple UDP client for sending OSC messages to max
+    client = udp_client.SimpleUDPClient(max_ip, max_port)
+    print(f"Sending OSC packets to {max_ip} on port {max_port}.")
+    print(f"Press Ctrl+C to stop.")
+
+    # Start capturing WiFi network packets
+    cap = pyshark.LiveCapture(interface="Wi-Fi")
+
+    for pkt in cap:
+        # Prevent identical connections from clogging our program
+        if (prev_pkt_len != pkt.length):
+
+            if "IP" in pkt:
+                protocol = pkt.highest_layer
+                source = pkt.ip.src
+                dest = pkt.ip.dst
+                prev_pkt_len = pkt.length
+
+                try:
+                    if source == ip_host:
+                        client.send_message("/packet_len", int(pkt.length))
+                        client.send_message('/src_ip', source)
+                        client.send_message("/dst_ip", dest)
+
+                        # etc ...
+
+                except:
+                    print("Error with sending OSC..")
+```
+
+# Sonification
+
+In max, OSC messages from Python are received and unpacked before being used for sonification and effect processing. Central to the synthesis engine is a process that turns every IP address into a series of binary numbers. The binary numbers then controlled important aspects of the sound generation, such as oscillator onset, sustain, gain and other envelope properties.
+
+But not all sound properties were controlled automatically by OSC packets. In fact, several parameters required manual adjustments. This enabled us to fine-tune central aspects of the sonification to cater to different physical spaces with varying acoustic qualities. The combination of manual fine-tuning and the sporadic uncontrollable nature of the web traffic made the sonification unique for every iteration.
+
+We wanted the aesthetic of the sonification to reflect the hidden and sporadic qualities of wireless networks. The result was synthesis that was fairly simple, mysterious and focused mostly on low-frequency sound texture. Here is a short audio excerpt of the system:
+
+<MyAudioPlayer src="helloworld.mp3" />
+
+# Links
+
+To learn more about how to sonify and capture web traffic using Python, I recommend two great blog posts by my good friend Jackson Goode. Here, he explains the process in great detail:
+
+- [Soniweb: An Experiment in Web Traffic Sonification and Ambisonics](https://jackson.gd/soniweb/)
+- [Soniweb: Epilogue](https://jackson.gd/soniweb-2/)
+
+Also, to learn more about Henrik Nordahl and his awesome works, check him out online at his:
+
+- [Official Website](https://henriknordahl.com).
+- [Instagram](https://www.instagram.com/nordahl.works/)

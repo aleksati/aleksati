@@ -47,10 +47,10 @@ const keyword2color = {
   krautrock: "#ffe4e6", //rose-100
   bass: "#fce7f3", //pink-100
   electronic: "#fef3c7", //amber-100
-  machine: "#fae8ff", //fuchsia-100
-  open: "#dbeafe", //blue-100
-  source: "#e0f2fe", //sky-100
-  learning: "#92400e", //amber-800
+  "machine-learning": "#fae8ff", //fuchsia-100
+  "open-source": "#dbeafe", //blue-100
+  installation: "#e0f2fe", //sky-100
+  sculpture: "#92400e", //amber-800
   tech: "#e879f9", // Fuschsia-400
   computing: "#115e59", //teal-800
   dev: "#9f1239", //rose-800

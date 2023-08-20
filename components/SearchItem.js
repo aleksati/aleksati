@@ -18,7 +18,7 @@ const SearchItem = ({ slug, type, title, date, active = false }) => {
         } hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-800 p-2 hover:cursor-pointer`}>
         {title}
         <p className="text-secondary text-xs">
-          {type.slice(0, -1)} • {date2text(date, type)}
+          {type} • {date2text(date, type)}
         </p>
       </div>
     </Link>

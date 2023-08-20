@@ -2,7 +2,7 @@ import MySpotifyPlayer from "./MySpotifyPlayer";
 import MyAudioPlayer from "./MyAudioPlayer";
 import MySlideshow from "./MySlideshow";
 import MyTable from "./MyTable";
-import SoMeBar from "./SoMeBar";
+// import SoMeBar from "./SoMeBar";
 import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import MyCode from "./MyCode";
@@ -19,7 +19,7 @@ const MDXComponents = {
   MySlideshow,
   MyTable,
   MySpotifyPlayer,
-  SoMeBar,
+  // SoMeBar,
   // P5NoiseDrum,
   P5SonifyPlot,
   P5SonifyPlotAmpMod,

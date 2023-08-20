@@ -1,6 +1,6 @@
 ---
 title: "Exploring Dataset Sonification with Web Audio"
-date: "2023-07-10"
+date: "2023-08-10"
 keywords:
   [
     "web",
@@ -12,10 +12,8 @@ keywords:
     "nodejs",
     "computing",
     "analysis",
-    "machine",
-    "learning",
-    "open",
-    "source",
+    "machine-learning",
+    "open-source",
   ]
 type: "posts"
 summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
@@ -37,13 +35,12 @@ In this post, I share some examples from my workshop, presenting two approaches 
 4. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
 5. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
 6. <MyLink href="#summary">Summary</MyLink>
-7. <MyLink href="#source-code">Source Code</MyLink>
 
-<hr />
+---
 
 # Follow The Code
 
-If you want to follow my code examples, you can download the repository from my <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">GitHub</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
+If you want to follow my code examples, you can <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">download the repository from my GitHub</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
 
 In any case, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into unforseen issues there.
 
@@ -65,7 +62,7 @@ To set up the development environment with p5, follow these simple steps:
 
 # Why Sonify?
 
-Perhaps the most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, with sonification, or Auditory Displays, we can use (non-speech) audio to convey information or perceptualize data (Hermann et.al, 2011). As you may not know, sonification is an established field of research, and the literature often differentiates among many kinds of sonification methods. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
+The most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, with sonification, or Auditory Displays, we can use (non-speech) audio to convey information or perceptualize data (Hermann et.al, 2011). As you may not know, sonification is an established field of research, and the literature often differentiates among many kinds of sonification methods. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
 
 Most real-world sonification applications augment existing visual-based tools, helping to extract valuable and coherent information in realtime. For example, the goal of model-based sonification (another sonification method) is to investigate how acoustic responses from dynamic (sometimes visual) environments can provide valuable information in response to user interactions. As such, model-based sonification systems are great for explorative data analysis and augmenting existing visual analysis methods.
 
@@ -224,27 +221,14 @@ But how useful are these audio-augmented plots, really? And can they be used in 
 
 # Summary
 
-So there you have it, three examples of how we create model-based sonification systems with the p5js coding library to help navigate and explore Big data on the Web. More specifically, my examples have explored how to use audio to augment traditional visual 2D plots in a web browser, exploring how sonification can help us to reveal greater dimensionality of datasets in realtime.
+So there you have it; three examples of how to navigate and explore Big data on the web using model-based sonification. More specifically, my post demonstrates two ways we can build systems with the p5js library that augment visual displays of datasets, capable of revealing more dimensions in realtime. The first approach is more traditional, using audio to augment standard 2D visual graphs, while the other design is more experimental, with usual and complex visual-audio aspects.
 
-To date, libraries like p5js are great for prototyping interactive applications for the web. They're easy-to-use, compatible, widely used, and audio-visually robust.
+The biggest upside of these web apps is that they can facilitate more diverse, accessible and multi-faceted forms of online interaction with complex data. However, there is no guarantee that such apps actually work as intended. In addition to being visual aids, sonification should be highly data-driven, consistent and customizable in these contexts. It's also important to remember that we interpret sound very individually. So considering that most visual software offer features to customize data visualization based on preference, I think we should aspire to offer similar kinds of user control of audio or synthesis parameters in sonification-based apps.
 
-From my experiences,
-Downsides...
-might be slow, network dependent.
-hard to code usable systems for production. more as prototyping tools. art projects than robust analysis software.
+Finally, although p5js is great for building easy-to-use, audio-visually robust web apps, it's not really a library designed to be the backbone of fast and powerful analysis software. In other words, programming analysis-heavy programs with p5 is not really recommended. Rather, it's great for prototyping and smaller apps/projects.
 
-Although this might change over time, I think the principles stay. should be helpful(!), aid, consistent.
-great for accessibility.
-interactive stuff.
-
-Be sure to check out my github page for the full source code.
-
-complimenting visual displays with
-sonification applications with complex data-driven sound enginges
-can be great,
+Be sure to check out [my GitHub page](https://github.com/aleksati/workshop-in-dataset-sonification-with-web-audio) for the full source code.
 
 # References
 
 Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.
-
-If I were to take my orb example one step further, I would experiment with adding more oscillators to each orb. Specifically, I think I would try to add a new sound for every position of the orbs to try to sonically trace their journey as they move "through time", like a Sound Snake. Or something similar.

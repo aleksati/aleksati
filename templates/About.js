@@ -11,7 +11,7 @@ const About = () => (
           isExpandable={true}
           priority={true}
           src="me.jpg"
-          width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenful load.
+          width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.
         />
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
