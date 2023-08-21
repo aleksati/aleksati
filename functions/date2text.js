@@ -1,5 +1,5 @@
 export const date2text = (dateString, type = "posts") => {
-  if (type === "kunst") return dateString;
+  if (type === "works") return dateString;
 
   // for instance: "2022-12-22"
   const dateArray = dateString.split("-");

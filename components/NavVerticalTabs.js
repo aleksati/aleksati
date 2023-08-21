@@ -1,15 +1,18 @@
-import useCurrRoute from "../hooks/useCurrRoute";
 import MyLink from "./MyLink";
-
-const tabs = [
-  { key: "about", title: "about", categories: [], icon: "about" },
-  { key: "posts", title: "posts", categories: [], icon: "filter" },
-  { key: "works", title: "works", categories: [], icon: "issue" },
-  { key: "research", title: "research", categories: [], icon: "x" },
-];
+import { useRouter } from "next/router";
+import { NAV_TABS } from "../config";
 
 const NavVerticalTabs = () => {
-  const route = useCurrRoute();
+  // find the ending of the current url route.
+  // underline the current page the user is on
+  // if its a post or work, then just underline post
+  const router = useRouter();
+  const path = router.pathname.slice(1);
+
+  // refactor this so that its just "if there is "[", remove the rest.
+  // let posts = navTabs.filter(item => item.key === "posts")[0]
+  // let works = navTabs.filter(item => item.key === "works")[0]
+  const route = path.replace(`/[post]`, "").replace("/[work]", "");
 
   const currTab = tabs.filter((tab) => tab.key === route);
   const currRoute = currTab.length ? currTab[0].key : "";
@@ -19,36 +22,16 @@ const NavVerticalTabs = () => {
 
   return (
     <div className="space-y-4">
-      {tabs.map((tab, index) => {
-        return (
-          <div className={`space-y-2`} key={tab.key}>
-            <div className="flex space-x-1 items-center justify-start">
-              {/* <Icon id={tab.icon} iconSize={"text-sm"} /> */}
-              <MyLink active={tab.key === page} href={`/${tab.key}`} type="nav">
-                {tab.title}
-              </MyLink>
-            </div>
-            {/* If the categories has sub-categories */}
-            {/* Not in use atm */}
-            {/* {tab.categories
-              ? tab.categories.map((cat) => (
-                  <div
-                    key={cat.key}
-                    className="flex space-x-2 items-center justify-start">
-                    <Icon id={cat.icon} iconSize={"text-md"} />
-                    <MyLink
-                      active={cat.key === page}
-                      href={`/${cat.key}`}
-                      key={cat.key}
-                      type="nav">
-                      {cat.title}
-                    </MyLink>
-                  </div>
-                ))
-              : null} */}
+      {/* https://stackoverflow.com/questions/34913675/how-to-iterate-keys-values-in-javascript */}
+      {navTabs.map((tab, index) => (
+        <div className={`space-y-2`} key={tab.key}>
+          <div className="flex space-x-1 items-center justify-start">
+            <MyLink active={tab.key === page} href={`/${tab.key}`} type="nav">
+              {tab.title}
+            </MyLink>
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 };

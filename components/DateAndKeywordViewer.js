@@ -75,7 +75,8 @@ const DateAndKeywordViewer = ({ keywords = [], date, type }) => {
             <div className="flex space-x-1 items-center" key={keyword}>
               <p
                 className="text-lg"
-                style={{ color: `${keyword2color[keyword]}` }}>
+                style={{ color: `${keyword2color[keyword]}` }}
+              >
                 •
               </p>
               <p>{keyword}</p>
