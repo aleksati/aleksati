@@ -34,7 +34,7 @@ function getAllCacheFr(postType = "posts") {
 
 // gather all frontmatter and make one big list
 const posts = getAllCacheFr("posts");
-const projects = getAllCacheFr("kunst");
+const projects = getAllCacheFr("works");
 const allFr = posts.concat(projects);
 
 const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;

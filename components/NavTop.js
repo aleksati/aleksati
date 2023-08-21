@@ -11,7 +11,8 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
     <nav
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
-      role="toolbar">
+      role="toolbar"
+    >
       <div className="flex p-4 items-center space-x-1">
         {/* This is the path link at the top */}
         <p className="font-bold">/</p>

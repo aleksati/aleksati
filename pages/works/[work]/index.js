@@ -10,7 +10,8 @@ export default function handler(props) {
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
-      }}>
+      }}
+    >
       <Post mdxSource={mdxSource} frontMatter={frontMatter} />
     </LayoutPage>
   );
@@ -19,19 +20,19 @@ export default function handler(props) {
 import { getPostFromSlug, getAllFr } from "../../../functions/loadPosts";
 
 export async function getStaticProps({ params }) {
-  const kunst = await getPostFromSlug("kunst", params.project);
-  return { props: { ...kunst } };
+  const work = await getPostFromSlug("works", params.work);
+  return { props: { ...work } };
 }
 
 export async function getStaticPaths() {
-  const frontMatter = getAllFr("kunst");
+  const frontMatter = getAllFr("works");
   const slugs = frontMatter.reduce((accum, fr) => [...accum, fr.slug], []);
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]
   const paths = [...slugs];
 
   return {
-    paths: paths.map((item) => ({ params: { project: item } })),
+    paths: paths.map((item) => ({ params: { work: item } })),
     fallback: false,
   };
 }
