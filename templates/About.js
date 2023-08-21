@@ -38,14 +38,11 @@ const About = () => (
           MCT4024
         </MyLink>{" "}
         and MCT4025) for the MCT masters programme.
-        {/* In addition to networked
-        interaction, I would characterize my main professional/research
-        interests to be audio, video, and web programming. */}
       </p>
       <p>
-        On the artistic side, my primary musical instruments are drums and live
+        On the artistic side, my musical instruments are drums and live
         electronics. I have years of experience as a session musician,
-        improviser, sound designer and music producer for a large variety of
+        improviser, sound designer and music producer from many different
         projects. But besides the performing arts, my biggest artistic ventures
         are in creative computing, sound-art installation work and software
         development. I spend most of my free time building audio-visual tools,

@@ -1,5 +1,6 @@
 import MDXComponents from "../components/MDXComponents";
 import { serialize } from "next-mdx-remote/serialize";
+import { NAV_TABS } from "../config";
 import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
@@ -8,7 +9,7 @@ const root = process.cwd();
 // postType can be either "posts" or "projects"
 // is actually just the name of the folder with the mdx files
 
-export function getSlugs(postType = "posts") {
+export function getSlugs(postType = NAV_TABS["posts"]) {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -32,7 +33,7 @@ function sortFrByDate(fr) {
 }
 
 // gather all frontmatter data from posts into correct format
-export function getAllFr(postType = "posts") {
+export function getAllFr(postType = NAV_TABS["posts"]) {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -67,7 +68,7 @@ export function getKeysFromFr(frontMatter) {
   return allKeywords;
 }
 
-export async function getPostFromSlug(postType = "posts", slug) {
+export async function getPostFromSlug(postType = NAV_TABS["posts"], slug) {
   const postPath = path.join(root, postType, `${slug}.mdx`);
   const post = fs.readFileSync(postPath, "utf-8");
   const { data, content } = matter(post);

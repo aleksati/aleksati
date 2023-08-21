@@ -1,5 +1,7 @@
-export const date2text = (dateString, type = "posts") => {
-  if (type === "works") return dateString;
+import { NAV_TABS } from "../config";
+
+export const date2text = (dateString, type = NAV_TABS["posts"]) => {
+  if (type + "s" === NAV_TABS["works"]) return dateString;
 
   // for instance: "2022-12-22"
   const dateArray = dateString.split("-");

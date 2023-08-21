@@ -1,27 +1,26 @@
-import useCurrRoute from "../hooks/useCurrRoute";
+import { useRouter } from "next/router";
 import ButtonIcon from "./ButtonIcon";
 import Link from "next/link";
-// import MyLink from "./MyLink";
 
 const NavTop = ({ onToggleNavVertical, showNavVertical }) => {
-  const route = useCurrRoute();
-  const currPage = route ? route : "about";
+  // get the current route after /pages and remove the first "/" with slice
+  const route = useRouter().pathname.slice(1);
+  // remove /[post] stuff on nested rutes, and remaining "/" at the end
+  let firstRoute = route.split("[")[0].split("/")[0];
+  // default to about
+  const currRoute = firstRoute.length ? firstRoute : "about";
 
   return (
     <nav
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
-      role="toolbar"
-    >
+      role="toolbar">
       <div className="flex p-4 items-center space-x-1">
         {/* This is the path link at the top */}
         <p className="font-bold">/</p>
-        <Link href={`/${currPage}`} className="font-bold hover:cursor-pointer">
-          {currPage}
+        <Link href={`/${currRoute}`} className="font-bold hover:cursor-pointer">
+          {currRoute}
         </Link>
-        {/* <MyLink active={true} type="nav" href={`/${currPage}`}>
-          {currPage}
-        </MyLink> */}
       </div>
       {/* fixed class, because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
       <div className="fixed top-3 right-4">
