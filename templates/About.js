@@ -17,7 +17,7 @@ const About = () => (
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
         <p className="text-base">
-          Engineer and University Lecturer, specializing in networked music and
+          Engineer and University lecturer, specializing in networked music and
           audio programming
         </p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
@@ -43,21 +43,19 @@ const About = () => (
         interests to be audio, video, and web programming. */}
       </p>
       <p>
-        On the artistic side, I have many years of experience playing drums,
-        synths, and electronics with several Oslo-based acts. My musical career
-        has enabled me to travel and play shows on most continents in many
-        exciting constellations. But besides the performing arts, my biggest
-        artistic ventures are in creative computing and sound-art installation
-        work. I spend most of my free time building audio-visual tools, small
-        embedded systems, websites, various analysis apps, controllers, and
-        more.
+        On the artistic side, my primary musical instruments are drums and live
+        electronics. I have years of experience as a session musician,
+        improviser, sound designer and music producer for a large variety of
+        projects. But besides the performing arts, my biggest artistic ventures
+        are in creative computing, sound-art installation work and software
+        development. I spend most of my free time building audio-visual tools,
+        small embedded systems, websites, analysis apps, controllers, and more.
       </p>
       <p>
-        This page is one of my projects, part portfolio and part blog. It's a
-        futile attempt to document and share as much knowledge on music
-        tech-related matters as I can, drawing from an extremely broad (and
-        ever-expanding) experience in the field. Hope you find it a tiny bit
-        helpful.
+        This page is one of my projects, part portfolio and part blog. It's an
+        attempt to document and share as much knowledge on music tech-related
+        matters as I can, drawing from a broad (and ever-expanding) experience
+        in the field. Hope you find it helpful.
       </p>
     </div>
   </>

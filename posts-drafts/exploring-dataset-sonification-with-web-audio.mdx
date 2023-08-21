@@ -16,12 +16,12 @@ keywords:
     "open-source",
   ]
 type: "posts"
-summary: "Thanks to modern browser tech and open source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how to enrich your dataset visualizations with model-based sonification in a web browser using the p5js library."
+summary: "Thanks to modern browser tech and open-source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some basic examples of how to enrich data visualizations with model-based sonification in a web browser using the p5js library."
 ---
 
 <MyImage src="datason-cover.png" alt="cover image of data visualizations" />
 
-Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
+Creating audio-visual art on the Web is easier than ever, thanks to the growing capabilities of modern web browsers and the availability of open-source creative coding libraries. Together, they facilitate an environment where people with varying technical abilities and backgrounds can create meaningful and interactive art in the browser at record speeds.
 
 As an audio enthusiast, I have been interested in the audio capabilities of these libraries for some time, and speficially how Web Audio can contribute to modern artistic and research practices. In early 2023, I ran a workshop in collaboration with the <MyLink href="http://c2ho.no">Creative Computing Hub Oslo (C2HO)</MyLink>, specifically on how sonification can help us navigate and explore Big data on the Web.
 
@@ -70,7 +70,7 @@ We know that sonification applications can facilitate better accessibility pract
 
 # Example Dataset
 
-The dataset I am using for my examples is a simple, and quite generic, CSV spreadsheet detailing Arabic coffee quality from different regions and farms over several years. I sourced the dataset on Kaggle.com, where you can find lots of high-quality and free datasets for your projects, in a variety of different formats.
+The dataset I am using for my examples is a simple and generic .csv spreadsheet detailing Arabic coffee quality from different farms over several years. I sourced the dataset on Kaggle.com, where you can find lots of high-quality and free datasets for your projects, in a variety of different formats.
 
 Here is a taste of what my dataset looks like:
 
@@ -221,11 +221,11 @@ But how useful are these audio-augmented plots, really? And can they be used in 
 
 # Summary
 
-So there you have it; three examples of how to navigate and explore Big data on the web using model-based sonification. More specifically, my post demonstrates two ways we can build systems with the p5js library that augment visual displays of datasets, capable of revealing more dimensions in realtime. The first approach is more traditional, using audio to augment standard 2D visual graphs, while the other design is more experimental, with usual and complex visual-audio aspects.
+In summary, it's very much possible to enrich data visualizations with model-based sonification in a web browser using the p5js library. In my post, I demonstrate two approaches for this that use realtime audio to augment visual displays as a way to reveal more dimensions. The first approach can be considered more traditional, using audio to augment simple 2D visual graphs, while the second approach is more experimental, with usual and complex visual-audio aspects.
 
-The biggest upside of these web apps is that they can facilitate more diverse, accessible and multi-faceted forms of online interaction with complex data. However, there is no guarantee that such apps actually work as intended. In addition to being visual aids, sonification should be highly data-driven, consistent and customizable in these contexts. It's also important to remember that we interpret sound very individually. So considering that most visual software offer features to customize data visualization based on preference, I think we should aspire to offer similar kinds of user control of audio or synthesis parameters in sonification-based apps.
+With all artistic and funny-business aside, I think the biggest advantage of these audio-visual apps is that they can facilitate more diverse, accessible and multi-faceted forms of online interaction with complex data. However, it's important to note that there is no guarantee that this is the case. Doing proper user-testing of these applications is a tedious and complicated process, usually requiring a large variety of qualitative and quantitative data to be definitive. People also interpret sounds and audio very subjectively, making matters even worse. But from my experience from working on this project, I believe you can come a long way by designing these kinds of apps to be highly data-driven, consistent, and interactive(!). The web provides a unique platform for large-scale testing and distributing to people of all demographics, so interactivity is key.
 
-Finally, although p5js is great for building easy-to-use, audio-visually robust web apps, it's not really a library designed to be the backbone of fast and powerful analysis software. In other words, programming analysis-heavy programs with p5 is not really recommended. Rather, it's great for prototyping and smaller apps/projects.
+Finally, although p5js is great for building easy-to-use, audio-visually robust web apps, it's not really a library designed to be the backbone of fast and powerful analysis software. In other words, programming analysis-heavy programs with p5 is not recommended. Rather, it's great for prototyping and smaller apps/projects.
 
 Be sure to check out [my GitHub page](https://github.com/aleksati/workshop-in-dataset-sonification-with-web-audio) for the full source code.
 

@@ -4,7 +4,7 @@ const SoMeBar = ({ exclude = [], className }) => {
   const some = [
     {
       key: "office",
-      url: "https://www.hf.uio.no/imv/english/people/adm/aleksati/index.html",
+      url: "https://people.uio.no/aleksati",
     },
     {
       key: "contact",
