@@ -7,7 +7,7 @@ export const SITE_DOMAIN = dev
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.),
 // I wanted to have a single source of truth.
-export const navTabs = {
+export const NAV_TABS = {
   about: "about",
   posts: "posts",
   works: "works",
