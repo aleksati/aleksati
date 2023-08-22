@@ -128,6 +128,12 @@ Although this was impressive, the configuration rendered borderline audio qualit
 
 # Summary
 
+<MyImage
+  src="5G-team.jpg"
+  captions="A big thanks to the Telenor Research team."
+  alt="5G team at Elevrum outside the 5gNowVan"
+/>
+
 In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
 
 Results in table form:
@@ -145,9 +151,3 @@ Results in table form:
 Compared with audio RTT benchmarks mentioned in the introduction (between 25-50ms), our 5G test results were not particularly promising. I believe we could conduct successful NMPs over 5G if we could get the audio analog RTT down between 50-70ms. Considering that we had unfortunate testing conditions in Elverum, there is reason to be optimistic about achieving better RTT audio scores at a later stage.
 
 Also, lower latency should be possible when the Ultra-Reliable Low Latency Communications (URLLC) feature of 5G is implemented on future Telenor networks.
-
-<MyImage
-  src="5G-team.jpg"
-  captions="A big thanks to the Telenor Research team."
-  alt="5G team at Elevrum outside the 5gNowVan"
-/>
