@@ -9,11 +9,10 @@ keywords:
     "python",
     "max",
     "audio",
+    "art",
     "installation",
     "realtime",
     "electronic",
-    "computing",
-    "art",
     "osc",
     "music",
     "tech",
@@ -70,41 +69,29 @@ Capture and process WiFi packets from host_ip to the world.
 Send source IP, desitination IP and packet length to an instance of Max running locally.
 """
 
-prev_pkt_len = ""
-# Local machine IP
-host_ip = "192.168.86.39"
-# Internal IP (localhost) port that Max will receive OSC messages from python on.
-max_port = 8888
+host_ip = "192.168.86.39" # Local machine IP
+max_port = 8888 # Internal IP (localhost) port that Max will receive OSC messages from python on.
 max_ip = "127.0.0.1"
-
+prev_pkt_len = "" # previous packet length
 
 if __name__ == "__main__":
-    # define a simple UDP client for sending OSC messages to Max
-    client = udp_client.SimpleUDPClient(max_ip, max_port)
+    client = udp_client.SimpleUDPClient(max_ip, max_port)  # define a simple UDP client for sending OSC messages to Max
     print(f"Sending OSC packets to {max_ip} on port {max_port}.")
     print(f"Press Ctrl+C to stop.")
 
-    # Start capturing WiFi network packets
-    cap = pyshark.LiveCapture(interface="Wi-Fi")
+    cap = pyshark.LiveCapture(interface="Wi-Fi")  # Start capturing WiFi network packets
 
-    # For every packet
     prev_pkt_len = ""
-    for pkt in cap:
-        # Prevent identical connections from clogging our program
-        if (prev_pkt_len != pkt.length):
-
-            # If the packet has a property called IP
-            if "IP" in pkt:
+    for pkt in cap: # For every packet
+        if (prev_pkt_len != pkt.length): # Prevent identical connections from clogging our program
+            if "IP" in pkt: # If the packet has a property called IP
                 protocol = pkt.highest_layer
                 source = pkt.ip.src
                 dest = pkt.ip.dst
                 prev_pkt_len = pkt.length
-
                 try:
-                    # If the source IP of the packet matches my ip_host
-                    if source == ip_host:
-                        # send stuff to Max
-                        client.send_message("/packet_len", int(pkt.length))
+                    if source == ip_host:  # If the source IP of the packet matches my ip_host
+                        client.send_message("/packet_len", int(pkt.length)) # send stuff to Max
                         client.send_message('/src_ip', source)
                         client.send_message("/dst_ip", dest)
                         # etc ...

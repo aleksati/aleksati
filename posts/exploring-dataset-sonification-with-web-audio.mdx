@@ -1,19 +1,20 @@
 ---
 title: "Exploring Dataset Sonification with Web Audio"
-date: "2023-08-10"
+date: "2023-08-20"
 keywords:
   [
     "web",
     "audio",
     "data",
     "sonification",
+    "p5js",
     "javascript",
     "visuals",
     "nodejs",
-    "computing",
     "analysis",
     "machine-learning",
     "open-source",
+    "dev",
   ]
 type: "post"
 summary: "Thanks to modern browser tech and open-source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some basic examples of how to enrich data visualizations with model-based sonification in a web browser using the p5js library."
@@ -101,8 +102,8 @@ The code block below demonstrates some key p5 audio utilities and how easy it ca
 
 ```Javascript
 // Example of a simple p5 sketch in instance mode.
-// The frequency of a sinewave is determined by a
-// values in a dataset csv column.
+// The frequency of a sinewave is determined by
+// values in a column of a .csv dataset
 
 const sketch = (p5) => {
   let data, data_col, i, sine;
@@ -110,18 +111,14 @@ const sketch = (p5) => {
 
   // The preload method is called first.
   p5.preload = () => {
-    // load a dataset .csv file
-    data = p5.loadTable("PATH/TO/DATASET");
-    // get a specific column of the dataset as an array.
-    data_col = data.getColumn("CSV COLUMN NAME")
+    data = p5.loadTable("PATH/TO/DATASET"); // load a dataset .csv file
+    data_col = data.getColumn("CSV COLUMN NAME")  // get a specific column of the dataset as an array.
   }
 
   // the setup method get called once at the start of a new runtime.
   p5.setup = () => {
-    // create a canvas.
-    p5.createCanvas(200, 200);
-    // load an oscillator with a sinewave and set initial amplitude.
-    sine = new p5.Oscillator("sine");
+    p5.createCanvas(200, 200); // create a canvas.
+    sine = new p5.Oscillator("sine");  // load an oscillator with a sinewave and set initial amplitude.
     sine.amp(0.5);
     sine.freq(0);
     sine.start();
@@ -129,19 +126,16 @@ const sketch = (p5) => {
 
   // the draw method is called in loop on every new window frame.
   p5.draw = () => {
-    // reset increment variable if necessary
-    i = i > data.length ? 0 : i
-    // update the frequency of the sine with data value.
-    sine.freq(data_col[increment]);
-    // increment i
-    i++
+    i = i > data.length ? 0 : i // reset increment variable if necessary
+    sine.freq(data_col[increment]);  // update the frequency of the sine with data value.
+    i++ // increment i
   };
 };
 
 let myp5 = new p5(sketch);
 ```
 
-But let's take it one step further. Below is an upgraded example of the red dot (now blue) coffee plot that features a second audio oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
+But let's take this one step further. Below is an upgraded example of the red dot (now blue) coffee plot that features a second audio oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
 
 By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were part of every shipment. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
@@ -153,7 +147,7 @@ But in a more general sense, re-creating traditional plots and graph structures 
 
 Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design. Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot.
 
-Each orb represents a unique company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation.
+Each orb represents a unique coffee company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation.
 
 <P5SonicOrbs />
 
@@ -180,17 +174,13 @@ const sketch = (p5) => {
 
   p5.setup = () => {
     p5.createCanvas(200, 200);
-    // create a HTML slider
-    slider_html = p5.createSlider(0, 100, 0);
-    // initialize a new Orb
-    orb1 = new Orb(owner_1, color_1, size_1);
+    slider_html = p5.createSlider(0, 100, 0); // create a HTML slider
+    orb1 = new Orb(owner_1, color_1, size_1); // initialize a new Orb
   };
 
   p5.draw = () => {
-    // get the current slider value
-    sliderVal = sliderHTML.value();
-    // update my orbs on every new window frame.
-    orb1.update(data_balance[sliderVal], data_body[sliderVal]);
+    sliderVal = sliderHTML.value(); // get the current slider value
+    orb1.update(data_balance[sliderVal], data_body[sliderVal]); // update my orbs on every new window frame.
     orb1.draw();
     orb1.play();
   };
@@ -198,14 +188,14 @@ const sketch = (p5) => {
 
 let myp5 = new p5(sketch);
 
-// My orb class where I define the various behavior of my orbs.
+// My orb class where I define the behavior of my orbs.
 class Orb {
   constructor(owner, color, size) {
     this.owner = owner;
     this.color = color;
     this.size = size;
     this.position = [0,0];
-    this.oscillator = [];
+    this.oscillators = [];
     // etc..
   }
   update(sliderVal, x, y){}
@@ -215,7 +205,7 @@ class Orb {
 }
 ```
 
-There are several notable advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. For sonificatin purposes, its also an elegant way to handle polyphony and complex harmonic content. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
+There are several advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. For sonificatin purposes, its also an elegant way to handle polyphony and complex harmonic content. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
 
 But how useful are these audio-augmented plots, really? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
 
