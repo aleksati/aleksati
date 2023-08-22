@@ -46,6 +46,9 @@ module.exports = {
     //   "4xl": "3.052rem",
     // },
     extend: {
+      maxHeight: {
+        128: "32rem",
+      },
       // fontFamily: {
       //   source: ['"Ubuntu"', "sans-serif"],
       // },

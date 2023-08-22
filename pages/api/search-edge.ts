@@ -12,16 +12,22 @@ export default async function handler(req: NextRequest) {
   const query = searchParams.get("q");
   let results = [];
 
+  // if no query, return empty
   if (query.length) {
     // make each search word an item of an array.
     const query_array = query.split(" ");
 
-    // first full keywords
-    if (!results.length) {
-      results = frontMatterCache.filter((fr) =>
-        query_array.every((q) => fr.keywords.includes(q.toLowerCase()))
-      );
-    }
+    // first, check segments of keywords, if ["search", "query"] is in
+    // [["front", "matter"], ["from", "posts"]].
+    // if there are multiple search queries, all of them must be represented in the post.
+    // this also works for segments, which is cool. For instance, if you search for
+    // "no ja", you will get posts with keywords "nodejs javascript", but NOT posts
+    // with only "javascript" or "node".
+    results = frontMatterCache.filter((fr) =>
+      query_array.every((query) =>
+        fr.keywords.some((keywords) => keywords.includes(query.toLowerCase()))
+      )
+    );
 
     // then segments of titles
     if (!results.length) {
@@ -41,7 +47,6 @@ export default async function handler(req: NextRequest) {
       status: 200,
       headers: {
         "content-type": "application/json",
-        // "cache-control": "public, s-maxage=1200, stale-while-revalidate=600",
       },
     }
   );
