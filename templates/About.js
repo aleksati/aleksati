@@ -40,13 +40,13 @@ const About = () => (
         and MCT4025) for the MCT masters programme.
       </p>
       <p>
-        On the artistic side, my musical instruments are drums and live
-        electronics. I have years of experience as a session musician,
-        improviser, sound designer and music producer from many different
-        projects. But besides the performing arts, my biggest artistic ventures
-        are in creative computing, sound-art installation work and software
-        development. I spend most of my free time building audio-visual tools,
-        small embedded systems, websites, analysis apps, controllers, and more.
+        On the more artistic side, I play drums and live electronics for several
+        Oslo-based acts and have years of experience as a session musician,
+        improviser, sound designer and music producer. But besides the
+        performing arts, my biggest artistic ventures are in creative computing,
+        sound-art installation work and software development. I spend most of my
+        free time building audio-visual tools, small embedded systems, websites,
+        analysis apps, controllers, and more.
       </p>
       <p>
         This page is one of my projects, part portfolio and part blog. It's an

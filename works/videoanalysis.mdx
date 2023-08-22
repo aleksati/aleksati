@@ -89,29 +89,20 @@ In the centroid video in the VA display window, the CoM is visualized by a serie
 
 Finally, with motion videos we can also create motiongrams; images that represent motion over time. These images are good for getting a general sense of the spatiotemporal distribution of videos. They can also be exported and viewed directly from the VA UI.
 
+Motiongrams are composed of columns of pixels, each representing a unique motion video frame. With each motion video frame, the mean values of every row are gathered and used to produce single pixel columns (one-dimensional matrices). These columns are then printed across a canvas (left to right) to create the motiongram effect.
+
 <MySlideshow
-  imgs={["va-mg-image.png", "va-mg.jpg", "va-mg2.jpg", "va-mg-theory.jpg"]}
+  imgs={["va-mg-image.png", "va-mg.jpg", "va-mg2.jpg"]}
   captions={[
     "A motion video snapshot of a pianist in the FourMs lab. The next slide shows the motiongram of the same video.",
     "A motiongram representation of the video from the previous slide. Here we can get a sense of the motion (Y-axis) of the musician over time (X-axis).",
     "Another motiongram I exported using VideoAnalysis.",
-    "To create motiongrams, you reduce motion video frames into one-dimensional matrices and print them across a canvas.",
   ]}
 />
 
-Motiongrams are composed of columns of pixels, each representing a unique motion video frame. With each motion video frame, the mean values of every row are gathered and used to produce single pixel columns (one-dimensional matrices). These columns are then printed across a canvas (left to right) to create the motiongram effect.
-
 ## Export Options
 
-VA can export lots of motion features and images for further analysis. By default, the software exports a pre-selected bundle of data. You can customize this selection with the _export options_ in the navbar.
-
-<MyImage
-  src="va-exportoptions.png"
-  alt="videoanalysis export options"
-  width="440"
-/>
-
-Here is a complete list of the available data:
+VA can export lots of motion features and images for further analysis. By default, the software exports a pre-selected bundle of data. You can customize this selection with the _export options_ in the navbar. Here is a complete list of the available data:
 
 - Quantitative .csv analysis data, including Quantity of motion (QoM), Height of motion (HoM), Width of motion (WoM), Area of motion (AoM), Centroid of motion (CoM), and much more.
 - General log about the analyzed file and the analysis in a .txt file.
