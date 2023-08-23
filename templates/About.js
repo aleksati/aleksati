@@ -28,7 +28,7 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a drummer, music technologist, and software enthusiast living in
+        I am a drummer, music technologist, and coding enthusiast living in
         Oslo, Norway. Personally curious about all things science and passionate
         about art, exercising, my partner, and our cat. My current work is as a
         Department Engineer for the Musicology Department at the University of
