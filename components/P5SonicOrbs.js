@@ -19,7 +19,7 @@ const Sketch = dynamic(
 // balance of different coffee dispaches over the years. Uses an object oriented
 // method to create dots from differ coffee owners/companies.
 
-let cnv, cnvWidth, cnvHeight;
+let cnvWidth, cnvHeight;
 let scaleFactor;
 
 let data;
@@ -93,7 +93,7 @@ export default function P5SonicOrbs(props) {
     p5.fill(currTheme === "light" ? [0, 0, 0] : [255, 255, 255]);
 
     p5.textAlign("CENTER");
-    p5.text("Body (x)", cnvWidth / 2, cnvHeight - 10);
+    p5.text("Body (x)", cnvWidth / 2 - 20, 15);
 
     p5.textAlign("LEFT");
     p5.text("Balance (y)", 10, cnvHeight / 2);
