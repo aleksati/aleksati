@@ -147,7 +147,9 @@ But in a more general sense, re-creating traditional plots and graph structures 
 
 Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design. Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot.
 
-Each orb represents a unique coffee company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012. For simplicity's sake, I also made the sound of the orbs communicate the same thing using the same sound design as my multi-dimensional plot example, i.e. amplitude modulation.
+Each orb represents a unique coffee company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012.
+
+For simplicity's sake, I used the same dimensions (body and balance) to control the sound of the orbs through the amplitude modulation synthesis I designed for my multi-dimensional plot example. The orb's carrier frequency is determined by its vertical position in the plot (reflecting the balance variable), while the frequency of the LFO is determined by the orb's horizontal position (reflecting the body variable).
 
 <P5SonicOrbs />
 
