@@ -17,6 +17,7 @@ const nextConfig = {
   //     },
   //   ];
   // },
+
   // I do this to use "fs" in getStaticProps
   webpack(config, { nextRuntime }) {
     // as of Next.js latest versions, the nextRuntime is preferred over `isServer`, because of edge-runtime

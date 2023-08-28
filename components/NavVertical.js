@@ -4,6 +4,7 @@ import ButtonTheme from "./ButtonTheme";
 import { useEffect } from "react";
 import Search from "./Search";
 import Link from "next/link";
+import RSSLink from "./RSSLink";
 
 const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
   const [ref, isClickOutside] = useClickOutside();
@@ -17,24 +18,24 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
       className={`z-50 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
-      ref={ref}
-    >
+      ref={ref}>
       <div className="w-56 fixed z-70">
         <div className="flex justify-between items-start">
           {/* <div className="flex"> */}
           <Link href="/" className="font-bold">
             aleksati.net
           </Link>
-          {/* <p className="font-bold items-center">&nbsp;/ {currPage}</p>
-          </div> */}
           <ButtonTheme />
         </div>
       </div>
       <div className="fixed z-20">
         <Search />
       </div>
-      <div className="fixed z-10 pt-14">
+      <div className="fixed z-20 pt-14">
         <NavVerticalTabs />
+      </div>
+      <div className="fixed z-20 bottom-2">
+        <RSSLink />
       </div>
     </div>
   );

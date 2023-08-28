@@ -1,21 +1,23 @@
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
 
-export default function handler() {
+export default function handler({ keywords }) {
   return (
-    // pageMeta={{ keywords }}
-    <LayoutPage>
+    <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
     </LayoutPage>
   );
 }
 
-// import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
+import generateRSS from "../scripts/generateRSS";
+import { getKeysFromFr } from "../functions/loadPosts";
+import { frontMatterCache } from "../cache/frontmatter";
 
 export async function getStaticProps() {
-  // get frontMatter form all posts
-  // const frontMatter = getAllFr();
-  // get all used keywords in array
-  // const keywords = getKeysFromFr(frontMatter);
-  return { props: {} };
+  // generate RSS at site build
+  await generateRSS(frontMatterCache);
+
+  const keywords = getKeysFromFr(frontMatterCache);
+
+  return { props: { keywords } };
 }

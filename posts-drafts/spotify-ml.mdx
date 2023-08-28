@@ -1,5 +1,5 @@
 ---
-title: "Exploring Music Preference Recognition Using Spotify's Web API"
+title: "Musical Preference Recognition Using Spotify's Web API"
 date: "2023-08-10"
 keywords:
   [
@@ -18,28 +18,42 @@ summary: ""
 
 Add API and spotify and
 
+noe spennede med de audio featursa også..
+
 # Contents
 
-1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
-2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
-3. <MyLink href="#example-dataset">Example Dataset</MyLink>
+1. <MyLink href="#follow-the-code">Dataset Collection</MyLink>
+2. <MyLink href="#why-sonify?">Das Model</MyLink>
+3. <MyLink href="#example-dataset">Results</MyLink>
+4. <MyLink href="#summary">Summary</MyLink>
 
 ---
 
-layout: post
-title: "Exploring Music Preference Recognition Using Spotify's Web API"
-date: 2020-09-18 06:30:20 +0200
-categories: machine-learning
-author: Aleksander Tidemann
-image: /assets/image/2020_09_18_aleksati_matrix_spotify.jpg
-keywords: machine learning, Spotify API, sci-kit learn
-excerpt: "A proposed ML model that predicts the degree to which I will enjoy specific Spotify tracks based on previous preference ratings."
+Say what you will about Spotify, but their open Web API is fantastic.
 
----
+A few years ago, I learned that Spotify has a rock solid API for getting ... extract lots of information about music you like, playlists you have etc., your preferences, etc. BUT you can also extract lots of unique audio features.
 
-During these last two intense weeks of machine learning, I ventured to design a system that sought to recognize individual preferences in music using only the [Spotify](https://www.spotify.com/us/) environment and [API](<(https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)>) as resources. The model tries to predict the degree to which the author will enjoy specific tracks by Johann Sebastian Bach based on a subjective rating given to every example in the dataset. The dataset consisted of 100 Johann Sebastian Bach tracks collected from Spotify playlists. This unfortunate size of this dataset was due to the unexpected amount of time it took to gather music I liked (who knew?!). Anyway, the particular use of Bach's works was not coincidental as it presented an opportunity to collect a relatively consistent body of examples in one particular genre (baroque) that I was familiar with.
+These audio features bla bla... based on their own algorithms and music information retreival work.
 
-The project was first and foremost aimed at exploring how a relatively new and accessible online resource of high-level musical data could be used for machine learning purposes but also to examine whether machine learning in this sense can be used as creative tools to gain new interesting knowledge about our personal music preferences and/or biases.
+I though it would interesting to use these unique features to train a model.
+
+So I decided to create a model that
+
+could predict my
+
+musical preferenaces. Specifically, I wanted the model to predict how well I would enjoy Johann Sebastian Bach music based on my previous prefernces.
+
+In my post, I share my model, dataset, process and present you with the results of my exploration into music preferance recognition using spotify's web api
+
+Disclaimer. THE API MIGHT CHANGE..
+
+audio features:
+https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features
+
+web api:
+https://developer.spotify.com/documentation/web-api
+
+The dataset consisted of 100 Johann Sebastian Bach tracks collected from Spotify playlists. This unfortunate size of this dataset was due to the unexpected amount of time it took to gather music I liked (who knew?!). Anyway, the particular use of Bach's works was not coincidental as it presented an opportunity to collect a relatively consistent body of examples in one particular genre (baroque) that I was familiar with.
 
 <figure style="float: none">
   <img
@@ -51,20 +65,43 @@ The project was first and foremost aimed at exploring how a relatively new and a
   <figcaption></figcaption>
 </figure>
 
-# Data Collection
+# Dataset Collection
 
-Collecting audio feature-data from Spotify was quite manageable due to their [well-documented API](https://spotipy.readthedocs.io/en/2.16.0/). I decided to collect a variety of features for experimentation, including a few high-level features native to Spotify's ecosystem; duration, energy, tempo, time signature, loudness, **_pitches_**, **_valence_**, **_danceability_**, **_timbres_**, key and mode.
+My dataset conisted of 100-200++ songs of Bach on Spotify. I went through all tracks into a playlist
+and gave each individual track a rating from 0 - 10, where 0 is the lowest rating.
+Together with the audio features, these target values...
+(into a seperate csv. file)
 
-- Pitches
-  - The pitch feature returns a normalized vector per segment (a consistent subdivision of a track based on a consistent amount of sound) with 12 values representing the degree of occurrence for each note. I collected every pitch vector of a given track and averaged corresponding indexes. What remained was one list per track with the average occurrence of each note in the track.
-- Timbre
-  - Similar to pitches, the timbre feature returns a vector per segment with 12 elements. The specifics on what this timbre feature is based remains ambiguous, but it refers to the quality of the notes in the segment. The API also presses that these timbre values are best compared to each other. The gathering process here was the as with the pitch features.
-- Danceability
-  - This measure refers to how suitable a track is for dancing based on a combination of tempo, rhythm, stability, beat strength etc. Returns a scalar value per track.
-- Valence
-  - A normalized scalar of the "positiveness" conveyed by a track. The higher this value, the more happy, cheerful and euphoric the track is. The lower the value, the more sad, depressing and angry the track is.
+extract features.
+to able to easily speak with the Spotify Web API
+use spotipy, the pip package. ! in connection with the web api. this is all possible becaue of those.
+
+describe the difference between high and low level features.
+
+You need to .. aut. then .. Lots of great tutorials out there for you to learn how to do this.
+
+BUT, you can check out my full feature extraction python notebook from my github.
+
+SHOW SIMPLE CODE EXAMPLE.
+
+Since I was new to this and wanted to explore
+Some scalar features, and some vectorial (many values per item)... usually a values per segment of the track. so you would have one value for verse 1, another for chrous etc.
+Also many normal features combined with high-level Spotify features.
+
+I decided to collect a variety of features for experimentation, including a few high-level features native to Spotify's ecosystem; duration, energy, tempo, time signature, loudness, **_pitches_**, **_valence_**, **_danceability_**, **_timbres_**, key and mode.
+
+These are the high-level ones. More interesting ones!
+
+- **Pitches** - The pitch feature returns a normalized vector per segment (a consistent subdivision of a track based on a consistent amount of sound) with 12 values representing the degree of occurrence for each note. I collected every pitch vector of a given track and averaged corresponding indexes. What remained was one list per track with the average occurrence of each note in the track.
+- **Timbre** - Similar to pitches, the timbre feature returns a vector per segment with 12 elements. The specifics on what this timbre feature is based remains ambiguous, but it refers to the quality of the notes in the segment. The API also presses that these timbre values are best compared to each other. The gathering process here was the as with the pitch features.
+- **Danceability** - This measure refers to how suitable a track is for dancing based on a combination of tempo, rhythm, stability, beat strength etc. Returns a scalar value per track.
+- **Valence** - A normalized scalar of the "positiveness" conveyed by a track. The higher this value, the more happy, cheerful and euphoric the track is. The lower the value, the more sad, depressing and angry the track is.
+
+Show how the dataset looked in the end with a table!
 
 An interesting observation was that these high-level Spotify features did not immediately correlate with other suspected feature data. For instance, valence did not correlate particularly well with the mode of the tracks, as seen in the image below, something I anticipated.
+
+Mode is the key. You would expect that the more minor songs are sader than major songs. Example that we can learn alot from just processing these kinds of data.
 
 <figure style="float: none">
   <img

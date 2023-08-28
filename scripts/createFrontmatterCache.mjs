@@ -1,17 +1,18 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
-// const readingTime = require("reading-time");
+import matter from "gray-matter";
+import path from "path";
+import fs from "fs";
+
+// gets called at build time from "package.json"
 
 // get and store all the frontmatter for the blog posts and projects
 // must be run in the root dir to work, "npm run ..."
-// Most of this code is a copy from "functions/loadPosts" but there is issus with ES importing it here
+// The getAllFr is a copy from "functions/loadPosts" but there is issues with ES importing
+// So I just have a replicate function here.
 
 const root = process.cwd();
-// const postFolder = "posts";
 
-// gather all frontmatter data from posts into correct format
-function getAllCacheFr(postType = "posts") {
+// gather all frontmatter data from mdx posts into correct format
+function getAllFr(postType = "posts") {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);
 
@@ -33,8 +34,8 @@ function getAllCacheFr(postType = "posts") {
 }
 
 // gather all frontmatter and make one big list
-const posts = getAllCacheFr("posts");
-const projects = getAllCacheFr("works");
+const posts = getAllFr("posts");
+const projects = getAllFr("works");
 const allFr = posts.concat(projects);
 
 const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;

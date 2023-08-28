@@ -6,8 +6,6 @@ import path from "path";
 import fs from "fs";
 
 const root = process.cwd();
-// postType can be either "posts" or "projects"
-// is actually just the name of the folder with the mdx files
 
 export function getSlugs(postType = NAV_TABS["posts"]) {
   const paths = path.join(root, postType);
@@ -23,7 +21,7 @@ export function getSlugs(postType = NAV_TABS["posts"]) {
 }
 
 // sort by date
-function sortFrByDate(fr) {
+export function sortFrByDate(fr) {
   const frSorted = fr.sort((a, b) => {
     if (a.date > b.date) return 1;
     if (a.date < b.date) return -1;
@@ -33,6 +31,7 @@ function sortFrByDate(fr) {
 }
 
 // gather all frontmatter data from posts into correct format
+// if dev then something, else something.
 export function getAllFr(postType = NAV_TABS["posts"]) {
   const paths = path.join(root, postType);
   const posts = fs.readdirSync(paths);

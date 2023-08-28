@@ -19,7 +19,7 @@ import { GiMagnifyingGlass } from "react-icons/gi";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { MdOutlineReportProblem } from "react-icons/md";
 import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
-import { HiAdjustments } from "react-icons/hi";
+import { HiAdjustments, HiRss } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import {
@@ -36,6 +36,7 @@ import {
 const defaultSize = "text-2xl";
 
 const icons = {
+  rss: (s) => <HiRss className={s} />,
   expand: (s) => <AiOutlineExpandAlt className={s} />,
   office: (s) => <BsBuildings className={s} />,
   key: (s) => <BsKey className={s} />,

@@ -11,12 +11,10 @@ export default function handler({ keywords }) {
 
 About.displayName = "About";
 
-import { getKeysFromFr, getAllFr } from "../functions/loadPosts";
+import { getKeysFromFr } from "../functions/loadPosts";
+import { frontMatterCache } from "../cache/frontmatter";
 
 export async function getStaticProps() {
-  // get frontMatter form all posts
-  const frontMatter = getAllFr();
-  // get all used keywords in array
-  const keywords = getKeysFromFr(frontMatter);
+  const keywords = getKeysFromFr(frontMatterCache);
   return { props: { keywords } };
 }

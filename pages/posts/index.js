@@ -1,25 +1,38 @@
 import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 
-export default function handler({ allFrontMatter, allKeywords }) {
+export default function handler({ frontMatter, keywords }) {
   return (
     <LayoutPage
       pageMeta={{
         title: "posts",
-        keywords: allKeywords.join(", "),
-      }}
-    >
-      <PostList frontMatter={allFrontMatter} />
+        keywords: keywords.join(", "),
+      }}>
+      <PostList frontMatter={frontMatter} />
     </LayoutPage>
   );
 }
 
-import { getKeysFromFr, getAllFr } from "../../functions/loadPosts";
+import { frontMatterCache } from "../../cache/frontmatter";
+import { dev, NAV_TABS } from "../../config";
+import {
+  getKeysFromFr,
+  getAllFr,
+  sortFrByDate,
+} from "../../functions/loadPosts";
 
 export async function getStaticProps() {
-  // get frontMatter form all posts
-  const allFrontMatter = getAllFr("posts");
-  // get all used keywords in array
-  const allKeywords = getKeysFromFr(allFrontMatter);
-  return { props: { allFrontMatter, allKeywords } };
+  let frontMatter;
+
+  if (dev) {
+    // in dev
+    frontMatter = getAllFr(NAV_TABS["posts"]);
+  } else {
+    // in production
+    frontMatter = frontMatterCache.filter((fr) => fr.type === "post");
+    frontMatter = sortFrByDate(frontMatter);
+  }
+
+  const keywords = getKeysFromFr(frontMatter);
+  return { props: { frontMatter, keywords } };
 }
