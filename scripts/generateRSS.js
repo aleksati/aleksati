@@ -5,7 +5,7 @@ import fs from "fs";
 // gets called from pages/index.js
 export default async function generateRSS(frontMatter) {
   const feedOptions = {
-    title: "aleksati.net / Music Tech and Creative Computing",
+    title: "aleksati.net / music tech and creative computing",
     description:
       "Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.",
     site_url: SITE_DOMAIN,

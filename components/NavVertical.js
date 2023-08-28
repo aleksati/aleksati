@@ -19,7 +19,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>
-      <div className="w-56 fixed z-70">
+      <div className="w-56 fixed z-20">
         <div className="flex justify-between items-start">
           {/* <div className="flex"> */}
           <Link href="/" className="font-bold">
@@ -28,13 +28,13 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
           <ButtonTheme />
         </div>
       </div>
-      <div className="fixed z-20">
+      <div className="fixed z-10">
         <Search />
       </div>
-      <div className="fixed z-20 pt-14">
+      <div className="fixed pt-14">
         <NavVerticalTabs />
       </div>
-      <div className="fixed z-20 bottom-2">
+      <div className="fixed bottom-4">
         <RSSLink />
       </div>
     </div>
