@@ -5,12 +5,12 @@ import fs from "fs";
 // gets called from pages/index.js
 export default async function generateRSS(frontMatter) {
   const feedOptions = {
-    title: "aleksati.net/rss.xml - music tech posts & works",
+    title: "aleksati.net / Music Tech and Creative Computing",
     description:
-      "Engineer and University lecturer, specializing in networked music and audio programming.",
+      "Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.",
     site_url: SITE_DOMAIN,
     feed_url: `${SITE_DOMAIN}/rss.xml`,
-    // image_url: `${SITE_DOMAIN}/logo.png`,
+    image_url: `${SITE_DOMAIN}/img/me.jpg`,
     pubDate: new Date(),
   };
 
