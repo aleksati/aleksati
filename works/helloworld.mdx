@@ -57,7 +57,9 @@ To make Hello world physical vibrate and create unique sounds, four small Blueto
 
 Sonifying network traffic first requires a method to extract packets from your network. Using the Python programming language, the current go-to method for such activity is to use [pyshark](https://pypi.org/project/pyshark/), a Python wrapper for tshark, allowing network packet parsing using Wireshark dissectors. [WireShark](https://www.wireshark.org/) is a free desktop application for network protocol analysis, and pyshark lets you use interface with Wireshark through Python.
 
-Together with python-osc, a library for sending OSC messages over the network, I was able to use pyshark to capture WiFi packets sent from our local machine out "to the world". Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing. Below is a code example of how you can accomplish this.
+Together with python-osc, a library for sending OSC messages over the network, I was able to use pyshark to capture WiFi packets sent from our local machine out "to the world". Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
+
+Below is a code example of how you can accomplish this WiFi capture and simple OSC messaging with Python.
 
 ```Python
 from pythonosc import udp_client
