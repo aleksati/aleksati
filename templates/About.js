@@ -37,21 +37,18 @@ const About = () => (
       <p>
         Currently, I work as a Department Engineer for the Musicology Department
         (IMV) at the University of Oslo (UiO). At IMV I also lecture and
-        coordinate two courses on Networked Music Performance Technologies (
-        <MyLink href="https://www.uio.no/studier/emner/hf/imv/MCT4024/index.html">
-          MCT4024
-        </MyLink>{" "}
-        and MCT4025) for the{" "}
+        coordinate two courses on Networked Music Performance Technologies
+        (MCT4024 and MCT4025) for the{" "}
         <MyLink href="https://www.uio.no/english/studies/programmes/mct-master/">
-          MCT
-        </MyLink>{" "}
-        masters programme. On the more artistic side, I play drums and live
-        electronics for several Oslo-based acts and have years of experience as
-        a session musician, improviser, sound designer and music producer.
+          MCT masters programme
+        </MyLink>
+        . On the more artistic side, I play drums and live electronics for
+        several Oslo-based acts and have years of experience as a session
+        musician, improviser, sound designer and music producer.
       </p>
       <p>
         If you want to stay updated on my latest posts, please subscribe to my
-        <MyLink href="https://aleksati.net/rss.xml">RSS feed</MyLink>.
+        <MyLink href="https://aleksati.net/rss.xml"> RSS feed</MyLink>.
       </p>
     </div>
   </>
