@@ -31,36 +31,14 @@ In this post, I share some examples from my workshop, presenting two approaches 
 
 # Contents
 
-1. <MyLink href="#follow-the-code">Follow The Code</MyLink>
-2. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
-3. <MyLink href="#example-dataset">Example Dataset</MyLink>
-4. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
-5. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
-6. <MyLink href="#summary">Summary</MyLink>
+1. <MyLink href="#why-sonify?">Why Sonify?</MyLink>
+2. <MyLink href="#example-dataset">Example Dataset</MyLink>
+3. <MyLink href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
+4. <MyLink href="#the-sonic-orbs">The Sonic Orbs</MyLink>
+5. <MyLink href="#final-thoughts">Final Thoughts</MyLink>
+6. <MyLink href="#source-code">Source Code</MyLink>
 
 ---
-
-# Follow The Code
-
-If you want to follow my code examples, you can <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">download the repository from my GitHub</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
-
-In any case, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into unforseen issues there.
-
-To set up the development environment with p5, follow these simple steps:
-
-1. Download the code repository as a .zip file.
-2. Create an account on the p5js Web Editor.
-3. Go to "My Ses" (click on "Hello, username!" on the top right) and create a new s.
-4. In the web editor of your new s, open the sidebar (black arrow on gray backgroun) to access your files.
-5. Via the small dropdown menu "S Files" in the left column, choose to "upload file" and upload the folder entitled "browser/examples".
-
-<MyImage
-  src="datason-p5-editor.png"
-  caption="p5js Web Editor in a Brave browser tab anno june 2023."
-  alt="p5js web editor"
-/>
-
-**Important note:** the p5js Web Editor might change over time, meaning the above description might not be 100% accurate.
 
 # Why Sonify?
 
@@ -212,7 +190,7 @@ There are several advantages to using this object-oriented approach. First, repr
 
 But how useful are these audio-augmented plots, really? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
 
-# Summary
+# Final Thoughts
 
 In summary, it's very much possible to enrich data visualizations with model-based sonification in a web browser using the p5js library. I demonstrate two approaches for how to do this that use audio to augment visual data displays as a way to reveal more dimensions in realtime. The first approach can be considered more traditional, using audio to augment simple 2D visual graphs, while the second approach is more experimental, with usual and complex visual-audio aspects.
 
@@ -220,7 +198,11 @@ Besides their educational and artistic potential, I think the biggest advantage 
 
 Finally, although p5js is great for building easy-to-use, audio-visually robust web apps, it's not really a library designed to be the backbone of fast and powerful analysis software. In other words, programming analysis-heavy programs with p5 is not recommended. Rather, it's great for prototyping and smaller apps/projects.
 
-Be sure to check out [my GitHub page](https://github.com/aleksati/workshop-in-dataset-sonification-with-web-audio) for the full source code.
+# Source Code
+
+To get the full source for these examples, and much more, check out this <MyLink href="https://github.com/aleksati/dataset-sonification-in-browser-workshop">workshop repository on my GitHub page</MyLink>. I recommend using the <MyLink href="https://editor.p5js.org/">p5js Web Editor</MyLink> as your development environment so you can focus 100% on coding. However, you can also run the code from a local node development server, if you want.
+
+In any case, ensure that you use a Chromium-based web browser, such as Chrome, Brave, or Vivaldi. I have not experimented with other browser engines, such as Firefox's Gecko, so you might run into unforseen issues there.
 
 # References
 
