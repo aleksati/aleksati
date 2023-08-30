@@ -31,9 +31,9 @@ summary: "A sound-sculpture made of burned drywall paper tape, methyl cellulose,
   ]}
 />
 
-In late 2022, my good friend and artist <MyLink href="https://henriknordahl.com/">Henrik Nordahl</MyLink> asked me to collaborate with him on a sound sculpture entitled _01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 (hello world)_, for his MFA thesis project at the Parsons, National Academy of Arts, NYC. In computer science, "Hello world" programs are often the very first a student learns to write in a given language.
+In late 2022, my good friend and artist <MyLink href="https://henriknordahl.com/">Henrik Nordahl</MyLink> asked me to collaborate with him on a sound sculpture entitled "01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 (hello world)", for his MFA thesis project at the Parsons, National Academy of Arts, NYC. In computer science, "Hello world" programs are often the first thing you learn to write in a given language.
 
-My contributions were purely to the sound aspects of the sculpture. My mission was to ensure that the structure sonically reacted to nearby Wi-Fi traffic using Bluetooth transducers in combination with MaxMSP (Max) and Python software.
+My contributions were purely to the audio of the sculpture. My mission was to ensure that the structure sonically reacted to nearby wifi traffic using Bluetooth transducers in combination with MaxMSP (Max) and Python software.
 
 Hello world was exhibited in April 2023 at The Sheila Johnson Design Center, Parsons, NYC.
 
@@ -47,17 +47,17 @@ Overall, the works focus on the multiplicity of one form and are the results of 
 
 # Hardware and Software
 
-To make Hello world physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into multiple speaker elements that we could control from a nearby Macbook Pro.
+To make Hello world physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into multiple speaker elements that we could control from a nearby Macbook Pro. Since we did not care too much about latency, these devices were the obvious choice for our project. With wireless audio transmission, we did not need to purchase cables, amps and other audio gear, nor find a way to hide these items inside the sculpture.
 
 <MyImage
   src="helloworld-5.jpg"
   alt="bluetooth tranducers placement on hello world"
-  caption="Two sets of bluetooth tranducers placed on hello world. These Bluetooth devices work great if you don't care about latency. They also elleviate the need for cables, amplifiers and other audio gear that can complicate aesthetic pieces like this."
+  caption="Two sets of Bluetooth tranducers placed on custom made membranes inside Hello world."
 />
 
-Sonifying network traffic first requires a method to extract packets from your network. Using the Python programming language, the current go-to method for such activity is to use [pyshark](https://pypi.org/project/pyshark/), a Python wrapper for tshark, allowing network packet parsing using Wireshark dissectors. [WireShark](https://www.wireshark.org/) is a free desktop application for network protocol analysis, and pyshark lets you use interface with Wireshark through Python.
+Sonifying network traffic first requires a method to extract packets from your network. With Python, the go-to method for such activity is to use the [pyshark](https://pypi.org/project/pyshark/) library, a wrapper for tshark, allowing network packet parsing using Wireshark dissectors. Essentially, [WireShark](https://www.wireshark.org/) is a free desktop application for network protocol analysis, and pyshark lets you use interface with Wireshark through Python.
 
-Together with python-osc, a library for sending OSC messages over the network, I was able to use pyshark to capture WiFi packets sent from our local machine out "to the world". Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
+Together with python-osc, a library for sending OSC messages over the network, I was able to use pyshark to capture wifi packets being sent from our local machine out to the world. Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
 
 Below is a code example of how you can accomplish this WiFi capture and simple OSC messaging with Python.
 
@@ -67,8 +67,8 @@ import argparse
 import pyshark
 
 """
-Capture and process WiFi packets from host_ip to the world.
-Send source IP, desitination IP and packet length to an instance of Max running locally.
+Capture and process wifi packets from host_ip to the world.
+Send source IP, desitination IP and packet length to localhost port 8888.
 """
 
 host_ip = "192.168.86.39" # Local machine IP
@@ -113,9 +113,9 @@ Here is a short excerpt of the audio from the installation:
 
 <MyAudioPlayer src="helloworld.mp3" />
 
-It was important for us that this wifi sonification concept was understood fairly quickly by audience members without us having to compromise too much on artistic qualities. We wanted the audio aesthetic and sonification to reflect the hidden and sporadic qualities of wireless networks. This resulted in a fairly basic synthesis that was mostly based on low-frequency sounds, with added mysterious qualities.
+It was important for us that this wifi sonification concept was quickly grasped by audience members without us having to compromise too much on artistic qualities. We wanted the audio aesthetic and sonification to reflect the hidden and sporadic qualities of wireless networks. The result was a fairly basic synthesis engine that mostly focused on low-frequency sounds, with some added mysterious/ghostly qualities.
 
-The wifi traffic rate, packet lengths, and IP addresses all controlled aspects of the audio. For instance, the traffic rate was directly related to the intensity and density of the sound (a technique often known as audification of data). There were also links between network packet lengths and audio amplitude, as well as IP address and frequency content, to name a few.
+The wifi traffic rate, packet lengths, and IP addresses all controlled aspects of the audio. For instance, the traffic rate was directly related to the intensity and density of the sound (a technique often known as audification of data). There were also links between network packet lengths and audio amplitude, and between IP address and frequency content.
 
 # Links and Resources
 
