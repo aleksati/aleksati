@@ -47,8 +47,8 @@ const About = () => (
         musician, improviser, sound designer and music producer.
       </p>
       <p>
-        If you want to stay updated on my latest posts, please subscribe to my
-        <MyLink href="https://aleksati.net/rss.xml"> RSS feed</MyLink>.
+        If you want to stay updated on my latest posts, subscribe to my RSS feed
+        via the link in the menu.
       </p>
     </div>
   </>

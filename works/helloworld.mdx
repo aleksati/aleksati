@@ -47,7 +47,7 @@ Overall, the works focus on the multiplicity of one form and are the results of 
 
 # Hardware and Software
 
-To make Hello world physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into multiple speaker elements that we could control from a nearby Macbook Pro. Since we did not care too much about latency, these devices were the obvious choice for our project. With wireless audio transmission, we did not need to purchase cables, amps and other audio gear, nor find a way to hide these items inside the sculpture.
+To make Hello world physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into speaker elements that we could control from a nearby laptop. With wireless audio transmission, we did not need to purchase cables, amps and other audio gear, nor find a way to hide these items inside the sculpture. And since we did not care too much about latency, the Bluetooth devices seemed like the obvious choice.
 
 <MyImage
   src="helloworld-5.jpg"
@@ -55,9 +55,7 @@ To make Hello world physical vibrate and create unique sounds, four small Blueto
   caption="Two sets of Bluetooth tranducers placed on custom made membranes inside Hello world."
 />
 
-Sonifying network traffic first requires a method to extract packets from your network. With Python, the go-to method for such activity is to use the [pyshark](https://pypi.org/project/pyshark/) library, a wrapper for tshark, allowing network packet parsing using Wireshark dissectors. Essentially, [WireShark](https://www.wireshark.org/) is a free desktop application for network protocol analysis, and pyshark lets you use interface with Wireshark through Python.
-
-Together with python-osc, a library for sending OSC messages over the network, I was able to use pyshark to capture wifi packets being sent from our local machine out to the world. Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
+Sonifying network traffic first requires a method to extract packets from your network. With Python, the go-to method for network sniffing is to use the [pyshark](https://pypi.org/project/pyshark/) library, a wrapper for something called tshark, allowing network packet parsing using [WireShark](https://www.wireshark.org/) dissectors. Together with python-osc, a library for OSC transmission, I was able to use pyshark to capture wifi packets being sent from our local machine out to the world. Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
 
 Below is a code example of how you can accomplish this WiFi capture and simple OSC messaging with Python.
 
