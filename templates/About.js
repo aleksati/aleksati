@@ -28,11 +28,11 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a drummer, music technologist, and coding enthusiast from
-        Kongsberg, Norway, curious about all things science and passionate about
-        art, exercising, my partner and our cat. This site is part portfolio and
-        part blog where I share posts about music tech, audio programming,
-        networked music, creative computing, software development, and more.
+        I am a drummer, music technologist, and developer living in Oslo,
+        Norway. Curious about all things science and passionate about art,
+        exercising, my partner and our cat. This site is part portfolio and part
+        blog where I share posts about music tech, audio programming, networked
+        music, creative computing, software development, and more.
       </p>
       <p>
         Currently, I work as a Department Engineer for the Musicology Department
