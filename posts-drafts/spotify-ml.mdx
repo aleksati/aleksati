@@ -16,25 +16,17 @@ type: "post"
 summary: ""
 ---
 
-Ok, new plan. Do what I did before, but now, use all music! and get the results from "top items" to provide ratings.
+Browsing the web in the 21st century is a bitter-sweet experience for those concerned about privacy. Our (browsing) time is money for companies mining our behavior and data for marketing revenue. But it's not all ads in the traditional sense. For instance, in the music industry, big data is used to create personalized playlists and "smart" music recommendation systems designed to give us the music we like on demand. Nobody is better at this than Spotify, currently the largest music streaming service in the known universe. For a long time, Spotify's recommendation systems have fascinated me due to their sheer performance and ability to reveal musical taste (quantitatively) like never before.
 
-Then, create a regressor that would predict my liking.
-
-Create Personal Recommandation Model Using Spotify Web API.
-
-Do to:
-
-- gather top 1000 tracks in chronological order in a list.
-- use trackIDs to extract features.
-- use the order/popularity of the track to determine the rating
-- feed into MLP regressor.
+Recently, I learned that Spotify hosts a free Web API that lets any user access their streaming habits and complex high-level audio features from any track on their platform. Initially, this news got me excited about the possibility of using the API to learn more about my musical preferences. Later, I began to wonder whether I could build a custom preference recognition model using only data gathered from the API. This post details my attempt at building such a musical preferences recognition model, using only some Python code and the Spotify API as my resources.
 
 # Contents
 
 1. <MyLink href="#follow-the-code">Dataset Collection</MyLink>
-2. <MyLink href="#why-sonify?">Das Model</MyLink>
-3. <MyLink href="#example-dataset">Results</MyLink>
-4. <MyLink href="#summary">Summary</MyLink>
+1. <MyLink href="#follow-the-code">Data Exploration</MyLink>
+1. <MyLink href="#why-sonify?">The Models</MyLink>
+1. <MyLink href="#example-dataset">Results</MyLink>
+1. <MyLink href="#summary">Summing up</MyLink>
 
 ---
 
