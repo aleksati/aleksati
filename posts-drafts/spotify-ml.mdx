@@ -16,55 +16,40 @@ type: "post"
 summary: ""
 ---
 
+PICTURE
+
 Browsing the web in the 21st century is a bitter-sweet experience for those concerned about privacy. Our (browsing) time is money for companies mining our behavior and data for marketing revenue. But it's not all ads in the traditional sense. For instance, in the music industry, big data is used to create personalized playlists and "smart" music recommendation systems designed to give us the music we like on demand. Nobody is better at this than Spotify, currently the largest music streaming service in the known universe. For a long time, Spotify's recommendation systems have fascinated me due to their sheer performance and ability to reveal musical taste (quantitatively) like never before.
 
 Recently, I learned that Spotify hosts a free Web API that lets any user access their streaming habits and complex high-level audio features from any track on their platform. Initially, this news got me excited about the possibility of using the API to learn more about my musical preferences. Later, I began to wonder whether I could build a custom preference recognition model using only data gathered from the API. This post details my attempt at building such a musical preferences recognition model, using only some Python code and the Spotify API as my resources.
 
 # Contents
 
-1. <MyLink href="#follow-the-code">Dataset Collection</MyLink>
-1. <MyLink href="#follow-the-code">Data Exploration</MyLink>
-1. <MyLink href="#why-sonify?">The Models</MyLink>
-1. <MyLink href="#example-dataset">Results</MyLink>
-1. <MyLink href="#summary">Summing up</MyLink>
+1. <MyLink href="#follow-the-code">Dataset Collection and Exploration</MyLink>
+2. <MyLink href="#why-sonify?">The Models</MyLink>
+3. <MyLink href="#example-dataset">Results</MyLink>
+4. <MyLink href="#summary">Summing up</MyLink>
 
 ---
 
-Say what you will about Spotify, but their open Web API is fantastic.
+# Dataset Collection and Exploration
 
-A few years ago, I learned that Spotify has a rock solid API for getting ... extract lots of information about music you like, playlists you have etc., your preferences, etc. BUT you can also extract lots of unique audio features.
+The project structure can be divided into .. parts with the first, and arguably most essential, segments associated with gathering and pre-processing of the dataset.
 
-These audio features bla bla... based on their own algorithms and music information retreival work.
+PICTURE OF DIAGRAMS
 
-I though it would interesting to use these unique features to train a model.
+To interface with Spotify's Web API, I used a Python library called Spotipy. This library is good because it handles all API call complexity, making it even easier to retrieve data. All you need is to create a user over at Spotify Dev for authentication and gather the track/playlist/user IDs for data retreival.
 
-So I decided to create a model that
+But simply gathering a bunch of track data is not enough. To create model capable of predicting musical preferances, you need a dataset where each item is associated with a rating or target value.
 
-could predict my
+Insted of doing it on my own.
 
-musical preferenaces. Specifically, I wanted the model to predict how well I would enjoy Johann Sebastian Bach music based on my previous prefernces.
+got tracks from getTop tracks
+hack to make it 300
+how did I rate them.
+Also turned into a classification model
 
-In my post, I share my model, dataset, process and present you with the results of my exploration into music preferance recognition using spotify's web api
-
-Disclaimer. THE API MIGHT CHANGE..
-
-audio features:
-https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features
-
-web api:
-https://developer.spotify.com/documentation/web-api
-
-The dataset consisted of 100 Johann Sebastian Bach tracks collected from Spotify playlists. This unfortunate size of this dataset was due to the unexpected amount of time it took to gather music I liked (who knew?!). Anyway, the particular use of Bach's works was not coincidental as it presented an opportunity to collect a relatively consistent body of examples in one particular genre (baroque) that I was familiar with.
-
-<figure style="float: none">
-  <img
-    src="https://drive.google.com/uc?&id=1vo2M1v9JXMd6fXKv_DGDzMwHannFbGIP"
-    alt="Alternate Text"
-    title="Image Title"
-    width="680"
-  />
-  <figcaption></figcaption>
-</figure>
+the features I collected from each track. Name everything. In table.
+removed duplicates
 
 # Dataset Collection
 
