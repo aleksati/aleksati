@@ -24,34 +24,42 @@ Recently, I learned that Spotify hosts a free Web API that lets any user access 
 
 # Contents
 
-1. <MyLink href="#follow-the-code">Dataset Collection and Exploration</MyLink>
-2. <MyLink href="#why-sonify?">The Models</MyLink>
-3. <MyLink href="#example-dataset">Results</MyLink>
-4. <MyLink href="#summary">Summing up</MyLink>
+1. <MyLink href="#follow-the-code">Dataset Acquisition</MyLink>
+2. <MyLink href="#follow-the-code">Dataset Exploration</MyLink>
+3. <MyLink href="#why-sonify?">The Models</MyLink>
+4. <MyLink href="#example-dataset">Results</MyLink>
+5. <MyLink href="#summary">Summing up</MyLink>
 
 ---
 
-# Dataset Collection and Exploration
+# Dataset Acquisition
 
-The project structure can be divided into .. parts with the first, and arguably most essential, segments associated with gathering and pre-processing of the dataset.
+The project structure can be divided into .. parts, as demonstrated in the figure below. The first, and arguably most essential, part is concerned with gathering data and pre-processing it into a dataset for my models.
 
 PICTURE OF DIAGRAMS
 
-To interface with Spotify's Web API, I used a Python library called Spotipy. This library is good because it handles all API call complexity, making it even easier to retrieve data. All you need is to create a user over at Spotify Dev for authentication and gather the track/playlist/user IDs for data retreival.
+To interface with the Spotify Web API, you need an account over at Spotify Dev for authentication. To start building your dataset, I recommend using a Python library called Spotipy that effectively handles the API contact to Spotify endpoints. Using this library will free up time to focus on navigating the sometimes intricate data structures the servers return.
 
-But simply gathering a bunch of track data is not enough. To create model capable of predicting musical preferances, you need a dataset where each item is associated with a rating or target value.
+But simply gathering a bunch of track data is not enough. Predicting musical preferences requires datasets where each item is associated with a rating or target value, basically how much you enjoy each track. However, this rating process is not as straightforward as it sounds. Just think about it. How would you accurately and systematically rate a playlist of your favorite music? Is it even possible to precisely articulate our musical preferences? And if we want our models to be good, we're talking about rating hundreds, maybe thousands, of tracks. With these facts in mind, I knew that manually rating each track in a playlist was out of the question. I had to find a more clever way.
 
-Insted of doing it on my own.
+Luckily, after some tinkering, I stumbled over a possible solution to my target issue. By using an endpoint called "getTopTracks", Spotify will give you a user's favorite tracks (most played) from three different time ranges, namely "short term", "medium term", and "long term". Even better, the favorite tracks are delivered in chronological order, meaning the most-played favorite track is always the first item, and the least-played favorite track is always the last. However, my initial rejoicing was short-lived. After a short while, I discovered a track limit of 50 tracks on any "getTopTracks" API calls. This means that if you retrieve every track you can get, from all time ranges (long, medium, and short-term favorites), it will only amount to 150 tracks in total. And even worse, there's no anti-duplicate guarantee, meaning tracks in the short-term favorites can also be part of your long-term favorites. For a decent model, I would need many times more tracks in my dataset.
 
-got tracks from getTop tracks
-hack to make it 300
+PICTURE HERE
+
+Hack to make it 300, would try to add noise to extend the dataset into 5-600 items.
+
+## Rating Distribution and Feature Selection
+
 how did I rate them.
 Also turned into a classification model
 
 the features I collected from each track. Name everything. In table.
+
 removed duplicates
 
-# Dataset Collection
+Pre-processing
+
+# Dataset Exploration
 
 My dataset conisted of 100-200++ songs of Bach on Spotify. I went through all tracks into a playlist
 and gave each individual track a rating from 0 - 10, where 0 is the lowest rating.
