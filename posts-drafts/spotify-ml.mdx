@@ -38,26 +38,26 @@ The project structure can be divided into .. parts, as demonstrated in the figur
 
 PICTURE OF DIAGRAMS
 
-To interface with the Spotify Web API, you need an account over at Spotify Dev for authentication. To start building your dataset, I recommend using a Python library called Spotipy that effectively handles the API contact to Spotify endpoints. Using this library will free up time to focus on navigating the sometimes intricate data structures the servers return.
+To interface with the Spotify Web API, you need an account over at Spotify Dev for authentication. Further, to build my dataset, I used a Python library called Spotipy that effectively handles the API contact to Spotify endpoints. Using Spotipy frees up valuable time and code to navigate the intricate data structures returned by the API endpoints.
 
-But simply gathering a bunch of track data is not enough. Predicting musical preferences requires datasets where each item is associated with a rating or target value, basically how much you enjoy each track. However, this rating process is not as straightforward as it sounds. Just think about it. How would you accurately and systematically rate a playlist of your favorite music? Is it even possible to precisely articulate our musical preferences? And if we want our models to be good, we're talking about rating hundreds, maybe thousands, of tracks. With these facts in mind, I knew that manually rating each track in a playlist was out of the question. I had to find a more clever way.
+But simply gathering a bunch of track data is not enough. Predicting musical preferences requires datasets where each item is associated with a unique rating, or target, representing your affection for each track. However, acquiring the targets is not as straightforward as it sounds. Just think about it. How would you accurately and systematically rate a playlist of your favorite music? Is it even possible to precisely articulate our musical preferences? And if we want our models to be good, we're talking about rating hundreds, maybe thousands, of tracks. With these facts in mind, I knew that manually rating each track in a playlist was out of the question. I had to find a more clever way.
 
-Luckily, after some tinkering, I stumbled over a possible solution to my target issue. By using an endpoint called "getTopTracks", Spotify will give you a user's favorite tracks (most played) from three different time ranges, namely "short term", "medium term", and "long term". Even better, the favorite tracks are delivered in chronological order, meaning the most-played favorite track is always the first item, and the least-played favorite track is always the last. However, my initial rejoicing was short-lived. After a short while, I discovered a track limit of 50 tracks on any "getTopTracks" API calls. This means that if you retrieve every track you can get, from all time ranges (long, medium, and short-term favorites), it will only amount to 150 tracks in total. And even worse, there's no anti-duplicate guarantee, meaning tracks in the short-term favorites can also be part of your long-term favorites. For a decent model, I would need many times more tracks in my dataset.
+Luckily, I stumbled over a solution to my target issue. By using a specific endpoint called _getTopTracks_, Spotify will return data about your favorite tracks (most played), both short, medium and long-term. Even better, the top tracks are delivered from the most-played to least-played, meaning you can base your target values on mear index positions of the track data. Although this was great, my cheers were painfully short-lived. After a while, I discovered that any API call to _getTopTracks_ has a track limit of 50 tracks, meaning you can only get a hold of 150 favorite tracks total (short, medium, and short-term included). And even worse, there's no anti-duplicate guarantee, meaning nothing's stopping short-term favorites from being in the medium or long-term favorites tracks list.
 
-PICTURE HERE
+But I didn't give up on my idea just yet. From reading on forums, I came across a hack that enabled me to get twice as many tracks from each term, increasing the total track number to 300 (still with no anti-duplicate guarantee). I also remembered a technique for extending dataset sizes with noise to improve robustness and combat underfitting. Adding noise to datasets can help ML models learn a better generalization of the data and therefore improve the accuracy of the test set.
 
-Hack to make it 300, would try to add noise to extend the dataset into 5-600 items.
+CODE EXAMPLE OF EXTENDING DATASET SIZES WITH NOISE
 
-## Rating Distribution and Feature Selection
+So by supplying my initial 300 track dataset to API hack, noisy additions, and duplicate removal, I ended up with about 4-500 samples in total. For preferance recognition, this is still small, but I figured I'd give it a shot.
 
-how did I rate them.
-Also turned into a classification model
+## Target Distribution and Feature Selection
 
-the features I collected from each track. Name everything. In table.
+As briefly mentioned, my idea was to use the index position of the _getTopTracks_ data structure to quantify my preference for each dataset sample. However, when presented with data from different periods (short, medium, and long-term favorites), the question became whether the periods should be rated equally or if some periods should carry higher ratings than others. To this end, I designed an algorithm that favored long-term over medium and short-term favorites. The algorithm gave all tracks a rating on a scale from 0 - 10, where 10 is the highest score, assigning long-term tracks scores between 10 - 4, medium tracks scores between 8-2, and short tracks between 6-0. Using a 0-10 scale helped me keep my options open for regression and classification-style learning later on. The result of this algorithm was a fairly normally distributed rating curve with a slight preference for higher-rated tracks.
+also for classification.
 
-removed duplicates
+PICTURE
 
-Pre-processing
+features ....
 
 # Dataset Exploration
 
