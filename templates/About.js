@@ -28,11 +28,11 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a drummer, music technologist, and developer living in Oslo,
-        Norway. Curious about all things science and passionate about art,
-        exercising, my partner and our cat. This site is part portfolio and part
-        blog where I share posts about music tech, audio programming, networked
-        music, creative computing, software development, and more.
+        I am a drummer and music technologist from Kongsberg, Norway. Curious
+        about all things science and passionate about art, exercising, my
+        partner and our cat. This site is part portfolio and part blog, a
+        platform where I share my music tech projects and write about creative
+        computing/software stuff that might interest you.
       </p>
       <p>
         Currently, I work as a Department Engineer for the Musicology Department
@@ -44,11 +44,11 @@ const About = () => (
         </MyLink>
         . On the more artistic side, I play drums and live electronics for
         several Oslo-based acts and have years of experience as a session
-        musician, improviser, sound designer and music producer.
+        musician, improviser, and music producer.
       </p>
       <p>
-        If you want to stay updated on my latest posts, subscribe to my RSS feed
-        via the link in the menu.
+        To stay updated on my posts, subscribe to my{" "}
+        <MyLink href="/rss.xml">RSS feed</MyLink>.
       </p>
     </div>
   </>

@@ -6,11 +6,13 @@ import { KEYWORDS_2_COLOR } from "../config";
 
 const widthTresh = 768; // tailwind md = 768;
 
+// showType = False , also can be true
+
 const DateAndKeywordViewer = ({ keywords = [], date, type }) => {
   const { width } = useWindowSize();
 
   // On mobile view, we show less keywords.
-  const maxKeywords = width < widthTresh ? 4 : 5;
+  const maxKeywords = width < widthTresh ? 3 : 4;
 
   return (
     <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">

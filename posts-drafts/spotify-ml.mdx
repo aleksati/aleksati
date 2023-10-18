@@ -16,47 +16,53 @@ type: "post"
 summary: ""
 ---
 
-PICTURE
+PICTURE???
 
-Browsing the web in the 21st century is a bitter-sweet. Our (browsing) behavior and personal data is constantly being ... mining our and behavior and data. In the music industry, big data is used to create personalized playlists and "smart" music recommendation systems. Nobody is better at ...smart... than Spotify, currently the largest music streaming service in the known universe. For a long time, Spotify's recommendation systems have fascinated me due to their sheer performance and ability to reveal musical taste (quantitatively) like never before.
+The music industry in the 21st century is all about data and streams. Companies like Spotify and Tidal use big data effectively to create personalized playlists and "smart" music recommendation systems to grab (and violently hold) our attention. Say what you will about Spotify, but I've been curious about their recommendation and preference recognition systems for some time due to their system performance and ability to reveal musical taste quantitatively like never before.
 
-Say what you will about Spotify, but their...
+Recently, I learned that Spotify hosts a free and open Web API where you can access your streaming habits and explore complex audio analysis features from any track on their platform. This discovery led me to want to learn more about my musical preferences. I began to wonder whether I could build a custom preference recognition model using only data gathered from the Spotify API.
 
-Recently, I learned that Spotify hosts a free Web API that lets any user access their streaming habits and complex high-level audio features from any track on their platform. Initially, this news got me excited about the possibility of using the API to learn more about my musical preferences. Later, I began to wonder whether I could build a custom preference recognition model using only data gathered from the API. This post details my attempt at building such a musical preferences recognition model, using only some Python code and the Spotify API as my resources.
+This post details my attempt at building my own (tiny) music preference recognition model, a system that only uses the Spotify API as its data resource.
 
 # Contents
 
-1. <MyLink href="#follow-the-code">Dataset Acquisition</MyLink>
-2. <MyLink href="#follow-the-code">Dataset Exploration</MyLink>
-3. <MyLink href="#why-sonify?">The Models</MyLink>
-4. <MyLink href="#example-dataset">Results</MyLink>
+1. <MyLink href="#dataset-acquisition">Dataset Acquisition</MyLink>
+2. <MyLink href="#dataset-exploration">Dataset Exploration</MyLink>
+3. <MyLink href="#the-models">The Models</MyLink>
+4. <MyLink href="#results">Results</MyLink>
 5. <MyLink href="#summary">Summing up</MyLink>
+
+The project structure is divided into 3 main parts. To interface with the Spotify Web API, you need an account over at Spotify Dev for authentication. I also recommend using a Python library called Spotipy that effectively handles the API contact to Spotify endpoints. Using Spotipy frees up valuable time and code to navigate the intricate data structures returned by the API endpoints.
+
+PICTURE OF DIAGRAM
 
 ---
 
 # Dataset Acquisition
 
-The project structure can be divided into .. parts, as demonstrated in the figure below. The first, and arguably most essential, part is concerned with gathering data and pre-processing it into a dataset for my models. To interface with the Spotify Web API, you need an account over at Spotify Dev for authentication. I also recommend using a Python library called Spotipy that effectively handles the API contact to Spotify endpoints. Using Spotipy frees up valuable time and code to navigate the intricate data structures returned by the API endpoints.
+The most important part of my project was related to gathering and pre-processing data into a good dataset. To train a good recommendation model, simply gathering a bunch of tracks and features is not enough. You also need to provide unique scores (target values) associated with each item in the data that represents how much you enjoy each track. However, acquiring target values is not as straightforward as it sounds. Just think about it. How would you accurately and systematically rate a playlist of your favorite music? Is it even possible to precisely articulate our musical preferences?
 
-PICTURE OF DIAGRAMS
-
-Simply gathering a bunch of tracks and features is not enough to build a good model for predicting musical preferences. It also requires unique scores (target values) associated with each item in the dataset that represents how much the user enjoys each track. However, acquiring target values is not as straightforward as it sounds. Just think about it. How would you accurately and systematically rate a playlist of your favorite music? Is it even possible to precisely articulate our musical preferences?
+## Target Distribution and Feature Selection
 
 By leveraging a particular endpoint in the Spotify API, called _getTopTracks_, I was able to find an elegant solution to acquiring tracks and target values for my dataset. The _getTopTracks_ endpoint returns data about your short-, medium-, and long-term favorite tracks, which are essentially the ones you've played the most. Using this specific endpoint enabled me to do two things. First, gather a dataset of my favorite tracks, and second, leverage the fact that the tracks are delivered from the most-played to least-played and base my target values directly on the index position of each item in the data.
+
+However, with data from different terms (short, medium, and long-term favorites), the question became whether tracks in each terms should be rated equally or if some terms should carry higher ratings than others. To this end, I designed an algorithm that favored long-term over medium and short-term favorites. The algorithm gave all tracks a rating on a scale from 0 - 10, where 10 is the highest score, assigning long-term tracks scores between 10 - 4, medium-term tracks scores between 8-2, and short-term tracks between 6-0. Using a 0-10 scale helped me keep my options open for regression and classification-style learning later on. The result of this algorithm was a fairly normally distributed curve of ratings with a slight preference for higher-rated tracks.
+
+PICTURE OF DISTRIBUTION CURVE
+
+features ....
+
+## Re-shaping
 
 But my smugness was short-lived. I soon discovered that any API call to _getTopTracks_ has a strict 50-track limit, meaning I could only get a hold of 150 favorite tracks total (short, medium, and short-term tracks included). Here, the forums saved me. From reading online, I came across a small hack that enabled me to get twice as many tracks from each term, increasing my total track number to 300. Even better, I remembered a technique from uni for extending dataset sizes with noise to improve robustness and combat underfitting. Adding some noise to datasets can help ML models learn a better generalization of the data and improve the accuracy of the test set.
 
 CODE EXAMPLE OF EXTENDING DATASET SIZES WITH NOISE
 
-So, by supplying my initial 150-track dataset to an API hack, noise extension, and duplicate removal, I ended up with about 4-500 tracks. This is still considered small for preference recognition learning, but I figured I'd give it a shot anyway.
+So, by supplying my initial 150-track dataset to an API hack, some noise extension, and duplicate removal, I ended up with about 4-500 tracks. This is still considered small for the recommandation tasks in question, but I figured I'd give it a shot anyway.
 
-## Target Distribution and Feature Selection
+DATASET PICTURE
 
-As briefly mentioned, my idea was to use the index position of the _getTopTracks_ data structure to quantify my preference for each dataset sample. However, when presented with data from different terms (short, medium, and long-term favorites), the question became whether the terms should be rated equally or if some terms should carry higher ratings than others. To this end, I designed an algorithm that favored long-term over medium and short-term favorites. The algorithm gave all tracks a rating on a scale from 0 - 10, where 10 is the highest score, assigning long-term tracks scores between 10 - 4, medium-term tracks scores between 8-2, and short-term tracks between 6-0. Using a 0-10 scale helped me keep my options open for regression and classification-style learning later on. The result of this algorithm was a fairly normally distributed curve of ratings with a slight preference for higher-rated tracks.
-
-PICTURE OF DISTRIBUTION CURVE
-
-features ....
+Scaling and stuff.
 
 # Dataset Exploration
 
