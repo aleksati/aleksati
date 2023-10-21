@@ -1,9 +1,8 @@
 import MyImage from "../components/MyImage";
 import SoMeBar from "../components/SoMeBar";
-import MyLink from "../components/MyLink";
 
 const About = () => (
-  <>
+  <div className="pb-10">
     <div className="grid grid-cols-4 gap-4 pb-6 items-start">
       <div className="col-span-4 sm:col-span-1">
         <MyImage
@@ -38,20 +37,17 @@ const About = () => (
         Currently, I work as a Department Engineer for the Musicology Department
         (IMV) at the University of Oslo (UiO). At IMV I also lecture and
         coordinate two courses on Networked Music Performance Technologies
-        (MCT4024 and MCT4025) for the{" "}
-        <MyLink href="https://www.uio.no/english/studies/programmes/mct-master/">
-          MCT masters programme
-        </MyLink>
-        . On the more artistic side, I play drums and live electronics for
-        several Oslo-based acts and have years of experience as a session
-        musician, improviser, and music producer.
+        (MCT4024 and MCT4025) for the MCT masters programme. On the more
+        artistic side, I play drums and live electronics for several Oslo-based
+        acts and have years of experience as a session musician, improviser, and
+        music producer.
       </p>
       <p>
-        To stay updated on my posts, subscribe to my{" "}
-        <MyLink href="/rss.xml">RSS feed</MyLink>.
+        To stay updated on my posts, subscribe to my RSS feed from the bottom of
+        the menubar.
       </p>
     </div>
-  </>
+  </div>
 );
 
 export default About;

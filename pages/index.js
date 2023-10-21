@@ -1,10 +1,12 @@
+import PostListSmall from "../templates/PostListSmall";
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
 
-export default function handler({ keywords }) {
+export default function handler({ latestFrontMatter, keywords }) {
   return (
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
+      <PostListSmall frontMatter={latestFrontMatter} />
     </LayoutPage>
   );
 }
@@ -17,8 +19,9 @@ export async function getStaticProps() {
   // generate RSS at site build
   await generateRSS(frontMatterCache);
 
-  // const latestFrontMatter= frontMatterCache.slice(0, 4);
+  // get the 3 latest post/works
+  const latestFrontMatter = frontMatterCache.slice(0, 3);
   const keywords = getKeysFromFr(frontMatterCache);
 
-  return { props: { keywords } };
+  return { props: { latestFrontMatter, keywords } };
 }

@@ -22,6 +22,18 @@ The music industry in the 21st century is all about data and streams. Companies 
 
 Recently, I learned that Spotify hosts a free and open Web API where you can access your streaming habits and explore complex audio analysis features from any track on their platform. This discovery led me to want to learn more about my musical preferences. I began to wonder whether I could build a custom preference recognition model using only data gathered from the Spotify API.
 
+Althought many have attempted and documented similar projects before (links)
+
+filtering approach (https://towardsdatascience.com/part-iii-building-a-song-recommendation-system-with-spotify-cf76b52705e7)
+
+large dataset using spotipy (https://towardsdatascience.com/how-to-create-large-music-datasets-using-spotipy-40e7242cc6a6)
+
+Spotify Recommendation System Using ML (https://thecleverprogrammer.com/2021/03/03/spotify-recommendation-system-with-machine-learning/)
+
+collaborative filtering i in ML (https://thecleverprogrammer.com/2021/02/14/collaborative-filtering-in-machine-learning/)
+
+few of them have used the their personal users listening data to kartlegge his/her own preference, and use that for learning.
+
 This post details my attempt at building my own (tiny) music preference recognition model, a system that only uses the Spotify API as its data resource.
 
 # Contents
@@ -46,11 +58,15 @@ The most important part of my project was related to gathering and pre-processin
 
 By leveraging a particular endpoint in the Spotify API, called _getTopTracks_, I was able to find an elegant solution to acquiring tracks and target values for my dataset. The _getTopTracks_ endpoint returns data about your short-, medium-, and long-term favorite tracks, which are essentially the ones you've played the most. Using this specific endpoint enabled me to do two things. First, gather a dataset of my favorite tracks, and second, leverage the fact that the tracks are delivered from the most-played to least-played and base my target values directly on the index position of each item in the data.
 
-However, with data from different terms (short, medium, and long-term favorites), the question became whether tracks in each terms should be rated equally or if some terms should carry higher ratings than others. To this end, I designed an algorithm that favored long-term over medium and short-term favorites. The algorithm gave all tracks a rating on a scale from 0 - 10, where 10 is the highest score, assigning long-term tracks scores between 10 - 4, medium-term tracks scores between 8-2, and short-term tracks between 6-0. Using a 0-10 scale helped me keep my options open for regression and classification-style learning later on. The result of this algorithm was a fairly normally distributed curve of ratings with a slight preference for higher-rated tracks.
+However, with data from different terms (short, medium, and long-term favorites), the question became whether all tracks should be rated equally or if some terms should carry higher ratings than others. To this end, I designed an algorithm that favored long-term over medium and short-term favorites. The algorithm gave all tracks a rating on a scale from 0 - 10, where 10 is the highest score, assigning long-term tracks scores between 10 - 4, medium-term tracks scores between 8-2, and short-term tracks between 6-0. Using a 0-10 scale helped me keep my options open for regression and classification-style learning later on. The algorithm created a fairly normally distributed curve of my target values, only with a slight preference for higher-rated tracks.
 
-PICTURE OF DISTRIBUTION CURVE
+PICTURE OF DISTRIBUTION CURVE and DATASET FEATURES?
 
-features ....
+Typically, audio ML models are trained on fairly low-level audio analysis features, such as RMS values, MFCC, spectrogram, and spectral centroid. However, the most interesting aspect of the Spotify API is that it provides a series of high-level and unique audio descriptors that are directly related to musical activity, such as _danceability_, _valence_, and _instrumentalness_. These are all combinations of lower-level features and are most likely the product of complex modeling from Spotify devs. It's fair to say that to use these as features for machine learning is, by itself, an interesting venture.
+
+Nevertheless, you'll also find more traditional and lower-level analysis features in the API, like _timbre_ and _pitches_, that are more similar to spectrogram and FFT audio representations. These are usually accessible as larger vectors and thus require some more pre-processing. To keep my options open, I included a variety of high vs. low, and scalar vs. vectorial Spotify features in my dataset. Amongst the collected were:
+
+- Speechiness, Instrumentalness, Danceability, Valence, Loudness, Energy, Acousticness, Pitches, Timbre, Mode/key average, Duration, Tempo, Time signature
 
 ## Re-shaping
 
@@ -65,38 +81,6 @@ DATASET PICTURE
 Scaling and stuff.
 
 # Dataset Exploration
-
-My dataset conisted of 100-200++ songs of Bach on Spotify. I went through all tracks into a playlist
-and gave each individual track a rating from 0 - 10, where 0 is the lowest rating.
-Together with the audio features, these target values...
-(into a seperate csv. file)
-
-extract features.
-to able to easily speak with the Spotify Web API
-use spotipy, the pip package. ! in connection with the web api. this is all possible becaue of those.
-
-describe the difference between high and low level features.
-
-You need to .. aut. then .. Lots of great tutorials out there for you to learn how to do this.
-
-BUT, you can check out my full feature extraction python notebook from my github.
-
-SHOW SIMPLE CODE EXAMPLE.
-
-Since I was new to this and wanted to explore
-Some scalar features, and some vectorial (many values per item)... usually a values per segment of the track. so you would have one value for verse 1, another for chrous etc.
-Also many normal features combined with high-level Spotify features.
-
-I decided to collect a variety of features for experimentation, including a few high-level features native to Spotify's ecosystem; duration, energy, tempo, time signature, loudness, **_pitches_**, **_valence_**, **_danceability_**, **_timbres_**, key and mode.
-
-These are the high-level ones. More interesting ones!
-
-- **Pitches** - The pitch feature returns a normalized vector per segment (a consistent subdivision of a track based on a consistent amount of sound) with 12 values representing the degree of occurrence for each note. I collected every pitch vector of a given track and averaged corresponding indexes. What remained was one list per track with the average occurrence of each note in the track.
-- **Timbre** - Similar to pitches, the timbre feature returns a vector per segment with 12 elements. The specifics on what this timbre feature is based remains ambiguous, but it refers to the quality of the notes in the segment. The API also presses that these timbre values are best compared to each other. The gathering process here was the as with the pitch features.
-- **Danceability** - This measure refers to how suitable a track is for dancing based on a combination of tempo, rhythm, stability, beat strength etc. Returns a scalar value per track.
-- **Valence** - A normalized scalar of the "positiveness" conveyed by a track. The higher this value, the more happy, cheerful and euphoric the track is. The lower the value, the more sad, depressing and angry the track is.
-
-Show how the dataset looked in the end with a table!
 
 An interesting observation was that these high-level Spotify features did not immediately correlate with other suspected feature data. For instance, valence did not correlate particularly well with the mode of the tracks, as seen in the image below, something I anticipated.
 

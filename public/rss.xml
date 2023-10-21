@@ -9,12 +9,33 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 28 Aug 2023 18:26:43 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 21 Oct 2023 17:53:07 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 28 Aug 2023 18:26:43 GMT</pubDate>
+        <pubDate>Sat, 21 Oct 2023 17:53:07 GMT</pubDate>
+        <item>
+            <title><![CDATA[aleks.max - A Bundle of Max Abstractions for Audio, Video and Data Processing]]></title>
+            <description><![CDATA[aleks.max is my tiny library of self-contained Max code snippets. It's a continuous effort to clean up and publish some of my Max abstractions I believe can be useful to others.]]></description>
+            <link>http://localhost:3000/works/aleks-max</link>
+            <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
+            <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
+            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how to enrich data visualizations with model-based sonification in a browser using the p5js library.]]></description>
+            <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
+            <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[0101101000 ... (Hello World)]]></title>
+            <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
+            <link>http://localhost:3000/works/helloworld</link>
+            <guid isPermaLink="true">http://localhost:3000/works/helloworld</guid>
+            <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Using Python to Control Ableton Live With MIDI]]></title>
-            <description><![CDATA[While designing a new liveset for my band, I wrote some Python code to help me navigate Ableton Live more efficiently using very few midi controls. Here is what I did, and how.]]></description>
+            <description><![CDATA[While designing a new liveset, I wrote some mapping code to help me navigate Ableton Live's UI more efficiently using very few midi controls. Here is what I did, and how.]]></description>
             <link>http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</link>
             <guid isPermaLink="true">http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
@@ -27,53 +48,39 @@
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
-            <description><![CDATA[Thanks to modern browser tech and open-source creative coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some basic examples of how to enrich data visualizations with model-based sonification in a web browser using the p5js library.]]></description>
-            <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
-            <pubDate>Sun, 20 Aug 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Karwowski, Kann & Tidemann + Nordahl]]></title>
+            <description><![CDATA[An improvisational audio-visual quartet that offers thought-provoking and immersive concert experiences, combining guitar, vocals, live electronics, and projected visual art.]]></description>
+            <link>http://localhost:3000/works/karwowski-kann-tidemann</link>
+            <guid isPermaLink="true">http://localhost:3000/works/karwowski-kann-tidemann</guid>
+            <pubDate>Sat, 17 Dec 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[VideoAnalysis]]></title>
+            <title><![CDATA[AudioVideoAnalysis - A Standalone Tool for Realtime Analysis of Spectral Audio and Video]]></title>
+            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
+            <link>http://localhost:3000/works/audiovideoanalysis</link>
+            <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
+            <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[VideoAnalysis - A Standalone Tool for Analyzing Music-related Body Motion]]></title>
             <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
             <link>http://localhost:3000/works/videoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/videoanalysis</guid>
-            <pubDate>Tue, 01 Jan 2019 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[The Holy Mountain]]></title>
-            <description><![CDATA[A groundbreaking avant-garde pop trio that blends accordion, synthesizer, drums, and vocals to create hypnotic compositions.]]></description>
-            <link>http://localhost:3000/works/the-holy-mountain</link>
-            <guid isPermaLink="true">http://localhost:3000/works/the-holy-mountain</guid>
-            <pubDate>Tue, 01 Jan 2013 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Radio 9]]></title>
             <description><![CDATA[A krautrock electronic pop trio from Oslo that takes you on a sonic journey from subtle electronic atmospheres to jarring post-punk whiteouts.]]></description>
             <link>http://localhost:3000/works/radio9</link>
             <guid isPermaLink="true">http://localhost:3000/works/radio9</guid>
-            <pubDate>Wed, 01 Jan 2014 00:00:00 GMT</pubDate>
+            <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Karwowski, Kann & Tidemann + Nordahl]]></title>
-            <description><![CDATA[An improvisational audio-visual quartet that offers thought-provoking and immersive concert experiences, combining guitar, vocals, live electronics, and projected visual art.]]></description>
-            <link>http://localhost:3000/works/karwowski-kann-tidemann</link>
-            <guid isPermaLink="true">http://localhost:3000/works/karwowski-kann-tidemann</guid>
-            <pubDate>Thu, 01 Jan 2015 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[0101101000 ... (Hello World)]]></title>
-            <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
-            <link>http://localhost:3000/works/helloworld</link>
-            <guid isPermaLink="true">http://localhost:3000/works/helloworld</guid>
-            <pubDate>Sun, 01 Jan 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[AudioVideoAnalysis]]></title>
-            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
-            <link>http://localhost:3000/works/audiovideoanalysis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
-            <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
+            <title><![CDATA[The Holy Mountain]]></title>
+            <description><![CDATA[A groundbreaking avant-garde pop trio that blends accordion, synthesizer, drums, and vocals to create hypnotic compositions.]]></description>
+            <link>http://localhost:3000/works/the-holy-mountain</link>
+            <guid isPermaLink="true">http://localhost:3000/works/the-holy-mountain</guid>
+            <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

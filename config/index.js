@@ -44,7 +44,7 @@ export const KEYWORDS_2_COLOR = {
   software: "#3730a3", //indigo-800
   realtime: "#5b21b6", //violet-800
   nodejs: "#065f46", //emerald-800
-  dev: "#9f1239", //rose-800
+  synchronization: "#9f1239", //rose-800
   jitter: "#9d174d", //pink-800
   band: "#86198f", //fuchsia-800
   sculpture: "#92400e", //amber-800
@@ -54,15 +54,15 @@ export const KEYWORDS_2_COLOR = {
   drums: "#fee2e2", //red-100
   synth: "#f3e8ff", //purple-100
   accordion: "#fef9c3", //yellow-100
-  vocals: "#cffafe", //cyan-100
+  //vocals: "#cffafe", //cyan-100
   improvisation: "#ccfbf1", //teal-100
   installation: "#e0f2fe", //sky-100
-  guitar: "#ffedd5", //orange-100
+  //guitar: "#ffedd5", //orange-100
   visuals: "#e0e7ff", //indigo-100
   art: "#ede9fe", //violet-100
   rock: "#d1fae5", // emerald-100
   krautrock: "#ffe4e6", //rose-100
-  bass: "#fce7f3", //pink-100
+  //bass: "#fce7f3", //pink-100
   "machine-learning": "#fae8ff", //fuchsia-100
   tech: "#e879f9", // Fuschsia-400
   electronic: "#fef3c7", //amber-100

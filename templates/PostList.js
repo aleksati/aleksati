@@ -4,7 +4,7 @@ import Pagination from "../components/Pagination";
 const pageThresh = 5;
 
 const PostList = ({ frontMatter }) => (
-  <div className="grid grid-cols-1 gap-12">
+  <div className="grid grid-cols-1 gap-10">
     <Pagination data={frontMatter} threshold={pageThresh}>
       {(data) =>
         data.map((post) => (

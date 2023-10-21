@@ -11,6 +11,16 @@ import fs from "fs";
 
 const root = process.cwd();
 
+// sort by date
+function sortFrByDate(fr) {
+  const frSorted = fr.sort((a, b) => {
+    if (a.date > b.date) return 1;
+    if (a.date < b.date) return -1;
+    return 0;
+  });
+  return frSorted.reverse();
+}
+
 // gather all frontmatter data from mdx posts into correct format
 function getAllFr(postType = "posts") {
   const paths = path.join(root, postType);
@@ -38,7 +48,12 @@ const posts = getAllFr("posts");
 const projects = getAllFr("works");
 const allFr = posts.concat(projects);
 
-const fileContents = `export const frontMatterCache = ${JSON.stringify(allFr)}`;
+// sort by date
+const allFrSorted = sortFrByDate(allFr);
+
+const fileContents = `export const frontMatterCache = ${JSON.stringify(
+  allFrSorted
+)}`;
 
 // if the cache directory does not exist, create it
 try {
