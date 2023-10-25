@@ -10,7 +10,7 @@ const Meta = ({ title, keywords, description }) => {
         name="keywords"
         content={
           keywords ||
-          "music technology, music, video, analysis, visuals, art, drums, 5g, embedded systems, audio, sonification, software development, max, maxMSP, jitter, telenor, latency, research, opengl, network, 5g, networked music performances, live performance, ableton live, python, javascript, typescript, nextjs, p5js, nodejs, web, jacktrip, lola, sonobus, midi, motiongrams"
+          "music technology, music, video, analysis, visuals, art, drums, 5g, embedded systems, audio, sonification, software development, max, maxMSP, jitter, telenor, latency, research, opengl, network, 5g, networked music performances, live performance, ableton live, python, javascript, typescript, nextjs, p5js, nodejs, web, jacktrip, lola, sonobus, midi, motiongrams, kuramoto, synchronization, spectral"
         }
       />
       <meta

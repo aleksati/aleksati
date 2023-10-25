@@ -1,0 +1,49 @@
+# Improving Tempo Synchronization in Networked Music Performances with the Kuramoto Model
+
+In an era marked by the challenges of the COVID-19 pandemic, the need for better online communication tools has never been more critical. Among the various aspects of online interaction, Networked Music Performances (NMPs) stand out as a particularly complex domain. The chief adversary in achieving seamless NMPs is latency – the time delay often induced by factors like physical distance, subpar hardware/software peripherals and digital DSPs. Latency, in the context of music, has a profound impact on the perception of simultaneity in ensemble playing, disrupting the harmony and rhythm that musicians aim to achieve.
+
+To address this challenge, the field of music research has explored various strategies to enhance tempo and metronome accuracy, with promising results. These strategies, often small in scale and computationally efficient, have the potential to democratize the world of NMPs by extending the range of acceptable simultaneity in networked ensembles. A notable example is the global GPS metronome, a device that ensures near-perfect clock synchronization in NMPs, regardless of physical distance. Some have ventured into adaptive approaches, such as tempo-tracking and virtual conductors, which can dynamically adjust tempo in real-time to compensate for jitter, network drops, and other issues.
+
+However, there's a significant gap in research when it comes to adaptive metronome strategies designed specifically for NMPs with more than two clients. Additionally, limited exploration exists in the context of coupled networked nodes and how interconnectedness can improve NMP ensemble accuracy. In this blog post, we'll delve into an exciting research endeavor that seeks to bridge these gaps, utilizing the Kuramoto model as an adaptive metronome technique for networked music performances.
+
+# Chapter 1: The Kuramoto Model
+
+Synchronization, also known as entrainment, is a natural phenomenon wherein independent rhythmic processes harmonize their rhythms through weak interactions. This synchronization leads to the phases of oscillating entities becoming equal over time, and it occurs at a rate dictated by the strength of their interaction or coupling.
+
+The Kuramoto model, conceived by Yoshiki Kuramoto in the 1970s, offers a simple yet powerful mathematical framework for understanding synchronization in globally coupled non-linear oscillators. In this model, synchronization happens as the sine of the phase differences between all oscillating entities in the system. The degree of interaction, or coupling strength, is controlled by a parameter known as "k."
+
+One remarkable feature of the Kuramoto model is its ability to identify the critical coupling strength for any oscillator system – the precise point at which synchrony begins to emerge. While this model has found applications in various domains, including the study of interpersonal synchronization and musical sonification, its potential in enhancing tempo synchronization for musical ensembles remains relatively unexplored.
+
+# Chapter 2: Hypothesis
+
+The heart of this research lies in the adaptive mechanisms of the Kuramoto equation. A synchronized system of oscillators naturally endeavors to equalize or compensate for individual phase variations by deviating from perfect synchrony. This blog post offers a preliminary exploration into how we can harness these adaptive qualities as an innovative metronome strategy for NMPs. The goal is to assess whether the Kuramoto model can enhance tempo synchronization in larger NMP setups. By experimenting with different coupling strengths, this study also seeks to shed light on the relationship between coupling strength and synchronization accuracy.
+
+# Chapter 3: Software Design
+
+To put this hypothesis to the test, the research team developed a user-friendly, audio-rate implementation of the Kuramoto model using the Max8 programming environment. This software aimed to synchronize client oscillators with a server oscillator by adjusting phases, making use of the Kuramoto model.
+
+In this implementation, coupling constants were normalized between 0 and 1 and scaled to the audio sampling rate of the system, ensuring compatibility. The frequency component was removed from the equation, as all nodes used the same frequency to drive their metronomes. This design allowed for a direct relationship between oscillator phase and metronome audio playback, ensuring that metronomes remained isochronic in response to phase adjustments.
+
+# Chapter 4: Experiments
+
+The research comprised two experiments designed to isolate the effect of the Kuramoto model on tempo synchronization in multi-client NMPs. Both experiments were conducted in a virtual NMP environment with two clients and one server, interconnected in a star-like network topology. The software was configured to synchronize client oscillators to the server's oscillator using the Kuramoto model. Each experiment ran for 30 minutes, with controlled network jitter introduced to one of the clients at regular intervals.
+
+The key distinction between the two experiments lay in their coupling strategies. In the "coupled experiment," both clients were synchronized to the master by the same instance of the software Kuramoto model, effectively coupling the clients to each other. In the "de-coupled experiment," clients were synchronized to the master through unique instances of the software Kuramoto model, decoupling them from each other and serving as a control experiment.
+
+# Data Collection
+
+The experiments involved recording metronome ticks from each node in every iteration. The recorded tick sample positions were then located, and offsets were calculated. Data cleaning was performed, and the analysis focused on measuring the average distance between metronome ticks in milliseconds. The goal was to understand the average temporal distance between nodes over a longer duration, with lower values indicating better synchronization. Additionally, standard deviations were calculated to assess deviation dispersion and offset stability over time.
+
+# Chapter 5: Results
+
+The results are intriguing. In the coupled experiment, the average offset between both clients was less than in the de-coupled experiment. This indicates that when clients are coupled, unaffected nodes adapt to affected nodes, reducing the relative distance between them. The average distance between the affected client and the server was also lower in the coupled experiment. In total, using a coupled strategy led to a 65.64% reduction in the latency between the clients and a 13.85% reduction in latency between the affected client and the server.
+
+These results underscore the impact of coupling strength on synchronization. We observed that weaker coupling strengths tended to increase the average offset between clients, despite the optimal "k" value being 0.9. Lower coupling constants also increased the relative distance between all clients and the server, emphasizing the positive effects of stronger coupling strengths on synchronization accuracy.
+
+In some scenarios, a de-coupled strategy exhibited better synchronization accuracy when the coupling strength was below certain thresholds. This finding suggests that a de-coupled strategy might be more suitable for systems with lower coupling strengths.
+
+# Chapter 6: Concluding Thoughts
+
+The preliminary results are promising, indicating that the Kuramoto model possesses adaptive qualities that can reduce the relative temporal distance between nodes in unstable NMP scenarios. Additionally, the study suggests a potential link between the distance between coupled nodes and the most effective coupling strategy for tempo synchronization. However, further research is necessary to explore the role of ensemble size and coupling strengths in synchronization accuracy. This study provides a valuable step toward understanding the potential applications of the Kuramoto algorithm in digital musical synchronization.
+
+Ultimately, while the system presented in this research may not directly address the complexities of real-world network conditions, it offers a foundation for future exploration. The Kuramoto model, with its simplicity, low overhead, and scalability, could serve as a valuable component in existing strategies for tempo synchronization in NMPs. It could function as an automatic mechanism to compensate for drift and misalignment over time,

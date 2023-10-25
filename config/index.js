@@ -37,7 +37,7 @@ export const KEYWORDS_2_COLOR = {
   telenor: "#991b1b", // red-800
   latency: "#6b21a8", //purple-800
   telematic: "#854d0e", //yellow-800
-  music: "#155e75", //cyan-800
+  // music: "#155e75", //cyan-800
   p5js: "#115e59", // teal-800
   lola: "#075985", //sky-800
   osc: "#9a3412", //orange-800
@@ -54,19 +54,19 @@ export const KEYWORDS_2_COLOR = {
   drums: "#fee2e2", //red-100
   synth: "#f3e8ff", //purple-100
   accordion: "#fef9c3", //yellow-100
-  //vocals: "#cffafe", //cyan-100
+  kuramoto: "#cffafe", //cyan-100
   improvisation: "#ccfbf1", //teal-100
   installation: "#e0f2fe", //sky-100
-  //guitar: "#ffedd5", //orange-100
+  spectral: "#ffedd5", //orange-100
   visuals: "#e0e7ff", //indigo-100
   art: "#ede9fe", //violet-100
   rock: "#d1fae5", // emerald-100
-  krautrock: "#ffe4e6", //rose-100
+  // krautrock: "#ffe4e6", //rose-100
   //bass: "#fce7f3", //pink-100
   "machine-learning": "#fae8ff", //fuchsia-100
-  tech: "#e879f9", // Fuschsia-400
+  // tech: "#e879f9", // Fuschsia-400
   electronic: "#fef3c7", //amber-100
-  "open-source": "#dbeafe", //blue-100
+  // "open-source": "#dbeafe", //blue-100
   // "creative-computing": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
 };
