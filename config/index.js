@@ -61,7 +61,7 @@ export const KEYWORDS_2_COLOR = {
   visuals: "#e0e7ff", //indigo-100
   art: "#ede9fe", //violet-100
   rock: "#d1fae5", // emerald-100
-  // krautrock: "#ffe4e6", //rose-100
+  programming: "#ffe4e6", //rose-100
   //bass: "#fce7f3", //pink-100
   "machine-learning": "#fae8ff", //fuchsia-100
   // tech: "#e879f9", // Fuschsia-400
@@ -70,3 +70,5 @@ export const KEYWORDS_2_COLOR = {
   // "creative-computing": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
 };
+
+// programming

@@ -9,15 +9,21 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 21 Oct 2023 17:53:07 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Oct 2023 18:15:09 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 21 Oct 2023 17:53:07 GMT</pubDate>
+        <pubDate>Wed, 25 Oct 2023 18:15:09 GMT</pubDate>
         <item>
-            <title><![CDATA[aleks.max - A Bundle of Max Abstractions for Audio, Video and Data Processing]]></title>
-            <description><![CDATA[aleks.max is my tiny library of self-contained Max code snippets. It's a continuous effort to clean up and publish some of my Max abstractions I believe can be useful to others.]]></description>
+            <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
+            <description><![CDATA[aleks.max is my tiny library of Max abstractions for audio, video and data processing. It's an effort to clean up and publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Attempting to Sync Networked Music Performances with the Kuramoto Model]]></title>
+            <link>http://localhost:3000/posts/post</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/post</guid>
+            <pubDate>Tue, 10 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
@@ -27,7 +33,7 @@
             <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[0101101000 ... (Hello World)]]></title>
+            <title><![CDATA[0101101000 ... (hello world)]]></title>
             <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
             <link>http://localhost:3000/works/helloworld</link>
             <guid isPermaLink="true">http://localhost:3000/works/helloworld</guid>
@@ -43,8 +49,8 @@
         <item>
             <title><![CDATA[5G Networked Music Performances - Will It Work?]]></title>
             <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio experiments on 5G.]]></description>
-            <link>http://localhost:3000/posts/fiveg-networked-music-performances-will-it-work</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances-will-it-work</guid>
+            <link>http://localhost:3000/posts/fiveg-networked-music-performances</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances</guid>
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -55,14 +61,14 @@
             <pubDate>Sat, 17 Dec 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[AudioVideoAnalysis - A Standalone Tool for Realtime Analysis of Spectral Audio and Video]]></title>
+            <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
             <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
             <link>http://localhost:3000/works/audiovideoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[VideoAnalysis - A Standalone Tool for Analyzing Music-related Body Motion]]></title>
+            <title><![CDATA[VideoAnalysis - Analyzing Music-related Body Motion]]></title>
             <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
             <link>http://localhost:3000/works/videoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/videoanalysis</guid>
