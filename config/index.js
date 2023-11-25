@@ -65,9 +65,9 @@ export const KEYWORDS_2_COLOR = {
   //bass: "#fce7f3", //pink-100
   "machine-learning": "#fae8ff", //fuchsia-100
   // tech: "#e879f9", // Fuschsia-400
-  electronic: "#fef3c7", //amber-100
-  // "open-source": "#dbeafe", //blue-100
-  // "creative-computing": "#115e59", //teal-800
+  electronic: "#fef3c7", //amber-100 //
+  digital: "#dbeafe", //blue-100
+  flucoma: "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
 };
 

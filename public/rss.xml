@@ -9,21 +9,15 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 25 Oct 2023 18:15:09 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 25 Nov 2023 10:08:22 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 25 Oct 2023 18:15:09 GMT</pubDate>
+        <pubDate>Sat, 25 Nov 2023 10:08:22 GMT</pubDate>
         <item>
             <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
             <description><![CDATA[aleks.max is my tiny library of Max abstractions for audio, video and data processing. It's an effort to clean up and publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Attempting to Sync Networked Music Performances with the Kuramoto Model]]></title>
-            <link>http://localhost:3000/posts/post</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/post</guid>
-            <pubDate>Tue, 10 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
