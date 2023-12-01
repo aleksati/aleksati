@@ -19,7 +19,7 @@ keywords:
     "kuramoto",
   ]
 type: "work"
-summary: "aleks.max is my tiny library of Max abstractions for audio, video and data processing. It's an effort to clean up and publish some of my Max code that I believe can be useful to others."
+summary: "aleks.max is my small library of Max abstractions for audio, video and data processing. It's a continous effort to publish some of my Max code that I believe can be useful to others."
 ---
 
 Since 2011, I've been working with audio, video, and data processing through a visual programming language called MaxMSP (Max), a technology and software developed by Miller Puckett and currently being maintained by <MyLink href="">Cycling '74</MyLink>. I've solved a great deal of problems using Max, and, as a result, my work has generated a lot of unique patches, systems, and code snippets.
@@ -30,35 +30,14 @@ The source code is currently stored and maintained on my <MyLink href="https://g
 
 # Contents
 
-1. <MyLink href="#aleks.ksync">aleks.ksync</MyLink> - Synchronize oscillators with
-   the kuramoto model
-2. <MyLink href="#aleks.gl.spectral">aleks.gl.spectral</MyLink> - Realtime rendering
+1. <MyLink href="#aleks.gl.spectral">aleks.gl.spectral</MyLink> - Realtime rendering
    of motiongram with openGL
+2. <MyLink href="#aleks.ksync">aleks.ksync</MyLink> - Synchronize oscillators with
+   the kuramoto model
 3. <MyLink href="#aleks.multiplot.js">aleks.multiplot.js</MyLink> - Dynamic list
    plotting and visualization tool
 4. <MyLink href="#aleks.scaleui">aleks.scaleui</MyLink> - Automatically adjust window
    Zoom according to the window size
-
----
-
-# alek.ksync
-
-**Type:** Abstraction <br/>
-**Contributors:** <MyLink href="">Balint Laczko</MyLink>
-
-A multi-channel Max-native DSP abstraction for synchronizing n-number of oscillators (sine waves) using the Kuramoto model. The model describes the synchronization behavior of a system of interacting oscillators.
-
-Specify the number of oscillators as the object argument and define their states (on/off) and frequencies as mc.sig~ inputs. Toggle sine waves at arbitrary times and commence the synchronization process by providing a k-value (coupling constant) greater than 0. The higher this k-value, the quicker the synchronization process occurs.
-
-<MyImage
-  src="aleks-ksync.png"
-  alt="aleks.ksync object demonstration"
-  caption="Use aleks.ksync to synchronize oscillators with the kuramoto model."
-/>
-
-### Related Content
-
-Daniels, B. (2005). Synchronization of Globally Coupled Nonlinear Oscillators: The Rich Behavior of the Kuramoto Model. ResearchGate. https://www.researchgate.net/publication/251888882_Synchronization_of_Globally_Coupled_Nonlinear_Oscillators_the_Rich_Behavior_of_the_Kuramoto_Model
 
 ---
 
@@ -88,6 +67,27 @@ Jensenius, Alexander Refsum (2005). Developing Tools for Studying Musical Gestur
 <MyLink href="/works/AudioVideoAnalysis">
   AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video
 </MyLink>
+
+---
+
+# alek.ksync
+
+**Type:** Abstraction <br/>
+**Contributors:** <MyLink href="">Balint Laczko</MyLink>
+
+A multi-channel Max-native DSP abstraction for synchronizing n-number of oscillators (sine waves) using the Kuramoto model. The model describes the synchronization behavior of a system of interacting oscillators.
+
+Specify the number of oscillators as the object argument and define their states (on/off) and frequencies as mc.sig~ inputs. Toggle sine waves at arbitrary times and commence the synchronization process by providing a k-value (coupling constant) greater than 0. The higher this k-value, the quicker the synchronization process occurs.
+
+<MyImage
+  src="aleks-ksync.png"
+  alt="aleks.ksync object demonstration"
+  caption="Use aleks.ksync to couple and synchronize oscillators with the kuramoto model."
+/>
+
+### Related Content
+
+Daniels, B. (2005). Synchronization of Globally Coupled Nonlinear Oscillators: The Rich Behavior of the Kuramoto Model. ResearchGate. https://www.researchgate.net/publication/251888882_Synchronization_of_Globally_Coupled_Nonlinear_Oscillators_the_Rich_Behavior_of_the_Kuramoto_Model
 
 ---
 

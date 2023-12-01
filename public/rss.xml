@@ -9,12 +9,19 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 25 Nov 2023 10:08:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 01 Dec 2023 19:59:50 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 25 Nov 2023 10:08:22 GMT</pubDate>
+        <pubDate>Fri, 01 Dec 2023 19:59:50 GMT</pubDate>
+        <item>
+            <title><![CDATA[A Digital Symphonic Poem]]></title>
+            <description><![CDATA[Celebrating the 100th birthday of modernist composer György Ligeti, I designed a digital system to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing.]]></description>
+            <link>http://localhost:3000/works/digital-symphonic-poem</link>
+            <guid isPermaLink="true">http://localhost:3000/works/digital-symphonic-poem</guid>
+            <pubDate>Sat, 25 Nov 2023 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
-            <description><![CDATA[aleks.max is my tiny library of Max abstractions for audio, video and data processing. It's an effort to clean up and publish some of my Max code that I believe can be useful to others.]]></description>
+            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's a continous effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
@@ -29,8 +36,8 @@
         <item>
             <title><![CDATA[0101101000 ... (hello world)]]></title>
             <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
-            <link>http://localhost:3000/works/helloworld</link>
-            <guid isPermaLink="true">http://localhost:3000/works/helloworld</guid>
+            <link>http://localhost:3000/works/hello-world</link>
+            <guid isPermaLink="true">http://localhost:3000/works/hello-world</guid>
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>

@@ -23,20 +23,20 @@ summary: "Celebrating the 100th birthday of modernist composer György Ligeti, I
 
 !!BILDE!!
 
-Sometime in fall 2022, I found myself talking to a colleague and friend of mine, Dr.Peter Edwards, about modernist composer György Ligeti's upcoming 100-year birthday in 2023. Soon, we discovered that we had a mutual interest in his fantastic composition for 100 mechanical metronomes, called _Poème Symphonique_. As we started to talk about the prospect of setting up the piece, I was amazed to learn how expensive it is to buy 100 mechanical metronomes. Therefore, not surprisingly, our talk ended with us questioning whether it would be possible to digitally model the piece and the synchronization behavior that goes on between the metronomes on stage.
+Sometime in fall 2022, I found myself talking to my colleague and friend Dr.Peter Edwards about modernist composer György Ligeti's upcoming 100-year birthday in 2023. Soon, we discovered that we had a mutual interest in his fantastic composition for 100 mechanical metronomes, called _Poème Symphonique_. As we started to talk about the prospect of setting up the piece, I was amazed to learn how expensive it is to buy 100 mechanical metronomes. Therefore, not surprisingly, our talk ended with us questioning whether it would be possible to digitally model the piece and the synchronization behavior that goes on between the metronomes on stage.
 
-I found this idea so interesting that I spent a lot of time after my conversation with Peter researching algorithms and models that could produce this desired synchronization behavior in the digital realm. Eventually, my curiosity led me to design my own system that can perform a version of Poème Symphonique on demand, using some custom-built MaxMSP (Max) software together with state-of-the-art machine-learning tools for realtime audio processing.
+I found this so interesting that I spent a lot of time after my conversation with Peter researching algorithms and models for synchronizing oscillators in the digital audio realm. Eventually, my curiosity led me to design a system to perform a version of Poème Symphonique digitally. My system combines some custom-built MaxMSP (Max) software and state-of-the-art machine-learning tools for realtime audio processing.
 
-This post shares my process of creating a software version of Poème Symphonique, a Poème Symphonique Numérique. After some backstory, the post details the software development and the final execution of my project, ending with some concluding remarks and relevant articles.
+This post shares my process, describing some backstory and detailing the software development and execution of my digital version of Poème Symphonique, Un Poème Symphonique Numérique.
 
 # Content
 
-1. <MyLink href="#">Poème Symphonique</MyLink>
-2. <MyLink href="#">Synchronizing Sounds With The Kuramoto Model</MyLink>
-3. <MyLink href="#">Bringing The Kuramoto Model To Max</MyLink>
-4. <MyLink href="#">Building a Corpus Of Metronome Ticks</MyLink>
-5. <MyLink href="#">Un Poème Symphonique Numérique</MyLink>
-6. <MyLink href="#">References and Further Reading</MyLink>
+1. <MyLink href="#--">Poème Symphonique</MyLink>
+2. <MyLink href="#---">Synchronization With The Kuramoto Model</MyLink>
+3. <MyLink href="#----">Bringing The Kuramoto Model To Max</MyLink>
+4. <MyLink href="#-----">Building a Corpus Of Metronome Ticks</MyLink>
+5. <MyLink href="#------">Un Poème Symphonique Numérique</MyLink>
+6. <MyLink href="#-------">References and Further Reading</MyLink>
 
 ---
 
@@ -55,27 +55,23 @@ The unique thing about Poème Symphonique is the synchronization phenomenon that
 
 I think the piece says something important about our perception of music. It's also an interesting reminder of the fascinating properties of oscillations and rhythm in the natural world.
 
-Synchronizing Sounds With The Kuramoto Model
-
-# The Kuramoto Model And Its Use in Music Research
+# Synchronization With The Kuramoto Model
 
 Synchronization can be defined as an interaction between independent rhythmical processes. It's a natural process we observe everywhere, from the light pulses of large groups of fireflies to musical ensembles reaching a state of rhythmical unity. Technically speaking, the result of synchronization is a transition to phase equality (θ ≡ θ) for all oscillators in a system at a rate described by how much they are interacting/coupled.
 
-<MyImage src="digital-symphonic-poem-in-sync.png" height="100" />
+<MyImage src="digital-symphonic-poem-in-sync.png" />
 
 The <MyLink href="https://handwiki.org/wiki/Kuramoto_model">Kuramoto model</MyLink> is a simple and well-known mathematical framework for understanding synchronization in globally coupled non-linear oscillators, developed by Yoshiki Kuramoto in the 1970s. In simple terms, the model describes how groups of interacting oscillators synchronize, just like what we experience with Ligeti's metronomes and the fireflies. I was first introduced to this algorithm online through a great video by Matt Parker on <MyLink href="https://www.youtube.com/watch?v=J4PO7NbdKXg"> Syncronizing Metronomes in a Spreadsheet</MyLink>.
 
-In the governing Kuramoto equation, the phase (θ) of an oscillator is extracted by calculating the difference between it and all oscillators (_N_) in the system, then taking the sine of the result. Also, the fundamental frequency (ω) of the oscillator must be added. The strength of the interaction between the oscillators is determined by the coupling constant (_K_), a parameter that also controls the rate of synchronization.
+In the governing Kuramoto equation, seen below, the phase (θ) of an oscillator is extracted by calculating the sine of difference between all oscillators (_N_) in the system. The strength of the interaction between the oscillators is determined by the coupling constant (_K_), a parameter that also controls the rate of synchronization. Also, the fundamental frequency (ω) of the oscillator must be added.
 
-<MyImage
-  src="digital-symphonic-poem-kuramoto-model.png"
-  width="400"
-  caption="The governing Kuramoto equation"
-/>
+<MyImage src="digital-symphonic-poem-kuramoto-model.png" width="400" />
 
-Kuramoto-like models have had a significant impact on a variety of scientific fields, including music. A big part of this research revolvs around new complex forms of synthesis, studying how we can derive complex behavior from simple oscillator systems, experimenting with generative synthesis, sonification applications, and even waveshaping.
+## The Kuramoto Model in Music Reasearch
 
-Musical rythmn studies is another area of research where Kuramoto-like models have been put to use (of course). Here, the rhymic synchronization capabilities of the models are at the center. For instance, some of these studies experiment with new self-organizing rhythmical systems, while others seek to develop intelligent systems that can enable better musicking between humans and machines/robots. If you want to learn more about this topic, I made a reference list of relevant papers and articles at the bottom for your reading pleasure.
+Kuramoto-like models have had an impact on a variety of scientific fields, including music. A big part of music research with the Kuramoto model revolves around new complex forms of synthesis, studying how we can derive complex behavior from simple oscillator systems, experimenting with generative synthesis, sonification applications, and even waveshaping.
+
+Rythmn studies is another research area where Kuramoto-like models have been put to use (of course). Some of these studies have experimented with self-organizing rhythmical systems and intelligent systems that can enable better musicking between humans and machines/robots. If you want to learn more about this topic, I made a reference list of relevant papers and articles at the bottom for your reading pleasure.
 
 When designing software to perform Poème Symphonique, the Kuramoto Model seemed like a perfect place for me to start.
 
@@ -93,40 +89,40 @@ I decided to use MaxMSP (Max) as my primary programming environment for the proj
 
 5. Finally, to make the object more maintainable, the implementation should be 100% Max-native, meaning no third-party dependencies.
 
-When searching for similar Max implementations of the Kuramoto Model, I came across several candidates I could use for my project. Most notable was the <MyLink href="https://github.com/nolanlem/Kuroscillators">Kuroscillator objects</MyLink>, developed by Nolan Lem in Fause for Max. Although Nolan's implementation is elegant and supports both synthesis and rhythm synchronization(!), I could not use it for my project as it did not fulfill a necessary amount of my requirements. Instead, I had to build my own version.
-
-<MyImage src="aleks-ksync.png" />
-
-The result of my development process was [aleks.ksync], a multi-channel Max abstraction that fulfills all my requirements and i 100% Max-native.
-
-Cannot take full credit. got help av
-
-The object has 3 inputs, one for K-value, one for the oscillator states (on/off), and one for the oscillator frequencies. Once oscillators are toggled, the object outputs sine waves in the corresponding channel at the frequency described by the second inlet.
-
-To make the
-At the core of my implementation lies a
-to which all other oscillators phases are measured against. This gives me a referance.
-
-The kuramoto model is ..
-scale with sampling rate
-a closer look at the codebox will reveal.
-primary oscillator that creates offset seeds.
+When searching for similar Max implementations of the Kuramoto Model, I came across several candidates I could use for my project. Most notable was the <MyLink href="https://github.com/nolanlem/Kuroscillators">Kuroscillator objects</MyLink>, developed by Nolan Lem in Fause for Max. Although Nolan's implementation is elegant and supports both synthesis and rhythm synchronization(!), I could not use it for my project as it did not fulfill a necessary amount of my requirements. It was easier to build my own version.
 
 <MySlideshow
   imgs={[
+    "aleks-ksync.png",
     "digital-symphonic-poem-ksync-under-the-hood.png",
     "digital-symphonic-poem-ksync-node-diagram.png",
   ]}
   captions={[
-    "Under the hood of alek.ksync.",
-    "a diagram illustrating the mechanics of ksync_node mc.gen code, where the kuramoto model offset are calculated and added to each oscillator.",
+    "with alek.sync, you can couple and synchronize oscillators with the kuramoto model.",
+    "Under the hood of alek.ksync. The model is 100% Max-native and uses the mc.gen~ to handle the core audio processing.",
+    "Under the hood (overview) of the gen code (ksync_node) where I continously calculate the kuramoto model offsets to all incoming oscillators.",
   ]}
 />
 
-To produce sound, the sine-waves are
-sound production happens at the 0 crossing.
+As result, I developed a realtime audio object for Max (aleks.ksync) that can couple and synchronize any number of oscillators. The object fulfills all my performance requirements and has three inlets, one for a global K-value, one for the oscillator states (on/off), and one for oscillator frequencies. Once oscillators are toggled, the object outputs sine waves with the frequency described by the third inlet in the corresponding channel described by the second inlet. Simple.
+
+The most challenging part was to find elegant solutions to requirements 1 and 2. To implement my code in the multi-channel Max domain, I had trouble finding a dynamic way for each channel to access the current phase of every other channel, an important component of the Kuramoto equation. In the end, I sought guidance from a brilliant coder and friend of mine, Balint Lazcko. The solution he proposed used an external buffer that continuously collects all current oscillator phases. It was also difficult to handle the toggling requirement and manage oscillator groups that commence at different times with uneven phases. This created all kinds of headaches with toggle-to-output precision, handling unwanted delays, stopping procedures, bypassed states, etc. A key solution was to create a master clock oscillator inside my object to initialize all other oscillators, creating offset seeds in the process.
+
+Finally, being executed at audio rate, my Kuramoto model required some extra scaling and fine-tuning. In particular, I had to scale the coupling constant and natural frequencies down to get smooth performance. Here is an example:
+
+```C
+// inside [mc.gen~ ksync_node] codeblock
+// Scaling the k_value and n_freq to the current sampling rate resulted in smooth performance at audio rate
+k_value_scaled = (k_value / mc_channelcount) / samplerate; // (K) k_value is the current coupling constant
+n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natural frequency of each oscillator
+
+// ...
+
+```
 
 # Building a Corpus of Metronome Ticks
+
+My model outputs sine ways, I needed a way to turn this into audio.
 
 # Un Poème Symphonique Numérique
 
