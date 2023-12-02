@@ -108,11 +108,11 @@ As result, I developed a realtime audio object for Max (aleks.ksync) that can co
 
 The most challenging part was to find elegant solutions to requirements 1 and 2. To implement my code in the multi-channel Max domain, I had trouble finding a dynamic way for each channel to access the current phase of every other channel, an important component of the Kuramoto equation. In the end, I sought guidance from a brilliant coder and friend of mine, Balint Lazcko. The solution he proposed used an external buffer that continuously collects all current oscillator phases. It was also difficult to handle the toggling requirement and manage oscillator groups that commence at different times with uneven phases. This created all kinds of headaches with toggle-to-output precision, handling unwanted delays, stopping procedures, bypassed states, etc. A key solution was to create a master clock oscillator inside my object to initialize all other oscillators, creating offset seeds in the process.
 
-Finally, being executed at audio rate, my Kuramoto model required some extra scaling and fine-tuning. In particular, I had to scale the coupling constant and natural frequencies down to get smooth performance. Here is an example:
+Finally, my model required extra scaling and fine-tuning to compensate for being executed at audio rate. Specifically, I had to scale the coupling constant (k-value) and natural frequencies to the system sampling rate to get usable performance. Fortunately, you can access all kinds of system variables globally in the Max multi-channel gen~ environment, like the channel count, channel, and sampling rate.
 
 ```C
 // inside [mc.gen~ ksync_node] codeblock
-// Scaling the k_value and n_freq to the current sampling rate resulted in smooth performance at audio rate
+// Scaling the k_value and n_freq to the system sampling rate using global gen variables
 k_value_scaled = (k_value / mc_channelcount) / samplerate; // (K) k_value is the current coupling constant
 n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natural frequency of each oscillator
 
@@ -122,9 +122,28 @@ n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natura
 
 # Building a Corpus of Metronome Ticks
 
-My model outputs sine ways, I needed a way to turn this into audio.
+Since my Kuramoto model only produces sine waves, I needed a way to convert this into audible metronomes. For some time, I have been interested in machine-learning libraries for Max designed for realtime audio processing. In particular, I have been interested in libraries like SP-tools that give users the ability to build and explore corpora of sound, e.g. large banks/folders of audio samples, and much more.
+
+The first iteration of aleks.ksync comes with a simple system that plays an audio sample at every sine-wave zero-crossing. This playback mechanism is robust and imitates the metronome characteristic perfectly. However, considering I would need 100 metronomes for my projects, I decided to build several audio corpora and explore how I could incorporate clustering techniques to design an interesting audio playback system for my project.
+
+PICTURE..
+
+the sounds to be similar. not many different sounds.
+interact and toggle via a 2D matrix
+
+This is what I want to do...
+
+This is how I did it
+build a dataset of drum machine claps and claves
+first clustering..
+then
+then SP-tools to build a corpora (with audio example)
+Clustering... show the picture.
+(used gridmatch etc.)
 
 # Un Poème Symphonique Numérique
+
+Link to YouTube.
 
 # References and Further Reading
 
