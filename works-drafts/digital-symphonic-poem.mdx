@@ -1,25 +1,33 @@
 ---
-title: "A Digital Symphonic Poem"
+title: "A Digital Symphonic Poem (Un Poème Symphonique Numérique)"
 date: "2023-11-25"
 keywords:
   [
-    "kuramoto",
     "audio",
-    "programming",
     "art",
-    "max",
-    "software",
+    "installation",
+    "kuramoto",
     "synchronization",
+    "machine-learning",
+    "max",
+    "programming",
+    "software",
     "realtime",
     "mapping",
-    "machine-learning",
     "data",
     "digital",
-    "flucoma",
+    "sp-tools",
   ]
 type: "work"
-summary: "Celebrating the 100th birthday of modernist composer György Ligeti, I designed a digital system to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing."
+summary: "Celebrating the 100th birthday of modernist composer György Ligeti, I built some software to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing."
 ---
+
+TODO:
+
+- audio recording and video recording
+- front cover
+- adjust date
+- publish
 
 !!BILDE!!
 
@@ -31,12 +39,22 @@ This post shares my process, describing some backstory and detailing the softwar
 
 # Content
 
-1. <MyLink href="#--">Poème Symphonique</MyLink>
-2. <MyLink href="#---">Synchronization With The Kuramoto Model</MyLink>
-3. <MyLink href="#----">Bringing The Kuramoto Model To Max</MyLink>
-4. <MyLink href="#-----">Building a Corpus Of Metronome Ticks</MyLink>
-5. <MyLink href="#------">Un Poème Symphonique Numérique</MyLink>
-6. <MyLink href="#-------">References and Further Reading</MyLink>
+1. <MyLink href="#poème-symphonique">Poème Symphonique</MyLink>
+2. <MyLink href="#synchronization-with-the-kuramoto-model">
+     Synchronization With The Kuramoto Model
+   </MyLink>
+3. <MyLink href="#bringing-the-kuramoto-model-to-max">
+     Bringing The Kuramoto Model To Max
+   </MyLink>
+4. <MyLink href="#clustering-together-a-sound-engine">
+     Clustering Together A Sound Engine
+   </MyLink>
+5. <MyLink href="#un-poème-symphonique-numérique">
+     Un Poème Symphonique Numérique
+   </MyLink>
+6. <MyLink href="#references-and-further-reading">
+     References and Further Reading
+   </MyLink>
 
 ---
 
@@ -111,39 +129,54 @@ The most challenging part was to find elegant solutions to requirements 1 and 2.
 Finally, my model required extra scaling and fine-tuning to compensate for being executed at audio rate. Specifically, I had to scale the coupling constant (k-value) and natural frequencies to the system sampling rate to get usable performance. Fortunately, you can access all kinds of system variables globally in the Max multi-channel gen~ environment, like the channel count, channel, and sampling rate.
 
 ```C
-// inside [mc.gen~ ksync_node] codeblock
-// Scaling the k_value and n_freq to the system sampling rate using global gen variables
+///inside [mc.gen~ ksync_node] codeblock. Scaling the k_value and n_freq to the system sampling rate using global gen variables
 k_value_scaled = (k_value / mc_channelcount) / samplerate; // (K) k_value is the current coupling constant
 n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natural frequency of each oscillator
 
-// ...
-
 ```
 
-# Building a Corpus of Metronome Ticks
+# Clustering Together A Sound Engine
 
-Since my Kuramoto model only produces sine waves, I needed a way to convert this into audible metronomes. For some time, I have been interested in machine-learning libraries for Max designed for realtime audio processing. In particular, I have been interested in libraries like SP-tools that give users the ability to build and explore corpora of sound, e.g. large banks/folders of audio samples, and much more.
+Since the output of my Max object is only simple oscillators, I had to design a system to convert sines into audible metronomes. The first iteration of [aleks.ksync] came with a simple playback system that triggered audio samples at every sine-wave zero-crossing. This mechanism was perfectly reusable as it imitated the "tick"-characteristics of a metronome well. All I needed for my project was a clever way to decide what sound was played on what channel.
 
-The first iteration of aleks.ksync comes with a simple system that plays an audio sample at every sine-wave zero-crossing. This playback mechanism is robust and imitates the metronome characteristic perfectly. However, considering I would need 100 metronomes for my projects, I decided to build several audio corpora and explore how I could incorporate clustering techniques to design an interesting audio playback system for my project.
+For some time, I have been interested in machine-learning libraries for Max designed for audio. In particular, I've wanted to explore libraries like <MyLink href="https://github.com/rconstanzo/sp-tools">SP-tools</MyLink> that give users the ability to build corpora of sounds and process them in realtime. I decided to use SP-tools for my project to design an interesting sound engine that used clustering techniques on drum machine audio corpora.
 
-PICTURE..
+Similar to my Kuramoto model, I first established a few requirements for my sound engine.
 
-the sounds to be similar. not many different sounds.
-interact and toggle via a 2D matrix
+1. Every oscillator/metronome should have a unique sound.
+2. The sounds should all be similar or "of the same class". For instance, only clap sounds.
+3. It should be possible to interact with the metronomes via a 2D interface.
 
-This is what I want to do...
+I started with points nr.1 and 2, using the [sp.corpuscreate] object series to create two audio corpora of "short-sounding" clap and clave sounds from my large bank of drum machine sounds, each dataset with 100 samples.
 
-This is how I did it
-build a dataset of drum machine claps and claves
-first clustering..
-then
-then SP-tools to build a corpora (with audio example)
-Clustering... show the picture.
-(used gridmatch etc.)
+<MySlideshow
+  imgs={[
+    "digital-symphonic-poem-2d-trigger-space.png",
+    "digital-symphonic-poem-cluster-claps.png",
+    "digital-symphonic-poem-gridmatch.png",
+  ]}
+  captions={[
+    "Using the [matrixctl] object in Max, I could create a 2D visual interface to trigger on/off my 100 metronomes.",
+    "Results of my first clustering experiments with [sp.clustercreate], trying to extract 4 good clusters out of my 100 claps. It was difficult to get a decent spread of more than 3 clusters using this technique.",
+    "with [sp.gridmatch], I could cluster my data to fit a specifc 2D matrix shape and control playback using simple normalized XY coordinates.",
+  ]}
+/>
+
+It was important to me that the metronomes could be triggered (on/off) from a 2D surface and that this spatial distribution also affected the sound characteristics of the metronomes. This design would not only be visually optimal but would come with the bonus that the metronome's spatial affiliation was audible. But segmenting a bank of clave sounds into groups with similar sound characteristics without some kind of automatic clustering or classification algorithm is really hard. So, when I had my datasets ready, I began to explore SP-tools clustering techniques based on audio onset and MFCC analysis frames.
+
+The results of my first clustering experiments were not great, meaning the segmentation was only effective for 3 clusters or less. To satisfy my goal of a 2D trigger space, I would optimally need a cluster per corner (4 in total). However, by shifting my focus to use the [sp.gridmatch] object, I could arrange my clusters to fit a 2D surface specifically and use simple XY coordinates to control the audio playback. Perfect. With some fine-tuning, I was able to create a sound space I was happy with.
+
+Below is an audio example from my clave dataset. The audio represents clusters of samples located at each of the four corners of my 2D trigger space. Notice the sound texture differences.
+
+(with audio example)
+
+Now, all I had to do was to put everything together and create four different [aleks.ksync] Kuramoto objects so that I could couple the clustered metronomes together.
 
 # Un Poème Symphonique Numérique
 
 Link to YouTube.
+Set to different BPMs
+Groups of equal size.
 
 # References and Further Reading
 

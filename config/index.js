@@ -67,7 +67,7 @@ export const KEYWORDS_2_COLOR = {
   // tech: "#e879f9", // Fuschsia-400
   electronic: "#fef3c7", //amber-100 //
   digital: "#dbeafe", //blue-100
-  flucoma: "#115e59", //teal-800
+  "sp-tools": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
 };
 

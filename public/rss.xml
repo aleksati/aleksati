@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 02 Dec 2023 09:17:03 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 02 Dec 2023 18:05:32 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 02 Dec 2023 09:17:03 GMT</pubDate>
+        <pubDate>Sat, 02 Dec 2023 18:05:32 GMT</pubDate>
         <item>
             <title><![CDATA[A Digital Symphonic Poem]]></title>
             <description><![CDATA[Celebrating the 100th birthday of modernist composer György Ligeti, I designed a digital system to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing.]]></description>
