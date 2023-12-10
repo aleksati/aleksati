@@ -37,7 +37,7 @@ export const KEYWORDS_2_COLOR = {
   telenor: "#991b1b", // red-800
   latency: "#6b21a8", //purple-800
   telematic: "#854d0e", //yellow-800
-  // music: "#155e75", //cyan-800
+  jazz: "#155e75", //cyan-800
   p5js: "#115e59", // teal-800
   lola: "#075985", //sky-800
   osc: "#9a3412", //orange-800
@@ -48,7 +48,7 @@ export const KEYWORDS_2_COLOR = {
   jitter: "#9d174d", //pink-800
   band: "#86198f", //fuchsia-800
   sculpture: "#92400e", //amber-800
-  "avant-garde": "#292524", // stone-800
+  // vocals: "#292524", // stone-800
   // starting over !!
   pop: "#ecfccb", //lime-100
   drums: "#fee2e2", //red-100

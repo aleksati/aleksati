@@ -9,19 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 02 Dec 2023 18:05:32 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Dec 2023 09:55:39 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 02 Dec 2023 18:05:32 GMT</pubDate>
-        <item>
-            <title><![CDATA[A Digital Symphonic Poem]]></title>
-            <description><![CDATA[Celebrating the 100th birthday of modernist composer György Ligeti, I designed a digital system to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing.]]></description>
-            <link>http://localhost:3000/works/digital-symphonic-poem</link>
-            <guid isPermaLink="true">http://localhost:3000/works/digital-symphonic-poem</guid>
-            <pubDate>Sat, 25 Nov 2023 00:00:00 GMT</pubDate>
-        </item>
+        <pubDate>Tue, 05 Dec 2023 09:55:39 GMT</pubDate>
         <item>
             <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
-            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's a continous effort to publish some of my Max code that I believe can be useful to others.]]></description>
+            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
@@ -49,7 +42,7 @@
         </item>
         <item>
             <title><![CDATA[5G Networked Music Performances - Will It Work?]]></title>
-            <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio experiments on 5G.]]></description>
+            <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on 5G.]]></description>
             <link>http://localhost:3000/posts/fiveg-networked-music-performances</link>
             <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances</guid>
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
