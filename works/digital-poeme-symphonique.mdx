@@ -19,7 +19,7 @@ keywords:
     "sp-tools",
   ]
 type: "work"
-summary: "To celebrate the 100th birthday of modernist composer György Ligeti, I built some software to perform one of his most renowned pieces, Poème Symphonique for 100 metronomes, using MaxMSP and machine learning tools for realtime audio processing."
+summary: "To celebrate the 100th birthday of modernist composer György Ligeti, I challenged myself to recreate one of his most renowned pieces, Poème Symphonique for 100 metronomes, using Max software and some machine learning tools for realtime audio processing. This is how I did it."
 ---
 
 <MyImage
@@ -139,7 +139,7 @@ Similar to my Kuramoto model, I first established a few requirements for my soun
 3. It should be possible to toggle (on/off) the metronomes from a 2D matrix-like interface.
 4. The position of the metronomes on the 2D interface should be related to their sound characteristics (timbre).
 
-For some time, I have been interested in machine-learning libraries for Max designed for realtime audio. In particular, I've wanted to explore libraries like <MyLink href="https://github.com/rconstanzo/sp-tools">SP-tools</MyLink> that give users the ability to build corpora of sounds and process them in realtime. I decided to use SP-tools for my project to design an interesting sound engine that used clustering techniques on drum machine audio corpora. I started by hunting likable sounds, collecting two 100-sample datasets of clap and clave sounds from my large bank of drum machine sounds. After, used my datasets to create SP-tools audio corpora based on MFCC audio frames and filters for onset, RMS, and similar descriptors.
+For some time, I have been interested in machine-learning libraries for Max designed for realtime audio. In particular, I've wanted to explore libraries like <MyLink href="https://github.com/rconstanzo/sp-tools">SP-tools</MyLink> that give users the ability to build corpora of sounds and process them in realtime. I decided to use SP-tools for my project to design an interesting sound engine that used clustering techniques on drum machine audio corpora. I started by hunting likable sounds, collecting two 100-sample datasets of clap and clave sounds from my large bank of drum machine sounds. Then, I used my datasets to create audio corpora based on MFCC audio frames and filters for onset, RMS, and similar descriptor types.
 
 It was important for me to create a link between the visual location and audible timbre of the metronomes. For this, I needed a good audio clustering algorith. I decided to use sp.gridmatch, an object that finds the nearest match in a corpus based on a grid-ified XY space, using some nearest neighbor-like algorithm. With gridmatch, you can arrange clusters to fit a 2D surface specifically and use simple XY coordinates to control the audio playback. Perfect.
 
