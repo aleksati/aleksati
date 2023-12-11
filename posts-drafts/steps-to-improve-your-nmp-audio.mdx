@@ -1,40 +1,28 @@
 ---
-title: "Steps To Improve The Quality of Your Networked Audio Setup"
+title: "East Steps To Improve The Quality of Your Networked Audio Setup"
 date: "2023-12-9"
 keywords:
   [
-    "audio",
     "nmp",
-    "realtime",
+    "quality",
+    "analysis",
     "network",
+    "audio",
+    "realtime",
     "latency",
     "research",
     "telematic",
     "performance",
-    "quality",
-    "analysis",
   ]
 type: "post"
-summary: ""
+summary: "heyhey"
 ---
 
-The need for better online communication tools has never been more critical, especially after the COVID-19 pandemic. Among online interactions, Networked Music Performances (NMPs) stand out as a particularly challenging domain, with its significant demands for low latency and seamless audio-video transmission. In music, latency has a profound impact on the perception of simultaneity in ensemble playing, disrupting the synchronization that musicians aim to achieve.
+After the COVID-19 pandemic, there's been a surge of products that seek to facilitate better musical collaboration over the internet, offering everything from all-in-one hardware solutions, such as <MyLink href="https://www.elk.audio/live">Elk</MyLink> or <MyLink href="https://www.songpark.com/company">Songpark</MyLink>, to new software using tech like WebRTC and WebAssembly. What these products usually offer is better interfaces, slightly lower hardware latencies, modernized web integration, audio/video/network optimization options, and even compatibility with future networks like 5G.
 
-Software tools for communicating online is
+However, adequate tech is only one of many parts necessary to conduct successful networked music performances (NMP). Zooming out, NMPs require us to radically change our audio engineering game to accomodate a whole new musical environment. From my experience, the biggest challenges of NMPs are often overlooked and underrated issues, like chaotic and noisy signal chains, bad communication, ineffective troubleshooting, bad audio quality, and worse time management.
 
-more and more nmps
-
-many new technolofies fancy connection ... ut the signal flow and hardware setup
-
-Will not cover software solutions,
-
-Can be confusing because the audio engineering complexity is suddenly much higher.. all the considerations...
-
-noisy signals, bad communication, and bad audio quality, lossy signals
-
-Ive seen it many many times.
-
-I have some tips and step-by-step guide
+Currently, I lecture two master-level courses on NMP technologies at the University of Oslo and have helped organize over two dozen NMP events to date. **In this post, I try to draw from my experiences and provide some easy steps that can drastically improve the audio quality of your NMP setup**. The steps are intended as pointers that can help you better navigate the increased complexity that arises when audio engineering realtime networked multi-media communication. I will not cover different software solutions nor give a comprehensive overview of NMPs.
 
 # Content
 
@@ -47,23 +35,33 @@ I have some tips and step-by-step guide
 
 # Basic Setup Requirements
 
-To play music together over the network.. as set of minimum requirements.
+Lets say you and your buddy want to connect with a couple of remote friends over the internet to play a gig music together. What would a basic setup look like?
 
-Local mix, Send network mix, Receive network mix, Talkback.
+A good way to start gathering an equipment list is to think about the required signal chains first. In other words, how many seperate and individual stereo mixes do you need to manage on both sides?
 
-Can be confusing because..
+For your basic NMP with your friends, you probably need to manage a minimum of three stereo mixes per location. One main speakers mix, one monitor mix for the musician, and one network mix for sending local audio to the remote party.
 
-# Step 1 - First Connections
+This means you need a mixer with at least 6 stereo outputs, and where you can reserve an additional stereo input channel for a receiving network mix.
+
+And stereo mixes is not optimally, the monitor and network mixes should include a stereo channel per muscian for best control.
+
+Also, talkback.
+
+you need a mixer with at least 6 output channels. One monitor mix, one speakers mix, one network mix. Even this is short.
+
+# Step 1 - First Connections and Quality Assessment
 
 Use phone to com
 
 Connect .. use ping and other networking tools to troubleshoot and find each other.
 
+Firewalls, port forwarding, Server-client configuration.
+
 Use a simple tone-tone! to send back and forth. straight. Not through any mixers or anything.
 
 Straight into the DA.
 
-# Step 2 - Finding the Sweetspot
+# Step 2 - Adjustments To Find The Sweetspot
 
 Adjust software settings and buffer size until the audio quality is good.
 
@@ -77,6 +75,7 @@ When creating your Local and remote mix ..
 
 Loud at the source.. our goal is to minimize the
 
+Communication can be hard. Its more critical that you have the same gain strategy.
 Difficult as the network is often stereo. So if you want more piano from the remote side, but not guitar, you have to tell the engineer on the other side to change his send mix to your needs.
 
 Let room mics be room mics.

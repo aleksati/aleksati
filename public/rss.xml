@@ -9,9 +9,23 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 05 Dec 2023 09:55:39 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 10 Dec 2023 19:04:01 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 05 Dec 2023 09:55:39 GMT</pubDate>
+        <pubDate>Sun, 10 Dec 2023 19:04:01 GMT</pubDate>
+        <item>
+            <title><![CDATA[A Digital Poème Symphonique]]></title>
+            <description><![CDATA[To celebrate the 100th birthday of modernist composer György Ligeti, I challenged myself to recreate one of his most renowned pieces, Poème Symphonique for 100 metronomes, using Max software and some machine learning tools for realtime audio processing. This is how I did it.]]></description>
+            <link>http://localhost:3000/works/digital-poeme-symphonique</link>
+            <guid isPermaLink="true">http://localhost:3000/works/digital-poeme-symphonique</guid>
+            <pubDate>Fri, 08 Dec 2023 23:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Steps To Improve The Quality of Your Networked Audio Setup]]></title>
+            <description><![CDATA[heyhey]]></description>
+            <link>http://localhost:3000/posts/steps-to-improve-your-nmp-audio</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/steps-to-improve-your-nmp-audio</guid>
+            <pubDate>Fri, 08 Dec 2023 23:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others.]]></description>
@@ -77,7 +91,7 @@
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
-            <description><![CDATA[A groundbreaking avant-garde pop trio that blends accordion, synthesizer, drums, and vocals to create hypnotic compositions.]]></description>
+            <description><![CDATA[A groundbreaking trio from Oslo that moves between jazz, electronic synth music, alternative pop, and minimalism music. The Holy Mountain's sound combines accordion, vocals, synth and drums, to create unique and conceptual musical worlds.]]></description>
             <link>http://localhost:3000/works/the-holy-mountain</link>
             <guid isPermaLink="true">http://localhost:3000/works/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
