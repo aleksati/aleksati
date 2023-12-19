@@ -1,11 +1,12 @@
 ---
-title: "East Steps To Improve The Quality of Your Networked Audio Setup"
+title: "Improve the Quality and Workflow of your Networked Music Performances"
 date: "2023-12-9"
 keywords:
   [
     "nmp",
     "quality",
     "network",
+    "audio-engineering",
     "analysis",
     "audio",
     "realtime",
@@ -18,22 +19,21 @@ type: "post"
 summary: "heyhey"
 ---
 
-category : audio-engineering
+BILDE?
 
 After the COVID-19 pandemic, there's been a surge of products that seek to facilitate better musical collaboration over the internet, offering everything from all-in-one hardware solutions, such as <MyLink href="https://www.elk.audio/live">Elk</MyLink> or <MyLink href="https://www.songpark.com/company">Songpark</MyLink>, to new software using tech like WebRTC and WebAssembly. What these products usually offer is better interfaces, slightly lower hardware latencies, modernized web integration, audio/video/network optimization options, and even compatibility with future networks like 5G. However, adequate tech is only one of many parts necessary to conduct successful networked music performances (NMP). Zooming out, NMPs require us to radically change our audio engineering game to accomodate a whole new musical environment.
 
 Through my work as a lecturer and engineer at the University of Oslo, I have organize dozens of NMPs and telematic events since 2019. From my experience, the biggest challenges are often the overlooked and first underrated problems, like chaotic and noisy signal chains, bad communication, ineffective troubleshooting, bad audio quality, and worse time management.
 
-In this post, I focus on some core audio engineering challenges of networked music and provide some easy steps that can drastically improve the audio quality and workflow of your NMP setup. Even though these steps are meant as simple pointers, and are in no way comprehensive nor particularly thorough, I believe they can be helpful to navigate the complicated and often stressful environment of networked audio engineering.
+In this post, I focus on some core audio engineering challenges of networked music and provide some easy steps that can drastically improve the workflow and audio quality of your NMP setup. Even though these steps are meant as simple pointers, and are in no way comprehensive nor particularly thorough, I believe they can be helpful to navigate the complicated and often stressful environments of networked audio engineering.
 
-Disclaimer: I will not cover software options or realtime video?? transmission in this post. More on that later.
 
 # Content
 
 1. <MyLink href="">NMP Mixer Requirements</MyLink>
-1. <MyLink href=""></MyLink>
-1. <MyLink href=""></MyLink>
-1. <MyLink href=""></MyLink>
+2. <MyLink href="">Step 1 - First Contact</MyLink>
+3. <MyLink href="">Step 2 - How to Assess the Audio Quality</MyLink>
+4. <MyLink href="">Step 3 - Soundchecks And The Importance Of Gain staging</MyLink>
 
 ---
 
@@ -51,27 +51,23 @@ It can be helpful to think about the send mix as just another monitor mix becaus
   caption="As opposed to normal concerts, NMP audio engineers have to manage and incorporate at least two more mixes into their workflow, namely network sends and receives."
 />
 
-To meet the above mix requirements, each NMP location must have a mixer with at least six stereo output channels and plenty of bus capabilities. On the input side, it's important to reserve enough input channels and keep the received mix in mind from the start. You can quickly run out of channels in these scenarios.
+To meet the above mix requirements, each NMP location must have a mixer with at least six stereo output channels and plenty of bus capabilities. On the input side, it's important to reserve enough channels and keep the received mix in mind from the start. You can quickly run out of channels in these scenarios.
 
 But it's not always that we need to have audience members in both locations. In these cases, the remote and audience-less locations does not need to worry about a seperate PA mix.
 
-# Step 1 - First Connections and Quality Assessment
+# Step 1 - First Contact
 
-The first thing you should do when setting up for a NMP is to connect your machines over the network. For this, I recommend to just call the remote engineer on the phone for initial communication. The trick to this process is to go step-by-step, together in synchrony. If you don't move in synchrony, you can fail to troubleshoot simple issues because you do not have similar settings. Some common connection errors at this stage include firewall settings, restricted networks, network ports not forwarded/open, wrong ports and other IP configs, network privacy settings, etc.
+When setting up for a NMP, always make the network connection between your machines first. The trick to this process is to go step-by-step, together in synchrony. For this, I recommend communication over the phone. If you don't move in synchrony, you can fail to troubleshoot simple issues because you do not have similar settings. Some common connection errors at this stage include firewall settings, restricted networks, network ports not forwarded/open, wrong ports and other IP configs, network privacy settings, etc.
 
-Send and receive your network mixes from the mixers to your laptop/machine with a good audio interface (AD/DA).
+Connect your machine to the network and establish a connection with your remote parnters using the ping networking tools. With ping, you will ensure that the machines find each other on the network, meaning that most of the network settings are correct. This step will save you time troubleshooting later on, guaranteed.
 
-Start with ping networking tools before moving on to the audio software. Why? Becase
+DIAGRAM - laptop AD/DA and talkback and mixer network sends.
 
-When you have a successfull connection back and forth, setup a talkback channel in each direction.
-
-It will be beneficial if you can bypass the mixer for the talkback .. this
-
-helps to seperate concers and is more stable as its more direct.
-
-DIAGRAM
+After some successful pinging, move on to your audio transmission software and connect your network mixes and talkback channel to a decent audio interface (AD/DA). At this stage, be sure to place the talkback and network mixes on separate input channels on the AD/DA in parallel. This way, the talkback channel is not dependent on the mixer and concert system, making it more reliable when troubleshooting. For instance, if there is no sound from the instruments but the talkback still works, you know the issue is most likely in the mixer.
 
 # Step 2 - How to Assess the Audio Quality
+
+Before we do soundchecks. assess quality, check latency, bandwidth and all this kind of stuff.
 
 and test the quality of that connection using a simple middle hz sine-tone. can find it on youtube.
 Not through
@@ -84,7 +80,11 @@ Adjust software settings and buffer size until the audio quality is good.
 
 Here, also measure the latency if you want.
 
-# Step 3 - Propper Gain Staging
+This are the settings. 
+også si latency tests. 
+
+
+# Step 3 - Soundchecks And The Importance Of Gain staging
 
 Critically underrated and often underlooked.
 
