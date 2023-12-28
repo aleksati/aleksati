@@ -1,0 +1,118 @@
+---
+title: "Improve the Quality and Workflow of your Networked Audio Engineering"
+date: "2023-12-28"
+keywords:
+  [
+    "nmp",
+    "quality",
+    "network",
+    "audio-engineering",
+    "analysis",
+    "audio",
+    "realtime",
+    "latency",
+    "research",
+    "telematic",
+    "performance",
+  ]
+type: "post"
+summary: "Through my work at the University of Oslo, I have organized dozens of networked music performances since 2019. In my experience, the success of a telematic event is often determined by the technician's familiarity with networked audio engineering. In this post, I provide some steps to improve the technical workflow and quality of your NMPs."
+---
+
+After the COVID-19 pandemic, there's been a surge of products that seek to facilitate better musical collaboration over the internet, offering everything from all-in-one hardware solutions, such as <MyLink href="https://www.elk.audio/live">Elk</MyLink> or <MyLink href="https://www.songpark.com/company">Songpark</MyLink>, to new software using tech like <MyLink href="https://webrtc.org/">WebRTC</MyLink> and WebAssembly. What these products offer is usually better interfaces, slightly lower hardware latencies, modernized web integration, audio/video/network optimization options, and even compatibility with future networks like 5G. However, adequate tech is only one of many parts necessary to conduct successful networked music performances (NMP). Zooming out, NMPs require us to radically change our audio engineering game to accomodate a whole new musical environment.
+
+As a lecturer and engineer at the University of Oslo, Department of Musicology, I have organized a dozen NMPs since 2019. In my experience, the success of a telematic event is often determined by how well the technicians are familiar with networked audio engineering context. Although latency is the most significant factor, it's often attention to specific issues, like noisy signal chains, sub-par routing schemes, ineffective troubleshooting, bad communication, and time management, that separate good NMPs from great NMPs.
+
+In this post, I provide some steps and strategies to improve the technical workflow and quality of your NMPs. These simple pointers are in no way comprehensive, nor particularly thorough, but I believe they can help navigate the complicated and often stressful environments of networked audio engineering.
+
+# Content
+
+1. <MyLink href="#nmp-mixer-requirements">NMP Mixer Requirements</MyLink>
+2. <MyLink href="#first-contact-and-communication-setup">
+     First Contact and Communication Setup
+   </MyLink>
+3. <MyLink href="#fine-tuning-the-audio-to-suit-the-network">
+     Fine-tuning the Audio to Suit the Network
+   </MyLink>
+4. <MyLink href="#soundchecks-and-the-importance-of-gain-staging">
+     Soundchecks And The Importance Of Gain-staging
+   </MyLink>
+5. <MyLink href="#summary-and-references">Summary and References</MyLink>
+
+---
+
+# NMP Mixer Requirements
+
+The audio mixer is the central nervous system of a concert. NMPs are no different, but the mixer requirements for NMPs often differ those for normal concerts. With this in mind, it's important to plan ahead and esnure you have a suitable mixer for the gig. Let's map out the basic mixer requirements for a dual-audience NMP, where we expect an audience at both locations.
+
+A good way to start is to consider how many mixes the NMP needs. A _mix_ is the digital sum of a collection of instrument signals, where the relative levels (amongst other things) are set to fit some context. Audio engineers usually create mixes for two main categories; speakers (PA mix) and musician monitoring (monitor mixes). For dual-audience NMPs, we need to handle additional mixes, such as network sends and receives (network mixes).
+
+It can be helpful to think about the network send mixes as just another monitor mix. It's normal to create separate monitor mixes for every musician on stage. However, we might want to differentiate between monitor and network mixes on one key aspect. While monitor mixes are usually mono or stereo, it's beneficial to make network mixes as multi-channel as possible. The reason why will become clearer later on in the post.
+
+<MyImage
+  src="nmp-quality-mixer-req.png"
+  alt="diagram showing how many mixes a basic dual-audience NMP would need."
+  caption="As opposed to normal concerts, NMP audio engineers have to manage and incorporate more mixes into their workflow."
+/>
+
+So for our dual-audience NMP example, each location must have a mixer with at least six stereo output channels and plenty of bus capabilities. On the input side, it's important to reserve enough channels and keep the network receive mix in mind from the start. You can quickly run out of input channels in concert settings.
+
+But it's not always that we need to have audience members in both locations. In these cases, the remote and audience-less locations does not need to worry about a seperate PA mix.
+
+# First Contact and Communication Setup
+
+When setting up, always prioritze the network connection part first. For this, I recommend communication over the phone while configuring necessary network settings together, step-by-step, in synchrony. Some common conection errors at this stage include firewall settings, restricted networks, network ports not forwarded/open, wrong ports and other IP configs, network privacy settings, etc.
+
+To establish the connection, use the Ping networking tools first before moving on to the audio software. When the pinging in successful, you know that the machines find each other on the network, meaning that most of the network settings are correct.
+
+<MyImage
+  src="nmp-quality-laptop.png"
+  alt="diagram showing how to connect talkback, network mixes via an AD/DA to the network."
+  caption="Connect the talkback and network send channels in parallel through a good audio interface for a stable and effective communication system."
+/>
+
+After, move to the audio software and connect the talkback mic and network mixes to separate input channels on your AD/DA. This way, the talkback is not dependent on the mixer and concert system, making it more reliable and actually useful in troubleshooting scenarios. For instance, if there is no sound from the instruments but the talkback still works, you know the issue is most likely in the mixer. For best results, route the AD/DA outputs in a similar parallel fashion.
+
+# Fine-tuning the Audio to Suit the Network
+
+When setting up an NMP in a new venue, your gear might be the same as before, but the network conditions will always vary. Therefore, since network conditions directly affect audio fidelity, spend time after first contact to assess network performance and fine-tune the audio quality.
+
+The most efficient way to assess networked audio quality is by ear. Set up an experiment where you send a constant and stable reference signal across the NMP signal chain and get the other engineer to feed the network mix right back to you. Listen to the network mix through your speakers and adjust software and hardware parameters to reduce unwanted artifacts (glitches, dropouts) to achieve good-quality audio.
+
+For these experiments, it's best to use simple reference signals, such as mid-range sine-waves (around 400-1000hz), because unwanted audio artifacts are much more audible through simple signals than complex audio, such as voice or music.
+
+<MyImage
+  src="nmp-quality-quality-check.png"
+  alt="diagram showing how to send a reference signal through your entire NMP chain to monitor the audio (and network) quality."
+  caption="Send a reference signal through your entire NMP chain to monitor the audio (and network) quality."
+/>
+
+Increasing the size of the audio and network buffers will improve the quality of the audio, reducing glitches and dropouts. But buffering will add latency because the cueing process takes time. Similarly, using some compression can increase the signal stability but will reduce the quality and add latency. It's important to find a sweetspot here that caters to your specific needs.
+
+As a rule of thumb, it's usually possible to trade some audio latency for better quality in networked audio contexts (Fasciani, 2020). We can think about the relationship between latency, quality, and stability in NMP contexts as a triangle where each parameter occupies its own corner. Moving further toward one corner means sacrificing more from the other two.
+
+# Soundchecks And The Importance Of Gain-staging
+
+Maybe the most important aspect of networked audio engineering is gain-staging and attention to the signal-to-noise ratio (SNR). NMPs will have more gain stages and network layers than regular concerts, with added challenges related to coordinating audio mixing over the network. This means that NMPs are more prone to longer and more noisy audio signal chains.
+
+<MyImage
+  src="nmp-quality-gain-diagram.png"
+  alt="diagram showing how gaining signals with different incoming levels will result."
+  caption="Applying more gain to incoming signals where the levels are too low will not improve the SNR. Similarly, if the incoming signals are too hot, reducing the level/gain will not improve signal quality. Image courtesy of https://admiralbumblebee.com/."
+/>
+
+Generally, reducing gain stages to a minimum will improve the SNR of your signal chain. Gain instruments and mics close to the source and keep the levels high throughout the chain, adding effects at the very last stage. For instance, if the network receive mix level is low, always ask the remote engineer to boost the signal first before adding more gain to the chain. With this, we see that having identical hardware and software setups at both locations is a huge advantage.
+
+A good engineering strategy should also include a well-considered plan for microphone usage and their placements. I find that bad microphone management is often the root cause of noisy signal chains. In my experience, engineers often try to compensate for bad microphone usage with gain and effects. I strongly discourage this behavior. Let room mics be room mics and always return to the source if you are unhappy with your mic levels.
+
+# Summary
+
+Conducting high-quality NMPs is complicated, demanding a lot from audio engineers. In this post, I tried to highlight a few simple steps and strategies to improve the workflow and quality of NMP setups from an audio engineering perspective.
+
+In my experience, successful NMPs are often achieved by engineers planning ahead, having the correct hardware and software, and utilizing a step-by-step system approach. The key to success is to adopt a consistent communication and engineering strategy, from the start. When the signal paths are large and the mixes are many, it's hard to identify the root of bad-sounding mixes. And similar-sounding issues can have widely different causes. For instance, it's easy to misinterpret buffersize or bit-related settings to be the cause of a noisy signal instead of high gaining or bad gain-staging.
+
+A systematic and planned strategy will help guide the troubleshooting process and create an environment where **you** are in control. This will produce great-sounding concerts.
+
+## References
+
+Stefano Fasciani. (2020). _Network-Based Collaborative Music Making_. [Video]. YouTube. https://www.youtube.com/watch?v=GZCueJeg168

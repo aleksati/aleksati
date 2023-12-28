@@ -12,6 +12,7 @@ import fs from "fs";
 const root = process.cwd();
 
 // sort by date
+// SHOULD BE UPDATED, ONLY COMPARES STRINGS.
 function sortFrByDate(fr) {
   const frSorted = fr.sort((a, b) => {
     if (a.date > b.date) return 1;

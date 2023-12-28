@@ -9,25 +9,25 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 10 Dec 2023 19:04:01 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 28 Dec 2023 10:44:52 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 10 Dec 2023 19:04:01 GMT</pubDate>
+        <pubDate>Thu, 28 Dec 2023 10:44:52 GMT</pubDate>
         <item>
-            <title><![CDATA[A Digital Poème Symphonique]]></title>
-            <description><![CDATA[To celebrate the 100th birthday of modernist composer György Ligeti, I challenged myself to recreate one of his most renowned pieces, Poème Symphonique for 100 metronomes, using Max software and some machine learning tools for realtime audio processing. This is how I did it.]]></description>
-            <link>http://localhost:3000/works/digital-poeme-symphonique</link>
-            <guid isPermaLink="true">http://localhost:3000/works/digital-poeme-symphonique</guid>
+            <title><![CDATA[Software Poème Symphonique]]></title>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
+            <link>http://localhost:3000/works/software-poeme-symphonique</link>
+            <guid isPermaLink="true">http://localhost:3000/works/software-poeme-symphonique</guid>
             <pubDate>Fri, 08 Dec 2023 23:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Steps To Improve The Quality of Your Networked Audio Setup]]></title>
-            <description><![CDATA[heyhey]]></description>
-            <link>http://localhost:3000/posts/steps-to-improve-your-nmp-audio</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/steps-to-improve-your-nmp-audio</guid>
-            <pubDate>Fri, 08 Dec 2023 23:00:00 GMT</pubDate>
+            <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
+            <description><![CDATA[Through my work at the University of Oslo, I have organized dozens of networked music performances since 2019. In my experience, the success of a telematic event is often determined by the technician's familiarity with networked audio engineering. In this post, I provide some steps to improve the technical workflow and quality of your NMPs.]]></description>
+            <link>http://localhost:3000/posts/improve-your-networked-audio-engineering</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/improve-your-networked-audio-engineering</guid>
+            <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[aleks.max - A Tiny MaxMSP Bundle]]></title>
+            <title><![CDATA[aleks.max - a Tiny MaxMSP Bundle]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
@@ -48,15 +48,15 @@
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Using Python to Control Ableton Live With MIDI]]></title>
-            <description><![CDATA[While designing a new liveset, I wrote some mapping code to help me navigate Ableton Live's UI more efficiently using very few midi controls. Here is what I did, and how.]]></description>
+            <title><![CDATA[Using Python to Control Ableton Live with MIDI]]></title>
+            <description><![CDATA[While designing a new liveset, I wrote some code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did, and how.]]></description>
             <link>http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</link>
             <guid isPermaLink="true">http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[5G Networked Music Performances - Will It Work?]]></title>
-            <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on 5G.]]></description>
+            <title><![CDATA[5G Networked Music Performances - Will it Work?]]></title>
+            <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on private and commercial 5G networks.]]></description>
             <link>http://localhost:3000/posts/fiveg-networked-music-performances</link>
             <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances</guid>
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
