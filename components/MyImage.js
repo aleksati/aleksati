@@ -18,6 +18,7 @@ const MyImage = (props) => {
         <div className="relative">
           <Image
             {...imgProps}
+            alt={src}
             src={img}
             placeholder="blur"
             blurDataURL={placholder}
@@ -30,11 +31,11 @@ const MyImage = (props) => {
             onClick={handleImgClick}
             priority
           />
-          {isExpandable ? (
+          {/* {isExpandable ? (
             <div className="absolute rounded-sm top-0 bg-primary-light bg-opacity-50 right-0">
               <ButtonIcon iconId="expand" iconSize="text-sm" />
             </div>
-          ) : null}
+          ) : null} */}
         </div>
         {caption ? (
           <figcaption className="text-sm text-secondary dark:text-secondary-dark">

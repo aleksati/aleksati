@@ -7,9 +7,8 @@ import { useRouter } from "next/router";
 const LayoutPageMobile = forwardRef(({ pageId, children, className }, ref) => {
   const [showNavVertical, setShowNavVertical] = useState(false);
 
-  // when navigating between dynamic routes (through the search input),
-  // I need to force a re-render of this component to close the verical navbar.
-  // onmount does not fire, so I have to use useRouter()
+  // when navigating between dynamic routes (through the search input), I need to force a re-render of this component to close the verical navbar. onmount does not fire, so I have to use useRouter()
+
   const router = useRouter();
   const path = router.asPath;
   useEffect(() => {

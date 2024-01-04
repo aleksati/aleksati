@@ -33,7 +33,9 @@ const SoMeBar = ({ exclude = [], className }) => {
       {some.map((some) => {
         if (exclude.includes(some.key)) return;
         return (
-          <div key={some.key} className="hover:cursor-pointer">
+          <div
+            key={some.key}
+            className="hover:cursor-pointer text-secondary opacity-40 hover:opacity-80">
             <a role="link" href={some.url} aria-label={some.key}>
               <Icon id={some.key} iconSize={"text-xl"} />
             </a>

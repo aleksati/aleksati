@@ -23,6 +23,7 @@ const ButtonScrollTo = ({ targetId, parentRef }) => {
     return () =>
       window.removeEventListener("scroll", detectParentInFullViewPort);
   }, [detectParentInFullViewPort]);
+
   // isTouch && isVisible
   if (isVisible) {
     return (

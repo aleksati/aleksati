@@ -59,9 +59,10 @@ module.exports = {
       },
       colors: {
         // text colors
+        // secondary: "#94a3b8",
         "primary-light": "#000",
         "primary-dark": "#fff",
-        secondary: "#94a3b8",
+        secondary: "#8b949e",
         "secondary-dark": "#6b7280",
       },
     },
