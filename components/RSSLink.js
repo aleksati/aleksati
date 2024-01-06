@@ -2,12 +2,14 @@ import Link from "next/link";
 import Icon from "./Icon";
 
 const RSSLink = () => (
-  <Link href="/rss.xml">
-    <div className="flex space-x-1 items-center text-sm">
-      <p>rss</p>
-      <Icon id="rss" iconSize="sm" />
-    </div>
-  </Link>
+  <div>
+    <Link href="/rss.xml">
+      <div className="flex space-x-1 items-center">
+        <Icon id="rss" iconSize="sm" />
+        <p>rss</p>
+      </div>
+    </Link>
+  </div>
 );
 
 export default RSSLink;

@@ -1,5 +1,6 @@
 import MyImage from "../components/MyImage";
 import SoMeBar from "../components/SoMeBar";
+import MyLink from "../components/MyLink";
 
 const About = () => (
   <div className="pb-10">
@@ -43,8 +44,8 @@ const About = () => (
         music producer.
       </p>
       <p>
-        To stay updated on my posts, subscribe to my RSS feed from the bottom of
-        the menubar.
+        To stay updated on my posts, subscribe to my{" "}
+        <MyLink href="/rss.xml">rss feed</MyLink>.
       </p>
     </div>
   </div>

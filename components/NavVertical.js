@@ -15,27 +15,26 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
 
   return (
     <div
-      className={`z-50 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark space-y-12 ${
+      className={`z-40 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>
-      <div className="w-56 fixed z-20">
-        <div className="flex justify-between items-start">
-          {/* <div className="flex"> */}
-          <Link href="/" className="font-bold">
-            aleksati.net
-          </Link>
-          <ButtonTheme />
+      <div className="w-56 fixed mt-2">
+        <div className="flex-col space-y-6">
+          <div className="flex flex-col">
+            <div className="flex justify-between items-start">
+              <Link href="/" className="font-bold">
+                aleksati.net
+              </Link>
+              <ButtonTheme />
+            </div>
+          </div>
+          <Search />
+          <div className="flex flex-col pt-14 space-y-4">
+            <NavVerticalTabs />
+            <RSSLink />
+          </div>
         </div>
-      </div>
-      <div className="fixed z-10">
-        <Search />
-      </div>
-      <div className="fixed pt-14">
-        <NavVerticalTabs />
-      </div>
-      <div className="fixed bottom-4">
-        <RSSLink />
       </div>
     </div>
   );
