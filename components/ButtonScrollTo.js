@@ -2,16 +2,16 @@ import { useCallback, useEffect, useState } from "react";
 // import isTouchDevice from "../functions/isTouchDevice";
 import ButtonIcon from "./ButtonIcon";
 
-const ButtonScrollTo = ({ targetId, parentRef }) => {
+const ButtonScrollTo = ({ targetId, pageTopRef }) => {
   const [isVisible, setIsVisible] = useState(false);
   // const isTouch = isTouchDevice();
 
   const detectParentInFullViewPort = useCallback(() => {
-    if (parentRef.current) {
-      const height = Math.floor(parentRef.current.getBoundingClientRect().y);
+    if (pageTopRef.current) {
+      const height = Math.floor(pageTopRef.current.getBoundingClientRect().y);
       setIsVisible(height < 0 ? true : false);
     }
-  }, [parentRef]);
+  }, [pageTopRef]);
 
   const handleClick = () => {
     document.getElementById(targetId).scrollIntoView({

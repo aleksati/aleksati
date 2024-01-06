@@ -15,7 +15,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
 
   return (
     <div
-      className={`z-40 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark ${
+      className={`z-50 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark ${
         showNavTop ? "fixed" : "flex-none"
       } w-64 p-4`}
       ref={ref}>

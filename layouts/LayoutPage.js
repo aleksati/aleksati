@@ -1,3 +1,4 @@
+import ButtonScrollTo from "../components/ButtonScrollTo";
 import { useIsMounted } from "../hooks/useIsMounted";
 import LayoutPageDesktop from "./LayoutPageDesktop";
 import useWindowSize from "../hooks/useWindowSize";
@@ -17,7 +18,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   return (
     <>
       <Meta {...pageMeta} />
-      <div className="min-h-screen max-w-6xl flex">
+      <div className="min-h-screen max-w-6xl flex relative">
         {width < widthTresh ? (
           <LayoutPageMobile
             pageId={pageId}
@@ -33,6 +34,11 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
             {children}
           </LayoutPageDesktop>
         )}
+        <div className="absolute right-10">
+          <div className="fixed bottom-4">
+            <ButtonScrollTo targetId={pageId} pageTopRef={pageTopRef} />
+          </div>
+        </div>
       </div>
     </>
   );

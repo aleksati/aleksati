@@ -6,7 +6,10 @@ export default function handler({ latestFrontMatter, keywords }) {
   return (
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
-      <PostListSmall frontMatter={latestFrontMatter} />
+      <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
+        <h1 className="font-bold text-2xl mb-4">Latest</h1>
+        <PostListSmall frontMatter={latestFrontMatter} />
+      </div>
     </LayoutPage>
   );
 }

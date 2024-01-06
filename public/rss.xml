@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 06 Jan 2024 10:01:44 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 06 Jan 2024 15:45:42 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 06 Jan 2024 10:01:44 GMT</pubDate>
+        <pubDate>Sat, 06 Jan 2024 15:45:42 GMT</pubDate>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
             <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is quite different from the usual concert tech. In this post, I provide some steps and strategies that can improve the quality and workflow of your networked audio engineering practice.]]></description>
@@ -91,7 +91,7 @@
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
-            <description><![CDATA[A groundbreaking trio from Oslo that moves between jazz, electronic synth music, alternative pop, and minimalism music. The Holy Mountain's sound combines accordion, vocals, synth and drums, to create unique and conceptual musical worlds.]]></description>
+            <description><![CDATA[A genre-defying trio from Oslo, Norway, that moves between jazz, electronic synth music, alternative pop, and minimalism. The Holy Mountain's sound combines accordion, vocals, synth and drums to create unique and conceptual music.]]></description>
             <link>http://localhost:3000/works/the-holy-mountain</link>
             <guid isPermaLink="true">http://localhost:3000/works/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>

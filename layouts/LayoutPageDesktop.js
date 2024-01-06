@@ -11,9 +11,6 @@ const LayoutPageDesktop = forwardRef(({ pageId, children, className }, ref) => (
       ref={ref}>
       {children}
     </div>
-    <div className="fixed right-4 bottom-4">
-      <ButtonScrollTo targetId={pageId} parentRef={ref} />
-    </div>
   </>
 ));
 
