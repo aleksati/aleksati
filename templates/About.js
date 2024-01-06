@@ -28,20 +28,20 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a drummer and music technologist from Kongsberg, Norway. Curious
-        about all things science and passionate about art, exercising, my
-        partner and our cat. This site is part portfolio and part blog, a
-        platform where I share my music tech projects and write about creative
-        computing/software stuff that might interest you.
+        I am a music technologist audio developer from Kongsberg, Norway,
+        curious about all things science and passionate about art, exercising,
+        my partner and our cat. This site is part portfolio and part blog, a
+        platform where I share some of my projects and write about creative
+        computing stuff.
       </p>
       <p>
         Currently, I work as a Department Engineer for the Musicology Department
         (IMV) at the University of Oslo (UiO). At IMV I also lecture and
         coordinate two courses on Networked Music Performance Technologies
-        (MCT4024 and MCT4025) for the MCT masters programme. On the more
-        artistic side, I play drums and live electronics for several Oslo-based
-        acts and have years of experience as a session musician, improviser, and
-        music producer.
+        (MCT4024 and MCT4025) for the MCT masters programme. On the artistic
+        side, I play drums and live electronics for several Oslo-based acts and
+        have years of experience as an audio programmer and creative software
+        developer.
       </p>
       <p>
         To stay updated on my posts, subscribe to my{" "}
