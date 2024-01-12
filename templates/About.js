@@ -30,9 +30,9 @@ const About = () => (
       <p>
         I am a music technologist audio developer from Kongsberg, Norway,
         curious about all things science and passionate about art, exercising,
-        my partner and our cat. This site is part portfolio and part blog, a
-        platform where I share some of my projects and write about creative
-        computing stuff.
+        my partner and our cat. This website is part portfolio and part blog, a
+        platform where I share details of my projects and write about other
+        creative computing stuff.
       </p>
       <p>
         Currently, I work as a Department Engineer for the Musicology Department
