@@ -1,5 +1,6 @@
 # aleksati net
-My homepage
+
+This website is part portfolio and part blog, a platform where I share details of my projects and write about other creative computing stuff.
 
 # Run
 
