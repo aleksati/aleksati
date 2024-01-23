@@ -1,7 +1,7 @@
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
 
-const ButtonTheme = ({ tabOrder, iconSize }) => {
+const ButtonTheme = () => {
   const { currTheme, setTheme } = getCurrTheme();
 
   const handleClick = () =>
@@ -10,7 +10,6 @@ const ButtonTheme = ({ tabOrder, iconSize }) => {
   return (
     <ButtonIcon
       iconId={currTheme === "dark" ? "sun" : "moon"}
-      label="Toggle light or dark theme"
       onClick={handleClick}
       iconSize={"text-lg"}
     />

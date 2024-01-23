@@ -6,7 +6,7 @@ interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
 }
 
 // Ref type
-export type Ref = HTMLButtonElement;
+type Ref = HTMLButtonElement;
 
 export const Button = forwardRef<Ref, ButtonProps>(
   ({ specialClassName, children, ...rest }, ref) => (

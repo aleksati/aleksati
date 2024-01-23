@@ -6,12 +6,12 @@ import LayoutPageMobile from "./LayoutPageMobile";
 import Meta from "../components/Meta";
 import { useRef } from "react";
 
-const widthTresh = 768; // tailwind md = 768;
+const widthTresh: number = 768; // tailwind md = 768;
 
 const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
   const [isMounted, setIsMounted] = useIsMounted();
   const { width } = useWindowSize();
-  const pageTopRef = useRef();
+  const pageTopRef = useRef<HTMLDivElement>(null);
 
   if (!isMounted) return null;
 
@@ -36,7 +36,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
         )}
         <div className="absolute right-10">
           <div className="fixed bottom-4">
-            <ButtonScrollTo targetId={pageId} pageTopRef={pageTopRef} />
+            <ButtonScrollTo targetId={pageId} PageTopRef={pageTopRef} />
           </div>
         </div>
       </div>
