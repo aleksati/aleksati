@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 21 Jan 2024 11:41:04 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Jan 2024 17:56:51 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 21 Jan 2024 11:41:04 GMT</pubDate>
+        <pubDate>Mon, 22 Jan 2024 17:56:51 GMT</pubDate>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
             <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is quite different from the usual concert tech. In this post, I share some steps and strategies that can improve the quality and workflow of your networked audio engineering practice.]]></description>
@@ -70,7 +70,7 @@
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
-            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
+            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for realtime OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
             <link>http://localhost:3000/works/audiovideoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>

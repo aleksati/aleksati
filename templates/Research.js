@@ -10,6 +10,7 @@ const Research = () => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
+  // fetch reseach data client side.
   useEffect(() => {
     const fetchCristindata = async () => {
       setLoading(true);
