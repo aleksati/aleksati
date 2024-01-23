@@ -4,7 +4,7 @@ import ButtonIcon from "./ButtonIcon";
 
 type Props = {
   targetId: string;
-  // apparently, to pass the ref as a prop, I need to Type it as mutableRefOject
+  // apparently, to pass the useRef as a simple prop, I need to Type it as mutableRefOject to access the current
   PageTopRef: React.MutableRefObject<HTMLDivElement>;
 };
 

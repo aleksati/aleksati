@@ -6,8 +6,13 @@ import Search from "./Search";
 import Link from "next/link";
 import RSSLink from "./RSSLink";
 
-const NavVertical = ({ showNavTop, onToggleNavVertical }) => {
-  const [ref, isClickOutside] = useClickOutside();
+type Props = {
+  showNavTop: Boolean;
+  onToggleNavVertical?: () => void;
+};
+
+const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
+  const [ref, isClickOutside] = useClickOutside<HTMLDivElement>();
 
   useEffect(() => {
     if (isClickOutside && showNavTop) onToggleNavVertical();

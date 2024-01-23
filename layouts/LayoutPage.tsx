@@ -3,12 +3,25 @@ import { useIsMounted } from "../hooks/useIsMounted";
 import LayoutPageDesktop from "./LayoutPageDesktop";
 import useWindowSize from "../hooks/useWindowSize";
 import LayoutPageMobile from "./LayoutPageMobile";
+import { MetaProps } from "../components/Meta";
 import Meta from "../components/Meta";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const widthTresh: number = 768; // tailwind md = 768;
 
-const LayoutPage = ({ pageId = "top", children, className, pageMeta }) => {
+type Props = {
+  pageId: string;
+  children: React.ReactNode;
+  className: string;
+  pageMeta: MetaProps;
+};
+
+const LayoutPage = ({
+  pageId = "top",
+  children,
+  className,
+  pageMeta,
+}: Props) => {
   const [isMounted, setIsMounted] = useIsMounted();
   const { width } = useWindowSize();
   const pageTopRef = useRef<HTMLDivElement>(null);
