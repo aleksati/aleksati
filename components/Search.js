@@ -68,7 +68,7 @@ const Search = () => {
   return (
     <div className="flex z-50 flex-col w-56 absolute" ref={ref}>
       <input
-        className="border-gray-200 dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
+        className="border-gray-200 text-base dark:border-gray-800 bg-primary-light dark:bg-primary-dark rounded-sm h-8"
         placeholder="search"
         id="search"
         type="search"

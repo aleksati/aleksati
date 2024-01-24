@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 // takes a 2d list of items, like this:
 // [["col1","col1","col1"]["col2","col2","col3"]]
 
-const rowMap = {
+const rowMap: Record<number, string> = {
   1: "md:grid-rows-1",
   2: "md:grid-rows-2",
   3: "md:grid-rows-3",
@@ -29,13 +29,21 @@ const rowMap = {
   21: "md:grid-rows-21",
 };
 
-const MyTable = ({ cols, headings = "horizontal" }) => {
-  const [numbRows, setNumbRows] = useState(null);
-  const [items1d, setItems1d] = useState(null);
+type MyTableProps = {
+  cols: string[][];
+  headings: string;
+};
+
+const MyTable = ({
+  cols,
+  headings = "horizontal",
+}: MyTableProps): React.JSX.Element => {
+  const [numbRows, setNumbRows] = useState<number>();
+  const [items1d, setItems1d] = useState<string[]>();
 
   // if a column is missing items, w respect to the largest column, add ""  as fillers
-  const handleUnfinishedColumns = (cols, largestCol) => {
-    const newCols = cols.map((col) => {
+  const handleUnfinishedColumns = (cols: string[][], largestCol: number) => {
+    const newCols: string[][] = cols.map((col) => {
       while (col.length !== largestCol) {
         col.push("");
       }
@@ -46,10 +54,9 @@ const MyTable = ({ cols, headings = "horizontal" }) => {
 
   useEffect(() => {
     // find the largest row and number of columns (lists)
-    const largestCol = Math.max(...cols.map((col) => col.length));
+    const largestCol: number = Math.max(...cols.map((col) => col.length));
     setNumbRows(largestCol);
-
-    const newCols = handleUnfinishedColumns(cols, largestCol);
+    const newCols: string[][] = handleUnfinishedColumns(cols, largestCol);
     setItems1d([].concat(...newCols));
   }, [cols]);
 

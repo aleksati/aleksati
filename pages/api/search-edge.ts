@@ -30,6 +30,7 @@ export default async function handler(req: NextRequest) {
     );
 
     // then segments of titles
+    // this should be included, even if the first one has elements..
     if (!results.length) {
       results = frontMatterCache.filter((fr) =>
         query_array.every((q) =>

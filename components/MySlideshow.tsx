@@ -12,7 +12,7 @@ const indicators = () => (
     className="w-2 h-2 mx-0.5 -mt-4 bg-secondary rounded-full"></button>
 );
 
-const properties = {
+const properties: object = {
   autoplay: false,
   canSwipe: true,
   indicators: true,
@@ -37,7 +37,9 @@ const properties = {
 
 type Props = {
   imgs: string[];
-  captions: string[];
+  width?: number | null;
+  captions?: string[];
+  priority?: boolean;
 };
 
 const MySlideshow = ({
@@ -45,29 +47,29 @@ const MySlideshow = ({
   captions = [],
   width = null,
   priority = false,
-}) => {
-  const w = width ? `w-[${width}px]` : null;
+}: Props) => {
+  const w: string | null = width ? `w-[${width}px]` : null;
   return (
     <div aria-label="slideshow container" className={w}>
       {imgs.length > 1 ? (
         <Slide {...properties} indicators={indicators}>
           {imgs.map((slug, index) => (
             <MyImage
+              key={slug}
               src={slug}
               priority={priority}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
               width={width ? width : null}
-              key={slug}
             />
           ))}
         </Slide>
       ) : (
         <MyImage
-          priority={priority}
           src={imgs[0]}
-          alt={`slideshow image of ${imgs[0]}`}
+          priority={priority}
           width={width ? width : null}
+          alt={`slideshow image of ${imgs[0]}`}
         />
       )}
     </div>
