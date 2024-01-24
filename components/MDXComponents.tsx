@@ -10,8 +10,18 @@ import P5SonifyPlot from "./P5SonifyPlot";
 import P5SonifyPlotAmpMod from "./P5SonifyPlotAmpMod";
 import P5SonicOrbs from "./P5SonicOrbs";
 // import P5NoiseDrum from "./P5NoiseDrum";
+import React from "react";
 
-const MDXComponents = {
+interface TextProps<T> {
+  children: string;
+  object: T;
+}
+
+type MDXProps = {
+  [key: string]: (props: any) => React.JSX.Element;
+};
+
+const MDXComponents: MDXProps = {
   MyImage,
   MyLink,
   MyCode,
@@ -24,41 +34,55 @@ const MDXComponents = {
   P5SonifyPlot,
   P5SonifyPlotAmpMod,
   P5SonicOrbs,
-  pre: (props) => <MyCode {...props} />,
-  h1: (props) => {
+  pre: (props: any) => <MyCode {...props} />,
+  h1: ({
+    children,
+    ...h1Props
+  }: TextProps<React.ComponentPropsWithoutRef<"h1">>) => {
     // take the title and convert all spaces to "-" and text to lowercase.
     // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const { children, ...h1Props } = props;
-    const childID = children.toLowerCase().split(" ").join("-");
+    const childID: string = children.toLowerCase().split(" ").join("-");
+
     return (
       <h1 id={childID} className="font-bold pt-4 text-2xl mb-2" {...h1Props}>
-        {props.children}
+        {children}
       </h1>
     );
   },
-  h2: (props) => {
+  h2: ({
+    children,
+    ...h2Props
+  }: TextProps<React.ComponentPropsWithoutRef<"h2">>) => {
     // take the title and convert all spaces to "-" and text to lowercase.
     // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const { children, ...h2Props } = props;
     const childID = children.toLowerCase().split(" ").join("-");
     return (
       <h2 id={childID} className="font-bold text-xl" {...h2Props}>
-        {props.children}
+        {children}
       </h2>
     );
   },
-  h3: (props) => {
+  h3: ({
+    children,
+    ...h3Props
+  }: TextProps<React.ComponentPropsWithoutRef<"h3">>) => {
     // take the title and convert all spaces to "-" and text to lowercase.
     // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const { children, ...h3Props } = props;
-    const childID = children.toLowerCase().split(" ").join("-");
+    const childID: string = children.toLowerCase().split(" ").join("-");
     return (
       <h3 id={childID} className="font-bold text-lg" {...h3Props}>
-        {props.children}
+        {children}
       </h3>
     );
   },
-  p: (props) => <p className="text-base">{props.children}</p>,
+  p: ({
+    children,
+    ...props
+  }: TextProps<React.ComponentPropsWithoutRef<"p">>) => (
+    <p {...props} className="text-base">
+      {children}
+    </p>
+  ),
 };
 
 export default MDXComponents;

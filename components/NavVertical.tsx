@@ -7,7 +7,7 @@ import Link from "next/link";
 import RSSLink from "./RSSLink";
 
 type Props = {
-  showNavTop: Boolean;
+  showNavTop: boolean;
   onToggleNavVertical?: () => void;
 };
 

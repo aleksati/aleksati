@@ -9,13 +9,13 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const query = searchParams.get("q");
-  let results = [];
+  const query: string = searchParams.get("q");
+  let results: object[] = [];
 
   // if no query, return empty
   if (query.length) {
     // make each search word an item of an array.
-    const query_array = query.split(" ");
+    const query_array: string[] = query.split(" ");
 
     // first, check segments of keywords, if ["search", "query"] is in
     // [["front", "matter"], ["from", "posts"]].

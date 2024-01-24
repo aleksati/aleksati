@@ -1,5 +1,5 @@
 import ButtonScrollTo from "../components/ButtonScrollTo";
-import { useIsMounted } from "../hooks/useIsMounted";
+// import { useIsMounted } from "../hooks/useIsMounted";
 import LayoutPageDesktop from "./LayoutPageDesktop";
 import useWindowSize from "../hooks/useWindowSize";
 import LayoutPageMobile from "./LayoutPageMobile";
@@ -7,7 +7,7 @@ import { MetaProps } from "../components/Meta";
 import Meta from "../components/Meta";
 import React, { useRef } from "react";
 
-const widthTresh: number = 768; // tailwind md = 768;
+const widthTresh: number = 1024; // tailwind lg = 1024;
 
 type Props = {
   pageId: string;
@@ -22,11 +22,11 @@ const LayoutPage = ({
   className,
   pageMeta,
 }: Props) => {
-  const [isMounted, setIsMounted] = useIsMounted();
   const { width } = useWindowSize();
   const pageTopRef = useRef<HTMLDivElement>(null);
 
-  if (!isMounted) return null;
+  // const [isMounted, setIsMounted] = useIsMounted();
+  // if (!isMounted) return null;
 
   return (
     <>

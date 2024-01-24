@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 23 Jan 2024 21:00:41 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Jan 2024 17:53:48 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 23 Jan 2024 21:00:41 GMT</pubDate>
+        <pubDate>Wed, 24 Jan 2024 17:53:48 GMT</pubDate>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
             <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is quite different from the usual concert tech. In this post, I share some steps and strategies that can improve the quality and workflow of your networked audio engineering practice.]]></description>

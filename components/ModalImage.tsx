@@ -5,10 +5,15 @@ import { useRef, useEffect } from "react";
 import ButtonIcon from "./ButtonIcon";
 import { useIsMounted } from "../hooks/useIsMounted";
 
-const ModalImage = ({ onModalClose, children }) => {
-  const [isMounted, setIsMounted] = useIsMounted(false);
-  const closeBtnRef = useRef();
-  const modalRef = useRef();
+type Props = {
+  onModalClose: () => void;
+  children: React.ReactNode;
+};
+
+const ModalImage = ({ onModalClose, children }: Props) => {
+  const [isMounted, setIsMounted] = useIsMounted();
+  const closeBtnRef = useRef<HTMLButtonElement>();
+  const modalRef = useRef<HTMLDivElement>();
 
   useEffect(() => {
     if (closeBtnRef.current && isMounted) {
@@ -18,12 +23,13 @@ const ModalImage = ({ onModalClose, children }) => {
 
   const closeModal = () => onModalClose();
 
-  const handleKeyDown = (e) => {
-    if (e.keyCode === 27) return closeModal();
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Escape") return closeModal();
   };
 
-  const handleClickOutside = (e) => {
-    if (modalRef.current && modalRef.current.contains(e.target)) return;
+  const handleClickOutside = (e: React.MouseEvent<HTMLElement>) => {
+    const item = e.target as HTMLElement;
+    if (modalRef.current && modalRef.current.contains(item)) return;
     return closeModal();
   };
 
@@ -32,9 +38,9 @@ const ModalImage = ({ onModalClose, children }) => {
       {/* <FocusTrap> */}
       {/* The Modal container with popupCard centered */}
       <aside
-        tag="aside"
+        // tag="aside"
         role="dialog"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-modal="true"
         onClick={handleClickOutside}
         onKeyDown={handleKeyDown}

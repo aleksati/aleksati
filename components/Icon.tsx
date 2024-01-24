@@ -84,12 +84,12 @@ const icons: Object = {
   github: (s: string) => <BsGithub className={s} />,
 };
 
-type iconProps = {
+type Props = {
   iconSize?: string;
   id: string;
 };
 
-const Icon = ({ iconSize = "text-2xl", id }: iconProps) => {
+const Icon = ({ iconSize = "text-2xl", id }: Props) => {
   const icon: (item: string) => React.JSX.Element = icons[id];
   return icon(iconSize);
 };

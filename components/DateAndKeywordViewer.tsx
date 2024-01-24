@@ -2,22 +2,30 @@ import { date2text } from "../functions/date2text";
 import useWindowSize from "../hooks/useWindowSize";
 import { KEYWORDS_2_COLOR } from "../config";
 
-// https://tailwindcss.com/docs/customizing-colors
+const widthTresh: number = 1024; // tailwind lg = 1024;
 
-const widthTresh = 768; // tailwind md = 768;
+type Props = {
+  keywords: string[];
+  date: string;
+  type: string;
+  text: string;
+  showDate: boolean;
+  showType: boolean;
+  showKeywords: boolean;
+};
 
 const DateAndKeywordViewer = ({
-  keywords = [],
-  date,
+  keywords = [""],
+  date, // change to dateString
   type,
   text = "sm",
   showDate = true,
   showType = false,
   showKeywords = true,
-}) => {
+}: Props) => {
   // On mobile view, we show less keywords.
   const { width } = useWindowSize();
-  const maxKeywords = width < widthTresh ? 3 : 4;
+  const maxKeywords: number = width < widthTresh ? 3 : 4;
 
   if (text === "sm") {
     return (

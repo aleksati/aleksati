@@ -1,9 +1,28 @@
-import { useMouseHover } from "../hooks/useMouseHover";
-import Link from "next/link";
+// import { useMouseHover } from "../hooks/useMouseHover";
+import Link, { LinkProps } from "next/link";
+import React from "react";
 
-const MyLink = ({ type, className, children, active, href, onClick, id }) => {
+interface MyLinkProps extends LinkProps {
+  type?: string;
+  className?: string;
+  active?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  children: React.ReactNode;
+  href: string;
+  id?: string;
+}
+
+const MyLink = ({
+  type = "",
+  className,
+  children,
+  active = false,
+  onClick,
+  href,
+  id,
+}: MyLinkProps): React.JSX.Element => {
   // url or tab
-  const isActive = active ? "border-b-2" : null;
+  const isActive: string | null = active ? "border-b-2" : null;
   // const isActive = active ? "font-bold" : null;
   // const isActive = "";
 
@@ -16,12 +35,11 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   if (type === "nav") {
     return (
       <div className="flex space-x-1">
-        {/* <div ref={divRef} className="flex space-x-1"> */}
         {active && <p className="font-bold">/</p>}
         {/* (active || divHovered) */}
         <Link
           className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
-          href={href + ""}>
+          href={href}>
           {children}
         </Link>
       </div>
@@ -33,6 +51,7 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
       <a
         className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${isActive} ${className}`}
         onClick={onClick}
+        role="link"
         id={id}>
         {children}
       </a>
@@ -49,7 +68,10 @@ const MyLink = ({ type, className, children, active, href, onClick, id }) => {
   // );
 
   return (
-    <a href={href} className={`hover:cursor-pointer underline ${className}`}>
+    <a
+      role="link"
+      href={href}
+      className={`text-base hover:cursor-pointer underline ${className}`}>
       {children}
     </a>
   );

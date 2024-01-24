@@ -14,6 +14,12 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/search.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/api/search.js",
+    "components/MyAudioPlayer.jsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import MyImage from "../components/MyImage";
-import SoMeBar from "../components/SoMeBar";
+import MySoMeBar from "../components/MySoMeBar";
 import MyLink from "../components/MyLink";
 
 const About = () => (
@@ -16,14 +16,14 @@ const About = () => (
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
-        <p className="text-base">
+        <p>
           Engineer and University lecturer, specializing in networked music and
           audio programming
         </p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
-        <SoMeBar />
+        <MySoMeBar />
       </div>
     </div>
     <div className="space-y-4">
@@ -43,10 +43,7 @@ const About = () => (
         have years of experience as an audio programmer and creative software
         developer.
       </p>
-      <p>
-        To stay updated on my posts, subscribe to my{" "}
-        <MyLink href="/rss.xml">rss feed</MyLink>.
-      </p>
+      <p>To stay updated on my posts, subscribe to my rss feed.</p>
     </div>
   </div>
 );

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import getClockValue from "../functions/getClockValue";
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
@@ -8,27 +8,26 @@ const WaveFormOptions = (ref, opt) => ({
   // waveColor: "rgb(0,0,0)", // "#211F24",
   // progressColor: "rgb(0,0,0)", // "#300415",
   // cursorColor: "rgb(20,0,0)", // "#300415",
-  cursorWidth: 2,
   //   barWidth: 1,
   //   barRadius: 5,
+  // normalize: true,
+  cursorWidth: 2,
   responsive: true,
   height: 80,
   partialRender: false, //true
   hideScrollbar: true,
-  // normalize: true,
   splitChannels: false,
   ...opt,
 });
 
 const MyAudioPlayer = ({ src, newOptions = {} }) => {
-  const containerRef = useRef(null);
-  const waveFormRef = useRef(null);
+  const containerRef = useRef();
+  const waveFormRef = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioIsMounted, setAudioIsMounted] = useState(false);
 
   // const [stateTheme, setStateTheme] = useState(null);
   const { currTheme } = getCurrTheme();
-
   const audio = `/audio/${src}`;
 
   const create = async () => {
@@ -38,10 +37,11 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
       waveFormRef.current = WaveSurfer.create(options);
       waveFormRef.current.load(audio);
 
+      // set the timer to countdown when the audio is running
       waveFormRef.current.on("audioprocess", () => {
         let currTime = waveFormRef.current.getCurrentTime();
-        currTime = getClockValue(currTime);
-        document.getElementById("audiotime").innerText = currTime;
+        let currClockTime = getClockValue(currTime);
+        document.getElementById("audiotime").innerText = currClockTime;
       });
 
       waveFormRef.current.on("ready", () => setAudioIsMounted(true));
@@ -65,11 +65,13 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   // change the color of the waveform based on the current theme
   const setAudioColor = useCallback(() => {
     if (audioIsMounted && waveFormRef.current) {
-      waveFormRef.current.setProgressColor(
+      waveFormRef.current?.setProgressColor(
         currTheme === "light" ? "#000" : "#fff"
       );
-      waveFormRef.current.setWaveColor(currTheme === "light" ? "#000" : "#fff");
-      waveFormRef.current.setCursorColor(
+      waveFormRef.current?.setWaveColor(
+        currTheme === "light" ? "#000" : "#fff"
+      );
+      waveFormRef.current?.setCursorColor(
         currTheme === "light" ? "#000" : "#fff"
       );
     }
@@ -88,13 +90,16 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   return (
     <div className="flex items-center justify-start py-4 py-6">
       {audioIsMounted ? (
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
           <ButtonIcon
             onClick={handlePlayPause}
             iconId={isPlaying ? "pause" : "play"}
             className="cursor-pointer"
+            iconSize="text-lg"
           />
-          <p id="audiotime">00:00</p>
+          <p id="audiotime" className="text-sm">
+            00:00
+          </p>
         </div>
       ) : (
         <p className="w-2/3">Loading audio...</p>

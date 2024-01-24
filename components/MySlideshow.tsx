@@ -6,9 +6,9 @@ import Icon from "./Icon";
 // also includes som css in the global CSS for the indicators
 // DOC - https://react-slideshow-image.netlify.app/
 
-const indicators = (index) => (
+const indicators = () => (
   <button
-    tabIndex="0"
+    tabIndex={0}
     className="w-2 h-2 mx-0.5 -mt-4 bg-secondary rounded-full"></button>
 );
 
@@ -33,6 +33,11 @@ const properties = {
       <Icon id="prevArrow" />
     </button>
   ),
+};
+
+type Props = {
+  imgs: string[];
+  captions: string[];
 };
 
 const MySlideshow = ({

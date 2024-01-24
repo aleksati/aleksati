@@ -1,7 +1,16 @@
 import Icon from "./Icon";
+import React from "react";
 
-const SoMeBar = ({ exclude = [], className }) => {
-  const some = [
+type Props = {
+  exclude?: string[];
+  className?: string;
+};
+
+const MySoMeBar = ({ exclude = [""], className }: Props): React.JSX.Element => {
+  const some: {
+    key: string;
+    url: string;
+  }[] = [
     {
       key: "office",
       url: "https://people.uio.no/aleksati",
@@ -37,7 +46,7 @@ const SoMeBar = ({ exclude = [], className }) => {
             key={some.key}
             className="hover:cursor-pointer text-secondary opacity-40 hover:opacity-80">
             <a role="link" href={some.url} aria-label={some.key}>
-              <Icon id={some.key} iconSize={"text-xl"} />
+              <Icon id={some.key} iconSize="text-lg" />
             </a>
           </div>
         );
@@ -46,4 +55,4 @@ const SoMeBar = ({ exclude = [], className }) => {
   );
 };
 
-export default SoMeBar;
+export default MySoMeBar;
