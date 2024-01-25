@@ -58,15 +58,6 @@ const MyLink = ({
     );
   }
 
-  // return (
-  //   <a
-  //     href={href}
-  //     className={`text-blue-400 hover:cursor-pointer dark:text-blue-300 hover:text-blue-600 hover:dark:text-blue-400 ${className}`}
-  //   >
-  //     {children}
-  //   </a>
-  // );
-
   return (
     <a
       role="link"

@@ -1,14 +1,14 @@
-import MyLink from "./MyLink";
 import { useRouter } from "next/router";
 import { NAV_TABS } from "../config";
+import MyLink from "./MyLink";
 
 const NavVerticalTabs = () => {
   // get the current route after /pages and remove the first "/" with slice
-  const route = useRouter().pathname.slice(1);
+  const route: string = useRouter().pathname.slice(1);
   // remove /[post] stuff on nested rutes, and remaining "/" at the end
-  let firstRoute = route.split("[")[0].split("/")[0];
+  const firstRoute: string = route.split("[")[0].split("/")[0];
   // default to about
-  const currRoute = firstRoute.length ? firstRoute : "about";
+  const currRoute: string = firstRoute.length ? firstRoute : "about";
 
   return (
     <div className="space-y-4">

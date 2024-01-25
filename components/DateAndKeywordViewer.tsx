@@ -4,15 +4,22 @@ import { KEYWORDS_2_COLOR } from "../config";
 
 const widthTresh: number = 1024; // tailwind lg = 1024;
 
-type Props = {
-  keywords: string[];
-  date: string;
-  type: string;
-  text: string;
-  showDate: boolean;
-  showType: boolean;
-  showKeywords: boolean;
-};
+interface Props extends Partial<FrontMatter> {
+  text?: string;
+  showDate?: boolean;
+  showType?: boolean;
+  showKeywords?: boolean;
+}
+
+// type Props = {
+//   keywords: string[];
+//   date: string;
+//   type: string;
+//   text?: string;
+//   showDate?: boolean;
+//   showType?: boolean;
+//   showKeywords?: boolean;
+// };
 
 const DateAndKeywordViewer = ({
   keywords = [""],

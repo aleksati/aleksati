@@ -14,8 +14,9 @@ export const useClickOutside = <T extends HTMLElement>(): [
   const ref = useRef<T>(null);
 
   // Event because I pass it to a eventListener.
-  const handleClick = (e: Event): void => {
-    e.preventDefault();
+  const handleClick = (e: MouseEvent): void => {
+    // e.preventDefault(); results in no links being able to be clicked!!
+
     const item = e.target as T;
     const parent = item.parentNode as HTMLElement;
 

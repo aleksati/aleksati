@@ -3,35 +3,30 @@ import DateAndKeywordViewer from "./DateAndKeywordViewer";
 import Link from "next/link";
 
 const PostListItem = ({
-  // readingTime,
-  keywords,
-  summary,
-  title,
-  date,
   slug,
+  date,
+  title,
+  summary,
+  keywords,
   type,
-}) => {
-  const [divRef, divHovered] = useMouseHover();
+}: FrontMatter) => {
+  const [ref, isHovered] = useMouseHover<HTMLDivElement>();
 
   return (
     <div
       className="flex flex-col pb-2 border-b border-secondary-light dark:border-secondary-dark cursor-pointer"
-      ref={divRef}>
+      ref={ref}>
       <Link className="space-y-2 pb-2" href={`/${type}s/${slug}`}>
         <h2
           className={`text-xl font-bold ${
-            divHovered ? "underline decoration-2" : null
+            isHovered ? "underline decoration-2" : null
           }`}>
           {title}
         </h2>
         <div>
           <p>{summary}</p>
         </div>
-        <DateAndKeywordViewer
-          keywords={[...keywords]}
-          date={date}
-          type={type}
-        />
+        <DateAndKeywordViewer keywords={keywords} date={date} type={type} />
       </Link>
     </div>
   );

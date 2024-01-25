@@ -8,7 +8,7 @@ export default function handler({ frontMatter, keywords }) {
         title: "works",
         keywords,
       }}>
-      <PostList frontMatter={frontMatter} />
+      <PostList frontMatterList={frontMatter} />
     </LayoutPage>
   );
 }

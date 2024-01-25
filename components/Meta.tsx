@@ -1,11 +1,5 @@
 import Head from "next/head";
 
-export type MetaProps = {
-  title?: string;
-  keywords?: string;
-  description?: string;
-};
-
 const Meta = ({ title, keywords, description }: MetaProps) => (
   <Head>
     <meta name="viewport" content="width=device-width, inital-scale=1" />

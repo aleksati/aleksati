@@ -5,39 +5,38 @@ import { useRouter } from "next/router";
 import SearchItem from "./SearchItem";
 
 const Search = () => {
-  const [results, setResults] = useState([]);
-  const [isError, setIsError] = useState(false);
-  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>("");
 
-  const [keyNavIndex, setKeyNavIndex] = useState(0); // this is 1-based! 0 is "nothing"
+  const [keyNavIndex, setKeyNavIndex] = useState<number>(0); // this is 1-based! 0 is "nothing"
   const arrowDownPressed = useKeyPress("ArrowDown");
   const arrowUpPressed = useKeyPress("ArrowUp");
 
-  const [ref, isClickOutside] = useClickOutside();
+  const [ref, isClickOutside] = useClickOutside<HTMLDivElement>();
 
-  const resetComponent = useCallback((error = false) => {
+  const resetComponent = useCallback((error: boolean) => {
     setKeyNavIndex(0);
     setIsError(error);
     setResults([]);
     setQuery("");
   }, []);
 
-  // Ensure that the component re-renders on new url.
-  // I also do a variant of this in LayoutPage.js
+  // Ensure that the Search component re-renders on new url.
   const router = useRouter();
   const path = router.query;
   useEffect(() => {
-    resetComponent();
+    resetComponent(false);
   }, [resetComponent, path]);
 
   // when typing, call the search api and set results
   const onChange = useCallback(
-    async (e) => {
-      const currQ = e.target.value;
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const currQ: string = e.target.value;
       setQuery(currQ);
       try {
         const res = await fetch(`/api/search-edge?q=${currQ}`);
-        const data = await res.json();
+        const data: SearchResJSON = await res.json();
         setResults(data.results);
       } catch (error) {
         resetComponent(true);
@@ -49,7 +48,7 @@ const Search = () => {
 
   // null the search when clicking outside of the search item
   useEffect(() => {
-    if (isClickOutside) resetComponent();
+    if (isClickOutside) resetComponent(false);
   }, [resetComponent, isClickOutside]);
 
   // handle keypress navigation of search items.
@@ -81,14 +80,7 @@ const Search = () => {
       {results.length ? (
         <div className="relative max-h-128 overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
-            <SearchItem
-              type={result.type}
-              key={result.slug}
-              slug={result.slug}
-              title={result.title}
-              date={result.date}
-              active={i + 1 === keyNavIndex}
-            />
+            <SearchItem {...result} isActive={i + 1 === keyNavIndex} />
           ))}
         </div>
       ) : null}

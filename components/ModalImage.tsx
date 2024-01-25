@@ -1,5 +1,4 @@
 import ClientOnlyPortal from "./ClientOnlyPortal";
-import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 // import FocusTrap from "focus-trap-react";
 import ButtonIcon from "./ButtonIcon";
@@ -23,7 +22,7 @@ const ModalImage = ({ onModalClose, children }: Props) => {
 
   const closeModal = () => onModalClose();
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === "Escape") return closeModal();
   };
 

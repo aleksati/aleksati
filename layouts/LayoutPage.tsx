@@ -3,7 +3,6 @@ import ButtonScrollTo from "../components/ButtonScrollTo";
 import LayoutPageDesktop from "./LayoutPageDesktop";
 import useWindowSize from "../hooks/useWindowSize";
 import LayoutPageMobile from "./LayoutPageMobile";
-import { MetaProps } from "../components/Meta";
 import Meta from "../components/Meta";
 import React, { useRef } from "react";
 

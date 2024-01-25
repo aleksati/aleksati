@@ -1,12 +1,12 @@
-export const dev = process.env.NODE_ENV !== "production";
+export const dev: boolean = process.env.NODE_ENV !== "production";
 
-export const SITE_DOMAIN = dev
+export const SITE_DOMAIN: string = dev
   ? "http://localhost:3000"
   : "https://aleksati.net";
 
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).
-export const NAV_TABS = {
+export const NAV_TABS: Record<string, string> = {
   // "identifyer" : "url/key/title"
   about: "about",
   posts: "posts",
@@ -14,7 +14,7 @@ export const NAV_TABS = {
   research: "research",
 };
 
-export const KEYWORDS_2_COLOR = {
+export const KEYWORDS_2_COLOR: Record<string, string> = {
   audio: "#a3e635", //lime-400
   analysis: "#60a5fa", //blue-400
   motion: "#f87171", //red-400

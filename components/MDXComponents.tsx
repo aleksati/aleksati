@@ -6,10 +6,9 @@ import MyTable from "./MyTable";
 import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import MyCode from "./MyCode";
-import P5SonifyPlot from "./P5SonifyPlot";
-import P5SonifyPlotAmpMod from "./P5SonifyPlotAmpMod";
-import P5SonicOrbs from "./P5SonicOrbs";
-// import P5NoiseDrum from "./P5NoiseDrum";
+import P5SonifyPlot from "../components-p5js/P5SonifyPlot";
+import P5SonifyPlotAmpMod from "../components-p5js/P5SonifyPlotAmpMod";
+import P5SonicOrbs from "../components-p5js/P5SonicOrbs";
 import React from "react";
 
 interface TextProps<T> {

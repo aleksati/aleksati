@@ -8,7 +8,7 @@ export default function handler({ frontMatter, keywords }) {
         title: "posts",
         keywords: keywords.join(", "),
       }}>
-      <PostList frontMatter={frontMatter} />
+      <PostList frontMatterList={frontMatter} />
     </LayoutPage>
   );
 }

@@ -32,7 +32,7 @@ import {
   BsGithub,
 } from "react-icons/bs";
 
-const icons: Object = {
+const icons: object = {
   rss: (s: string) => <HiRss className={s} />,
   expand: (s: string) => <AiOutlineExpandAlt className={s} />,
   office: (s: string) => <BsBuildings className={s} />,
