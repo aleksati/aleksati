@@ -9,10 +9,10 @@ import React, { useRef } from "react";
 const widthTresh: number = 1024; // tailwind lg = 1024;
 
 type Props = {
-  pageId: string;
+  pageId?: string;
   children: React.ReactNode;
-  className: string;
-  pageMeta: MetaProps;
+  className?: string;
+  pageMeta?: MetaProps;
 };
 
 const LayoutPage = ({

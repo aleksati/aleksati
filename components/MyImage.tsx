@@ -1,4 +1,3 @@
-import ButtonIcon from "./ButtonIcon";
 import ModalImage from "./ModalImage";
 import { useState } from "react";
 import Image, { ImageProps } from "next/image";

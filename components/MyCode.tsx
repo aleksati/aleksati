@@ -1,5 +1,5 @@
 import { Prism } from "@mantine/prism";
-import type { PrismProps } from "@mantine/prism";
+// import type { PrismProps } from "@mantine/prism";
 import getCurrTheme from "../functions/getCurrTheme";
 
 // docs:

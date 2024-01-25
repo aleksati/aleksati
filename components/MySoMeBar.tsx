@@ -1,5 +1,4 @@
 import Icon from "./Icon";
-import React from "react";
 
 type Props = {
   exclude?: string[];

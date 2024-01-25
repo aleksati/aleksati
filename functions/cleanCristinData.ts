@@ -4,12 +4,12 @@
 // API DOC:
 // https://api.cristin.no/v2/doc/index.html
 
-export default function cleanCristinData(cristinJson) {
-  const data_cleaned = cristinJson.reduce((accum, item) => {
-    // authors
+export const cleanCristinData = <T>(cristinJson: SearchResJSON): T => {
+  const data_cleaned = cristinJson.reduce((accum: object[], item: any) => {
     let authors = item.contributors
       ? item.contributors.preview.reduce(
-          (accum, item) => accum + ` ${item.surname}, ${item.first_name[0]}.,`,
+          (accum: string, item: any) =>
+            accum + ` ${item.surname}, ${item.first_name[0]}.,`,
           ""
         )
       : "";
@@ -30,9 +30,11 @@ export default function cleanCristinData(cristinJson) {
     // DOI and link¨
     let link = "";
     if (item.links) {
-      let doi = item.links.filter((link) => link.url_type == "DOI");
-      let fulltekst = item.links.filter((link) => link.url_type == "FULLTEKST");
-      let data = item.links.filter((link) => link.url_type == "DATA");
+      let doi = item.links.filter((link: any) => link.url_type == "DOI");
+      let fulltekst = item.links.filter(
+        (link: any) => link.url_type == "FULLTEKST"
+      );
+      let data = item.links.filter((link: any) => link.url_type == "DATA");
 
       link =
         !doi.length && !fulltekst.length && !data.length
@@ -45,7 +47,7 @@ export default function cleanCristinData(cristinJson) {
     }
     // link = link === "" ? link : `Avaliable at: ${link}`;
 
-    const result = {
+    const result: object = {
       authors,
       year,
       title,
@@ -55,6 +57,6 @@ export default function cleanCristinData(cristinJson) {
 
     return [...accum, result];
   }, []);
-  //   console.log(pcData[0]);
+
   return data_cleaned;
-}
+};

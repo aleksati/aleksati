@@ -12,7 +12,7 @@ declare global {
   type FrontMatterList = FrontMatter[];
   interface MetaProps {
     title?: string;
-    keywords?: string;
+    keywords?: string | string[];
     description?: string;
   }
   interface SearchEdgeData {

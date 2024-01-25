@@ -1,18 +1,18 @@
 import LayoutPage from "../layouts/LayoutPage";
 import Research from "../templates/Research";
+import { GetStaticProps } from "next";
 
 export default function handler() {
   return (
     <LayoutPage pageMeta={{ title: "research" }}>
-      {/* <Research data={data_cleaned} notFound={notFound} /> */}
       <Research />
     </LayoutPage>
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   return { props: {} };
-}
+};
 
 // export async function getServerSideProps(context) {
 //   try {

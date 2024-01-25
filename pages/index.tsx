@@ -1,8 +1,14 @@
 import PostListSmall from "../templates/PostListSmall";
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
+import { GetStaticProps } from "next";
 
-export default function handler({ frontMatterList, keywords }) {
+type Props = {
+  frontMatterList: FrontMatterList;
+  keywords: string[];
+};
+
+export default function handler({ frontMatterList, keywords }: Props) {
   return (
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
@@ -18,13 +24,13 @@ import generateRSS from "../scripts/generateRSS";
 import { getKeysFromFr } from "../functions/loadPosts";
 import { frontMatterCache } from "../cache/frontmatter";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   // generate RSS at site build
   await generateRSS(frontMatterCache);
 
   // get the 3 latest post/works
-  const frontMatterList = frontMatterCache.slice(0, 3);
-  const keywords = getKeysFromFr(frontMatterCache);
+  const frontMatterList: FrontMatterList = frontMatterCache.slice(0, 3);
+  const keywords: string[] = getKeysFromFr(frontMatterCache);
 
   return { props: { frontMatterList, keywords } };
-}
+};

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import getClockValue from "../functions/getClockValue";
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";

@@ -1,25 +1,34 @@
-import cleanCristinData from "../functions/cleanCristinData";
+import { cleanCristinData } from "../functions/cleanCristinData";
 import { useEffect, useState } from "react";
 import MyLink from "../components/MyLink";
 
 // API DOC:
 // https://api.cristin.no/v2/doc/index.html
 
+interface Researchdata {
+  authors: string;
+  year: string;
+  title: string;
+  journal: string;
+  link: string;
+}
+
+type ResearchDataList = Researchdata[];
+
 const Research = () => {
-  const [researchData, setResearchData] = useState([]);
-  const [loading, setLoading] = useState(null);
-  const [error, setError] = useState(null);
+  const [researchData, setResearchData] = useState<ResearchDataList>([]);
+  const [loading, setLoading] = useState<boolean>();
+  const [error, setError] = useState<boolean>();
 
   // fetch reseach data client side.
   useEffect(() => {
     const fetchCristindata = async () => {
       setLoading(true);
       try {
-        const url = "https://api.cristin.no/v2/persons/1213045/results";
+        const url: string = "https://api.cristin.no/v2/persons/1213045/results";
         const res = await fetch(url);
-        const data = await res.json();
-        const data_cleaned = cleanCristinData(data);
-
+        const data: SearchResJSON = await res.json();
+        const data_cleaned = cleanCristinData<ResearchDataList>(data);
         setLoading(false);
         setResearchData(data_cleaned);
       } catch (error) {

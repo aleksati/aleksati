@@ -1,13 +1,13 @@
 import PaginationToggles from "./PaginationToggles";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // takes an array (data) and limits the amount of items
 // in the array that is returned based on the threshold prop
 // (int amount of items per page), and toggled states (PaginationToggles)
 
 type Props = {
-  children(data: FronMatterList): React.ReactNode;
-  frontMatterList: FronMatterList;
+  children(data: FrontMatterList): React.ReactNode;
+  frontMatterList: FrontMatterList;
   threshold: number;
 };
 

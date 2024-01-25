@@ -1,6 +1,5 @@
 // import { useMouseHover } from "../hooks/useMouseHover";
 import Link, { LinkProps } from "next/link";
-import React from "react";
 
 interface MyLinkProps extends LinkProps {
   type?: string;

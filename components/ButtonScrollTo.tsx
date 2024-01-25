@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, forwardRef } from "react";
+import { useCallback, useEffect, useState, forwardRef } from "react";
 // import isTouchDevice from "../functions/isTouchDevice";
 import ButtonIcon from "./ButtonIcon";
 

@@ -3,8 +3,10 @@ import RSS from "rss";
 import fs from "fs";
 
 // gets called from pages/index.js
-export default async function generateRSS(frontMatter) {
-  const feedOptions = {
+export default async function generateRSS(
+  frontMatterList: FrontMatterList
+): Promise<void> {
+  const feedOptions: object = {
     title: "aleksati.net / music tech and creative computing",
     description:
       "Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.",
@@ -16,12 +18,12 @@ export default async function generateRSS(frontMatter) {
 
   const feed = new RSS(feedOptions);
 
-  frontMatter.map((fr) => {
+  frontMatterList.map((frontMatter) => {
     feed.item({
-      title: fr.title,
-      description: fr.summary,
-      url: `${SITE_DOMAIN}/${fr.type}s/${fr.slug}`,
-      date: fr.date,
+      title: frontMatter.title,
+      description: frontMatter.summary,
+      url: `${SITE_DOMAIN}/${frontMatter.type}s/${frontMatter.slug}`,
+      date: frontMatter.date,
     });
   });
 

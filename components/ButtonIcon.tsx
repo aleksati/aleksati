@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import Icon from "./Icon";
 
 // any special prop other than the normal.

@@ -9,7 +9,6 @@ import MyCode from "./MyCode";
 import P5SonifyPlot from "../components-p5js/P5SonifyPlot";
 import P5SonifyPlotAmpMod from "../components-p5js/P5SonifyPlotAmpMod";
 import P5SonicOrbs from "../components-p5js/P5SonicOrbs";
-import React from "react";
 
 interface TextProps<T> {
   children: string;
