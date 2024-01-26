@@ -4,14 +4,14 @@
         <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.]]></description>
         <link>http://localhost:3000</link>
         <image>
-            <url>http://localhost:3000/img/me.jpg</url>
+            <url>http://localhost:3000t/img/me.jpg</url>
             <title>aleksati.net / music tech and creative computing</title>
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 25 Jan 2024 20:15:10 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 Jan 2024 10:30:12 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 25 Jan 2024 20:15:10 GMT</pubDate>
+        <pubDate>Fri, 26 Jan 2024 10:30:12 GMT</pubDate>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
             <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is quite different from the usual concert tech. In this post, I share some steps and strategies that can improve the quality and workflow of your networked audio engineering practice.]]></description>
@@ -64,8 +64,8 @@
         <item>
             <title><![CDATA[Karwowski, Kann & Tidemann + Nordahl]]></title>
             <description><![CDATA[An improvisational audio-visual quartet that offers thought-provoking and immersive concert experiences, combining guitar, vocals, live electronics, and projected visual art.]]></description>
-            <link>http://localhost:3000/works/karwowski-kann-tidemann</link>
-            <guid isPermaLink="true">http://localhost:3000/works/karwowski-kann-tidemann</guid>
+            <link>http://localhost:3000/musics/karwowski-kann-tidemann</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/karwowski-kann-tidemann</guid>
             <pubDate>Sat, 17 Dec 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -85,15 +85,15 @@
         <item>
             <title><![CDATA[Radio 9]]></title>
             <description><![CDATA[A krautrock electronic pop trio from Oslo that takes you on a sonic journey from subtle electronic atmospheres to jarring post-punk whiteouts.]]></description>
-            <link>http://localhost:3000/works/radio9</link>
-            <guid isPermaLink="true">http://localhost:3000/works/radio9</guid>
+            <link>http://localhost:3000/musics/radio9</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/radio9</guid>
             <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
             <description><![CDATA[A genre-defying trio from Oslo, Norway, that moves between jazz, electronic synth music, alternative pop, and minimalism. The Holy Mountain's sound combines accordion, vocals, synth and drums to create unique and conceptual music.]]></description>
-            <link>http://localhost:3000/works/the-holy-mountain</link>
-            <guid isPermaLink="true">http://localhost:3000/works/the-holy-mountain</guid>
+            <link>http://localhost:3000/musics/the-holy-mountain</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>

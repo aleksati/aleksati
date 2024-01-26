@@ -11,6 +11,7 @@ export const NAV_TABS: Record<string, string> = {
   about: "about",
   posts: "posts",
   works: "works",
+  music: "music",
   research: "research",
 };
 

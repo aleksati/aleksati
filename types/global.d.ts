@@ -24,4 +24,12 @@ declare global {
     [x: string]: JSONArray;
   }
   type SearchResult = Partial<FrontMatter>;
+
+  interface MDXPostProps {
+    mdxSource: MDXRemoteSerializeResult;
+    frontMatter: FrontMatter;
+  }
+
+  //type OneOrMany<Type> = Type | Type[];
+  //const flaton: OneOrMany<string> = ["hey", "two", "three"];
 }

@@ -15,8 +15,10 @@ const SearchItem = (props: Props) => {
     if (isActive) ref.current.focus();
   }, [ref, isActive]);
 
+  const typ = type === "music" ? type : type + "s";
+
   return (
-    <Link href={`/${type}s/${slug}`} ref={ref}>
+    <Link href={`/${typ}/${slug}`} ref={ref}>
       <div
         className={`border-b ${
           isActive ? "bg-blue-200 dark:bg-blue-800" : "null"

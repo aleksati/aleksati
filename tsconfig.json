@@ -13,14 +13,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types",
+      "./node_modules/@types/estree-jsx"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/search.js",
-    "components/MyAudioPlayer.jsx"
+    "scripts/*.mjs",
+    "components/MyAudioPlayer.jsx",
+    "components-p5js/*.js"
   ],
   "exclude": ["node_modules"]
 }

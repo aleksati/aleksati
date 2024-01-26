@@ -1,4 +1,3 @@
-import MDXComponents from "../components/MDXComponents";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NAV_TABS } from "../config";
@@ -78,11 +77,8 @@ export function getKeysFromFr(frontMatterList: FrontMatterList): string[] {
 // should be get MDX post from slug
 export async function getPostFromSlug(
   postType: string = NAV_TABS["posts"],
-  slug: any
-): Promise<{
-  mdxSource: MDXRemoteSerializeResult;
-  frontMatter: FrontMatter;
-}> {
+  slug: string
+): Promise<MDXPostProps> {
   const postPath: string = path.join(root, postType, `${slug}.mdx`);
   const post: string = fs.readFileSync(postPath, "utf-8");
   const { data, content } = matter(post);

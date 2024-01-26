@@ -47,12 +47,13 @@ function getAllFr(postType = "posts") {
 // gather all frontmatter and make one big list
 const posts = getAllFr("posts");
 const projects = getAllFr("works");
-const allFr = posts.concat(projects);
+const music = getAllFr("music");
+const allFr = posts.concat(projects, music);
 
 // sort by date
 const allFrSorted = sortFrByDate(allFr);
 
-const fileContents = `export const frontMatterCache = ${JSON.stringify(
+const fileContents = `export const frontMatterListCache = ${JSON.stringify(
   allFrSorted
 )}`;
 
@@ -63,7 +64,7 @@ try {
   fs.mkdirSync("cache");
 }
 
-fs.writeFile("cache/frontmatter.js", fileContents, (err) => {
+fs.writeFile("cache/frontmatterlist.js", fileContents, (err) => {
   // writing to the frontmatter.js file
   if (err) return console.log(err);
   console.log("Frontmatter cached.");

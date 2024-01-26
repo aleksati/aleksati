@@ -1,4 +1,4 @@
-import { frontMatterCache } from "../../cache/frontmatter";
+import { frontMatterListCache } from "../../cache/frontmatterlist";
 import type { NextRequest } from "next/server";
 
 // handles my page search queries, but with edge runtime instead of nodejs. Maybe this is faster.
@@ -10,7 +10,7 @@ export const config = {
 export default async function handler(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const query: string = searchParams.get("q");
-  let results: object[] = [];
+  let results: FrontMatterList = [];
 
   // if no query, return empty
   if (query.length) {
@@ -23,7 +23,7 @@ export default async function handler(req: NextRequest) {
     // this also works for segments, which is cool. For instance, if you search for
     // "no ja", you will get posts with keywords "nodejs javascript", but NOT posts
     // with only "javascript" or "node".
-    results = frontMatterCache.filter((fr) =>
+    results = frontMatterListCache.filter((fr) =>
       query_array.every((query) =>
         fr.keywords.some((keywords) => keywords.includes(query.toLowerCase()))
       )
@@ -32,7 +32,7 @@ export default async function handler(req: NextRequest) {
     // then segments of titles
     // this should be included, even if the first one has elements..
     if (!results.length) {
-      results = frontMatterCache.filter((fr) =>
+      results = frontMatterListCache.filter((fr) =>
         query_array.every((q) =>
           fr.title.toLowerCase().includes(q.toLowerCase())
         )

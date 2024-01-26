@@ -80,7 +80,11 @@ const Search = () => {
       {results.length ? (
         <div className="relative max-h-128 overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
           {results.map((result, i) => (
-            <SearchItem {...result} isActive={i + 1 === keyNavIndex} />
+            <SearchItem
+              {...result}
+              key={result.slug}
+              isActive={i + 1 === keyNavIndex}
+            />
           ))}
         </div>
       ) : null}

@@ -20,17 +20,18 @@ export default function handler({ frontMatterList, keywords }: Props) {
   );
 }
 
-import generateRSS from "../scripts/generateRSS";
+import { generateRSS } from "../scripts/generateRSS";
 import { getKeysFromFr } from "../functions/loadPosts";
-import { frontMatterCache } from "../cache/frontmatter";
+import { frontMatterListCache } from "../cache/frontmatterlist";
 
 export const getStaticProps: GetStaticProps = async () => {
-  // generate RSS at site build
-  await generateRSS(frontMatterCache);
+  // generate RSS at site build.
+  // I would love to do this as a pure script from package.json, but I cant import other modules from script folder. Common error with this Next version
+  await generateRSS(frontMatterListCache);
 
   // get the 3 latest post/works
-  const frontMatterList: FrontMatterList = frontMatterCache.slice(0, 3);
-  const keywords: string[] = getKeysFromFr(frontMatterCache);
+  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 3);
+  const keywords: string[] = getKeysFromFr(frontMatterListCache);
 
   return { props: { frontMatterList, keywords } };
 };
