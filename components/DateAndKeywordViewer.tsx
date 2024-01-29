@@ -2,7 +2,7 @@ import { date2text } from "../functions/date2text";
 import useWindowSize from "../hooks/useWindowSize";
 import { KEYWORDS_2_COLOR } from "../config";
 
-const widthTresh: number = 1024; // tailwind lg = 1024;
+const widthTresh: number = 768; // tailwind md;
 
 interface Props extends Partial<FrontMatter> {
   text?: string;

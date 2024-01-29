@@ -6,7 +6,7 @@ const RSSLink = () => (
     <MyLink href="/rss.xml" type="nav">
       <div className="flex space-x-1 items-center">
         <Icon id="rss" iconSize="sm" />
-        <p>rss</p>
+        <p>RSS</p>
       </div>
     </MyLink>
   </div>

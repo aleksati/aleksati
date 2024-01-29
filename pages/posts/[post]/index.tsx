@@ -1,4 +1,3 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { GetStaticPaths, GetStaticProps } from "next";
 import LayoutPage from "../../../layouts/LayoutPage";
 import Post from "../../../templates/Post";

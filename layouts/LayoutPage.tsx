@@ -6,7 +6,7 @@ import LayoutPageMobile from "./LayoutPageMobile";
 import Meta from "../components/Meta";
 import React, { useRef } from "react";
 
-const widthTresh: number = 1024; // tailwind lg = 1024;
+const widthTresh: number = 768; // tailwind md;
 
 type Props = {
   pageId?: string;

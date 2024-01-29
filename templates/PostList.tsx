@@ -9,7 +9,7 @@ const PostList = ({
 }: {
   frontMatterList: FrontMatterList;
 }) => (
-  <div className="grid grid-cols-1 gap-12">
+  <div className="grid grid-cols-1 gap-10">
     <Pagination frontMatterList={frontMatterList} threshold={pageThresh}>
       {(data) => data.map((post) => <PostListItem key={post.slug} {...post} />)}
     </Pagination>

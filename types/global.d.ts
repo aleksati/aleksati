@@ -32,8 +32,12 @@ declare global {
 
   type P5jsContainerRef = HTMLDivElement;
 
-  type P5jsSketch = <T>(p: p5Types, ref: React.MutableRefObject<T>) => void;
+  type P5jsSketch = (
+    p: p5Types,
+    parentRef: P5jsContainerRef
+  ) => P5jsSketchCleanup;
 
+  type P5jsSketchCleanup = { cleanup: () => void };
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];
 }

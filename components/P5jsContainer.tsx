@@ -1,18 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+// import P5Types from "p5";
 
 const P5jsContainer = ({
   sketch,
 }: {
   sketch: P5jsSketch;
 }): React.JSX.Element => {
-  const renderRef = useRef<P5jsContainerRef>();
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const parentRef = useRef<HTMLDivElement>();
+  let sketchCleanup: any;
 
   useEffect(() => {
+    if (!isMounted) return;
+
     const initp5 = async () => {
       try {
         const p5 = (await import("p5")).default;
         await import("../lib/p5.sound");
-        new p5((p) => sketch<P5jsContainerRef>(p, renderRef));
+        new p5((p) => {
+          const { cleanup } = sketch(p, parentRef.current);
+          sketchCleanup = cleanup;
+        });
       } catch (error) {
         console.log(error);
       }
@@ -21,15 +29,18 @@ const P5jsContainer = ({
     initp5();
 
     // cleanup
-    return () => {
-      if (renderRef.current) {
-        renderRef.current = null;
-      }
-    };
-  }, [sketch]);
+    return () => sketchCleanup;
+    // if (parentRef.current) {
+    //   parentRef.current = null;
+    // }
+  }, [isMounted, sketch]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // parent div of the Canvas p5 creates
-  return <div ref={renderRef}></div>;
+  return <div ref={parentRef}></div>;
 };
 
 export default P5jsContainer;
