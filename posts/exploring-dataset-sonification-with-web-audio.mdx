@@ -69,7 +69,9 @@ Below is my first example of a model-based sonification system where I've augmen
 
 When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is. The farm name is also printed for reference.
 
-<P5SonifyPlot />
+P5SonifyPlot
+
+<MyP5App />
 
 A great thing about p5 are its Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the web. Together with some basic knowledge of sound synthesis, these utilities make it possible to build complex synths, fast, that can react to user input or any other dynamic data.
 
@@ -114,7 +116,7 @@ But let's take this one step further. Below is an upgraded example of the red do
 
 By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were part of every shipment. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
-<P5SonifyPlotAmpMod />
+P5SonifyPlotAmpMod
 
 But in a more general sense, re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the dynamic and strong visual capabilities of p5 to create more tailored platforms.
 
@@ -126,7 +128,7 @@ Each orb represents a unique coffee company in the dataset. Selected information
 
 For simplicity's sake, I used the same dimensions (body and balance) to control the sound of the orbs through the amplitude modulation synthesis I designed for my multi-dimensional plot example. The orb's carrier frequency is determined by its vertical position in the plot (reflecting the balance variable), while the frequency of the LFO is determined by the orb's horizontal position (reflecting the body variable).
 
-<P5SonicOrbs />
+P5SonicOrbs
 
 In the code, I define an Orb class with some utility methods where each class instance represents a unique coffee owner/company from the dataset. So every Orb has the same basic features, such as shape, size, movement, sound, etc.
 

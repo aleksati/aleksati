@@ -19,13 +19,6 @@
       "./node_modules/@types/estree-jsx"
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "scripts/*.mjs",
-    "components/MyAudioPlayer.jsx",
-    "components-p5js/*.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -30,6 +30,10 @@ declare global {
     frontMatter: FrontMatter;
   }
 
+  type P5jsContainerRef = HTMLDivElement;
+
+  type P5jsSketch = <T>(p: p5Types, ref: React.MutableRefObject<T>) => void;
+
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];
 }

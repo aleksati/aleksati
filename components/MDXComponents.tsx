@@ -1,14 +1,17 @@
+// import React from "react";
+import { finaltest } from "../p5jsSketches/finaltest";
+import P5jsContainer from "./P5jsContainer";
 import MySpotifyPlayer from "./MySpotifyPlayer";
 import MyAudioPlayer from "./MyAudioPlayer";
 import MySlideshow from "./MySlideshow";
 import MyTable from "./MyTable";
-// import SoMeBar from "./SoMeBar";
 import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import MyCode from "./MyCode";
-import P5SonifyPlot from "../components-p5js/P5SonifyPlot";
-import P5SonifyPlotAmpMod from "../components-p5js/P5SonifyPlotAmpMod";
-import P5SonicOrbs from "../components-p5js/P5SonicOrbs";
+// import SoMeBar from "./SoMeBar";
+// import P5SonifyPlot from "./P5SonifyPlot";
+// import P5SonifyPlotAmpMod from "./P5SonifyPlotAmpMod";
+// import P5SonicOrbs from "./P5SonicOrbs";
 
 interface TextProps<T> {
   children: string;
@@ -16,10 +19,10 @@ interface TextProps<T> {
 }
 
 type MDXProps = {
-  [key: string]: (props: any) => React.JSX.Element;
+  [key: string]: (props: any) => any;
 };
 
-const MDXComponents: MDXProps = {
+const MDXComponents = {
   MyImage,
   MyLink,
   MyCode,
@@ -27,11 +30,12 @@ const MDXComponents: MDXProps = {
   MySlideshow,
   MyTable,
   MySpotifyPlayer,
+  MyP5App: () => <P5jsContainer sketch={finaltest} />,
   // SoMeBar,
   // P5NoiseDrum,
-  P5SonifyPlot,
-  P5SonifyPlotAmpMod,
-  P5SonicOrbs,
+  // P5SonifyPlot,
+  // P5SonifyPlotAmpMod,
+  // P5SonicOrbs,
   pre: (props: any) => <MyCode {...props} />,
   h1: ({
     children,

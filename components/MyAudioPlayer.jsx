@@ -30,28 +30,28 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   const { currTheme } = getCurrTheme();
   const audio = `/audio/${src}`;
 
-  const create = async () => {
-    try {
-      const WaveSurfer = (await import("wavesurfer.js")).default;
-      const options = WaveFormOptions(containerRef.current, newOptions);
-      waveFormRef.current = WaveSurfer.create(options);
-      waveFormRef.current.load(audio);
-
-      // set the timer to countdown when the audio is running
-      waveFormRef.current.on("audioprocess", () => {
-        let currTime = waveFormRef.current.getCurrentTime();
-        let currClockTime = getClockValue(currTime);
-        document.getElementById("audiotime").innerText = currClockTime;
-      });
-
-      waveFormRef.current.on("ready", () => setAudioIsMounted(true));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   // on mount, create the wavesurfer
   useEffect(() => {
+    const create = async () => {
+      try {
+        const WaveSurfer = (await import("wavesurfer.js")).default;
+        const options = WaveFormOptions(containerRef.current, newOptions);
+        waveFormRef.current = WaveSurfer.create(options);
+        waveFormRef.current.load(audio);
+
+        // set the timer to countdown when the audio is running
+        waveFormRef.current.on("audioprocess", () => {
+          let currTime = waveFormRef.current.getCurrentTime();
+          let currClockTime = getClockValue(currTime);
+          document.getElementById("audiotime").innerText = currClockTime;
+        });
+
+        waveFormRef.current.on("ready", () => setAudioIsMounted(true));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     create();
 
     return () => {
@@ -62,24 +62,24 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
     };
   }, []);
 
-  // change the color of the waveform based on the current theme
-  const setAudioColor = useCallback(() => {
-    if (audioIsMounted && waveFormRef.current) {
-      waveFormRef.current?.setProgressColor(
-        currTheme === "light" ? "#000" : "#fff"
-      );
-      waveFormRef.current?.setWaveColor(
-        currTheme === "light" ? "#000" : "#fff"
-      );
-      waveFormRef.current?.setCursorColor(
-        currTheme === "light" ? "#000" : "#fff"
-      );
-    }
-  }, [waveFormRef, audioIsMounted, currTheme]);
-
   useEffect(() => {
+    // change the color of the waveform based on the current theme
+    const setAudioColor = () => {
+      if (audioIsMounted && waveFormRef.current) {
+        waveFormRef.current?.setProgressColor(
+          currTheme === "light" ? "#000" : "#fff"
+        );
+        waveFormRef.current?.setWaveColor(
+          currTheme === "light" ? "#000" : "#fff"
+        );
+        waveFormRef.current?.setCursorColor(
+          currTheme === "light" ? "#000" : "#fff"
+        );
+      }
+    };
+
     setAudioColor();
-  }, [setAudioColor]);
+  }, [waveFormRef, audioIsMounted, currTheme]);
 
   // update play state when pause/play
   const handlePlayPause = () => {

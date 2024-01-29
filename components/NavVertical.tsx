@@ -37,9 +37,11 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
           <Search />
           <div className="flex flex-col pt-14 space-y-4">
             <NavVerticalTabs />
-            <RSSLink />
           </div>
         </div>
+      </div>
+      <div className="fixed bottom-6 left-4">
+        <RSSLink />
       </div>
     </div>
   );

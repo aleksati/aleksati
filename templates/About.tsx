@@ -1,6 +1,6 @@
 import MyImage from "../components/MyImage";
 import MySoMeBar from "../components/MySoMeBar";
-import MyLink from "../components/MyLink";
+// import MyLink from "../components/MyLink";
 
 const About = () => (
   <div className="pb-10">

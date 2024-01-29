@@ -3,6 +3,9 @@ import type { NextRequest } from "next/server";
 
 // handles my page search queries, but with edge runtime instead of nodejs. Maybe this is faster.
 
+// limit to 5 answers.
+// titles first then keywords
+
 export const config = {
   runtime: "edge",
 };
@@ -10,7 +13,7 @@ export const config = {
 export default async function handler(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const query: string = searchParams.get("q");
-  let results: FrontMatterList = [];
+  let results: FrontMatterList;
 
   // if no query, return empty
   if (query.length) {
