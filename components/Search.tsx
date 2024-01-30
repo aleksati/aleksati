@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import SearchItem from "./SearchItem";
 
 const Search = () => {
-  const [results, setResults] = useState<SearchResult[]>([]);
+  const [results, setResults] = useState<FrontMatterList>();
   const [isError, setIsError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("");
 
@@ -36,7 +36,7 @@ const Search = () => {
       setQuery(currQ);
       try {
         const res = await fetch(`/api/search-edge?q=${currQ}`);
-        const data: SearchResJSON = await res.json();
+        const data = await res.json();
         setResults(data.results);
       } catch (error) {
         resetComponent(true);
@@ -77,12 +77,12 @@ const Search = () => {
         autoComplete="off"
       />
       {/* to edit the height of the results list, edit max-h */}
-      {results.length ? (
+      {results?.length ? (
         <div className="relative max-h-128 overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-800">
-          {results.map((result, i) => (
+          {results.map((frontMatter, i) => (
             <SearchItem
-              {...result}
-              key={result.slug}
+              key={frontMatter.slug}
+              fronMatter={frontMatter}
               isActive={i + 1 === keyNavIndex}
             />
           ))}

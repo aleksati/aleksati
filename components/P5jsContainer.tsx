@@ -1,17 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-// import P5Types from "p5";
+import React, { useEffect, useRef } from "react";
+import { useIsMounted } from "../hooks/useIsMounted";
 
 const P5jsContainer = ({
   sketch,
 }: {
   sketch: P5jsSketch;
 }): React.JSX.Element => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useIsMounted();
   const parentRef = useRef<HTMLDivElement>();
-  let sketchCleanup: any;
 
   useEffect(() => {
     if (!isMounted) return;
+
+    let sketchCleanup: () => void;
 
     const initp5 = async () => {
       try {
@@ -28,16 +29,8 @@ const P5jsContainer = ({
 
     initp5();
 
-    // cleanup
-    return () => sketchCleanup;
-    // if (parentRef.current) {
-    //   parentRef.current = null;
-    // }
+    return sketchCleanup;
   }, [isMounted, sketch]);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   // parent div of the Canvas p5 creates
   return <div ref={parentRef}></div>;

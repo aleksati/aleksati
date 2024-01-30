@@ -2,12 +2,14 @@ import DateAndKeywordViewer from "./DateAndKeywordViewer";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
-interface Props extends SearchResult {
+const SearchItem = ({
+  fronMatter,
+  isActive,
+}: {
+  fronMatter: FrontMatter;
   isActive: boolean;
-}
-
-const SearchItem = (props: Props) => {
-  const { isActive, type, slug, title, date } = props;
+}) => {
+  const { type, slug, title, date } = fronMatter;
   const ref = useRef<HTMLAnchorElement>();
 
   // focus the item on Arrow keypress

@@ -23,7 +23,7 @@ let sine: any; // our sine wave oscillator
 let env: any; // our envelope so we can play the sine as a note
 let offsetFrequency: number = 300;
 
-export const finaltest: P5jsSketch = (p5, parentRef): P5jsSketchCleanup => {
+export const finaltest: P5jsSketch = (p5, parentRef) => {
   p5.setup = () => {
     // use parent to render the canvas in this ref
     // (without that p5 will render the canvas outside of your component)
