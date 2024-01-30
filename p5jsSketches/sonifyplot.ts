@@ -23,7 +23,7 @@ let sine: any; // our sine wave oscillator
 let env: any; // our envelope so we can play the sine as a note
 let offsetFrequency: number = 300;
 
-export const finaltest: P5jsSketch = (p5, parentRef) => {
+export const sonifyplot: P5jsSketch = (p5, parentRef) => {
   p5.setup = () => {
     // use parent to render the canvas in this ref
     // (without that p5 will render the canvas outside of your component)
@@ -67,7 +67,7 @@ export const finaltest: P5jsSketch = (p5, parentRef) => {
   };
 
   p5.draw = () => {
-    p5.background(250, 250, 250);
+    p5.background(20, 20, 20);
     p5.strokeWeight(point_size);
     drawText();
     drawDots();
@@ -76,7 +76,7 @@ export const finaltest: P5jsSketch = (p5, parentRef) => {
   const drawText = () => {
     p5.noStroke();
     p5.textSize(20);
-    p5.fill(0, 0, 0);
+    p5.fill(255, 255, 255);
     p5.text(match_owner, 40, canvasHeight - 20);
     p5.textAlign("CENTER");
   };
@@ -88,7 +88,7 @@ export const finaltest: P5jsSketch = (p5, parentRef) => {
       if (x == match_coords[0] && y == match_coords[1]) {
         p5.stroke(0, 255, 0);
       } else {
-        p5.stroke(255, 0, 0);
+        p5.stroke(255, 255, 255);
       }
       p5.point(x, y);
     }
