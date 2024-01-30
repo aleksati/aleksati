@@ -4,7 +4,9 @@
 // API DOC:
 // https://api.cristin.no/v2/doc/index.html
 
-export const cleanCristinData = <T>(cristinJson: SearchResJSON): T => {
+export const cleanCristinData = (
+  cristinJson: CristinDataResponseJSON
+): ResearchDataList => {
   const data_cleaned = cristinJson.reduce((accum: object[], item: any) => {
     let authors = item.contributors
       ? item.contributors.preview.reduce(

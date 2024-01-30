@@ -5,18 +5,8 @@ import MyLink from "../components/MyLink";
 // API DOC:
 // https://api.cristin.no/v2/doc/index.html
 
-interface Researchdata {
-  authors: string;
-  year: string;
-  title: string;
-  journal: string;
-  link: string;
-}
-
-type ResearchDataList = Researchdata[];
-
 const Research = () => {
-  const [researchData, setResearchData] = useState<ResearchDataList>([]);
+  const [researchData, setResearchData] = useState<ResearchDataList>();
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<boolean>();
 
@@ -27,8 +17,8 @@ const Research = () => {
       try {
         const url: string = "https://api.cristin.no/v2/persons/1213045/results";
         const res = await fetch(url);
-        const data: SearchResJSON = await res.json();
-        const data_cleaned = cleanCristinData<ResearchDataList>(data);
+        const data = await res.json();
+        const data_cleaned = cleanCristinData(data);
         setLoading(false);
         setResearchData(data_cleaned);
       } catch (error) {
@@ -54,7 +44,7 @@ const Research = () => {
         </p>
       ) : (
         <div className="flex flex-col space-y-8">
-          {researchData.map((item, idx) => {
+          {researchData?.map((item, idx) => {
             if (idx === 1) return;
             return (
               <div key={idx}>

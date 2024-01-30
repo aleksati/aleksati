@@ -17,15 +17,10 @@ declare global {
     keywords?: string | string[];
     description?: string;
   }
-  interface SearchEdgeData {
-    data: {
-      results: object[];
-    };
+
+  interface SearchResJSON {
+    [x: string]: JSONArray;
   }
-  // interface SearchResJSON {
-  //   [x: string]: JSONArray;
-  // }
-  // type SearchResult = Partial<FrontMatter>;
 
   interface MDXPostProps {
     mdxSource: MDXRemoteSerializeResult;
@@ -40,6 +35,20 @@ declare global {
     p: p5Types,
     parentRef: P5jsContainerRef
   ) => P5jsSketchCleanup;
+
+  interface Researchdata {
+    authors: string;
+    year: string;
+    title: string;
+    journal: string;
+    link: string;
+  }
+
+  type ResearchDataList = Researchdata[];
+
+  interface CristinDataResponseJSON {
+    [x: string]: JSONArray;
+  }
 
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];
