@@ -18,7 +18,6 @@ type: "post"
 summary: "My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on private and commercial 5G networks."
 ---
 
-
 5G is the new paradigm of telecommunication and wireless networking. The greatest difference between 4G to 5G is a massive increase in speed (bandwidth) due to updated network infrastructure. We imagine remote-controlled surgery, distributed sporting events, and even stable Networked Music Performances (NMP).
 
 Playing music over the internet is exceptionally challenging because it requires really stable, high-quality and fast low-latency communication in a synchronous (real-time) environment. In fact, research tells us that the ideal roundtrip audio latency (audio from you, to your distant partner, and back again) for realtime NMPs is between 25-50ms.
@@ -67,13 +66,13 @@ Having lightning-fast communication is always a high priority for any NMP. Howev
 
 In total, we did three tests at each location that measured the network coverage, signal quality and audio latency.
 
-### Network Coverage
+## Network Coverage
 
 By using a combination of <MyLink href="https://iperf.fr/">iPerf</MyLink> networking utilities, measurements from the Huawei routers' software, <MyLink href="https://www.telenor.no/dekning/#dekningskart">Telenor’s online coverage map</MyLink>, and <MyLink href="https://www.speedtest.net/">Ookla's online speedtester</MyLink>, we were able to make network bandwidth and coverage estimates throughout the experiments.
 
 These metrics made us confident that our transmission load did not exceed the capacity of the networks.
 
-### Signal Quality
+## Signal Quality
 
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
@@ -85,7 +84,7 @@ To locate the quality and stability sweetspots for our audio transmission, we cr
 
 If we experienced any unwanted artifacts, glitches, or drops in the audio, we just adjusted the buffersize of our audio interfaces (and in jacktrip) to the lowest possible configuration where we found a stable transmission over time.
 
-### Roundtrip Latency
+## Roundtrip Latency
 
 With the software and hardware parameters fine-tuned, we used the same loopback system to measure the digital and analog audio roundtrip time (RTT).
 
@@ -101,7 +100,7 @@ To achieve higher accuracy and certainty in our analog RTT measurements, we used
 
 # Results
 
-### Commercial 5G
+## Commercial 5G
 
 Since the 5G reception inside IMV was poor, we decided to place the routers outside, hoping it would generate better coverage and boost overall performance. Just outside IMV's main auditorium (at <MyLink href="https://www.google.com/maps/place/59%C2%B056'13.4%22N+10%C2%B043'13.9%22E/@59.9370556,10.7205278,226m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d59.9370556!4d10.7205278">this location</MyLink>), we measured a stable 75% 5G coverage with 60Mbps bandwidth.
 
@@ -113,7 +112,7 @@ We measured the average digital and analog RTT to be 110ms and 165ms (respective
 
 <MyAudioPlayer src="fiveg-165ms-delay.mp3" />
 
-### Private 5G
+## Private 5G
 
 During our second round of testing, time was of the essence. We only had about 3-4 hours to set up our equipment and run tests on the private 5GNoW in Elverum. From the very start, we ran into unexpected connectivity and bandwidth issues but we managed to get a stable 14-15Mbps link which is more than enough for transmitting stereo uncompressed audio.
 

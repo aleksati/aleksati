@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./pages/**/*.{html,js,jsx,tsx}",
     "./components/**/*.{html,js,jsx,tsx}",
+    "./components-p5js/**/*.{html,js,jsx,tsx}",
     "./layouts/**/*.{html,js,jsx,tsx}",
     "./templates/**/*.{html,js,jsx,tsx}",
   ],
@@ -35,6 +36,7 @@ module.exports = {
       "5xl": "3.052rem",
     },
     // one up larger
+    // change also, dateViewerKeyword and LayoutPage
     // fontSize: {
     //   xs: "0.8rem",
     //   sm: "1rem",
