@@ -48,13 +48,16 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
     //////////////////////////////////////
     parentStyle = window.getComputedStyle(parentRef);
     canvasWidth = parseInt(parentStyle.width) * 0.99;
-    canvasHeight = parseInt(parentStyle.width) * 0.66;
+    canvasHeight = parseInt(parentStyle.width) * 0.4;
     //////////////////////////////////////
 
     cnv = p5.createCanvas(canvasWidth, canvasHeight).parent(parentRef);
 
     audioState = p5.getAudioContext();
     audioState.suspend();
+    cnv.mouseClicked(() => {
+      audioState.state !== "running" ? audioState.resume() : null;
+    });
 
     loadData();
     scaleFactor = setScaleFactor();
@@ -65,14 +68,14 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
   };
 
   p5.draw = () => {
-    p5.background(20, 20, 20);
+    p5.background(250, 250, 250);
     drawText();
 
     slider_data_val = slider_data.value();
     slider_freq_val = slider_freq.value() / 100;
     if (slider_data_val === 0) return stopOrbs();
 
-    audioState.state !== "running" ? audioState.resume() : null;
+    // audioState.state !== "running" ? audioState.resume() : null;
 
     drawOrbs();
   };
@@ -80,7 +83,7 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
   const drawText = () => {
     p5.noStroke();
     p5.textSize(14);
-    p5.fill(255, 255, 255);
+    p5.fill(0, 0, 0);
 
     p5.textAlign("CENTER");
     p5.text("Body (x)", canvasWidth / 2 - 20, 15);
@@ -170,10 +173,6 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
 
   p5.preload = () => {
     data = p5.loadTable("/data/arabica_data_cleaned_year.csv", "header");
-  };
-
-  return {
-    cleanup: p5.remove,
   };
 };
 

@@ -18,10 +18,10 @@ const PaginationToggles = ({
   return (
     <div className="flex space-x-6 w-full items-center justify-center">
       <MyLink href="" type="pagination" onClick={onPagination} id="prev">
-        <Icon id={"prevArrow"} iconSize="text-sm" />
+        <Icon id={"prevArrow"} iconSize="text-md" />
       </MyLink>
       {numbPagesArray.map((item, index) => (
-        <div key={index} className="text-sm">
+        <div key={index} className="text-md">
           <MyLink
             active={index + 1 === currPage}
             onClick={onPagination}
@@ -33,7 +33,7 @@ const PaginationToggles = ({
         </div>
       ))}
       <MyLink href="" type="pagination" onClick={onPagination} id="next">
-        <Icon id="nextArrow" iconSize="text-sm" />
+        <Icon id="nextArrow" iconSize="text-md" />
       </MyLink>
     </div>
   );

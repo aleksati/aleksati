@@ -31,10 +31,7 @@ declare global {
 
   type P5jsSketchCleanup = { cleanup: () => void };
 
-  type P5jsSketch = (
-    p: p5Types,
-    parentRef: P5jsContainerRef
-  ) => P5jsSketchCleanup;
+  type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;
 
   interface Researchdata {
     authors: string;

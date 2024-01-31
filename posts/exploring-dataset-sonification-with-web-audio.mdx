@@ -65,79 +65,80 @@ It should be noted that I am only using a small fraction of this dataset in my e
 
 # Multi-dimensional Plot
 
-Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. Each red dot reprents unique coffee dispatches; rows in the dataset spreadsheet. The height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis).
+Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. Each black dot reprents unique coffee dispatches; rows in the dataset spreadsheet. The height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis). The farm name is also printed for reference.
 
-When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is. The farm name is also printed for reference.
+When you click the dots, the frequency of the played synth note represents the altitude of the farm. The higher the frequency of the note, the higher up the farm is. An additional/second oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process. By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were part of every shipment. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
 
-<P5SonifyPlot />
+<P5SonifyPlotAmpMod />
 
 A great thing about p5 are its Web Audio API utility functions for high-level declarative audio programming. This framework makes it easy to define and update audio parameters on the fly, making it ideal for designing interactive model-based sonification systems for the web. Together with some basic knowledge of sound synthesis, these utilities make it possible to build complex synths, fast, that can react to user input or any other dynamic data.
 
 The code block below demonstrates some key p5 audio utilities and how easy it can be to manipulate parameters dynamically.
 
-```Javascript
+```TypeScript
+// ./ampmodsketch.ts
 // Example of a simple p5 sketch in instance mode.
-// The frequency of a sinewave is determined by
-// values in a column of a .csv dataset
+// amplitude modulation synthesis
 
-const sketch = (p5) => {
-  let data, data_col, i, sine;
-  let threshold = 10000;
+const ampmodsketch = (p5: p5Types) => {
+  let sine: any
+  let LFO: any
 
-  // The preload method is called first.
-  p5.preload = () => {
-    data = p5.loadTable("PATH/TO/DATASET"); // load a dataset .csv file
-    data_col = data.getColumn("CSV COLUMN NAME")  // get a specific column of the dataset as an array.
+  p5.preload = (): void => {
+   // preload some data (for instance a .csv)
   }
 
-  // the setup method get called once at the start of a new runtime.
-  p5.setup = () => {
-    p5.createCanvas(200, 200); // create a canvas.
-    sine = new p5.Oscillator("sine");  // load an oscillator with a sinewave and set initial amplitude.
-    sine.amp(0.5);
+  p5.setup = (): void => {
+    // create a canvas.
+    p5.createCanvas(200, 200);
+
+    // load an oscillator with a sinewave and set initial amplitude.
+    sine = new p5.constructor.Oscillator("sine");
+    sine.amp(sine_amp);
     sine.freq(0);
     sine.start();
+
+    // load another oscillator as an LFO
+    LFO = new p5.constructor.Oscillator("sawtooth");
+    LFO.disconnect(); // disconnect the LFO from the master output
+    LFO.freq(0);
+    LFO.amp(0);
+    LFO.start();
+
+    // make so that the LFO controls the amplitude of the sine wave oscillator.
+    sine.amp(LFO);
   };
 
-  // the draw method is called in loop on every new window frame.
-  p5.draw = () => {
-    i = i > data.length ? 0 : i // reset increment variable if necessary
-    sine.freq(data_col[increment]);  // update the frequency of the sine with data value.
-    i++ // increment i
+  p5.draw = (): void => {
+    // changes the frequency and add logic to play synth
+    // based on the data loaded.
   };
 };
 
-let myp5 = new p5(sketch);
+let myp5 = new p5(ampmodsketch);
 ```
-
-But let's take this one step further. Below is an upgraded example of the red dot (now blue) coffee plot that features a second audio oscillator. The additional oscillator is used as an LFO to control the amplitude of the first oscillator, creating an amplitude modulation synthesizer in the process.
-
-By listening to the frequency of the LFO and the varying characteristics of the synth notes, we can disseminate information about how many bags of coffee were part of every shipment. The higher the frequency of the LFO, the more coffee bags were produced. See if you can hear the differences.
-
-<P5SonifyPlotAmpMod />
 
 But in a more general sense, re-creating traditional plots and graph structures with p5 is tedious work. Unlike other libraries, such as Plotly, GraficaJs and Matplotlib, p5 is not optimized nor designed for data visualizations and statistical analysis. So instead of replicating traditional plotting techniques and functionalities, we should try to take advantage of the dynamic and strong visual capabilities of p5 to create more tailored platforms.
 
 # The Sonic Orbs
 
-Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design. Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot.
-
-Each orb represents a unique coffee company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012.
+Below is another example of a model-based sonification system with a more creative and object-oriented approach to visual and sonic design. Here, users can navigate through time by interacting with a slider, moving colored orbs around in a 2D plot. Each orb represents a unique coffee company in the dataset. Selected information about the company's coffee dispatches are mapped to various properties of the orb. In my particular example, the XY position of the orbs communicate the "balance" and "body" of coffee dispatches from 3 companies between 2010 - 2012.
 
 For simplicity's sake, I used the same dimensions (body and balance) to control the sound of the orbs through the amplitude modulation synthesis I designed for my multi-dimensional plot example. The orb's carrier frequency is determined by its vertical position in the plot (reflecting the balance variable), while the frequency of the LFO is determined by the orb's horizontal position (reflecting the body variable).
 
 <P5SonicOrbs />
 
-In the code, I define an Orb class with some utility methods where each class instance represents a unique coffee owner/company from the dataset. So every Orb has the same basic features, such as shape, size, movement, sound, etc.
+In the code, I define an Orb class with some utility methods where each class instance represents a unique coffee owner/company from the dataset. So every Orb has the same basic features, such as shape, size, movement, sound, etc. But any data point can be mapped to any property of these orbs. When I create a "new Orb" I simply pass whatever data I want to see and hear as arguments and ensure that the current value of my slider is passed to every Orb in the draw function.
 
-But any data point can be mapped to any property of these orbs. When I create a "new Orb" I simply pass whatever data I want to see and hear as arguments and ensure that the current value of my slider is passed to every Orb in the draw function.
+There are several advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. For sonificatin purposes, its also an elegant way to handle polyphony and complex harmonic content. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
 
-```Javascript
+```TypeScript
+//./orbsketch.ts
 // Example of a simple p5 sketch in instance mode.
 // I create an Orb class where whose visual and sound
 // is dynamically shaped by the current slider value.
 
-const sketch = (p5) => {
+const orbsketch = (p5: p5Types) => {
   let data, data_body, data_balance, i, sliderHTML, sliderVal, orb1;
   let owner_1 = "Kona Pacific Farmers Cooperative";
   let color_1 = [150, 100, 190];
@@ -163,7 +164,7 @@ const sketch = (p5) => {
   };
 };
 
-let myp5 = new p5(sketch);
+let myp5 = new p5(orbsketch);
 
 // My orb class where I define the behavior of my orbs.
 class Orb {
@@ -181,8 +182,6 @@ class Orb {
   // etc..
 }
 ```
-
-There are several advantages to using this object-oriented approach. First, representing high-level data structures from your dataset through objects in code is a good programming strategy. It's highly scalable, maintainable, and more compatible when working with larger, varying, and more complex datasets. For sonificatin purposes, its also an elegant way to handle polyphony and complex harmonic content. But more importantly, I think the Sonic Orb example is better at leveraging our complex ability to listen, deconstruct, and differentiate amongst subtle sound textures and musical harmonies in our environments.
 
 But how useful are these audio-augmented plots, really? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
 

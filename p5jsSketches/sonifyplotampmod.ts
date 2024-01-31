@@ -18,7 +18,7 @@ let point_size: number = 15; // the size of the point
 
 let data_coords: object = {}; // an object table used to store the x and y of every data dot
 let match_coords: any = []; // store the current x and y of the user mouse click
-let match_owner: string = "click the dots! Amplitude modulation!"; // store the current owner of the match
+let match_owner: string = "click the dots!"; // store the current owner of the match
 
 let sine: any; // our sine wave oscillator
 let env: any; // our envelope so we can play the sine as a note
@@ -32,7 +32,7 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
     // const parent = parentRef.current as Element;
     parentStyle = window.getComputedStyle(parentRef);
     canvasWidth = parseInt(parentStyle.width) * 0.99;
-    canvasHeight = parseInt(parentStyle.width) * 0.66;
+    canvasHeight = parseInt(parentStyle.width) * 0.4;
     //////////////////////////////////////
 
     cnv = p5.createCanvas(canvasWidth, canvasHeight).parent(parentRef);
@@ -69,7 +69,7 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
   };
 
   p5.draw = () => {
-    p5.background(20, 20, 20);
+    p5.background(250, 250, 250);
     p5.strokeWeight(point_size);
     drawText();
     drawDots();
@@ -78,7 +78,7 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
   const drawText = () => {
     p5.noStroke();
     p5.textSize(20);
-    p5.fill(255, 255, 255);
+    p5.fill(0, 0, 0);
     p5.text(match_owner, 40, canvasHeight - 20);
     p5.textAlign("CENTER");
   };
@@ -90,7 +90,7 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
       if (x == match_coords[0] && y == match_coords[1]) {
         p5.stroke(0, 255, 0);
       } else {
-        p5.stroke(255, 255, 255);
+        p5.stroke(0, 0, 0);
       }
       p5.point(x, y);
     }
@@ -227,9 +227,5 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
 
   p5.preload = () => {
     data = p5.loadTable("/data/arabica_data_cleaned_year.csv", "header");
-  };
-
-  return {
-    cleanup: p5.remove,
   };
 };

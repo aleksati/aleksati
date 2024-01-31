@@ -1,4 +1,3 @@
-import { sonifyplot } from "../p5jsSketches/sonifyplot";
 import { sonifyplotampmod } from "../p5jsSketches/sonifyplotampmod";
 import { sonicorbs } from "../p5jsSketches/sonicorbs";
 import P5jsContainer from "./P5jsContainer";
@@ -27,7 +26,6 @@ const MDXComponents: MDXComponentsProps = {
   MySlideshow,
   MyTable,
   MySpotifyPlayer,
-  P5SonifyPlot: () => <P5jsContainer sketch={sonifyplot} />,
   P5SonifyPlotAmpMod: () => <P5jsContainer sketch={sonifyplotampmod} />,
   P5SonicOrbs: () => <P5jsContainer sketch={sonicorbs} />,
   pre: (props: any) => <MyCode {...props} />,
