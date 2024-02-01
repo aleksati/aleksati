@@ -29,7 +29,7 @@ declare global {
 
   type P5jsContainerRef = HTMLDivElement;
 
-  type P5jsSketchCleanup = { cleanup: () => void };
+  // type P5jsSketchCleanup = { cleanup: () => void };
 
   type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;
 

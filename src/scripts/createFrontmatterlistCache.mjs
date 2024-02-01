@@ -9,7 +9,9 @@ import fs from "fs";
 // The getAllFr is a copy from "functions/loadPosts" but there is issues with ES importing
 // So I just have a replicate function here.
 
-const root = process.cwd();
+const root = process.cwd() + "\\src\\writings";
+
+console.log(root);
 
 // sort by date
 // SHOULD BE UPDATED, ONLY COMPARES STRINGS.

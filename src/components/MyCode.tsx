@@ -18,7 +18,7 @@ const MyCode = (props: any): React.JSX.Element => {
 
   return (
     <Prism
-      className="bg-primary-light dark:bg-primary-dark"
+      className="bg-primary-light dark:bg-primary-dark pb-4"
       language={language}
       colorScheme={currTheme as "dark" | "light"}>
       {code}

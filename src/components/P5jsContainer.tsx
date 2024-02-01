@@ -41,7 +41,7 @@ const P5jsContainer = ({
   }, [isMounted, sketch]);
 
   // parent div of the Canvas p5 creates
-  return <div ref={parentRef}></div>;
+  return <div className="pb-4" ref={parentRef}></div>;
 };
 
 export default P5jsContainer;

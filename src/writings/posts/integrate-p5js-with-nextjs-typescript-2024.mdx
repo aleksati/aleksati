@@ -1,0 +1,154 @@
+---
+title: "How to integrate p5js into your Nextjs TypeScript Projects in 2024"
+date: "2024-01-30"
+keywords:
+  [
+    "p5js",
+    "next",
+    "web",
+    "react",
+    "typescript",
+    "audio",
+    "programming",
+    "javascript",
+    "visuals",
+    "nodejs",
+  ]
+type: "post"
+summary: "On my website, I use the p5js library to make little audio-visual widgets. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs, and TypeScript. Click to read more about how you can do it."
+---
+
+As web development libraries age and update, so must developers. In this spirit, I recently modernized my entire Nextjs website infrastructure and migrated from JavaScript to TypeScript. As expected, many things broke in the process and I soon found myself completely re-designing some of the more complex components I built for my site.
+
+In my posts, I sometimes use the p5js library to create cool little audio-visual widgets and sonification examples. Updating my broken <MyLink href="https://p5js.org/">p5js</MyLink> implementation was challenging on many levels. The standard p5 library for react users (<MyLink href="https://www.npmjs.com/package/react-p5">p5-react</MyLink>) is currently deprecated, and the standard p5 library is not particularly up-to-date, nor well-designed for Nextjs server-side rendering framework. And that's not even mentioning the web-audio related issues. Luckily, after some head-scratching and rigorous online forum reading, I managed to scrape together a system that works.
+
+Since I had to draw code and inspiration from a variety of sources, I thought it would nice to share what I did here. So this is how I integrated p5js and p5-sounds into my Nextjs React TypeScript project in 2024.
+
+```
+Versions used:
+p5 - v1.9.0
+p5.sounds - v0.9.0
+react - v18.2.0
+Nextjs - v13.4 ++
+typescript - v5.3.3
+```
+
+# Contents
+
+1. <MyLink href="#p5-container-component">p5 Container Component</MyLink>
+2. <MyLink href="#importing-p5-and-p5.sounds-client-side">
+     Importing p5 and p5.sounds Client-side
+   </MyLink>
+3. <MyLink href="#building-p5-apps">Building p5 Apps</MyLink>
+4. <MyLink href="#full-code-and-working-example">
+     Full Code and Working Example
+   </MyLink>
+5. <MyLink href="#references-and-inspirations">
+     References and Inspirations
+   </MyLink>
+
+---
+
+# p5 Container Component
+
+First, install the p5 library "npm install p5" from the root of your Nextjs project. Then, create a p5 container component. The container acts as a Higher-Order Component for our p5 apps (sketches), putting all the React and Nextjs rendering logic in one place, meaning the code in the sketches can be 100% p5-focused.
+
+As props, the container component takes sketches as functions (more on this later), and by using the p5Types class import, we can provide accurate typing for our sketches and p5 instances. On the other hand, the sketch functions receive a p5 instance and a reference to the container div (parentRef). By passing the container ref to the sketches, we can render the sketches neatly inside the parent and enable dynamic resizing.
+
+```TypeScript
+// components/P5jsContainer.tsx
+import React, { useEffect, useRef } from "react";
+import p5Types from "p5";
+
+type P5jsContainerRef = HTMLDivElement;
+type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;
+
+const P5jsContainer = ({ sketch }: { sketch: P5jsSketch }): React.JSX.Element => {
+  const parentRef = useRef<P5jsContainerRef>();
+
+  // More stuff come here
+  // ....
+  // ...
+
+  // parent div of the p5 canvas
+  return <div ref={parentRef}></div>;
+};
+
+export default P5jsContainer;
+
+```
+
+# Importing p5 and p5.sounds Client-side
+
+Because of Nextjs' full-stack architecture, there is no current support for importing p5 as a normal react library (e.i server-side). The lib has to be added first on the client side. The most common approach for this client-side import with Nextjs is to use the Next Dynamic function to achieve lazy loading. However, I was unsuccessful with the method as there apparently are some compatibility issues with the standard p5 library and the Nextjs framework, at least with my environment versions stated above.
+
+Instead, what worked was to import p5 as a render side-effect through React's useEffect function. So when the component has mounted, I import p5 and create a sketch neatly inside the Div container.
+
+```TypeScript
+// components/P5jsContainer.tsx
+
+// ....
+// ...
+const [isMounted, setIsMounted] = useState<boolean>(false)
+
+// on mount
+useEffect(() => {
+  setIsMounted(true);
+}, [])
+
+useEffect(() => {
+  // if not mounted, do nothing yet.
+  if (!isMounted) return;
+
+  // our current p5 sketch instance
+  let p5instance: p5Types;
+
+  // function that loads p5 and creates the sketch inside the div.
+  const initP5 = async () => {
+    try {
+      // import the p5 and older version(!) of p5.sounds library client-side
+      const p5 = (await import("p5")).default;
+      await import("../lib/p5.sound");
+      // initalize the sketch
+      new p5((p) => {
+        sketch(p, parentRef.current);
+        p5instance = p;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  initP5();
+
+  // when the component unmounts, remove the p5 instance.
+  return p5instance.remove();
+
+}, [isMounted, sketch]);
+// ....
+// ...
+
+```
+
+Notice that the p5 sounds library in the code block above is imported from the root lib folder and not from node_modules, as usual. This library is essential to use the web audio capabilities of p5. But since I could not make the p5 sound work in my current Nextjs environment, I had to roam the internet for possible fixes. Luckily, I came across <MyLink href="https://stackoverflow.com/questions/61985249/how-to-import-and-utilize-p5-sound-in-vue">this genius answer</MyLink> by Bob McBobson in 2020, in response to an issue with the p5 sounds not being recognized in Vue.
+
+Bob suggests downgrading p5 from version 1.9.0 to 0.9.0 and copying the downgraded version of "p5.sound.js" from node_modules into a custom folder (./lib) before finally upgrading p5 back to v1.9.0. This worked perfectly for me. Instead of importing the current version of p5 sounds, I import the previous version from my lib folder. Use "npm uninstall p5" and "npm install p5@0.9.0" to downgrade to a specific verison of p5.
+
+# Building p5 Apps
+
+How to type it.
+
+Sketches folder - audio context off. on click. canvas rendering
+
+if the sketch has additional class, you should extend React.Component
+
+# Full Code and Working Example
+
+<P5SonicOrbs />
+
+# References and Inspirations
+
+https://www.lloydatkinson.net/posts/2022/how-to-prevent-a-duplicated-canvas-when-using-p5-and-react-strict-mode/
+
+p5 constructor
+https://github.com/P5-wrapper/react/issues/61

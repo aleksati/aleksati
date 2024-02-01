@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import path from "path";
 import fs from "fs";
 
-const root: string = process.cwd();
+const root: string = process.cwd() + "\\src\\writings";
 
 // get slugs from the posts, works or music
 export function getSlugs(postType: string = NAV_TABS["posts"]): string[] {
