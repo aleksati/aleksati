@@ -37,7 +37,7 @@ export const useClickOutside = <T extends HTMLElement>(): [
 
   useEffect(() => {
     if (ref.current && isMounted) {
-      window.addEventListener("click", handleClick);
+      window.addEventListener("click", handleClick, { passive: true });
       return () => {
         window.removeEventListener("click", handleClick);
       };

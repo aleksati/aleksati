@@ -29,7 +29,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
 
   // const [stateTheme, setStateTheme] = useState(null);
   // const audio = `/audio/${src}`;
-  const { currTheme } = getCurrTheme();
+  // const { currTheme } = getCurrTheme();
 
   //  create the wavesurfer audioplayer
   const createAudioPlayer = useCallback(async () => {
@@ -50,7 +50,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
     } catch (error) {
       console.log(error);
     }
-  }, [src, newOptions]);
+  }, []);
 
   // on mount
   useEffect(() => {
@@ -64,18 +64,18 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
     };
   }, [createAudioPlayer, waveFormRef]);
 
-  useEffect(() => {
-    // change the color of the waveform based on the current theme
-    const setAudioColor = () => {
-      if (!waveFormIsMounted || !waveFormRef.current) return;
-      let color = currTheme === "light" ? "#000" : "#fff";
-      waveFormRef.current?.setProgressColor(color);
-      waveFormRef.current?.setWaveColor(color);
-      waveFormRef.current?.setCursorColor(color);
-    };
+  // useEffect(() => {
+  //   // change the color of the waveform based on the current theme
+  //   const setAudioColor = () => {
+  //     if (!waveFormIsMounted || !waveFormRef.current) return;
+  //     let color = currTheme === "light" ? "#000" : "#fff";
+  //     waveFormRef.current?.setProgressColor(color);
+  //     waveFormRef.current?.setWaveColor(color);
+  //     waveFormRef.current?.setCursorColor(color);
+  //   };
 
-    setAudioColor();
-  }, [waveFormRef, waveFormIsMounted, currTheme]);
+  //   setAudioColor();
+  // }, [waveFormRef, waveFormIsMounted, currTheme]);
 
   // update play state when pause/play
   const handlePlayPause = () => {

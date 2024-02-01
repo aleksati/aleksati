@@ -24,6 +24,7 @@ const P5jsContainer = ({
       try {
         const p5 = (await import("p5")).default;
         await import("../lib/p5.sound");
+        // await import("p5/lib/addons/p5.sound");
         new p5((p) => {
           sketch(p, parentRef.current);
           p5instance = p;
