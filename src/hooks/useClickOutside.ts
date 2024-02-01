@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useIsMounted } from "./useIsMounted";
 
 export const useClickOutside = <T extends HTMLElement>(): [
@@ -14,7 +14,8 @@ export const useClickOutside = <T extends HTMLElement>(): [
   const ref = useRef<T>(null);
 
   // Event because I pass it to a eventListener.
-  const handleClick = (e: MouseEvent): void => {
+  // useCallBack to avoid re-rendering the useEffect more than necessary.
+  const handleClick = useCallback((e: MouseEvent): void => {
     // e.preventDefault(); results in no links being able to be clicked!!
 
     const item = e.target as T;
@@ -32,7 +33,7 @@ export const useClickOutside = <T extends HTMLElement>(): [
       return;
     }
     setIsClickOutside(true);
-  };
+  }, []);
 
   useEffect(() => {
     if (ref.current && isMounted) {

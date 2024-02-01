@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./src/pages/**/*.{html,js,jsx,tsx}",
     "./src/components/**/*.{html,js,jsx,tsx}",
-    "./src/components-p5js/**/*.{html,js,jsx,tsx}",
     "./src/layouts/**/*.{html,js,jsx,tsx}",
     "./src/templates/**/*.{html,js,jsx,tsx}",
   ],

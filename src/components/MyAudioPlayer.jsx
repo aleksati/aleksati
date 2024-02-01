@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, memo } from "react";
+import { useIsMounted } from "../hooks/useIsMounted";
 import getClockValue from "../functions/getClockValue";
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
@@ -24,62 +25,57 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   const containerRef = useRef();
   const waveFormRef = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audioIsMounted, setAudioIsMounted] = useState(false);
+  const [waveFormIsMounted, setWaveFormIsMounted] = useState(false);
 
   // const [stateTheme, setStateTheme] = useState(null);
+  // const audio = `/audio/${src}`;
   const { currTheme } = getCurrTheme();
-  const audio = `/audio/${src}`;
 
-  // on mount, create the wavesurfer
+  //  create the wavesurfer audioplayer
+  const createAudioPlayer = useCallback(async () => {
+    try {
+      const WaveSurfer = (await import("wavesurfer.js")).default;
+      const options = WaveFormOptions(containerRef.current, newOptions);
+      waveFormRef.current = WaveSurfer.create(options);
+      waveFormRef.current.load(`/audio/${src}`);
+
+      // set the timer to countdown when the audio is running
+      waveFormRef.current.on("audioprocess", () => {
+        let currTime = waveFormRef.current.getCurrentTime();
+        let currClockTime = getClockValue(currTime);
+        document.getElementById("audiotime").innerText = currClockTime;
+      });
+
+      waveFormRef.current.on("ready", () => setWaveFormIsMounted(true));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [src, newOptions]);
+
+  // on mount
   useEffect(() => {
-    const create = async () => {
-      try {
-        const WaveSurfer = (await import("wavesurfer.js")).default;
-        const options = WaveFormOptions(containerRef.current, newOptions);
-        waveFormRef.current = WaveSurfer.create(options);
-        waveFormRef.current.load(audio);
-
-        // set the timer to countdown when the audio is running
-        waveFormRef.current.on("audioprocess", () => {
-          let currTime = waveFormRef.current.getCurrentTime();
-          let currClockTime = getClockValue(currTime);
-          document.getElementById("audiotime").innerText = currClockTime;
-        });
-
-        waveFormRef.current.on("ready", () => setAudioIsMounted(true));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    create();
+    createAudioPlayer();
 
     return () => {
       if (waveFormRef.current) {
         waveFormRef.current.destroy();
-        setAudioIsMounted(false);
+        setWaveFormIsMounted(false);
       }
     };
-  }, []);
+  }, [createAudioPlayer, waveFormRef]);
 
   useEffect(() => {
     // change the color of the waveform based on the current theme
     const setAudioColor = () => {
-      if (audioIsMounted && waveFormRef.current) {
-        waveFormRef.current?.setProgressColor(
-          currTheme === "light" ? "#000" : "#fff"
-        );
-        waveFormRef.current?.setWaveColor(
-          currTheme === "light" ? "#000" : "#fff"
-        );
-        waveFormRef.current?.setCursorColor(
-          currTheme === "light" ? "#000" : "#fff"
-        );
-      }
+      if (!waveFormIsMounted || !waveFormRef.current) return;
+      let color = currTheme === "light" ? "#000" : "#fff";
+      waveFormRef.current?.setProgressColor(color);
+      waveFormRef.current?.setWaveColor(color);
+      waveFormRef.current?.setCursorColor(color);
     };
 
     setAudioColor();
-  }, [waveFormRef, audioIsMounted, currTheme]);
+  }, [waveFormRef, waveFormIsMounted, currTheme]);
 
   // update play state when pause/play
   const handlePlayPause = () => {
@@ -89,7 +85,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
 
   return (
     <div className="flex items-center justify-start py-4 py-6">
-      {audioIsMounted ? (
+      {waveFormIsMounted ? (
         <div className="flex items-center space-x-2">
           <ButtonIcon
             onClick={handlePlayPause}
@@ -111,4 +107,4 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
   );
 };
 
-export default MyAudioPlayer;
+export default memo(MyAudioPlayer);

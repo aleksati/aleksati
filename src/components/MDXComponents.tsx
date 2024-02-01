@@ -14,11 +14,11 @@ interface TextProps<T> {
   object: T;
 }
 
-type MDXComponentsProps = {
-  [key: string]: (props: any) => React.JSX.Element;
-};
+// type MDXComponentsProps = {
+//   [key: string]: (props: any) => React.JSX.Element;
+// };
 
-const MDXComponents: MDXComponentsProps = {
+const MDXComponents: object = {
   MyImage,
   MyLink,
   MyCode,

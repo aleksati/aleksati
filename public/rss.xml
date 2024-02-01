@@ -2,105 +2,105 @@
     <channel>
         <title><![CDATA[aleksati.net / music tech and creative computing]]></title>
         <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.]]></description>
-        <link>http://localhost:3000</link>
+        <link>https://aleksati.net</link>
         <image>
-            <url>http://localhost:3000t/img/me.jpg</url>
+            <url>https://aleksati.nett/img/me.jpg</url>
             <title>aleksati.net / music tech and creative computing</title>
-            <link>http://localhost:3000</link>
+            <link>https://aleksati.net</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 01 Feb 2024 09:49:39 GMT</lastBuildDate>
-        <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 01 Feb 2024 09:49:39 GMT</pubDate>
+        <lastBuildDate>Thu, 01 Feb 2024 11:06:46 GMT</lastBuildDate>
+        <atom:link href="https://aleksati.net/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Thu, 01 Feb 2024 11:06:46 GMT</pubDate>
         <item>
-            <title><![CDATA[Integrate p5js and p5-sounds into your 2024 Nextjs TypeScript Projects]]></title>
-            <description><![CDATA[In my posts, I sometimes use the p5js library to make little audio-visual widgets. While recently updating Nextjs (v13.4+) and migrating to TypeScript, I discovered that my previous p5 implementation had broken and that the p5-react library was deprecated. So, I decided to redesign and update my p5 implementation to support newer p5, React, Nextjs, and TypeScript versions. Click to read more about how I did it.]]></description>
-            <link>http://localhost:3000/posts/integrate-p5js-with-nextjs-and-ts-2024</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/integrate-p5js-with-nextjs-and-ts-2024</guid>
+            <title><![CDATA[How to integrate p5js into your Nextjs TypeScript Projects in 2024]]></title>
+            <description><![CDATA[On my website, I use the p5js library to make little audio-visual widgets. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs, and TypeScript. Click to read more about how you can do it.]]></description>
+            <link>https://aleksati.net/posts/integrate-p5js-with-nextjs-typescript-2024</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/integrate-p5js-with-nextjs-typescript-2024</guid>
             <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
-            <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is quite different from the usual concert tech. In this post, I share some steps and strategies that can improve the quality and workflow of your networked audio engineering practice.]]></description>
-            <link>http://localhost:3000/posts/improve-your-networked-audio-engineering</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/improve-your-networked-audio-engineering</guid>
+            <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is very different from usual concert tech. In this post, I share some steps and strategies that can improve your networked audio engineering practice.]]></description>
+            <link>https://aleksati.net/posts/improve-your-networked-audio-engineering</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/improve-your-networked-audio-engineering</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Software Poème Symphonique]]></title>
             <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
-            <link>http://localhost:3000/works/software-poeme-symphonique</link>
-            <guid isPermaLink="true">http://localhost:3000/works/software-poeme-symphonique</guid>
+            <link>https://aleksati.net/works/software-poeme-symphonique</link>
+            <guid isPermaLink="true">https://aleksati.net/works/software-poeme-symphonique</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[aleks.max - a Tiny MaxMSP Bundle]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others.]]></description>
-            <link>http://localhost:3000/works/aleks-max</link>
-            <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
+            <link>https://aleksati.net/works/aleks-max</link>
+            <guid isPermaLink="true">https://aleksati.net/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
-            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how to enrich data visualizations with model-based sonification in a browser using the p5js library.]]></description>
-            <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
+            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how you can enrich your data visualizations with model-based sonification in a browser using the p5js library.]]></description>
+            <link>https://aleksati.net/posts/exploring-dataset-sonification-with-web-audio</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/exploring-dataset-sonification-with-web-audio</guid>
             <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[0101101000 ... (hello world)]]></title>
             <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
-            <link>http://localhost:3000/works/hello-world</link>
-            <guid isPermaLink="true">http://localhost:3000/works/hello-world</guid>
+            <link>https://aleksati.net/works/hello-world</link>
+            <guid isPermaLink="true">https://aleksati.net/works/hello-world</guid>
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Using Python to Control Ableton Live with MIDI]]></title>
             <description><![CDATA[While designing a new liveset, I wrote some code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did, and how.]]></description>
-            <link>http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</guid>
+            <link>https://aleksati.net/posts/using-python-to-control-ableton-live-with-midi</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/using-python-to-control-ableton-live-with-midi</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[5G Networked Music Performances - Will it Work?]]></title>
             <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on private and commercial 5G networks.]]></description>
-            <link>http://localhost:3000/posts/fiveg-networked-music-performances</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances</guid>
+            <link>https://aleksati.net/posts/fiveg-networked-music-performances</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/fiveg-networked-music-performances</guid>
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Karwowski, Kann & Tidemann + Nordahl]]></title>
             <description><![CDATA[An improvisational audio-visual quartet that offers thought-provoking and immersive concert experiences, combining guitar, vocals, live electronics, and projected visual art.]]></description>
-            <link>http://localhost:3000/musics/karwowski-kann-tidemann</link>
-            <guid isPermaLink="true">http://localhost:3000/musics/karwowski-kann-tidemann</guid>
+            <link>https://aleksati.net/musics/karwowski-kann-tidemann</link>
+            <guid isPermaLink="true">https://aleksati.net/musics/karwowski-kann-tidemann</guid>
             <pubDate>Sat, 17 Dec 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
             <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for realtime OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
-            <link>http://localhost:3000/works/audiovideoanalysis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
+            <link>https://aleksati.net/works/audiovideoanalysis</link>
+            <guid isPermaLink="true">https://aleksati.net/works/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[VideoAnalysis - Analyzing Music-related Body Motion]]></title>
             <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
-            <link>http://localhost:3000/works/videoanalysis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/videoanalysis</guid>
+            <link>https://aleksati.net/works/videoanalysis</link>
+            <guid isPermaLink="true">https://aleksati.net/works/videoanalysis</guid>
             <pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Radio 9]]></title>
             <description><![CDATA[A krautrock electronic pop trio from Oslo that takes you on a sonic journey from subtle electronic atmospheres to jarring post-punk whiteouts.]]></description>
-            <link>http://localhost:3000/musics/radio9</link>
-            <guid isPermaLink="true">http://localhost:3000/musics/radio9</guid>
+            <link>https://aleksati.net/musics/radio9</link>
+            <guid isPermaLink="true">https://aleksati.net/musics/radio9</guid>
             <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
             <description><![CDATA[A genre-defying trio from Oslo, Norway, that moves between jazz, electronic synth music, alternative pop, and minimalism. The Holy Mountain's sound combines accordion, vocals, synth and drums to create unique and conceptual music.]]></description>
-            <link>http://localhost:3000/musics/the-holy-mountain</link>
-            <guid isPermaLink="true">http://localhost:3000/musics/the-holy-mountain</guid>
+            <link>https://aleksati.net/musics/the-holy-mountain</link>
+            <guid isPermaLink="true">https://aleksati.net/musics/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>

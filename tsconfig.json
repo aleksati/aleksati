@@ -14,11 +14,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "typeRoots": [
-      "./types",
+      "./src/types",
       "./node_modules/@types",
       "./node_modules/@types/estree-jsx"
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "./**/*.ts", "./**/*.tsx"],
   "exclude": ["node_modules"]
 }

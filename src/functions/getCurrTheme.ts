@@ -5,10 +5,10 @@ interface ThemeProps extends Object {
   setTheme: (theme: string) => void;
 }
 
-const getCurrTheme = (): ThemeProps => {
+const GetCurrTheme = (): ThemeProps => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currTheme: string = theme === "system" ? systemTheme : theme;
   return { currTheme, setTheme };
 };
 
-export default getCurrTheme;
+export default GetCurrTheme;

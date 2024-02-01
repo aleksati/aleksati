@@ -61,12 +61,12 @@ const fileContents = `export const frontMatterListCache = ${JSON.stringify(
 
 // if the cache directory does not exist, create it
 try {
-  fs.readdirSync("cache");
+  fs.readdirSync("./src/cache");
 } catch (e) {
-  fs.mkdirSync("cache");
+  fs.mkdirSync("./src/cache");
 }
 
-fs.writeFile("cache/frontmatterlist.js", fileContents, (err) => {
+fs.writeFile("./src/cache/frontmatterlist.js", fileContents, (err) => {
   // writing to the frontmatter.js file
   if (err) return console.log(err);
   console.log("Frontmatter cached.");
