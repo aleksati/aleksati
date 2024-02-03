@@ -8,13 +8,9 @@ import p5Types from "p5";
 // then i updated p5 to the newest version. I found this was the only way to make the sound library work with this current next/react/typescript version. This I found on some forum.
 // I should try with the newest version also..?
 
-const P5jsContainer = ({
-  sketch,
-}: {
-  sketch: P5jsSketch;
-}): React.JSX.Element => {
+const P5jsContainer: P5jsContainer = ({ sketch }) => {
   const [isMounted, setIsMounted] = useIsMounted();
-  const parentRef = useRef<HTMLDivElement>();
+  const parentRef = useRef<P5jsContainerRef>();
 
   useEffect(() => {
     if (!isMounted) return;

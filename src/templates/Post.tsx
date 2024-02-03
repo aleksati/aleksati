@@ -1,11 +1,10 @@
+import DateAndKeywordViewer from "../components/DateAndKeywordViewer";
 import MDXComponents from "../components/MDXComponents";
 import { MDXRemote } from "next-mdx-remote";
-import DateAndKeywordViewer from "../components/DateAndKeywordViewer";
 
 //https://tailwindcss.com/docs/typography-plugin
 
 export default function Post({ mdxSource, frontMatter }: MDXPostProps) {
-  // console.log(MDXComponentsCopy);
   return (
     <>
       <div className="mb-6">

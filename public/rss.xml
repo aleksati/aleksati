@@ -9,15 +9,15 @@
             <link>https://aleksati.net</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 01 Feb 2024 14:02:39 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 03 Feb 2024 16:25:29 GMT</lastBuildDate>
         <atom:link href="https://aleksati.net/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 01 Feb 2024 14:02:39 GMT</pubDate>
+        <pubDate>Sat, 03 Feb 2024 16:25:29 GMT</pubDate>
         <item>
-            <title><![CDATA[How to integrate p5js into your Nextjs TypeScript Projects in 2024]]></title>
-            <description><![CDATA[On my website, I use the p5js library to make little audio-visual widgets. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read more about how you can do it.]]></description>
-            <link>https://aleksati.net/posts/integrate-p5js-with-nextjs-typescript-2024</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/integrate-p5js-with-nextjs-typescript-2024</guid>
-            <pubDate>Tue, 30 Jan 2024 00:00:00 GMT</pubDate>
+            <title><![CDATA[How to integrate p5js into Nextjs TypeScript Projects in 2024]]></title>
+            <description><![CDATA[I use the p5js library to make little audio-visual widgets on my website all the time. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read how I did it.]]></description>
+            <link>https://aleksati.net/posts/integrate-p5js-in-nextjs-with-typescript-2024</link>
+            <guid isPermaLink="true">https://aleksati.net/posts/integrate-p5js-in-nextjs-with-typescript-2024</guid>
+            <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>

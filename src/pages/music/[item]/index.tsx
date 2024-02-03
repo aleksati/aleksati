@@ -10,6 +10,7 @@ export default function handler({ frontMatter, mdxSource }: MDXPostProps) {
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
+        description: frontMatter.summary,
       }}>
       <Post mdxSource={mdxSource} frontMatter={frontMatter} />
     </LayoutPage>
