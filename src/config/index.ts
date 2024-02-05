@@ -58,7 +58,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   kuramoto: "#cffafe", //cyan-100
   improvisation: "#ccfbf1", //teal-100
   installation: "#e0f2fe", //sky-100
-  next: "#ffedd5", //orange-100
+  nextjs: "#ffedd5", //orange-100
   visuals: "#e0e7ff", //indigo-100
   art: "#ede9fe", //violet-100
   rock: "#d1fae5", // emerald-100
