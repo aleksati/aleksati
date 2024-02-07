@@ -17,8 +17,7 @@ const About = () => (
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
         <p>
-          Engineer and University lecturer, specializing in networked music and
-          audio programming
+          Music technologist and software developer
         </p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
@@ -27,21 +26,10 @@ const About = () => (
       </div>
     </div>
     <div className="space-y-4">
-      <p>
-        I am a music technologist audio developer from Kongsberg, Norway,
-        curious about all things science and passionate about art, exercising,
-        my partner and our cat. This website is part portfolio and part blog, a
-        platform where I share details of my projects and write about other
-        creative computing stuff.
+      <p> I am a music technologist and software developer from Kongsberg, Norway, with many years of experience as a multimedia (audio-video) programmer and web developer. I am overly curious about science and technology, and passionate about music, exercising, my partner and our cat. This website is part portfolio and part blog, a platform where I share details of my diverse projects and write about technical stuff that interests me.
       </p>
       <p>
-        Currently, I work as a Department Engineer for the Musicology Department
-        (IMV) at the University of Oslo (UiO). At IMV I also lecture and
-        coordinate two courses on Networked Music Performance Technologies
-        (MCT4024 and MCT4025) for the MCT masters programme. On the artistic
-        side, I play drums and live electronics for several Oslo-based acts and
-        have years of experience as an audio programmer and creative software
-        developer.
+      Currently, I work as a Department Engineer at the University of Oslo. Here, I develop long-term infrastructure strategies in teams, teach two ten-credit master-level courses on advanced audio-visual communication platforms and programming, and part-take in various research-related activities. In my spare time, I love to produce, play drums, and do live electronics for several Oslo-based bands and artists.
       </p>
       <p>To stay updated on my posts, subscribe to my rss feed.</p>
     </div>
