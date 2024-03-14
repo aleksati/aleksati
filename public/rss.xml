@@ -9,21 +9,21 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Feb 2024 17:41:50 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Mar 2024 18:13:56 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 05 Feb 2024 17:41:50 GMT</pubDate>
+        <pubDate>Thu, 14 Mar 2024 18:13:56 GMT</pubDate>
         <item>
-            <title><![CDATA[Integrate p5js into your Nextjs TypeScript Projects in 2024]]></title>
-            <description><![CDATA[I use the p5js library to make little audio-visual widgets on my website all the time. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read how I did it.]]></description>
-            <link>http://localhost:3000/posts/integrate-p5js-into-nextjs-with-typescript-2024</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/integrate-p5js-into-nextjs-with-typescript-2024</guid>
+            <title><![CDATA[How to use p5js and p5-sounds with Nextjs in 2024]]></title>
+            <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read how to do it.]]></description>
+            <link>http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</guid>
             <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Improve the Quality and Workflow of your Networked Audio Engineering]]></title>
-            <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is very different from usual concert tech. In this post, I share some steps and strategies that can improve your networked audio engineering practice.]]></description>
-            <link>http://localhost:3000/posts/improve-your-networked-audio-engineering</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/improve-your-networked-audio-engineering</guid>
+            <title><![CDATA[How to Improve your Networked Audio Engineering]]></title>
+            <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is very different from usual concert tech. In this post, I share some steps and strategies that can help improve your networked audio engineering practice.]]></description>
+            <link>http://localhost:3000/posts/how-to-improve-your-networked-audio-engineering</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/how-to-improve-your-networked-audio-engineering</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
