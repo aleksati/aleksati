@@ -5,7 +5,7 @@ import MyLink from "../components/MyLink";
 // API DOC:
 // https://api.cristin.no/v2/doc/index.html
 
-const Research = () => {
+const Publications = () => {
   const [researchData, setResearchData] = useState<ResearchDataList>();
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<boolean>();
@@ -64,4 +64,4 @@ const Research = () => {
   );
 };
 
-export default Research;
+export default Publications;

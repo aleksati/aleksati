@@ -1,6 +1,6 @@
 ---
-title: "Tailored Software Tools for Exploring Performance Patterns in Norwegian Fiddle Music"
-date: "2024-01-10"
+title: "Software Tools to Explore Performance Patterns in Hardanger Fiddle Music"
+date: "2024-03-10"
 keywords:
   [
     "max",
@@ -11,20 +11,31 @@ keywords:
     "data-science",
     "javascript",
     "programming",
+    "mapping",
   ]
 type: "work"
-summary: "A quick look into ....; a software toolkit for ..... , developed as a Thesis project on scholarship from The MIRAGE Research Project, University of Oslo."
+summary: "A quick look into my exploration of ... ; a software toolkit for ..... , developed as a Thesis project on scholarship from The MIRAGE Research Project, University of Oslo."
 ---
+
+My master thesis project was to create interactive software tools to explore the intercate Performance Patterns in Hardanger Fiddle Music
+
+on scholarship from The MIRAGE Research Project, University of Oslo.
+
+The result was a toolkit with multiple software modules that was able to ..
+
+Here is a quick look into the tools and their key features.
+
+norwegian folk music
 
 <MyImage
   priority={true}
-  src="ava-overview.jpg"
-  alt="audiovideoanalysis overview"
+  src="thesis-overview1.jpg"
+  alt="My thesis tools overview shot"
 />
 
 While researching master thesis topics at the University of Oslo in 2020, I came in contact with <MyLink href="https://www.uio.no/ritmo/english/projects/mirage/index.html">The MIRAGE Research Project</MyLink>. Through cutting-edge music information retrieval (MIR) and machine learning, MIRAGE aims to build a comprehensive AI-based system for advanced music analysis to improve how computers listen and understand music.
 
-For my thesis, I developed a small software toolkit for MIRAGE (which remained nameless) that was designed to explore the rich performance patterns of Norwegian folk music. More specifically, the toolkit consists of two MaxMSP applications (prototypes), with three modules, that use research-informed and multi-dimensional approaches to visualize and analyze the complex rhythmical structuring in Hardanger fiddle music.
+For my thesis, I developed a small software toolkit for MIRAGE (which remained nameless, unfortunatley) that was designed to explore the performance patterns of Norwegian folk music. More specifically, the tools consisted of two MaxMSP applications (prototypes), with three modules, that use research-informed approaches to visualization and multi-dimensional analysis of the complex rhythmical structuring in Hardanger fiddle music.
 
 This post takes a quick look at some of the most unique features of my Hardanger fiddle software toolkit. Link to a my full thesis below.
 
@@ -40,30 +51,52 @@ This post takes a quick look at some of the most unique features of my Hardanger
 
 # What It Is and How To Use It
 
-The toolkit is designed to be used by both musicians and researchers. Therefore, both prototypes have a wide variety of interactive, visual and analytical features that enable users to build and organize datasets and visually explore the unique rhythmic characteristics of the music.
+The toolkit was designed for musicians and researchers, meaning it includes a varied array of interactive and analytical features. Essentially, the tools can be used to explore the intricate relationships between high-level rhythmic patterns and motivic (harmonic) content in Hardanger fiddle music. Users can both visually explore these musical connections, through a dynamic UI, and create datasets from the many export options avaliable. There are also several _active_ features included in the tools, such as the ability to edit the music on a structural and beat level.
 
-The first is ....
-The second is ...
+At the momement, the tools only support specific musical notation data (.csv), provided by the MIRAGE research group. This means you cannot use the tools without it. However, for demoing, there is some example data in the GitHub repo of the project that you can use. Links below. To start, open the first prototype and import some _track data_ into the app. With the data imported, you can navigate the software features and export/import data freely between both prototypes.
 
-The tools use specific MIRAGE annotation data (.csv) to function, called _track data_, that include precise metrics and note positions of a performance.
-
-For demoing, you can find some example track data in the GitHub repo of the project. Links below. To start, open the first prototype and import some _track data_ into the app. With the data imported, you can navigate the software features and export/import data freely between both prototypes.
-
-For a brief, but insightful, overview of the basic usage of the toolkit, check out the video demo I made below.
+For a brief, but insightful, overview of the basic usage of the toolkit, check out the brief video demonstration I made below:
 
 <MySpotifyPlayer embedUrl="https://www.youtube.com/embed/fMtfsBs5QBw?si=aTcmfE6-y3Ep3kZ8" />
 
 # Key Features
 
+The thesis goal was to explore how we can design interactive computational tools to explore performance patterns in Hardanger fiddle music. The key components of my software design were features that revealed interesting structural aspects of the music and visualized the multi-dimensional relationships between them. Also, enabling the ability to interact and manipulate the music on a structural level was an important goal of the project.
+
+Below are more detailed accounts of the main software features.
+
 ## Score Representation and Data Sturcture
 
-Bach library for musical rep, rythmical hierarchy, Dict
+The score representation was created based on the [bach.roll] object in Max. This object enables editing, visualization and playback of musical scores through proportional notation where each note is prescribed a horizontal spacing equal to its rhythmic duration. The score is generated by adding lists of performance parameters referenced from the toolkit data structure.
 
-## Beat-level Manipulation
+When importing the performance data into the prototypes, the data is first re-formatted into a dictionary data structure. As all technical operations reference the same data structure, this dictionary forms the basis for all toolkit operations.
+
+<MyImage
+  priority={true}
+  src="thesis-overview1.jpg"
+  alt="My thesis tools overview shot"
+  caption="say something"
+/>
+
+## Beat-level Adjustments
+
+The most interesting interactive component of the tools is the ability to make adjustments to the beat positions in the music. The beat positions of the music are indicated by vertical green markers in the score, each with a unique label that identifies the bar and beat number.
+
+When a beat position is adjusted in response to a marker movement, the relative distance between the beats are updated in the data structure while the relative distance between notes remain unchanged. However, a side-effect of this implementation is that neighboring beats are made longer or shorter in response to a beat adjustment. In reality, beat duration fluctuations are rarely compensated for like this. Therefore, an additional feature was added, enabling beat duration compensation to be optional.
+
+<MyImage
+  priority={true}
+  src="thesis-overview1.jpg"
+  alt="My thesis tools overview shot"
+  caption="say something .. add picture 2"
+/>
+
+I also added another much more experimental, but research-informed, editing capability to the score, called Quantize. Long story short, unlike most popular music, traditional Norwegian folk music is often rhythmically structured in a way where the beats within the meausure all have uneven durations. The quantize feature enables users to artificially impose such categories on the entire score in one go. The purpose of this including feature was to lay some grounds for comparison studies and other investigations intro performances with artificially imposed durational categories.
 
 ## Plotting interfaces
 
 Module 2 and 3
+Plot the relationship between things in the music.
 
 ## Export Options
 

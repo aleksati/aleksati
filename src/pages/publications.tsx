@@ -1,11 +1,11 @@
 import LayoutPage from "../layouts/LayoutPage";
-import Research from "../templates/Research";
+import Publications from "../templates/Publications";
 import { GetStaticProps } from "next";
 
 export default function handler() {
   return (
     <LayoutPage pageMeta={{ title: "research" }}>
-      <Research />
+      <Publications />
     </LayoutPage>
   );
 }

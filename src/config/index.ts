@@ -12,7 +12,7 @@ export const NAV_TABS: Record<string, string> = {
   posts: "posts",
   works: "works",
   music: "music",
-  research: "research",
+  publications: "publications",
 };
 
 export const KEYWORDS_2_COLOR: Record<string, string> = {

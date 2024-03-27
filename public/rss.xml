@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 14 Mar 2024 18:13:56 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 21 Mar 2024 19:08:07 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 14 Mar 2024 18:13:56 GMT</pubDate>
+        <pubDate>Thu, 21 Mar 2024 19:08:07 GMT</pubDate>
         <item>
             <title><![CDATA[How to use p5js and p5-sounds with Nextjs in 2024]]></title>
             <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read how to do it.]]></description>
@@ -98,7 +98,7 @@
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
-            <description><![CDATA[A genre-defying trio from Oslo, Norway, that moves between jazz, electronic synth music, alternative pop, and minimalism. The Holy Mountain's sound combines accordion, vocals, synth and drums to create unique and conceptual music.]]></description>
+            <description><![CDATA[The Holy Mountain is a dark synth-pop trio from Norway with accordion, vocals, synth and drums. Since 2015, the band has produced an impressive discography of critically acclaimed genre-defying music with a taste for the mysterious and transcendental.]]></description>
             <link>http://localhost:3000/musics/the-holy-mountain</link>
             <guid isPermaLink="true">http://localhost:3000/musics/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
