@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 21 Mar 2024 19:08:07 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Apr 2024 09:32:56 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 21 Mar 2024 19:08:07 GMT</pubDate>
+        <pubDate>Thu, 04 Apr 2024 09:32:56 GMT</pubDate>
+        <item>
+            <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
+            <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>
+            <link>http://localhost:3000/works/thesis</link>
+            <guid isPermaLink="true">http://localhost:3000/works/thesis</guid>
+            <pubDate>Sun, 10 Mar 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to use p5js and p5-sounds with Nextjs in 2024]]></title>
             <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Click to read how to do it.]]></description>

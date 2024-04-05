@@ -16,9 +16,7 @@ const About = () => (
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
-        <p>
-          Music technologist and software developer
-        </p>
+        <p>Music technologist and software developer</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
@@ -26,10 +24,20 @@ const About = () => (
       </div>
     </div>
     <div className="space-y-4">
-      <p> I am a music technologist and software developer from Kongsberg, Norway, with many years of experience as a musician, multimedia (audio-video) programmer and web developer. I am overly curious about science and technology, and passionate about music, art, exercising, my partner and our cat. This website is part portfolio and part blog, a platform where I share my projects, thoughts and write about music/audio tech stuff.
+      <p>
+        I am a music technologist and software developer from Kongsberg, Norway,
+        with many years of experience as a musician, multimedia (audio-video)
+        programmer and web developer. I am overly curious about science and
+        technology, and passionate about music, art, exercising, my partner and
+        our cat. This website is part portfolio and part blog, a platform where
+        I share my projects, thoughts and write about music/audio tech stuff.
       </p>
       <p>
-      Currently, I work as a Department Engineer at the University of Oslo. Here, I develop long-term infrastructure strategies in teams, teach two ten-credit master-level courses on advanced audio-visual networking and programming, and part-take in various research-related activities.
+        Currently, I work as a Department Engineer at the University of Oslo.
+        Here, I develop and build long-term infrastructure, oversee sound studio
+        facilities, teach two ten-credit master-level courses on advanced
+        audio-visual networking and programming, and part-take in various
+        research-related activities.
       </p>
       <p>To stay updated on my posts, subscribe to my rss feed.</p>
     </div>
