@@ -87,7 +87,7 @@ When I added this beat quantization feature, the idea was that it could be usefu
 
 ## Visualizing Structural Relationships
 
-Next to the score representaion in the UI, you will find one or more plotting windows. The plots are custom-made XY-graphs, built with JavaScript and the [jsui] Max object, that provide a fast and easy-to-use interface for insightful visual displays. These analysis modules work by referencing the toolkit data structure and sending information to the score window to acheive stuff like adaptive coloring. With the plots, users can compare timing patterns of different motivic segments of the performance, and explore if regions with similar rhythmical propoerties share other parameters, such as pitch, velocity and metric position.
+Next to the score representaion in the UI, users will find one or more plotting windows. The plots are custom-made XY-graphs built with JavaScript and the [jsui] Max object that provide a fast and easy-to-use interface for insightful visual displays. These analysis modules work by referencing the toolkit data structure and sending information to the score window to acheive adaptive coloring and more. With the plots, users can compare timing patterns of different motivic segments of the performance and explore if regions with similar rhythmical propoerties share other parameters, such as pitch, velocity and metric position.
 
 In the example below, a user is trying to examine the timing patterns of a recurring motif, a melodic segment that repeats at different times throughout the performance (Johansson, 2010). As seen, the motifs share similar timing patterns as they have similar beat duration distribution over time.
 
@@ -97,7 +97,7 @@ In the example below, a user is trying to examine the timing patterns of a recur
   caption="The toolkit plots can be used to visualize and compare timing patterns of recurring motifs. The color-coding scheme is also passed to the score representation (see top image) for easy visual reference."
 />
 
-It's also possible to take a more multi-dimensional analytical approach with the plots and explore relationships across note regions that share similar rhythmic qualities. In the second example detailed in the images below, a user has selected a custom note region in the score and the software has found a second region with a similar timing profile (note and beat durations). Now, the user can use the plotting window to investigate whether the two matching regions share other parameters as well, such as pitch, velocity and metric position of the notes.
+It's also possible to take a more multi-dimensional plotting approach and explore relationships between note regions that share similar rhythmic qualities. In the second example detailed below, a user has selected a custom note region in the score and the software has found a second region with a similar timing profile (note and beat durations). Now, the user can use the plotting window to investigate whether the two matching regions share other parameters as well, such as pitch, velocity and metric position of the notes.
 
 <MySlideshow
   imgs={["thesis-plot2pitch.jpg", "thesis-plot2vel.jpg"]}
@@ -108,9 +108,9 @@ It's also possible to take a more multi-dimensional analytical approach with the
 />
 ## Export Options
 
-As briefly mentioned, the toolkit data structure can be downloaded as a json file from the menubar. In addition, all plots (with or without grid-lines) can be exported in a variety of uncompressed and compressed image formats. It is also possible to export the data from the plotting windows in a json file for easy transport to other programming environments such as MatLab and Python.
+The toolkit data structure can be downloaded as a json file from the application menubar. In addition, all plots (with or without grid-lines) can be exported in a variety of uncompressed and compressed image formats. It is also possible to export the plotting data in a json file for more precise analysis and easy transport to other programming environments such as MatLab and Python.
 
-Finally, the score itself can be exported as MIDI-file for later playback.
+Finally, the score itself can be exported as an 8-bit MIDI-file for playback.
 
 # Links and Resources
 
