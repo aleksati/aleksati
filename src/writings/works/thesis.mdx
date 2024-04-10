@@ -71,19 +71,25 @@ It was crucial that the score could provide detailed feedback about user gesture
 
 The most interesting interactive component of the toolkit is its ability to adjust beat positions of the music. With beat-level editing, my goal was that both musicians and reseachers could use the software for comparison studies and other rhythmic investigations. But why? Long story short, Hardanger fiddle music is often in 3/4 measure and rhythmically structured in a way that the beats within the meausure all have uneven durations (Johansen 2017, Sevåg Sæta 1992). The uneven beats are far from random, part of intricate rhythmical categories sometimes refered to as timing patterns. These rhythms are unlike most other types of music and therefore very interesting to musicology research.
 
-The beat positions in the toolkit score are indicated by the vertical green markers, each with a unique label that identifies the bar and beat number. As seen in the first image below, users can adjust beat positions by moving the green markers left or right. When a beat position is adjusted, the relative distance between the beats changes while the relative distance between notes remain the same. However, an important detail about this implemtation is that beat adjustment causes neighboring beats to be made longer or shorter, in resposne. In reality, this is not the case. The dynamic length of one beat does not necessarily affect the length of others while performing (Johansson, 2010). Because of this, I included an option to make neighboring beat compensations optional.
+The beat positions in the toolkit score are indicated by the vertical green markers, each with a unique label that identifies the bar and beat number. As seen in the first image below, users can adjust beat positions by moving the green markers left or right. When a beat position is adjusted, the relative distance between the beats changes while the relative distance between notes remains the same. 
 
-<MySlideshow
-  imgs={["thesis-beatadjust2.jpg", "thesis-beatadjust3.jpg"]}
-  captions={[
-    "The purple vertical marker indicates a recently adjust beat position in the score window, made shorter by a user. Notes and neighboring beats are also affected by beat-level adjustments.",
-    "With a beat quantization option, user can explore artificially imposed timing patterns. A duration percentage is given to each of the three beats and is automatically adopted by every measure in the score.",
-  ]}
+<MyImage
+  src="thesis-beatadjust2.jpg"
+  alt="beat adjustments made in the toolkit ui"
+  caption="The purple vertical marker indicates a recently adjust beat position in the score window, made shorter by a user. Notes and neighboring beats are also affected by beat-level adjustments."
 />
+
+However, adjusting beat positions with this system causes neighboring beats to be made longer or shorter in response. In reality, the length of one beat does not usually affect neighboring beats like this (Johansson, 2010), so it was important to include additional options to let users decide how beat adjustments should be compensated for by neighboring beats and measures.
 
 With my beat adjustment system in place, I continued to add more research-informed features and capabilities to my toolkit. Some of these installments were pretty novel, like the ability for users to artificially impose beat duration patterns onto the performance, detailed in the second image above. Beat duration patterns occur when congruent beats consistently share the same durations/lengths. For instance, adopting a beat duration pattern of "10-40-50" means that the first beat is 10% long, the second beat is 40% long, and the third beat is 50% long, and that this is the case for every measure of the performance. As you can tell, the percentage duration of each measure always amounts to 100%. With a relative implementation like this, I am able to preserve the individual durational differences between each measure of the performance, only changing the relative lengths of the beats inside. 
 
-When I added this beat quantization feature, the idea was that it could be useful for folk music comparison studies and other rhythm-oriented muscology studies, but also for performers seeking to explore different timing patterns for their performance quickly and intuitively.
+<MyImage
+  src="thesis-beatadjust3.jpg"
+  alt="beat quantitzation feature in the toolkit ui where user can explore artificially imposed timing patterns."
+  caption="With a beat quantization option, user can explore artificially imposed timing patterns. A duration percentage is given to each of the three beats and is automatically adopted by every measure in the score."
+/>
+
+When adding this beat quantization feature, the idea was that it could be useful for folk music comparison studies and other rhythm-oriented muscology studies, but also for performers seeking to explore different timing patterns for their performance quickly and intuitively.
 
 ## Visualizing Structural Relationships
 
@@ -97,7 +103,7 @@ In the example below, a user is trying to examine the timing patterns of a recur
   caption="The toolkit plots can be used to visualize and compare timing patterns of recurring motifs. The color-coding scheme is also passed to the score representation (see top image) for easy visual reference."
 />
 
-It's also possible to take a more multi-dimensional plotting approach and explore relationships between note regions that share similar rhythmic qualities. In the second example detailed below, a user has selected a custom note region in the score and the software has found a second region with a similar timing profile (note and beat durations). Now, the user can use the plotting window to investigate whether the two matching regions share other parameters as well, such as pitch, velocity and metric position of the notes.
+It's also possible to take a more multi-dimensional plotting approach with the tools and explore relationships between note regions that share similar rhythmic qualities. In the second example detailed below, a user has selected a custom note region in the score and the software has found a second region with a similar timing profile (note and beat durations). Now, the user can use the plotting window to investigate whether the two matching regions share other parameters as well, such as pitch, velocity and metric position of the notes.
 
 <MySlideshow
   imgs={["thesis-plot2pitch.jpg", "thesis-plot2vel.jpg"]}
