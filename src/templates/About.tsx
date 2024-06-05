@@ -25,21 +25,22 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a music technologist and software developer from Kongsberg, Norway,
-        with many years of experience as a musician, multimedia (audio-video)
-        programmer and web developer. I am overly curious about science and
-        technology, and passionate about music, art, exercising, my partner and
-        our cat. This website is part portfolio and part blog, a platform where
-        I share my projects, thoughts and write about music/audio tech stuff.
+        I am a music technologist from Kongsberg, Norway, with many years of
+        experience as a musician, studio technician, audio-video programmer and
+        web developer. Personally, I am curious about everything science and
+        passionate about sound, art, exercising, my partner and our cat. This
+        website is part portfolio and part blog, a platform where I share some
+        of my projects and write about music tech stuff.
       </p>
       <p>
-        Currently, I work as a Department Engineer at the University of Oslo.
-        Here, I develop and build long-term infrastructure, oversee sound studio
-        facilities, teach two ten-credit master-level courses on advanced
-        audio-visual networking and programming, and part-take in various
-        research-related activities.
+        Currently, I work as an engineer for the Musicology Department at the
+        University of Oslo where I develop long-term infrastructure, oversee
+        sound studio facilities, teach networked music and part-take in various
+        research activites.
       </p>
-      <p>To stay updated on my posts, subscribe to my rss feed.</p>
+      <p>
+        To stay updated on my posts, subscribe to my RSS feed from the menubar.
+      </p>
     </div>
   </div>
 );
