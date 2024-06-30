@@ -11,9 +11,11 @@ const Meta = ({ title, keywords, description }: MetaProps) => {
       <meta name="keywords" content={keys as string} />
       <meta
         name="description"
-        content={description || "Official homepage of Aleksander Tidemann"}
+        content={description || "Homepage of Aleksander Tidemann"}
       />
       <meta charSet="utf-8" />
+      <meta property="og:image" content="/favicon.png" />
+      <meta property="twitter:image" content="/favicon.png" />
       <link rel="icon" href="/favicon.ico" />
       <title>{title ? "aleksati / " + title : "aleksati"}</title>
     </Head>
