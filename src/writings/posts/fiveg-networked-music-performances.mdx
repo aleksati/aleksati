@@ -1,19 +1,7 @@
 ---
 title: "5G Networked Music Performances - Will it Work?"
 date: "2023-05-09"
-keywords:
-  [
-    "5G",
-    "nmp",
-    "telenor",
-    "network",
-    "jacktrip",
-    "audio",
-    "latency",
-    "research",
-    "telematic",
-    "realtime",
-  ]
+keywords: ["5G", "nmp", "telenor", "network", "jacktrip", "audio", "latency", "research", "telematic", "realtime"]
 type: "post"
 summary: "My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on private and commercial 5G networks."
 ---
@@ -44,11 +32,7 @@ To connect, Telenor provided us with a pair of Huawei H138-380 CPE Pro 3 5G Rout
 Our first experiment was on a first-generation commercial 5G network at the Musicology Department (IMV), UiO. A little later, we got the opportunity to run the same tests on a private 5G Network-on-Wheels (5GNoW) at the Terningmoen Army Base in Elverum. The 5GNoW is apparently only used for specialized field experiments and was therefore a chance for us to experiment on near optimal conditions.
 
 <MySlideshow
-  imgs={[
-    "5G-modems-outside-salen.jpg",
-    "5G-now.jpg",
-    "5G-meandstefano-elverum.jpg",
-  ]}
+  imgs={["5G-modems-outside-salen.jpg", "5G-now.jpg", "5G-meandstefano-elverum.jpg"]}
   captions={[
     "Our 5G Routers in action outside the Musicology Department at UiO, ready to test the commercial NSA 5G network.",
     "Telenor's 5GNoW van at Terningmoen Army Base, Elverum. Photo by Olai Bendik Erdal.",
@@ -76,11 +60,7 @@ These metrics made us confident that our transmission load did not exceed the ca
 
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
-<MyImage
-  src="5G-latency-method.jpg"
-  alt="latency measurement diagram"
-  caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location."
-/>
+<MyImage src="5G-latency-method.jpg" alt="latency measurement diagram" caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location." />
 
 If we experienced any unwanted artifacts, glitches, or drops in the audio, we just adjusted the buffersize of our audio interfaces (and in jacktrip) to the lowest possible configuration where we found a stable transmission over time.
 
@@ -90,11 +70,7 @@ With the software and hardware parameters fine-tuned, we used the same loopback 
 
 With digital RTT, we refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware. By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
 
-<MyImage
-  src="5G-latency-method-third-laptop.png"
-  alt="latency measurement third laptop diagram"
-  caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits."
-/>
+<MyImage src="5G-latency-method-third-laptop.png" alt="latency measurement third laptop diagram" caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits." />
 
 To achieve higher accuracy and certainty in our analog RTT measurements, we used a secondary pc+soundcard setup, as shown in the diagram above. With this configuration, we bypass and control unwanted latency compensation mechanisms and other side effects caused by our hardware or software modules.
 
@@ -126,11 +102,7 @@ Although this was impressive, the configuration rendered borderline audio qualit
 
 # Summary
 
-<MyImage
-  src="5G-team.jpg"
-  caption="A big thanks to the Telenor Research team."
-  alt="5G team at Elevrum outside the 5gNowVan"
-/>
+<MyImage src="5G-team.jpg" caption="A big thanks to the Telenor Research team." alt="5G team at Elevrum outside the 5gNowVan" />
 
 In early 2022, me and a UiO colleague investigated the feasibility of conducting NMPs over commercial and private 5G networks in collaboration with Telenor Research. We measured the stability, quality, and latency of transferring uncompressed audio over two 5G networks with high-end hardware and software utilities. When accepting borderline conditions on a private 5G network (5GNoW), we managed to push the audio RTT latency down to 75ms. However, in more realistic conditions on a first-generation commercial 5G, we achieved an analog RTT audio latency of 165ms.
 
