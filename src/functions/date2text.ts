@@ -1,6 +1,7 @@
 // import { NAV_TABS } from "../config";
 
 export const date2text = (dateString: string): string => {
+  // datestring = for instance 2022-12-22 (YYYY-MM-DD)
   // if (type + "s" === NAV_TABS["works"]) return dateString;
 
   // for instance: "2022-12-22"

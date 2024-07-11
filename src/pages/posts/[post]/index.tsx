@@ -38,10 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]
-  const slugs: string[] = frontMatterList.reduce(
-    (accum, fr) => [...accum, fr.slug],
-    []
-  );
+  const slugs: string[] = frontMatterList.reduce((accum, fr) => [...accum, fr.slug], []);
 
   return {
     paths: slugs.map((slug) => ({ params: { post: slug } })),

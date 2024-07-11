@@ -1,21 +1,9 @@
 ---
 title: "How to use p5js and p5-sounds with Nextjs in 2024"
 date: "2024-02-03"
-keywords:
-  [
-    "p5js",
-    "audio",
-    "typescript",
-    "nextjs",
-    "web",
-    "react",
-    "programming",
-    "javascript",
-    "visuals",
-    "nodejs",
-  ]
+keywords: ["p5js", "audio", "typescript", "nextjs", "web", "react", "programming", "javascript", "visuals", "nodejs"]
 type: "post"
-summary: "I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to redesign and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Read more to learn how."
+summary: "I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to re-design and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Read more to learn how."
 ---
 
 I sometimes use the <MyLink href="https://p5js.org/">p5js library</MyLink> to create cool little audio-visual widgets and sonification examples in my posts. When I recently discovered that the go-to p5 library for React users had been deprecated (<MyLink href="https://www.npmjs.com/package/react-p5">p5-react</MyLink>), I knew it was time to create a new implementation with the p5 standard library for my site that supports newer versions of p5, React, Nextjs (v14.1), and TypeScript.
@@ -36,21 +24,11 @@ Versions used:
 # Contents
 
 1. <MyLink href="#p5-container-component">p5 Container Component</MyLink>
-2. <MyLink href="#importing-p5-and-p5-sounds">
-     Importing p5 and p5-sounds
-   </MyLink>
-3. <MyLink href="#alternative-p5-sounds-import">
-     Alternative p5-sounds Import
-   </MyLink>
-4. <MyLink href="#building-audio-apps-with-p5-sounds">
-     Building Audio Apps With p5-sounds
-   </MyLink>
-5. <MyLink href="#full-code-and-working-example">
-     Full Code and Working Example
-   </MyLink>
-6. <MyLink href="#references-and-inspirations">
-     References and Inspirations
-   </MyLink>
+2. <MyLink href="#importing-p5-and-p5-sounds">Importing p5 and p5-sounds</MyLink>
+3. <MyLink href="#alternative-p5-sounds-import">Alternative p5-sounds Import</MyLink>
+4. <MyLink href="#building-audio-apps-with-p5-sounds">Building Audio Apps With p5-sounds</MyLink>
+5. <MyLink href="#full-code-and-working-example">Full Code and Working Example</MyLink>
+6. <MyLink href="#references-and-inspirations">References and Inspirations</MyLink>
 
 ---
 
@@ -288,13 +266,6 @@ export const P5jsContainer: P5jsContainer = ({ sketch }) => {
 
 As I said in the introduction, I did not create this implementation completely from scratch. Instead, I built my work on the shoulders of others. If you wish to read more about these "others", I suggest you take a look in these directions:
 
-- <MyLink href="https://www.lloydatkinson.net/posts/2022/how-to-prevent-a-duplicated-canvas-when-using-p5-and-react-strict-mode/">
-    Lloyd Atkinson - How to Prevent a Duplicated Canvas When Using P5 and React
-    Strict Mode (TypeScript)
-  </MyLink>
-- <MyLink href="https://github.com/alecrem/nextjs-p5js-tutorial">
-    alecrem - Tutorial on how to use p5 with Nextjs and TypeScript
-  </MyLink>
-- <MyLink href="https://github.com/P5-wrapper/react/issues/61">
-    jamesrweb - on using p5.constructor to initialze p5-sounds oscillators
-  </MyLink>
+- <MyLink href="https://www.lloydatkinson.net/posts/2022/how-to-prevent-a-duplicated-canvas-when-using-p5-and-react-strict-mode/">Lloyd Atkinson - How to Prevent a Duplicated Canvas When Using P5 and React Strict Mode (TypeScript)</MyLink>
+- <MyLink href="https://github.com/alecrem/nextjs-p5js-tutorial">alecrem - Tutorial on how to use p5 with Nextjs and TypeScript</MyLink>
+- <MyLink href="https://github.com/P5-wrapper/react/issues/61">jamesrweb - on using p5.constructor to initialze p5-sounds oscillators</MyLink>

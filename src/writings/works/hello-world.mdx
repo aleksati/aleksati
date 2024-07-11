@@ -1,33 +1,12 @@
 ---
 title: "0101101000 ... (hello world)"
 date: "2023-07-30"
-keywords:
-  [
-    "sculpture",
-    "network",
-    "sonification",
-    "python",
-    "max",
-    "audio",
-    "programming",
-    "art",
-    "installation",
-    "realtime",
-    "osc",
-  ]
+keywords: ["sculpture", "network", "sonification", "python", "max", "audio", "programming", "art", "installation", "realtime", "osc"]
 type: "work"
 summary: "A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl."
 ---
 
-<MySlideshow
-  priority={true}
-  imgs={[
-    "helloworld-1.jpg",
-    "helloworld-2.jpg",
-    "helloworld-3.jpg",
-    "helloworld-4.gif",
-  ]}
-/>
+<MySlideshow priority={true} imgs={["helloworld-1.jpg", "helloworld-2.jpg", "helloworld-3.jpg", "helloworld-4.gif"]} />
 
 In late 2022, my good friend and artist <MyLink href="https://henriknordahl.com/">Henrik Nordahl</MyLink> asked me to collaborate with him on a sound sculpture entitled "01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100 (hello world)", for his MFA thesis project at the Parsons, National Academy of Arts, NYC. In computer science, "Hello world" programs are often the first thing you learn to write in a given language.
 
@@ -54,11 +33,7 @@ Overall, the works focus on the multiplicity of one form and are the results of 
 
 To make Hello world physical vibrate and create unique sounds, four small Bluetooth transducers (speaker drivers) were installed on custom membranes at the connection points between the drypaper cones and the steel section in the middle of the structure. This turned the entire structure into speaker elements that we could control from a nearby laptop. With wireless audio transmission, we did not need to purchase cables, amps and other audio gear, nor find a way to hide these items inside the sculpture. And since we did not care too much about latency, the Bluetooth devices seemed like the obvious choice.
 
-<MyImage
-  src="helloworld-5.jpg"
-  alt="bluetooth tranducers placement on hello world"
-  caption="Two sets of Bluetooth tranducers placed on custom made membranes inside Hello world."
-/>
+<MyImage src="helloworld-5.jpg" alt="bluetooth tranducers placement on hello world" caption="Two sets of Bluetooth tranducers placed on custom made membranes inside Hello world." />
 
 Sonifying network traffic first requires a method to extract packets from your network. With Python, the go-to method for network sniffing is to use the [pyshark](https://pypi.org/project/pyshark/) library, a wrapper for something called tshark, allowing network packet parsing using [WireShark](https://www.wireshark.org/) dissectors. Together with python-osc, a library for OSC transmission, I was able to use pyshark to capture wifi packets being sent from our local machine out to the world. Ideally, we would've liked to get all messages on the network, from any person to anywhere, but Wireshark does not allow this behavior (for obvious safety reasons). After the packets were captured, desired information was encapsulated into OSC messages and sent to Max internally for audio processing.
 

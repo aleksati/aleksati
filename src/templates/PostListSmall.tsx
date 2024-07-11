@@ -1,10 +1,6 @@
 import PostListItemSmall from "../components/PostListItemSmall";
 
-const PostListSmall = ({
-  frontMatterList,
-}: {
-  frontMatterList: FrontMatterList;
-}) => {
+const PostListSmall = ({ frontMatterList }: { frontMatterList: FrontMatterList }) => {
   return (
     <div className="grid grid-cols-1 gap-4">
       {frontMatterList.map((frontMatter) => (

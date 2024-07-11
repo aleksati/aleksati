@@ -9,16 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 09 Jul 2024 15:20:09 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Jul 2024 16:32:31 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 09 Jul 2024 15:20:09 GMT</pubDate>
-        <item>
-            <title><![CDATA[How to Measure Audio Latency in Networked Music Systems]]></title>
-            <description><![CDATA[Measuring audio latency in networked music performance (NMP) systems is a complex procedure with many moving parts. In this post, I write about solid strategies and share good practical ways to measure audio latency in NMPs, developed from many years of running the MCT masters programme at UiO.]]></description>
-            <link>http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</guid>
-            <pubDate>Sat, 07 Sep 2024 00:00:00 GMT</pubDate>
-        </item>
+        <pubDate>Thu, 11 Jul 2024 16:32:31 GMT</pubDate>
         <item>
             <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
             <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>

@@ -1,28 +1,12 @@
 ---
 title: "Software Poème Symphonique"
 date: "2023-12-10"
-keywords:
-  [
-    "audio",
-    "software",
-    "machine-learning",
-    "max",
-    "kuramoto",
-    "synchronization",
-    "art",
-    "programming",
-    "realtime",
-    "mapping",
-    "sp-tools",
-  ]
+keywords: ["audio", "software", "machine-learning", "max", "kuramoto", "synchronization", "art", "programming", "realtime", "mapping", "sp-tools"]
 type: "work"
 summary: "Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo."
 ---
 
-<MyImage
-  src="dsp-title.png"
-  alt="A Digital Poème Symphonique visual overview"
-/>
+<MyImage src="dsp-title.png" alt="A Digital Poème Symphonique visual overview" />
 
 Sometime in the fall of 2022, I found myself talking to my colleague and friend Dr.Peter Edwards about modernist composer György Ligeti's upcoming 100-year birthday. We soon discovered that we had a mutual fascination for _Poème Symphonique_, his piece for 100 mechanical metronomes, and began discussing the prospect of performing it live. However, after discovering how expensive it is to buy 100 mechanical metronomes, we started questioning whether it would be possible to model the synchronization behavior that happens between the metronomes in software.
 
@@ -33,21 +17,11 @@ Also, to watch a full demo of my piece, visit the link at the bottom of the page
 # Content
 
 1. <MyLink href="#poème-symphonique">Poème Symphonique</MyLink>
-2. <MyLink href="#synchronization-with-the-kuramoto-model">
-     Synchronization With The Kuramoto Model
-   </MyLink>
-3. <MyLink href="#bringing-the-kuramoto-model-to-max">
-     Bringing The Kuramoto Model To Max
-   </MyLink>
-4. <MyLink href="#clustering-together-a-sound-engine">
-     Clustering Together A Sound Engine
-   </MyLink>
-5. <MyLink href="#un-poème-symphonique-numérique">
-     Un Poème Symphonique Numérique (full Performance)
-   </MyLink>
-6. <MyLink href="#references-and-further-reading">
-     References and Further Reading
-   </MyLink>
+2. <MyLink href="#synchronization-with-the-kuramoto-model">Synchronization With The Kuramoto Model</MyLink>
+3. <MyLink href="#bringing-the-kuramoto-model-to-max">Bringing The Kuramoto Model To Max</MyLink>
+4. <MyLink href="#clustering-together-a-sound-engine">Clustering Together A Sound Engine</MyLink>
+5. <MyLink href="#un-poème-symphonique-numérique">Un Poème Symphonique Numérique (full Performance)</MyLink>
+6. <MyLink href="#references-and-further-reading">References and Further Reading</MyLink>
 
 ---
 
@@ -67,20 +41,13 @@ I think Poème Symphonique says something important about our perception of musi
 
 Synchronization can be defined as an interaction between independent rhythmical processes. It's a natural process we observe everywhere, from light pulses of large groups of fireflies, to musical ensembles reaching a state of rhythmical unity. Technically speaking, the result of synchronization is a transition to phase equality (θ ≡ θ) for all oscillators in a system at a rate described by how much they are interacting/coupled.
 
-<MyImage
-  src="dsp-in-sync.png"
-  alt="Sine-wave that syncronize with each other."
-/>
+<MyImage src="dsp-in-sync.png" alt="Sine-wave that syncronize with each other." />
 
 The <MyLink href="https://handwiki.org/wiki/Kuramoto_model">Kuramoto model</MyLink> is a simple and well-known mathematical framework for understanding synchronization in globally coupled non-linear oscillators, developed by Yoshiki Kuramoto in the 1970s. In simple terms, the model describes how groups of interacting oscillators synchronize, just like what we experience with Ligeti's metronomes and the fireflies. I was first introduced to the Kuramoto equation through a great video by Matt Parker on <MyLink href="https://www.youtube.com/watch?v=J4PO7NbdKXg"> Syncronizing Metronomes in a Spreadsheet</MyLink>.
 
 In the governing Kuramoto equation, seen below, the phase (θ) of an oscillator is extracted by calculating the sine of difference between all oscillators (_N_) in the system. The strength of the interaction between the oscillators is determined by the coupling constant (_K_), a parameter that also controls the rate of synchronization. Also, the fundamental frequencies (ω) of the oscillators must be added.
 
-<MyImage
-  src="dsp-kuramoto-model.png"
-  width="400"
-  alt="The Kuramoto model equation"
-/>
+<MyImage src="dsp-kuramoto-model.png" width="400" alt="The Kuramoto model equation" />
 
 ## The Kuramoto Model in Music Reasearch
 
@@ -148,10 +115,7 @@ When I was happy with my sound space, I created a 1:1 mapping scheme between the
 
 <MySlideshow
   imgs={["dsp-metro-mapping.png", "dsp-metro-groups.png"]}
-  captions={[
-    "My mapping strategy between matrixctl metronome triggers and the sp.grimatch audio cluster space.",
-    "Coupling groups of metronomes together is an important part of the score and experience of Poème Symphonique. I decided to split my metronomes in 4 groups",
-  ]}
+  captions={["My mapping strategy between matrixctl metronome triggers and the sp.grimatch audio cluster space.", "Coupling groups of metronomes together is an important part of the score and experience of Poème Symphonique. I decided to split my metronomes in 4 groups"]}
 />
 
 Finally, I connected each matrixctl group to its own instance of aleks.ksync to create a system where only metronome groups were coupled together.
@@ -160,10 +124,7 @@ Finally, I connected each matrixctl group to its own instance of aleks.ksync to 
 
 So there you have it, my software rendition of Ligeti's Poème Symphonique for 100 metronomes, my Poème Symphonique Numérique. In my video demo, I tried to follow the score as much as possible but also practiced some artistic freedom by gradually starting the metronomes one by one, manually turning them off again at the end instead of waiting for them to wind down by themselves, and giving each metronome group a slightly different coupling strength for the Kuramoto model.
 
-<MySpotifyPlayer
-  embedUrl="https://www.youtube.com/embed/zsyDtyuhvjo?si=v6lc-q1fY84r34R_"
-  caption=""
-/>
+<MySpotifyPlayer embedUrl="https://www.youtube.com/embed/zsyDtyuhvjo?si=v6lc-q1fY84r34R_" caption="" />
 
 I hope you've found this interesting. You can find the full source code for my project of my <MyLink href="https://github.com/aleksati">GitHub profile</MyLink>.
 

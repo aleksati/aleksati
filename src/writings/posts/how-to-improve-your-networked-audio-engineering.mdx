@@ -1,20 +1,7 @@
 ---
 title: "How to Improve your Networked Audio Engineering"
 date: "2023-12-28"
-keywords:
-  [
-    "nmp",
-    "quality",
-    "network",
-    "audio-engineering",
-    "analysis",
-    "audio",
-    "realtime",
-    "latency",
-    "research",
-    "telematic",
-    "performance",
-  ]
+keywords: ["nmp", "quality", "network", "audio-engineering", "analysis", "audio", "realtime", "latency", "research", "telematic", "performance"]
 type: "post"
 summary: "The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is very different from usual concert tech. In this post, I share some steps and strategies that can help improve your networked audio engineering practice."
 ---
@@ -28,16 +15,11 @@ In this post, I provide some steps and strategies that can improve the quality a
 # Content
 
 1. <MyLink href="#nmp-mixer-requirements">NMP Mixer Requirements</MyLink>
-2. <MyLink href="#first-contact-and-communication-setup">
-     First Contact and Communication Setup
-   </MyLink>
-3. <MyLink href="#fine-tuning-the-audio-to-suit-the-network">
-     Fine-tuning the Audio to Suit the Network
-   </MyLink>
-4. <MyLink href="#soundchecks-and-the-importance-of-gain-staging">
-     Soundchecks And The Importance Of Gain-staging
-   </MyLink>
-5. <MyLink href="#summary-and-references">Summary and References</MyLink>
+2. <MyLink href="#first-contact-and-communication-setup">First Contact and Communication Setup</MyLink>
+3. <MyLink href="#fine-tuning-the-audio-to-suit-the-network">Fine-tuning the Audio to Suit the Network</MyLink>
+4. <MyLink href="#soundchecks-and-the-importance-of-gain-staging">Soundchecks And The Importance Of Gain-staging</MyLink>
+5. <MyLink href="#summary">Summary</MyLink>
+6. <MyLink href="#references">References</MyLink>
 
 ---
 
@@ -49,11 +31,7 @@ A good way to start is to consider how many mixes the NMP needs. A _mix_ is the 
 
 It can be helpful to think about the network send mixes as just another monitor mix. It's normal to create separate monitor mixes for every musician on stage. However, we might want to differentiate between monitor and network mixes on one key aspect. While monitor mixes are usually mono or stereo, it's beneficial to make network mixes as multi-channel as possible. The reason why will become clearer later on in the post.
 
-<MyImage
-  src="nmp-quality-mixer-req.png"
-  alt="diagram showing how many mixes a basic dual-audience NMP would need."
-  caption="As opposed to normal concerts, NMP audio engineers have to manage and incorporate more mixes into their workflow."
-/>
+<MyImage src="nmp-quality-mixer-req.png" alt="diagram showing how many mixes a basic dual-audience NMP would need." caption="As opposed to normal concerts, NMP audio engineers have to manage and incorporate more mixes into their workflow." />
 
 So for our dual-audience NMP example, each location must have a mixer with at least six stereo output channels and plenty of bus capabilities. On the input side, it's important to reserve enough channels and keep the network receive mix in mind from the start. You can quickly run out of input channels in concert settings.
 
@@ -65,11 +43,7 @@ When setting up, always prioritze the network connection part first. For this, I
 
 To establish the connection, use the Ping networking tools first before moving on to the audio software. When the pinging in successful, you know that the machines find each other on the network, meaning that most of the network settings are correct.
 
-<MyImage
-  src="nmp-quality-laptop.png"
-  alt="diagram showing how to connect talkback, network mixes via an AD/DA to the network."
-  caption="Connect the talkback and network send channels in parallel through a good audio interface for a stable and effective communication system."
-/>
+<MyImage src="nmp-quality-laptop.png" alt="diagram showing how to connect talkback, network mixes via an AD/DA to the network." caption="Connect the talkback and network send channels in parallel through a good audio interface for a stable and effective communication system." />
 
 After, move to the audio software and connect the talkback mic and network mixes to separate input channels on your AD/DA. This way, the talkback is not dependent on the mixer and concert system, making it more reliable and actually useful in troubleshooting scenarios. For instance, if there is no sound from the instruments but the talkback still works, you know the issue is most likely in the mixer. For best results, route the AD/DA outputs in a similar parallel fashion.
 
@@ -81,11 +55,7 @@ The most efficient way to assess networked audio quality is by ear. Set up an ex
 
 For these experiments, it's best to use simple reference signals, such as mid-range sine-waves (around 400-1000hz), because unwanted audio artifacts are much more audible through simple signals than complex audio, such as voice or music.
 
-<MyImage
-  src="nmp-quality-quality-check.png"
-  alt="diagram showing how to send a reference signal through your entire NMP chain to monitor the audio (and network) quality."
-  caption="Send a reference signal through your entire NMP chain to monitor the audio (and network) quality."
-/>
+<MyImage src="nmp-quality-quality-check.png" alt="diagram showing how to send a reference signal through your entire NMP chain to monitor the audio (and network) quality." caption="Send a reference signal through your entire NMP chain to monitor the audio (and network) quality." />
 
 Increasing the size of the audio and network buffers will improve the quality of the audio, reducing glitches and dropouts. But buffering will add latency because the cueing process takes time. Similarly, using some compression can increase the signal stability but will reduce the quality and add latency. It's important to find a sweetspot here that caters to your specific needs.
 

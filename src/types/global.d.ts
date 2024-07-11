@@ -31,11 +31,7 @@ declare global {
 
   type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;
 
-  type P5jsContainer = ({
-    sketch,
-  }: {
-    sketch: P5jsSketch;
-  }) => React.JSX.Element;
+  type P5jsContainer = ({ sketch }: { sketch: P5jsSketch }) => React.JSX.Element;
 
   interface Researchdata {
     authors: string;
@@ -50,6 +46,16 @@ declare global {
   interface CristinDataResponseJSON {
     [x: string]: JSONArray;
   }
+
+  interface MyComment {
+    name: string;
+    comment: string;
+    date: string;
+    slug: string;
+    _id?: string;
+  }
+
+  type CommentList = MyComment[];
 
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];

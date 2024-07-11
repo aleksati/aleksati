@@ -1,21 +1,7 @@
 ---
 title: "aleks.max - a Tiny MaxMSP Bundle"
 date: "2023-10-21"
-keywords:
-  [
-    "max",
-    "audio",
-    "video",
-    "software",
-    "analysis",
-    "programming",
-    "jitter",
-    "opengl",
-    "realtime",
-    "mapping",
-    "synchronization",
-    "kuramoto",
-  ]
+keywords: ["max", "audio", "video", "software", "analysis", "programming", "jitter", "opengl", "realtime", "mapping", "synchronization", "kuramoto"]
 type: "work"
 summary: "aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others."
 ---
@@ -28,14 +14,10 @@ The source code is currently stored and maintained on my <MyLink href="https://g
 
 # Contents
 
-1. <MyLink href="#aleks.gl.spectral">aleks.gl.spectral</MyLink> - Realtime rendering
-   of motiongram with openGL
-2. <MyLink href="#aleks.ksync">aleks.ksync</MyLink> - Synchronize oscillators with
-   the kuramoto model
-3. <MyLink href="#aleks.multiplot.js">aleks.multiplot.js</MyLink> - Dynamic list
-   plotting and visualization tool
-4. <MyLink href="#aleks.scaleui">aleks.scaleui</MyLink> - Automatically adjust window
-   Zoom according to the window size
+1. <MyLink href="#aleks.gl.spectral">aleks.gl.spectral</MyLink> - Realtime rendering of motiongram with openGL
+2. <MyLink href="#aleks.ksync">aleks.ksync</MyLink> - Synchronize oscillators with the kuramoto model
+3. <MyLink href="#aleks.multiplot.js">aleks.multiplot.js</MyLink> - Dynamic list plotting and visualization tool
+4. <MyLink href="#aleks.scaleui">aleks.scaleui</MyLink> - Automatically adjust window Zoom according to the window size
 
 ---
 
@@ -48,23 +30,15 @@ Generate/print real-time motiongrams and videograms (spectral mean images) with 
 
 Any video source is fine. You can add different noise reduction filters, adjust the brightness, and configure the printing rate. The abstraction uses (and starts) the audio thread for precision printing and timing. You can also specify if you want to conduct the main vector mean calculations on the GPU (via [jit.gl.pix]) or CPU (via [xray.jit.mean]). The CPU version is the default and what's generally recommended (this is also documented by the Cyling74 website).
 
-<MyImage
-  src="aleks-spectral.jpg"
-  alt="aleks.gl.spectral object demonstration"
-  caption="Use aleks.gl.spectral for realtime rendering of motiongram with openGL"
-/>
+<MyImage src="aleks-spectral.jpg" alt="aleks.gl.spectral object demonstration" caption="Use aleks.gl.spectral for realtime rendering of motiongram with openGL" />
 
 ### Related Content
 
 Jensenius, Alexander Refsum (2005). Developing Tools for Studying Musical Gestures within the Max/MSP/Jitter Environment. Proceedings of the International Computer Music Conference, p. 282-285.
 
-<MyLink href="/works/videoanalysis">
-  VideoAnalysis - Analyzing Music-related Body Motion
-</MyLink>
+<MyLink href="/works/videoanalysis">VideoAnalysis - Analyzing Music-related Body Motion</MyLink>
 
-<MyLink href="/works/audiovideoanalysis">
-  AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video
-</MyLink>
+<MyLink href="/works/audiovideoanalysis">AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video</MyLink>
 
 ---
 
@@ -77,11 +51,7 @@ A multi-channel Max-native DSP abstraction for synchronizing n-number of oscilla
 
 Specify the number of oscillators as the object argument and define their states (on/off) and frequencies as mc.sig~ inputs. Toggle sine waves at arbitrary times and commence the synchronization process by providing a k-value (coupling constant) greater than 0. The higher this k-value, the quicker the synchronization process occurs.
 
-<MyImage
-  src="aleks-ksync.png"
-  alt="aleks.ksync object demonstration"
-  caption="Use aleks.ksync to couple and synchronize oscillators with the kuramoto model."
-/>
+<MyImage src="aleks-ksync.png" alt="aleks.ksync object demonstration" caption="Use aleks.ksync to couple and synchronize oscillators with the kuramoto model." />
 
 ### Related Content
 
@@ -99,11 +69,7 @@ To use it, create a [jsui] object in Max and load it with the aleks.multiplot.js
 
 The interface can plot an arbitrary number of lists and will render the content of each list (the number values) on the Y-axis and the list indices on the X-axis. You can also design the plotting interface in many cool ways, assign a custom color to your lists, add axis titles and labels, and write the data directly to a Max dictionary.
 
-<MyImage
-  src="aleks-multiplot.jpg"
-  alt="aleks.multiplot object demonstration"
-  caption="Use aleks.multiplot for dynamic list plotting and visualization in Max."
-/>
+<MyImage src="aleks-multiplot.jpg" alt="aleks.multiplot object demonstration" caption="Use aleks.multiplot for dynamic list plotting and visualization in Max." />
 
 ### Related Content
 
@@ -119,8 +85,4 @@ Make the Max patching window automatically adjust Zoom according to the window s
 
 You can choose from two scaling philosophies; "continuous" or "ondemand". The continuous version reads and updates/scales the window size continuously (as a sub-process) when initiated by a "start" message. You can also specify the update rate in ms. The "ondemand" version only updates/scales the window size when it receives bangs.
 
-<MyImage
-  src="aleks-scaleui.jpg"
-  alt="aleks.scaleui object demonstration"
-  caption="Use aleks.scaleui to automatically adjust window Zoom according to the window size in Max."
-/>
+<MyImage src="aleks-scaleui.jpg" alt="aleks.scaleui object demonstration" caption="Use aleks.scaleui to automatically adjust window Zoom according to the window size in Max." />
