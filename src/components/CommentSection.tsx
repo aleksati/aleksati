@@ -99,9 +99,9 @@ const CommentSection = ({ slug }: { slug: string }) => {
       </form>
       <hr />
       <div className="flex flex-col space-y-4 my-4">
-        {comments.map((comment) => (
-          <div id={comment._id}>
-            <div className="mb-4">
+        {comments.map((comment, idx) => (
+          <>
+            <div key={idx}>
               <div className="flex space-x-2 items-center">
                 <p className="font-bold">{comment.name}</p>
                 <p className="text-sm">{comment.date}</p>
@@ -109,7 +109,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
               <p>{comment.comment}</p>
             </div>
             <hr />
-          </div>
+          </>
         ))}
       </div>
     </div>

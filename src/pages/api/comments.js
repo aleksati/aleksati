@@ -1,7 +1,7 @@
-import { initValidation, check, post, del, put, oneOf } from "../../middleware/middlewareApi.js";
-import { commonApiHandlers } from "../../functions/commonApiHandlers.js";
-import connectMongo from "../../functions/connectMongo.js";
-import Comments from "../../models/comments.js";
+import { initValidation, check, post, del, put, oneOf } from "../../middleware/middlewareApi";
+import { commonApiHandlers } from "../../functions/commonApiHandlers";
+import connectMongo from "../../functions/connectMongo";
+import Comments from "../../models/Comments";
 import nextConnect from "next-connect";
 
 const musicPostValidator = initValidation([check("slug").exists().withMessage("Slug is missing"), check("name").exists().withMessage("Name is missing"), check("comment").exists().withMessage("Comment is missing"), check("date").exists().withMessage("Date is missing")]);
