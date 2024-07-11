@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import { getCurrDate } from "../functions/getCurrDate";
+import { date2text } from "../functions/date2text";
+import { useEffect, useState } from "react";
 import { SITE_DOMAIN } from "../config";
 
 // Retrieves and adds comments to posts client-side through REST-API and mongoDB database.
@@ -73,7 +74,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
         <h1 className="text-2xl font-bold mb-2">Comments</h1>
         <input
           type="text"
-          className="w-full"
+          className="w-full text-primary-light"
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -85,7 +86,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
           name="message"
           minLength={4}
           rows={3}
-          className="w-full"
+          className="w-full text-primary-light"
           placeholder="Comment"
           value={textArea}
           onChange={(e) => {
@@ -104,7 +105,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
             <div key={idx}>
               <div className="flex space-x-2 items-center">
                 <p className="font-bold">{comment.name}</p>
-                <p className="text-sm">{comment.date}</p>
+                <p className="text-sm">{date2text(comment.date)}</p>
               </div>
               <p>{comment.comment}</p>
             </div>
