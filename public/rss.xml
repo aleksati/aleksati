@@ -9,14 +9,21 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 16 Jul 2024 10:10:24 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Jul 2024 16:18:42 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 16 Jul 2024 10:10:24 GMT</pubDate>
+        <pubDate>Tue, 16 Jul 2024 16:18:42 GMT</pubDate>
         <item>
-            <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
-            <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>
-            <link>http://localhost:3000/works/thesis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/thesis</guid>
+            <title><![CDATA[Dataset Generator for Musical Devices - The Audio Effects Version]]></title>
+            <description><![CDATA[Earlier this year, I collaborated on developing The Dataset Generator for Musical Devices (DGMD); a software toolkit for generating datasets from musical devices for audio-related machine-learning tasks. This post includes a brief introduction to DGDM as well as several tutorials and links to where to download it. Original post by Stefano Fasciani.]]></description>
+            <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
+            <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
+            <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Software Poème Symphonique]]></title>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
+            <link>http://localhost:3000/works/software-poeme-symphonique</link>
+            <guid isPermaLink="true">http://localhost:3000/works/software-poeme-symphonique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -34,15 +41,15 @@
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Software Poème Symphonique]]></title>
-            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
-            <link>http://localhost:3000/works/software-poeme-symphonique</link>
-            <guid isPermaLink="true">http://localhost:3000/works/software-poeme-symphonique</guid>
+            <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
+            <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>
+            <link>http://localhost:3000/works/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
+            <guid isPermaLink="true">http://localhost:3000/works/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[aleks.max - a Tiny MaxMSP Bundle]]></title>
-            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an ongoing effort to publish some of my Max code that I believe can be useful to others.]]></description>
+            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
@@ -84,7 +91,7 @@
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
-            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for realtime OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
+            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
             <link>http://localhost:3000/works/audiovideoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
@@ -105,7 +112,7 @@
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
-            <description><![CDATA[The Holy Mountain is a dark synth-pop trio from Norway with accordion, vocals, synth and drums. Since 2015, the band has produced an impressive discography of critically acclaimed genre-defying music with a taste for the mysterious and transcendental.]]></description>
+            <description><![CDATA[The Holy Mountain is a dark synth-pop trio with accordion, vocals, synth and drums. Since 2015, the band has produced an impressive discography of critically acclaimed genre-defying music with a taste for the mysterious and transcendental.]]></description>
             <link>http://localhost:3000/musics/the-holy-mountain</link>
             <guid isPermaLink="true">http://localhost:3000/musics/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>

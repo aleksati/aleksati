@@ -13,7 +13,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
       <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
-        <h1 className="font-bold text-2xl mb-6">Latest posts</h1>
+        <h1 className="font-bold text-2xl mb-6">Latest writings</h1>
         <PostListSmall frontMatterList={frontMatterList} />
       </div>
     </LayoutPage>

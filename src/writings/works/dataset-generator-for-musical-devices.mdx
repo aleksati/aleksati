@@ -1,0 +1,74 @@
+---
+title: "Dataset Generator for Musical Devices - The Audio Effects Version"
+date: "2024-07-16"
+keywords: ["machine-learning", "research", "audio", "software", "programming", "max", "javascript", "midi", "realtime", "mapping"]
+type: "work"
+summary: "Earlier this year, I collaborated on developing The Dataset Generator for Musical Devices (DGMD); a software toolkit for generating datasets from musical devices for audio-related machine-learning tasks. This post includes a brief introduction to DGDM as well as several tutorials and links to where to download it. Original post by Stefano Fasciani."
+---
+
+<MyImage src="dgmd-overview.png" alt="DGMD software main UI" caption="User interface of the audio effect version of Dataset Generator for Musical Devices (DGMD)" isExpandable={true} />
+
+Earlier this year, I collaborated on a research project with a few colleagues of mine involving the development of an audio effect version of a toolkit called Dataset Generator for Musical Devices (DGMD). With DGMD, users can create datasets for various audio-related machine-learning applications. My main contribution to DGMD was with software development. I helped to build some of the central list and data processing sequences and did most of the work on the user interface. The project was accepted as a paper and presented at the <MyLink href="https://smcnetwork.org/">Sound and Music Computing Conference</MyLink> in Porto, 2024.
+
+A while back, DGMD's main developer and first author, Stefano Fasciani, wrote a short presentation and produced some video tutorials about how to use the software. This post is essentially a copy of Stefano's original post, including a brief introduction to DGDM, info about its main functionalities, as well as several tutorials and links to where to download it. Visit the original post <MyLink href="https://stefanofasciani.com/2023/09/17/dataset-generator-for-musical-devices-effects/">here</MyLink>.
+
+# Content
+
+2. <MyLink href="#what-is-dgmd">What is DGMD</MyLink>
+3. <MyLink href="#functionality">Functionality</MyLink>
+4. <MyLink href="#video-tutorials">Video Tutorials</MyLink>
+   1. <MyLink href="#short-presentation">Short Presentation</MyLink>
+   2. <MyLink href="#full-video-tutorial">Full Video Tutorial</MyLink>
+   3. <MyLink href="#demo-with-external-audio-effect">Demo with External Audio Effect</MyLink>
+5. <MyLink href="#download-link-and-resources">Download Link and Resources</MyLink>
+
+---
+
+# What is DGMD
+
+A musical devices is any electronic device that generates sound, such as a sound synthesizer. Alternatively, a musical device can be a module that processes sound, like an audio effect. The DGMD (Dataset Generator for Musical Devices) is a collection of Max patches and JavaScript files for the automatic generation of datasets from hardware and software musical devices. The tool was developed primarily to generate datasets for modeling musical devices utilizing data-driven black box techniques, such as deep learning. However, generated dataset can be used also for analyzing the response of musical devices, or for other creative purposes. For example, the generated datasets can be used as the corpus for concatenative real-time synthesis.
+
+The DGMD supports musical devices including:
+
+- Software plugins in VST or AU format
+- Hardware devices with a digital MIDI interface
+- Hardware devices with an analog CV/Gate interface
+- Hardware devices without an interface to control the synthesis/processing parameters
+
+# Functionality
+
+The software works by triggering devices with a stimulus (an audio signal for effects, one or more notes for synthesizers) and recording its response for different settings of the control parameters. The generated dataset is composed by a CSV file with the parameter values, and a collection of wave files including the recording of the device’s response.
+
+To generate the dataset, up to 10 device parameters can be changed according to one of the following modalities:
+
+- Step – user set minimum, maximum and step size for each parameter, and the dataset is generated for all possible parameter combinations.
+
+- Random – user set minimum, maximum and step size for each parameter, and the dataset is generated sampling a user-defined number of uniformly distributed parameter combinations.
+
+- Sweep – parameters continuously sweep (triangular wave) at user defined individual frequencies, and the dataset is generated for a user-defined overall duration (in this case, parameters are saved into wave files instead of a single CSV file)
+
+- Manual – parameter combinations are manually set by the user, one at at time, which also manually trigger each recording of the device response.
+
+The DGMD also presents a variety of utilities to facilitate the dataset generation and the follow up use for modeling purposes, such as the automatic detection and compensation of the device’s latency (plugin latency, or the audio interface I/O latency).
+
+# Video Tutorials
+
+### Short presentation
+
+<MySpotifyPlayer embedUrl="https://www.youtube.com/embed/JBqiSYhKdqw?si=UO22ZM44lYnaIKPn" />
+
+### Full Video Tutorial
+
+<MySpotifyPlayer embedUrl="https://www.youtube.com/embed/idbwOFVlEQI?si=vD_FsAzlogvvKBQv" />
+
+### Demo with External Audio Effect
+
+<MySpotifyPlayer embedUrl="https://www.youtube.com/embed/lHm2h8GAUvA?si=7ofowlvYknlDRzJf" />
+
+<br />
+
+# Download Link and Resources
+
+DGMD is free and open-source, avaliable as a standalone desktop application for both Windows and Mac. You do not need Max license or Max installed. Download the latest version of DGMD on <MyLink href="https://github.com/stefanofasciani/DGMD/releases">this GitHub page</MyLink>.
+
+For more information, read the associated paper _S. Fasciani, R. Simionato, A.Tidemann “A Universal Tool for Generating Datasets from Audio Effects”, in Proceedings of Sound and Music Computing Conference 2024, Porto, Portugal._
