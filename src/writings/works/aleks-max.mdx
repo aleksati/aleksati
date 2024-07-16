@@ -10,14 +10,13 @@ Since 2011, I've been working with audio, video, and data processing through a v
 
 Aleks.max is my tiny and ever-growing library of self-contained Max (v8) abstractions (code snippets). It's an effort to clean up and publish some of my Max code that I believe can be useful to others. Currently, the bundle includes objects for data processing/plotting, realtime multi-channel audio, and video analysis. Below, you will find a complete list of abstractions plus descriptions detailing their main functionalities.
 
-The source code is currently stored and maintained on my <MyLink href="https://github.com/aleksati/aleks.max">alex.max GitHub repository</MyLink>. Feel free to report issues and download the code from there.
-
 # Contents
 
 1. <MyLink href="#aleks.gl.spectral">aleks.gl.spectral</MyLink> - Realtime rendering of motiongram with openGL
 2. <MyLink href="#aleks.ksync">aleks.ksync</MyLink> - Synchronize oscillators with the kuramoto model
 3. <MyLink href="#aleks.multiplot.js">aleks.multiplot.js</MyLink> - Dynamic list plotting and visualization tool
 4. <MyLink href="#aleks.scaleui">aleks.scaleui</MyLink> - Automatically adjust window Zoom according to the window size
+5. <MyLink href="#download-link-and-source-code">Download Link and Source Code</MyLink>
 
 ---
 
@@ -86,3 +85,7 @@ Make the Max patching window automatically adjust Zoom according to the window s
 You can choose from two scaling philosophies; "continuous" or "ondemand". The continuous version reads and updates/scales the window size continuously (as a sub-process) when initiated by a "start" message. You can also specify the update rate in ms. The "ondemand" version only updates/scales the window size when it receives bangs.
 
 <MyImage src="aleks-scaleui.jpg" alt="aleks.scaleui object demonstration" caption="Use aleks.scaleui to automatically adjust window Zoom according to the window size in Max." />
+
+# Download Link and Source Code
+
+The source code is currently stored and maintained on my <MyLink href="https://github.com/aleksati/aleks.max">alex.max GitHub repository</MyLink>. Here, you can download the code for free and report issues.

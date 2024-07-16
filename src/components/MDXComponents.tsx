@@ -8,11 +8,10 @@ import MyTable from "./MyTable";
 import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import MyCode from "./MyCode";
-
-interface TextProps<T> {
-  children: string;
-  object: T;
-}
+import MyH1 from "./MyH1";
+import MyH2 from "./MyH2";
+import MyH3 from "./MyH3";
+import MyP from "./MyP";
 
 // type MDXComponentsProps = {
 //   [key: string]: (props: any) => React.JSX.Element;
@@ -29,54 +28,10 @@ const MDXComponents: object = {
   P5SonifyPlotAmpMod: () => <P5jsContainer sketch={sonifyplotampmod} />,
   P5SonicOrbs: () => <P5jsContainer sketch={sonicorbs} />,
   pre: (props: any) => <MyCode {...props} />,
-  h1: ({
-    children,
-    ...h1Props
-  }: TextProps<React.ComponentPropsWithoutRef<"h1">>) => {
-    // take the title and convert all spaces to "-" and text to lowercase.
-    // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const childID: string = children.toLowerCase().split(" ").join("-");
-
-    return (
-      <h1 id={childID} className="font-bold pt-4 text-2xl mb-2" {...h1Props}>
-        {children}
-      </h1>
-    );
-  },
-  h2: ({
-    children,
-    ...h2Props
-  }: TextProps<React.ComponentPropsWithoutRef<"h2">>) => {
-    // take the title and convert all spaces to "-" and text to lowercase.
-    // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const childID = children.toLowerCase().split(" ").join("-");
-    return (
-      <h2 id={childID} className="font-bold text-xl" {...h2Props}>
-        {children}
-      </h2>
-    );
-  },
-  h3: ({
-    children,
-    ...h3Props
-  }: TextProps<React.ComponentPropsWithoutRef<"h3">>) => {
-    // take the title and convert all spaces to "-" and text to lowercase.
-    // use this as the id for the h1 tag to enabel navigation through a TOC.
-    const childID: string = children.toLowerCase().split(" ").join("-");
-    return (
-      <h3 id={childID} className="font-bold text-lg" {...h3Props}>
-        {children}
-      </h3>
-    );
-  },
-  p: ({
-    children,
-    ...props
-  }: TextProps<React.ComponentPropsWithoutRef<"p">>) => (
-    <p {...props} className="text-base">
-      {children}
-    </p>
-  ),
+  h1: (props: any) => <MyH1 {...props} />,
+  h2: (props: any) => <MyH2 {...props} />,
+  h3: (props: any) => <MyH3 {...props} />,
+  p: (props: any) => <MyP {...props} />,
 };
 
 export default MDXComponents;

@@ -57,6 +57,12 @@ declare global {
 
   type CommentList = MyComment[];
 
+  // for MyH1 MyH2 etc.
+  interface MyTextProps<T> {
+    children: string;
+    object: T;
+  }
+
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];
 }

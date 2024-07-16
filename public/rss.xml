@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 11 Jul 2024 16:46:01 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Jul 2024 10:10:24 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 11 Jul 2024 16:46:01 GMT</pubDate>
+        <pubDate>Tue, 16 Jul 2024 10:10:24 GMT</pubDate>
         <item>
             <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
             <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>

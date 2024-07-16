@@ -21,7 +21,7 @@ At the Department of Musicology at UiO, we have developed solid strategies for m
 3. <MyLink href="#measurement-procedure">Measurement Procedure</MyLink>
    1. <MyLink href="###step-1-verify-the-measurement-system">Step 1 - Verify The Measurement System</MyLink>
    2. <MyLink href="###step-2-connect-the-music-system-to-the-measurement-system">Step 2 - Connect The Music System to The Measurement System</MyLink>
-   3. <MyLink href="###step-3-test-the-audio-quality">Step 3 - Test The Audio Quality</MyLink>
+   3. <MyLink href="###step-3-fine-tune-the-audio-quality">Step 3 - Fine-tune The Audio Quality</MyLink>
    4. <MyLink href="###step-4-measure-the-latency">Step 4 - Measure The Latency</MyLink>
    5. <MyLink href="###step-5-(extra)-measure-with-alternative-parameters">Step 5 (extra) - Measure With Alternative Parameters</MyLink>
 4. <MyLink href="#summary">Summary</MyLink>
@@ -57,13 +57,13 @@ In a networked music setting, **what** we are interested in measuring is usually
 
 However, the OOSE delay only carries any real value if measured in a system that can transmit clear and stable audio. In other words, it's practically meaningless to measure the latency of a NMP system that renders terrible audio quality. However, the problem is that enhancing the media fidelity in streaming contexts usually means adding additional processing stages that, in turn, will add more latency. For instance, increasing audio buffersizes and bit-rates, or experimenting with different compression settings, are all good modifications that can enhance audio quality of streams, but they all do so at the expense of latency. There's always a tradeoff between the quality, latency and stability of the audio signal in networked music contexts that has to constantly be negotiated (Fasciani, 2020).
 
-In light of these facts, I would argue that it's more appropriate to expand and modify the definition of our measurement object to something more suitable, such as "the OOSE of a system that is also fine-tuned to produce stable and high-quality audio over a significant period with minimal dropouts". Let's call it _Stable_ OOSE, or SOOSE for short.
+in light of this, I would argue that the desired measurement object in networked music contexts is the OOSE of a system that is fine-tuned to produce stable and high-quality audio over a significant period with minimal dropouts. For clarity, we can call this expanded definition for _Stable_ OOSE, or SOOSE for short.
 
 [BILDE]
 OOSE delay chain
 OOSE RTT measurement. input and output at the same place. OOSE round-trip.
 
-However, measuring the SOOSE delay of networked music systems presents us with a key problem. How can we compare a delayed impulse to a reference if the delayed impulse only travels one way? We cannot send the reference because we want to isolate and measure the network path. The solution is to adopt a Round-Trip Time (RTT) strategy instead, where the delayed impulse is sent to a remote location and looped back again to the source location before being measured (Carôt 2009, Rottondi et.al 2016, Fasciani 2020). This strategy is similar to how all our computers negotiate clock time, actively measuring RTT latencies from fixed locations and subtracting the results from a common source. In NMP scenarios, doing RTT measurements requires us to loop back the delayed impulse at the very end of the SOOSE delay chain, preferably with a microphone capturing the sound from the speaker and sending it back to the source. If the signal chains at both locations are technically similar, with matching software and hardware configurations, dividing the RTT SOOSE by two will give you the one-way latency.
+However, measuring the SOOSE delays over networks presents a key challenge. How can we compare a delayed impulse to a reference if the delayed impulse only travels one way? We cannot send the reference because we want to isolate and measure the network path. The solution is to adopt a Round-Trip Time (RTT) strategy instead, where the delayed impulse is sent to a remote location and looped back again to the source location before being measured (Carôt 2009, Rottondi et.al 2016, Fasciani 2020). This strategy is similar to how all our computers negotiate clock time, actively measuring RTT latencies from fixed locations and subtracting the results from a common source. In NMP scenarios, doing RTT measurements requires us to loop back the delayed impulse at the very end of the SOOSE delay chain, preferably with a microphone capturing the sound from the speaker and sending it back to the source. If the signal chains at both locations are technically similar, with matching software and hardware configurations, dividing the RTT SOOSE by two will give you the one-way latency.
 
 Finally, having too little bandwidth or an unstable network connection can heavily impact the quality and stability of an audio signal, producing dropouts and quality degradation. Therefore, it can be wise to check the network bandwidth whenever you are in a new location. Even though you don't need more than about 1.5Mbps of bandwidth to transmit high-quality stereo audio, it's always best to be as much in know as possible. There are several online speed test tools you can use the measure the bandwidth of a network. Personally, I recommend working with the iPerf networking tools for a little more advanced control.
 
@@ -85,13 +85,13 @@ Second, insert the measurement object (being the entire SOOSE networked music sy
 
 [DIAGRAM]
 
-### Step 3 - Test The Audio Quality
+### Step 3 - Fine-tune The Audio Quality
 
-As stated, the key to unlocking a meaningful networked music practice is to achieve clear and stable audio transmissions. Therefore, once the measurement and music systems are connected, it's time to test the audio quality.
+As stated, the key to unlocking a meaningful networked music practice is to achieve clear and stable audio transmissions. This is also necessary to be able to measure Stable OOSE delays. Therefore, once the measurement and music systems are connected, the next step is to fine-tune the system for good audio quality.
 
 The simplest way to analyze the audio quality is to send a constant sine tone through the delayed signal chain and listen for any impurities or dropouts to the signal as it exits the local PA. This is an iterative process that involves adjusting various system settings until the audio is glitch-free, such as buffersize, bit-rate and sampling rate. I've written more extensively about this method in <MyLink href="/posts/how-to-improve-your-networked-audio-engineering">another post of mine on Networked audio engineering practices</MyLink>, about how to fine-tune audio parameters to suit the network.
 
-<MyImage src="dsp-in-sync.png" alt="Sine-wave that syncronize with each other." />
+<MyImage src="nmp-quality-quality-check.png" alt="diagram showing how to send a reference signal through your entire NMP chain to monitor the audio (and network) quality." caption="Send a reference sine tone through the NMP signal chain to monitor the audio (and network) quality." />
 
 ### Step 4 - Measure The Latency
 
