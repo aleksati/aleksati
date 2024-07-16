@@ -11,8 +11,7 @@ Part portfolio and part blog, a platform where I share my projects and write abo
 - Theme selector
 - RSS feed
 - REST API
-
-and more..
+- and much more..
 
 Page deployment status:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b980f54a-9d5a-42c4-81c3-6bcfde64ae60/deploy-status)](https://app.netlify.com/sites/aleksati/deploys)
