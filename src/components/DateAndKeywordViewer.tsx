@@ -32,13 +32,13 @@ const DateAndKeywordViewer = ({
 }: Props) => {
   // On mobile view, we show less keywords.
   const { width } = useWindowSize();
-  const maxKeywords: number = width < widthTresh ? 3 : 4;
+  const maxKeywords: number = width < widthTresh ? 2 : 3;
 
   if (text === "sm") {
     return (
-      <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-2 items-center">
+      <div className="flex flex-wrap text-sm text-secondary dark:text-secondary-dark space-x-1 items-center">
         {showType ? (
-          <div className="flex space-x-2 items-center">
+          <div className="flex space-x-1 items-center">
             <p>{type}</p> <p className="text-lg">•</p>
           </div>
         ) : null}
@@ -49,9 +49,7 @@ const DateAndKeywordViewer = ({
               (keyword, idx) =>
                 idx < maxKeywords && (
                   <div className="flex space-x-1 items-center" key={keyword}>
-                    <p
-                      className="text-lg"
-                      style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
+                    <p className="text-lg" style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
                       •
                     </p>
                     <p>{keyword}</p>
@@ -80,9 +78,7 @@ const DateAndKeywordViewer = ({
               (keyword, idx) =>
                 idx < maxKeywords && (
                   <div className="flex space-x-1 items-center" key={keyword}>
-                    <p
-                      className="text-md"
-                      style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
+                    <p className="text-md" style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
                       •
                     </p>
                     <p>{keyword}</p>

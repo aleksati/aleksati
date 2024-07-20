@@ -1,8 +1,6 @@
 export const dev: boolean = process.env.NODE_ENV !== "production";
 
-export const SITE_DOMAIN: string = dev
-  ? "http://localhost:3000"
-  : "https://aleksati.net";
+export const SITE_DOMAIN: string = dev ? "http://localhost:3000" : "https://aleksati.net";
 
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).
@@ -49,7 +47,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   jitter: "#9d174d", //pink-800
   band: "#86198f", //fuchsia-800
   sculpture: "#92400e", //amber-800
-  quality: "#292524", // stone-800
+  // quality: "#292524", // stone-800 free!
   // starting over !!
   pop: "#ecfccb", //lime-100
   drums: "#fee2e2", //red-100

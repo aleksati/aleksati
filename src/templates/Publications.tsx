@@ -34,27 +34,20 @@ const Publications = () => {
     <>
       {error ? (
         <p>
-          Something went wrong while fetching data from{" "}
-          <MyLink href="https://app.cristin.no/">Cristin</MyLink> :(
+          Something went wrong while fetching data from <MyLink href="https://app.cristin.no/">Cristin</MyLink> :(
         </p>
       ) : loading ? (
         <p>
-          Fetching data from{" "}
-          <MyLink href="https://app.cristin.no/">Cristin</MyLink>...
+          Fetching data from <MyLink href="https://app.cristin.no/">Cristin</MyLink>...
         </p>
       ) : (
         <div className="flex flex-col space-y-8">
           {researchData?.map((item, idx) => {
-            if (idx === 1) return;
+            // REMOVE THE DUPLICATE OF STØCKERT AND TIDEMANN. THIS ONE DOES NOT AHVE A LINK.
+            if (idx == 2) return;
             return (
               <div key={idx}>
-                {item.authors} ({item.year}). {item.title}.{" "}
-                <i>{item.journal}.</i>{" "}
-                {item.link ? (
-                  <MyLink href={item.link}>Avaliable from here</MyLink>
-                ) : (
-                  ""
-                )}
+                {item.authors} ({item.year}). {item.title}. <i>{item.journal}.</i> {item.link ? <MyLink href={item.link}>Avaliable from here</MyLink> : ""}
               </div>
             );
           })}

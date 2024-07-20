@@ -1,4 +1,4 @@
-import PostListSmall from "../templates/PostListSmall";
+// import PostListSmall from "../templates/PostListSmall";
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
 import { GetStaticProps } from "next";
@@ -8,14 +8,14 @@ type Props = {
   keywords: string[];
 };
 
-export default function handler({ frontMatterList, keywords }: Props) {
+export default function handler({ keywords }: Props) {
   return (
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
-      <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
+      {/* <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
         <h1 className="font-bold text-2xl mb-6">Latest writings</h1>
         <PostListSmall frontMatterList={frontMatterList} />
-      </div>
+      </div> */}
     </LayoutPage>
   );
 }
@@ -25,8 +25,9 @@ import { frontMatterListCache } from "../cache/frontmatterlist";
 
 export const getStaticProps: GetStaticProps = async () => {
   // get the 3 latest post/works
-  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 3);
+  // const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 4);
   const keywords: string[] = getKeysFromFr(frontMatterListCache);
 
-  return { props: { frontMatterList, keywords } };
+  // return { props: { frontMatterList, keywords } };
+  return { props: { keywords } };
 };

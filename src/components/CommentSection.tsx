@@ -70,7 +70,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
   return (
     <div className="my-4">
       {/* <div className="flex flex-col space-y-2 mb-4 items-start"> */}
-      <form onSubmit={(e) => handleSubmit(e)} aria-label="Comment section" className="flex flex-col space-y-2 mb-4 items-start">
+      <form onSubmit={(e) => handleSubmit(e)} aria-label="Comment section" className="flex flex-col space-y-2 py-4 items-start border-y border-secondary-light dark:border-secondary-dark">
         <h1 className="text-2xl font-bold mb-2" id="leave-a-comment">
           Leave a Comment
         </h1>
@@ -100,19 +100,16 @@ const CommentSection = ({ slug }: { slug: string }) => {
           <input type="submit" className="m-auto p-2 flex items-center border text-primary-light border-primary-light dark:border-primary-dark bg-red-100" value={isError ? "error" : isLoading ? "loading..." : "Submit"} />
         </div>
       </form>
-      <hr />
+      {/* <hr /> */}
       <div className="flex flex-col space-y-4 my-4">
         {comments.map((comment, idx) => (
-          <>
-            <div key={idx}>
-              <div className="flex space-x-2 items-center">
-                <p className="font-bold">{comment.name}</p>
-                <p className="text-sm">{date2text(comment.date)}</p>
-              </div>
-              <p>{comment.comment}</p>
+          <div key={idx} className="border-b pb-4 border-secondary-light dark:border-secondary-dark">
+            <div className="flex space-x-2 items-center">
+              <p className="font-bold">{comment.name}</p>
+              <p className="text-sm">{date2text(comment.date)}</p>
             </div>
-            <hr />
-          </>
+            <p>{comment.comment}</p>
+          </div>
         ))}
       </div>
     </div>

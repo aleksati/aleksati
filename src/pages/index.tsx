@@ -1,6 +1,7 @@
-import PostListSmall from "../templates/PostListSmall";
+// import PostListSmall from "../templates/PostListSmall";
+import PostList from "../templates/PostList";
 import LayoutPage from "../layouts/LayoutPage";
-import About from "../templates/About";
+// import About from "../templates/About";
 import { GetStaticProps } from "next";
 
 type Props = {
@@ -10,12 +11,14 @@ type Props = {
 
 export default function handler({ frontMatterList, keywords }: Props) {
   return (
-    <LayoutPage pageMeta={{ title: "about", keywords }}>
-      <About />
-      <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
-        <h1 className="font-bold text-2xl mb-6">Latest writings</h1>
-        <PostListSmall frontMatterList={frontMatterList} />
-      </div>
+    <LayoutPage pageMeta={{ title: "", keywords }}>
+      {/* <About /> */}
+      {/* <div className="py-4"> */}
+      <h3 className="font-bold text-xl leading-8 mb-2">Latest</h3>
+      <hr className="mb-6" />
+      {/* <PostListSmall frontMatterList={frontMatterList} /> */}
+      <PostList frontMatterList={frontMatterList} showType={true} />
+      {/* </div> */}
     </LayoutPage>
   );
 }
@@ -30,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
   await generateRSS(frontMatterListCache);
 
   // get the 3 latest post/works
-  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 3);
+  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 4);
   const keywords: string[] = getKeysFromFr(frontMatterListCache);
 
   return { props: { frontMatterList, keywords } };

@@ -16,7 +16,6 @@ export default function Post({ mdxSource, frontMatter }: MDXPostProps) {
       <div className="prose text-primary-light dark:text-primary-dark !container dark:prose-invert prose-a:font-normal prose-ol:ml-4 mb-12">
         <MDXRemote components={MDXComponents} frontmatter={frontMatter} {...mdxSource} />
       </div>
-      <hr />
       <CommentSection slug={frontMatter.slug} />
     </>
   );
