@@ -21,11 +21,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
   );
 }
 
-import {
-  getKeysFromFr,
-  getAllFr,
-  sortFrByDate,
-} from "../../functions/loadPosts";
+import { getKeysFromFr, getAllFr, sortFrByDate } from "../../functions/loadPosts";
 import { frontMatterListCache } from "../../cache/frontmatterlist";
 import { dev, NAV_TABS } from "../../config";
 
