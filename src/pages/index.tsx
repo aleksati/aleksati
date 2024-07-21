@@ -14,8 +14,8 @@ export default function handler({ frontMatterList, keywords }: Props) {
     <LayoutPage pageMeta={{ title: "", keywords }}>
       {/* <About /> */}
       {/* <div className="py-4"> */}
-      <h3 className="font-bold text-xl leading-8 mb-2">Latest</h3>
-      <hr className="mb-6" />
+      <h1 className="hidden md:flex font-bold mb-2">latest</h1>
+      <hr className="hidden md:flex mb-6" />
       {/* <PostListSmall frontMatterList={frontMatterList} /> */}
       <PostList frontMatterList={frontMatterList} showType={true} />
       {/* </div> */}

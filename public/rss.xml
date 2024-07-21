@@ -9,22 +9,15 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 20 Jul 2024 09:34:31 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 21 Jul 2024 07:12:45 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 20 Jul 2024 09:34:31 GMT</pubDate>
+        <pubDate>Sun, 21 Jul 2024 07:12:45 GMT</pubDate>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
             <description><![CDATA[Recently, I was involved in a research project aiming to create software to generate datasets from musical devices for audio-related machine-learning tasks. This post takes a closer look at the Dataset Generator for Musical Devices (DGMD), including links to in-depth tutorials and download pages. Original post by Stefano Fasciani.]]></description>
             <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
             <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[How to Measure Audio Latency in Networked Music Systems]]></title>
-            <description><![CDATA[Measuring audio latency in networked music performance (NMP) systems is a complex procedure with many moving parts. In this post, I write about solid strategies and share good practical ways to measure audio latency in real-world NMP scenerios, developed from my many years of teaching for the MCT masters programme at UiO.]]></description>
-            <link>http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</guid>
-            <pubDate>Tue, 09 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Software Poème Symphonique]]></title>

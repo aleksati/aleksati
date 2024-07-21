@@ -4,7 +4,7 @@ import MySoMeBar from "../components/MySoMeBar";
 const About = () => (
   <div className="pb-10">
     <div className="grid grid-cols-4 gap-4 pb-6 items-start">
-      <div className="col-span-4 sm:col-span-1">
+      <div className="col-span-4 sm:col-span-1 hidden md:flex">
         <MyImage
           alt="Portrett pic of me"
           isExpandable={true}
