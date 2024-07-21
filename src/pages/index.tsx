@@ -14,8 +14,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
     <LayoutPage pageMeta={{ title: "", keywords }}>
       {/* <About /> */}
       {/* <div className="py-4"> */}
-      <h1 className="hidden md:flex font-bold mb-2">latest</h1>
-      <hr className="hidden md:flex mb-6" />
+      <h1 className="hidden md:flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark">latest</h1>
       {/* <PostListSmall frontMatterList={frontMatterList} /> */}
       <PostList frontMatterList={frontMatterList} showType={true} />
       {/* </div> */}
@@ -30,6 +29,7 @@ import { frontMatterListCache } from "../cache/frontmatterlist";
 export const getStaticProps: GetStaticProps = async () => {
   // generate RSS at site build.
   // I would love to do this as a pure script from package.json, but I cant import other modules from script folder. Common error with this Next version
+
   await generateRSS(frontMatterListCache);
 
   // get the 3 latest post/works
