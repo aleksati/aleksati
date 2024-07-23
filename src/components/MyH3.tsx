@@ -6,6 +6,8 @@ const MyH3 = ({ children, ...h3Props }: MyTextProps<React.ComponentPropsWithoutR
   // convert all spaces to "-" and text to lowercase.
   const childID: string = children.toLowerCase().split(" ").join("-");
 
+  console.log(childID);
+
   return (
     <h3 id={childID} className="font-bold pt-4 text-lg mb-2" {...h3Props}>
       {children}
