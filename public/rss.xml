@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 23 Jul 2024 18:06:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Jul 2024 06:52:29 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 23 Jul 2024 18:06:29 GMT</pubDate>
+        <pubDate>Thu, 25 Jul 2024 06:52:29 GMT</pubDate>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
             <description><![CDATA[Recently, I was involved in a research project aiming to create software to generate datasets from musical devices for audio-related machine-learning tasks. This post takes a closer look at the Dataset Generator for Musical Devices (DGMD), including links to in-depth tutorials and download pages. Original post by Stefano Fasciani.]]></description>
