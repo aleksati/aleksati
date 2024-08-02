@@ -134,12 +134,15 @@ The simplest way to analyze the audio quality is to send a constant sine tone th
 
 Finally, you can measure the SOOSE delay of your system. Since this kind of measurement is a statistical exercise, the more data you collect have, the better. With lots of data, it's wise to avoid calculating each individual sample difference manually. Instead, to save time, I recommend writing some code or using software that can automate bigger parts of the process.
 
-In fact, for this post, I decided to re-develop some older MaxMSP code into software that could administer audio impulses, record, measure and store data from these kinds of measurement procedures, all at once. Having this software gives me a lot of freedom with the added benefit of making my measurement system more systematic and reproducible for others.
+In fact, for this post, I decided to re-develop some older MaxMSP code into software that could administer audio impulses, record, measure and store data from these kinds of measurement procedures, all at once. Having this software gives me a lot of freedom with the added benefit of making my measurement system more systematic and reproducible for others. Read more and download my software (ALEX) for free via <MyLink href="/works/audio-latency-examiner">my previous post</MyLink>.
 
-(irl-max-screenshot)
-(irl-max-screenshot-vst)
+<MyImage
+  src="alex-ui-main.png"
+  alt="Dedicated software (like ALEX) for batch collecting audio latency data from musical devices can be useful to get enough samples to properly evalute the system."
+  caption="Dedicated software (like ALEX) for batch collecting audio latency data from musical devices can be useful to get enough samples to properly evalute the system."
+/>
 
-Another advantage of using specialized measurement software like this is that it can open up the possibility of measuring other audio software, such as VST plugins and audio drivers.
+Another advantage of using specialized measurement software like ALEX is that it opens up the possibilities of measuring other audio devices, such as VST plugins and virtual audio drivers.
 
 ## Step 5 (extra) - Measure With Alternative Parameters
 

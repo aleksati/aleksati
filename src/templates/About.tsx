@@ -1,5 +1,6 @@
 import MyImage from "../components/MyImage";
 import MySoMeBar from "../components/MySoMeBar";
+import RSSLink from "../components/RSSLink";
 
 const About = () => (
   <div className="pb-10">
@@ -26,7 +27,8 @@ const About = () => (
         part portfolio and part blog, a platform where I share my projects and write about music/audio tech stuff.
       </p>
       <p>Currently, I work as an engineer for the Musicology Department at the University of Oslo. At UiO, I mostly develop long-term musical infrastructure, oversee sound studio facilities, teach music technology and provide additional research support.</p>
-      <p>Stay updated on my writings by subscribing to the RSS feed from the menubar. You can also reach out by leaving a comment under each post.</p>
+      <p>Stay updated on my writings by subscribing to the RSS feed. You can also reach out by leaving comments under my posts.</p>
+      <RSSLink />
     </div>
   </div>
 );

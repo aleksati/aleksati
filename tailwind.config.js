@@ -1,11 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/pages/**/*.{html,js,jsx,tsx}",
-    "./src/components/**/*.{html,js,jsx,tsx}",
-    "./src/layouts/**/*.{html,js,jsx,tsx}",
-    "./src/templates/**/*.{html,js,jsx,tsx}",
-  ],
+  content: ["./src/pages/**/*.{html,js,jsx,tsx}", "./src/components/**/*.{html,js,jsx,tsx}", "./src/layouts/**/*.{html,js,jsx,tsx}", "./src/templates/**/*.{html,js,jsx,tsx}"],
   darkMode: "class",
   theme: {
     container: {
@@ -56,7 +51,7 @@ module.exports = {
       backgroundColor: {
         // background colors
         "primary-light": "#fff",
-        "primary-dark": "#0F0F0F", //"#0F0F0F", //"#1E1E1E", //#202124
+        "primary-dark": "#333333", //"#0F0F0F", //"#1E1E1E", //#202124 #333333
       },
       colors: {
         // text colors
