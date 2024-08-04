@@ -15,7 +15,7 @@ const About = () => (
         />
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
-        <h1 className="text-lg font-bold">Aleksander Tidemann</h1>
+        <h1 className="text-lg -mb-1 font-bold">Aleksander Tidemann</h1>
         <p>Music technologist and software developer</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">@aleksati @alexfürimmer</p>
         <MySoMeBar />
@@ -28,7 +28,6 @@ const About = () => (
       </p>
       <p>Currently, I work as an engineer for the Musicology Department at the University of Oslo. At UiO, I mostly develop long-term musical infrastructure, oversee sound studio facilities, teach music technology and provide additional research support.</p>
       <p>Stay updated on my writings by subscribing to the RSS feed. You can also reach out by leaving comments under my posts.</p>
-      <RSSLink />
     </div>
   </div>
 );

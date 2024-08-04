@@ -22,7 +22,7 @@ const LayoutPageMobile = forwardRef<Ref, Props>(({ pageId, children, className }
     <>
       <NavTop onToggleNavVertical={handleToggleNavVertical} showNavVertical={showNavVertical} />
       {showNavVertical ? <NavVertical showNavTop={true} onToggleNavVertical={handleToggleNavVertical} /> : null}
-      <div className={`container pb-4 ${showNavVertical && "blur-sm"} mx-auto flex-1 overflow-hidden px-4 pt-20 ${className}`} id={pageId} ref={ref}>
+      <div className={`container pb-6 ${showNavVertical && "blur-sm"} mx-auto flex-1 overflow-hidden px-4 pt-20 ${className}`} id={pageId} ref={ref}>
         {children}
       </div>
     </>

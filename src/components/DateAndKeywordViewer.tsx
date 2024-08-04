@@ -25,14 +25,14 @@ const DateAndKeywordViewer = ({
   keywords = [""],
   date, // change to dateString
   type,
-  text = "sm",
+  text = "xs",
   showDate = true,
   showType = false,
   showKeywords = true,
 }: Props) => {
   // On mobile view, we show less keywords.
   const { width } = useWindowSize();
-  const maxKeywords: number = width < widthTresh ? 2 : 3;
+  const maxKeywords: number = width < widthTresh ? 3 : 4; // was 2 and 3
 
   if (text === "sm") {
     return (

@@ -1,6 +1,8 @@
 export const dev: boolean = process.env.NODE_ENV !== "production";
 
-export const SITE_DOMAIN: string = dev ? "http://localhost:3000" : "https://aleksati.net";
+export const SITE_DOMAIN: string = dev
+  ? "http://localhost:3000"
+  : "https://aleksati.net";
 
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).

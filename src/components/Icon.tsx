@@ -1,13 +1,11 @@
-import {
-  MdOutlineArrowForwardIos,
-  MdOutlineArrowBackIosNew,
-} from "react-icons/md";
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from "react-icons/md";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { RiQuestionMark } from "react-icons/ri";
 import { RiCloseLine } from "react-icons/ri";
 import { FaBandcamp } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillYoutube } from "react-icons/ai";
+import { LuWaves } from "react-icons/lu";
 import { RiInstagramFill } from "react-icons/ri";
 import { BsSpotify } from "react-icons/bs";
 import { TbWaveSine } from "react-icons/tb";
@@ -22,20 +20,14 @@ import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
 import { HiAdjustments, HiRss } from "react-icons/hi";
 import { BsKey } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
-import {
-  BsBuildings,
-  BsInstagram,
-  BsLinkedin,
-  BsMastodon,
-  BsSearch,
-  BsGithub,
-} from "react-icons/bs";
+import { BsBuildings, BsInstagram, BsLinkedin, BsMastodon, BsSearch, BsGithub } from "react-icons/bs";
 
 const icons: object = {
+  wave: (s: string) => <LuWaves className={s} />,
   rss: (s: string) => <HiRss className={s} />,
   expand: (s: string) => <AiOutlineExpandAlt className={s} />,
   office: (s: string) => <BsBuildings className={s} />,
-  key: (s: string) => <BsKey className={s} />,
+  // key: (s: string) => <BsKey className={s} />,
   search: (s: string) => <BsSearch className={s} />,
   sun: (s: string) => <BsFillSunFill className={s} id="button-theme" />,
   moon: (s: string) => <BsFillMoonFill className={s} id="button-theme" />,
@@ -44,27 +36,17 @@ const icons: object = {
   details: (s: string) => <GiMagnifyingGlass className={s} />,
   prevArrow: (s: string) => <MdOutlineArrowBackIosNew className={s} />,
   nextArrow: (s: string) => <MdOutlineArrowForwardIos className={s} />,
-  downArrow: (s: string) => (
-    <MdOutlineArrowForwardIos
-      className={s}
-      style={{ transform: "rotate(90deg)" }}
-    />
-  ),
-  upArrow: (s: string) => (
-    <MdOutlineArrowForwardIos
-      className={s}
-      style={{ transform: "rotate(-90deg)" }}
-    />
-  ),
+  downArrow: (s: string) => <MdOutlineArrowForwardIos className={s} style={{ transform: "rotate(90deg)" }} />,
+  upArrow: (s: string) => <MdOutlineArrowForwardIos className={s} style={{ transform: "rotate(-90deg)" }} />,
   x: (s: string) => <RiCloseLine className={s} />,
   facebook: (s: string) => <BsFacebook className={s} />,
   instagram: (s: string) => <BsInstagram className={s} />,
-  bandcamp: (s: string) => <FaBandcamp className={s} />,
-  youtube: (s: string) => <AiFillYoutube className={s} />,
-  spotify: (s: string) => <BsSpotify className={s} />,
+  // bandcamp: (s: string) => <FaBandcamp className={s} />,
+  // youtube: (s: string) => <AiFillYoutube className={s} />,
+  // spotify: (s: string) => <BsSpotify className={s} />,
   contact: (s: string) => <AiOutlineMail className={s} />,
-  soundcloud: (s: string) => <GrSoundcloud className={s} />,
-  shop: (s: string) => <AiOutlineShoppingCart className={s} />,
+  // soundcloud: (s: string) => <GrSoundcloud className={s} />,
+  // shop: (s: string) => <AiOutlineShoppingCart className={s} />,
   play: (s: string) => <FiPlay className={s} />,
   pause: (s: string) => <AiOutlinePause className={s} />,
   heart: (s: string) => <AiOutlineHeart className={s} />,
@@ -74,9 +56,7 @@ const icons: object = {
   //   <HiDotsHorizontal className={s} style={{ transform: "rotate(-90deg)" }} />
   // ),
   threedots: (s: string) => <AiOutlineMenu className={s} />,
-  filter: (s: string) => (
-    <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
-  ),
+  filter: (s: string) => <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />,
   // web: (s) => <TbWorldWww className={s} />,
   mastodon: (s: string) => <BsMastodon className={s} />,
   linkedin: (s: string) => <BsLinkedin className={s} />,

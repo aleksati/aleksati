@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 02 Aug 2024 10:05:34 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Aug 2024 12:48:29 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 02 Aug 2024 10:05:34 GMT</pubDate>
+        <pubDate>Sun, 04 Aug 2024 12:48:29 GMT</pubDate>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
             <description><![CDATA[Recently, I was involved in a research project aiming to create software to generate datasets from musical devices for audio-related machine-learning tasks. This post takes a closer look at the Dataset Generator for Musical Devices (DGMD), including links to in-depth tutorials and download pages. Original post by Stefano Fasciani.]]></description>
@@ -91,7 +91,7 @@
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
-            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone application for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
+            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone software tool for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
             <link>http://localhost:3000/works/audiovideoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>

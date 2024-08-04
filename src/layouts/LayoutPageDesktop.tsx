@@ -7,7 +7,7 @@ type Ref = HTMLDivElement;
 const LayoutPageDesktop = forwardRef<Ref, Props>(({ pageId, children, className }, ref) => (
   <>
     <NavVertical showNavTop={false} />
-    <div className={`container pb-4 mx-auto flex-1 overflow-hidden px-4 pt-4 ${className}`} id={pageId} ref={ref}>
+    <div className={`container pb-6 mx-auto flex-1 overflow-hidden px-4 pt-4 ${className}`} id={pageId} ref={ref}>
       {children}
     </div>
   </>

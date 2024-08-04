@@ -11,7 +11,15 @@ interface MyLinkProps extends LinkProps {
   id?: string;
 }
 
-const MyLink = ({ type = "", className, children, active = false, onClick, href, id }: MyLinkProps): React.JSX.Element => {
+const MyLink = ({
+  type = "",
+  className,
+  children,
+  active = false,
+  onClick,
+  href,
+  id,
+}: MyLinkProps): React.JSX.Element => {
   // url or tab
   const isActive: string | null = active ? "border-b-2" : null;
   // const isActive = active ? "font-bold" : null;
@@ -28,7 +36,9 @@ const MyLink = ({ type = "", className, children, active = false, onClick, href,
       <div className="flex space-x-1">
         {active && <p className="font-bold">/</p>}
         {/* (active || divHovered) */}
-        <Link className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`} href={href}>
+        <Link
+          className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
+          href={href}>
           {children}
         </Link>
       </div>
@@ -37,14 +47,32 @@ const MyLink = ({ type = "", className, children, active = false, onClick, href,
 
   if (type === "pagination") {
     return (
-      <a className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${isActive} ${className}`} onClick={onClick} role="link" id={id}>
+      <a
+        className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${isActive} ${className}`}
+        onClick={onClick}
+        role="link"
+        id={id}>
+        {children}
+      </a>
+    );
+  }
+
+  if (type == "toc") {
+    return (
+      <a
+        role="link"
+        href={href}
+        className={`hover:cursor-pointer no-underline ${className}`}>
         {children}
       </a>
     );
   }
 
   return (
-    <a role="link" href={href} className={`hover:cursor-pointer no-underline text-blue-400 ${className}`}>
+    <a
+      role="link"
+      href={href}
+      className={`hover:cursor-pointer no-underline text-blue-400 ${className}`}>
       {children}
     </a>
   );
