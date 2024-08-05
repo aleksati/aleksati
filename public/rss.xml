@@ -9,15 +9,22 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 04 Aug 2024 14:01:06 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Aug 2024 06:07:27 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 04 Aug 2024 14:01:06 GMT</pubDate>
+        <pubDate>Mon, 05 Aug 2024 06:07:27 GMT</pubDate>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
             <description><![CDATA[Recently, I was involved in a research project aiming to create software to generate datasets from musical devices for audio-related machine-learning tasks. This post takes a closer look at the Dataset Generator for Musical Devices (DGMD), including links to in-depth tutorials and download pages. Original post by Stefano Fasciani.]]></description>
             <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
             <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Audio Latency Examiner]]></title>
+            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); a software tool for batch collecting audio latency data from both software and hardware audio devices. The app is open-source and free to download, avaliable for both Windows and Mac.]]></description>
+            <link>http://localhost:3000/works/audio-latency-examiner</link>
+            <guid isPermaLink="true">http://localhost:3000/works/audio-latency-examiner</guid>
+            <pubDate>Tue, 09 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Software Poème Symphonique]]></title>
