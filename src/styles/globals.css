@@ -1,36 +1,26 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"); */
-/* @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"; */
-
-/* @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"); */
-
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@112.5,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@112.5,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face { */
-/* Load inn a Local font */
-/* font-family: "Consolas";
-  src: url("../assets/fonts/Consolas/consola.ttf"); */
-/* } */
+/* source-sans-pro-regular - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+  url('/fonts/source-sans-pro-v21-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('/fonts/source-sans-pro-v21-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 @layer base {
   body {
-    /* font-family: "Roboto", sans-serif; */
-    /* font-family: "Open Sans", sans-serif; */
-    /* font-family: "Inconsolata", monospace; */
-    /* font-family: "Ubuntu", sans-serif; */
-    /* font-family: "Inconsolata", monospace; */
-    /* font-family: "Source Sans Pro", Helvetica, sans-serif; */
-    font-family: "Source Sans 3", sans-serif;
-    /* font-family: "Source Serif 4", serif; */
+    letter-spacing: 0.4px;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    /* font-family: "Source Sans 3", sans-serif; */
     height: 100%;
-    font-weight: 400;
+    /* font-weight: 400; */
   }
 }
 

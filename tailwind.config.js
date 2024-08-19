@@ -26,29 +26,29 @@ module.exports = {
       },
     },
     // original:
-    fontSize: {
-      xs: "0.7rem",
-      sm: "0.8rem",
-      base: "1rem",
-      lg: "1.125rem",
-      xl: "1.25rem",
-      "2xl": "1.563rem",
-      "3xl": "1.953rem",
-      "4xl": "2.441rem",
-      "5xl": "3.052rem",
-    },
+    // fontSize: {
+    //   xs: "0.7rem",
+    //   sm: "0.8rem",
+    //   base: "1rem",
+    //   lg: "1.125rem",
+    //   xl: "1.25rem",
+    //   "2xl": "1.563rem",
+    //   "3xl": "1.953rem",
+    //   "4xl": "2.441rem",
+    //   "5xl": "3.052rem",
+    // },
     // one up larger
     // change also, dateViewerKeyword and LayoutPage
-    // fontSize: {
-    //   xs: "0.8rem",
-    //   sm: "1rem",
-    //   base: "1.125rem",
-    //   lg: "1.25rem",
-    //   xl: "1.563rem",
-    //   "2xl": "1.953rem",
-    //   "3xl": "2.441rem",
-    //   "4xl": "3.052rem",
-    // },
+    fontSize: {
+      xs: "0.8rem",
+      sm: "1rem",
+      base: "1.125rem",
+      lg: "1.25rem",
+      xl: "1.563rem",
+      "2xl": "1.953rem",
+      "3xl": "2.441rem",
+      "4xl": "3.052rem",
+    },
     extend: {
       maxHeight: {
         128: "32rem",

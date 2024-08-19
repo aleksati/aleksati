@@ -44,7 +44,7 @@ Creating such technical conditions when in real-world NMP contexts can be challe
 <MySlideshow
   imgs={["audiolatency-diagram-loopback.png", "audiolatency-irl-loopback.png"]}
   captions={[
-    "A loopback measurement system diagram using a laptop connected to an external audio interface. Looping back channels isolates the signals from any unknown/unwanted processes that might affect our latency measurement. Real example in the next image -->",
+    "A loopback measurement system diagram using a laptop connected to an external audio interface. Looping back channels isolates the signals from any unknown/unwanted processes that might affect our latency measurement. Real example in the next image →",
     "A loopback system using my MOTU M4 audio interface and two 1/4'' jack cables. Audio is administered and recorded from the MOTU. The latency between the input signals is measured through custom MaxMSP software (more on this later). As you can see, zero sample latency means our signal chains are subject to equal conditions.",
   ]}
 />
@@ -56,7 +56,7 @@ In any case, it's important to be as scientific as possible and spend time verif
 <MySlideshow
   imgs={["audiolatency-diagram-handyrec.png", "audiolatency-irl-handyrec.png"]}
   captions={[
-    "A simpler measurement system can be created with a handy recorder connected to something like a laptop or smartphone where the audio is administered from the laptop/smartphone and recorded on the handy recorder. Real example in the next image -->",
+    "A simpler measurement system can be created with a handy recorder connected to something like a laptop or smartphone where the audio is administered from the laptop/smartphone and recorded on the handy recorder. Real example in the next image →",
     "A handy recorder system using my laptop connected to both inputs of a Zoom H4N recorder with a stereo mini-jack to dual mono 1/4'' jack cable. Bottom right shows an excerpt from the post-analysis in Audacity. As you can see, there is zero sample latency between the two impulses meaning they are subject to equal conditions.",
   ]}
 />
@@ -68,7 +68,7 @@ To be able to best distinguish between the reference and delayed sound when coun
 <MySlideshow
   imgs={["audiolatency-diagram-loopback-delay.png", "audiolatency-irl-loopback-delay.png", "audiolatency-irl-handyrec-delay.png"]}
   captions={[
-    "The loopback measurement system with added measurement object inserted into one of the signal chains. Real examples in the next images -->",
+    "The loopback measurement system with added measurement object inserted into one of the signal chains. Real examples in the next images →",
     "A loopback measurement example using a Hall Research AD-340 Universal Audio Delay Processor as my measurement object. Notice that the analog delay is set to 194 ms delay, the same latency as my MaxMSP software is registering on screen.",
     "A handy recorder meaurement example using a Hall Research AD-340 Universal Audio Delay Processor as my measurement object. Here, the analog delay is set to 200ms. Bottom right shows an excerpt from the post-analysis in Audacity. As you can see, the sample latency between inputs was about 8855 samples. With a 44.1kHz sampling rate, this amounts to 200.7ms latency.",
   ]}
