@@ -1,6 +1,6 @@
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
-import MyLink from "./MyLink";
+// import MyLink from "./MyLink";
 
 const ButtonTheme = () => {
   const { currTheme, setTheme } = getCurrTheme();
@@ -14,10 +14,10 @@ const ButtonTheme = () => {
       <ButtonIcon
         iconId={currTheme === "dark" ? "sun" : "moon"}
         // onClick={handleButtonClick}
-        iconSize="text-sm"
+        iconSize="text-md"
         id="button-theme"
       />
-      <p>Theme</p>
+      {/* <p>Theme</p> */}
     </div>
     // </MyLink>
   );

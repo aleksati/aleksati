@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 19 Aug 2024 13:20:52 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 21 Aug 2024 08:38:33 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 19 Aug 2024 13:20:52 GMT</pubDate>
+        <pubDate>Wed, 21 Aug 2024 08:38:33 GMT</pubDate>
         <item>
             <title><![CDATA[How to Measure Audio Latency in Networked Music Systems]]></title>
-            <description><![CDATA[Measuring the audio latency of networked music systems is a complicated procedure (often more than you might think) where you have to control and navigate complex technical setups with many moving parts and little time at your disposal. In this post, I write about solid strategies and share good practical ways to measure audio latency in networked music contexts.]]></description>
+            <description><![CDATA[Measuring the audio latency of networked music systems is a complicated procedue where you have to navigate complex technical setups with many moving parts, usually on a tight schedule. In this post, I write about solid strategies and share good practical ways to measure audio latency in networked music contexts.]]></description>
             <link>http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</link>
             <guid isPermaLink="true">http://localhost:3000/posts/how-to-measure-audio-latency-in-networked-music-systems</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>

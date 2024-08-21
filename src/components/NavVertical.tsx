@@ -33,12 +33,11 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
                 {/* <Icon id="wave" iconSize="sm" /> */}
                 <p>aleksati.net</p>
               </Link>
-              {/* <div></div> */}
-              {/* <ButtonTheme /> */}
+              <div></div>
+              <ButtonTheme />
             </div>
           </div>
           <Search />
-          {/* OPP MED SEARCH CA 2 */}
           <div className="flex flex-col pt-12">
             <NavVerticalTabs />
           </div>
@@ -46,7 +45,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
       </div>
       <div className="fixed bottom-6 left-4">
         <div className="flex space-x-4">
-          <ButtonTheme />
+          {/* <ButtonTheme /> */}
           <RSSLink />
         </div>
       </div>
