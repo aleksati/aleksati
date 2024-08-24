@@ -28,8 +28,8 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
       <div className="w-56 fixed mt-0">
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
-            <div className="flex justify-between items-start">
-              <Link href="/" className="font-bold flex items-center space-x-2">
+            <div className="flex justify-between items-end">
+              <Link href="/" className="font-bold flex items-start space-x-2">
                 {/* <Icon id="wave" iconSize="sm" /> */}
                 <p>aleksati.net</p>
               </Link>
@@ -38,7 +38,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
             </div>
           </div>
           <Search />
-          <div className="flex flex-col pt-12">
+          <div className="flex flex-col pt-14">
             <NavVerticalTabs />
           </div>
         </div>

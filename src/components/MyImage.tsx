@@ -47,7 +47,7 @@ const MyImage = ({
           ) : null} */}
         </div>
         {caption ? (
-          <figcaption className="text-sm text-secondary dark:text-secondary-dark">
+          <figcaption className="text-xs text-secondary dark:text-secondary-dark">
             {caption}
           </figcaption>
         ) : null}

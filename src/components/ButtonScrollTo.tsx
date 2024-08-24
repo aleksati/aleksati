@@ -36,7 +36,13 @@ const ButtonScrollTo = ({ targetId, PageTopRef }: Props) => {
   };
 
   if (isVisible) {
-    return <ButtonIcon iconId="upArrow" onClick={handleButtonClick} />;
+    return (
+      <ButtonIcon
+        iconSize="text-xl"
+        iconId="upArrow"
+        onClick={handleButtonClick}
+      />
+    );
   }
 
   return null;
