@@ -34,7 +34,7 @@ const MyLink = ({
   if (type === "nav") {
     return (
       <div className="flex space-x-1">
-        {active && <p className="">/</p>}
+        {active && <p className="font-bold">/</p>}
         {/* (active || divHovered) */}
         <Link
           className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
