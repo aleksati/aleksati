@@ -34,8 +34,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   await generateRSS(frontMatterListCache);
 
-  // get the 3 latest post/works
-  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 4);
+  // get the 5 of the latest post/works
+  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 5);
   const keywords: string[] = getKeysFromFr(frontMatterListCache);
 
   return { props: { frontMatterList, keywords } };
