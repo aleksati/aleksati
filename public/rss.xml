@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 08 Sep 2024 14:50:23 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Sep 2024 18:31:16 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 08 Sep 2024 14:50:23 GMT</pubDate>
+        <pubDate>Sun, 29 Sep 2024 18:31:16 GMT</pubDate>
+        <item>
+            <title><![CDATA[How to Position Your Studio Monitors Better and More Accurately]]></title>
+            <description><![CDATA[Improving the positioning of your studio monitors can greatly improve the sound quality of your studio. In this post, I share an easy and practical way to achieve great monitor placements for your studio monitors with just some basic tools and a little know-how.]]></description>
+            <link>http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</guid>
+            <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to Measure Audio Latency in Networked Music Systems]]></title>
             <description><![CDATA[Measuring the audio latency of networked music systems is a complicated procedue where you have to navigate complex technical setups with many moving parts, usually on a tight schedule. In this post, I write about solid strategies and share good practical ways to measure audio latency in networked music contexts.]]></description>

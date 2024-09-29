@@ -38,7 +38,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   telenor: "#991b1b", // red-800
   latency: "#6b21a8", //purple-800
   telematic: "#854d0e", //yellow-800
-  jazz: "#155e75", //cyan-800
+  acoustics: "#155e75", //cyan-800
   p5js: "#115e59", // teal-800
   typescript: "#075985", //sky-800
   osc: "#9a3412", //orange-800
@@ -49,7 +49,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   jitter: "#9d174d", //pink-800
   band: "#86198f", //fuchsia-800
   sculpture: "#92400e", //amber-800
-  // quality: "#292524", // stone-800 free!
+  studio: "#292524", // stone-800 free!
   // starting over !!
   pop: "#ecfccb", //lime-100
   drums: "#fee2e2", //red-100
@@ -67,7 +67,8 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   "machine-learning": "#fae8ff", //fuchsia-100
   react: "#e879f9", // Fuschsia-400
   electronic: "#fef3c7", //amber-100 //
-  "audio-engineering": "#dbeafe", //blue-100
+  engineering: "#dbeafe", //blue-100
   "sp-tools": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
+  // NEED ACOUSTICS
 };
