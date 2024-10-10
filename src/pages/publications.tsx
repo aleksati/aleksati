@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 
 export default function handler() {
   return (
-    <LayoutPage pageMeta={{ title: "research" }}>
+    <LayoutPage pageMeta={{ title: "publications" }}>
       <Publications />
     </LayoutPage>
   );

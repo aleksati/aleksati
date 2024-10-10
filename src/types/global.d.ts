@@ -31,13 +31,18 @@ declare global {
 
   type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;
 
-  type P5jsContainer = ({ sketch }: { sketch: P5jsSketch }) => React.JSX.Element;
+  type P5jsContainer = ({
+    sketch,
+  }: {
+    sketch: P5jsSketch;
+  }) => React.JSX.Element;
 
   interface Researchdata {
+    cristin_result_id: string;
     authors: string;
     year: string;
     title: string;
-    journal: string;
+    event: string;
     link: string;
   }
 
