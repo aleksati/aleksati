@@ -21,7 +21,7 @@ const PostListItem = ({
 
   return (
     <div
-      className="flex flex-col pb-2 border-b border-secondary-light dark:border-secondary-dark cursor-pointer"
+      className="flex flex-col pb-4 border-b border-secondary-light dark:border-secondary-dark cursor-pointer"
       ref={ref}>
       <Link className="space-y-2" href={`/${typ}/${slug}`}>
         <h3
