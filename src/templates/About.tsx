@@ -25,22 +25,16 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        I am a music technologist from Norway interested in drumming, MSP, audio
-        and web programming, networked music and studio production. Personally
-        curious about everything science and passionate about films, philosophy,
-        exercising, my partner and our cat. This website is part portfolio and
-        part blog, a platform where I share my projects and write about
-        music/audio tech stuff.
-      </p>
-      <p>
-        Currently, I work as an engineer for the Musicology Department at the
-        University of Oslo. At UiO, I mostly develop long-term musical
-        infrastructure, oversee sound studio facilities, teach music technology
-        and provide additional research support.
-      </p>
-      <p>
-        Stay updated on my writings by subscribing to the RSS feed. You can also
-        reach out by leaving comments under my posts.
+        I am a music technologist from Norway passionate about audio, science,
+        philosophy and music. This website is part portfolio and part blog, a
+        platform where I share my projects and write about MSP, audio and web
+        programming, networked music, studio production and more. During the day
+        I work as an Senior Engineer for the Musicology Department at the
+        University of Oslo.
+        <p>
+          Stay updated on my posts by subscribing to my RSS feed. You can also
+          reach out by leaving comments under the posts.
+        </p>
       </p>
     </div>
   </div>
