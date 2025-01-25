@@ -49,7 +49,9 @@ const DateAndKeywordViewer = ({
               (keyword, idx) =>
                 idx < maxKeywords && (
                   <div className="flex space-x-1 items-center" key={keyword}>
-                    <p className="text-lg" style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
+                    <p
+                      className="text-lg"
+                      style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
                       •
                     </p>
                     <p>{keyword}</p>
@@ -68,7 +70,7 @@ const DateAndKeywordViewer = ({
       <div className="flex flex-wrap text-xs text-secondary dark:text-secondary-dark space-x-2 items-center">
         {showType ? (
           <div className="flex space-x-2 items-center">
-            <p>{type}</p> <p className="text-md">•</p>
+            <p>{type}</p> <p className="text-md"> - </p>
           </div>
         ) : null}
         {showDate ? <p>{date2text(date)}</p> : null}
@@ -78,7 +80,9 @@ const DateAndKeywordViewer = ({
               (keyword, idx) =>
                 idx < maxKeywords && (
                   <div className="flex space-x-1 items-center" key={keyword}>
-                    <p className="text-md" style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
+                    <p
+                      className="text-md"
+                      style={{ color: `${KEYWORDS_2_COLOR[keyword]}` }}>
                       •
                     </p>
                     <p>{keyword}</p>

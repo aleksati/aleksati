@@ -24,12 +24,12 @@ const PostListItem = ({
       className="flex flex-col pb-4 border-b border-secondary-light dark:border-secondary-dark cursor-pointer"
       ref={ref}>
       <Link className="space-y-2" href={`/${typ}/${slug}`}>
-        <h3
-          className={`text-xl font-bold ${
+        <h2
+          className={`text-2xl leading-8 font-bold ${
             isHovered ? "underline decoration-2" : null
           }`}>
           {title}
-        </h3>
+        </h2>
         <div>
           <p>{summary}</p>
         </div>

@@ -10,7 +10,7 @@ const MyH2 = ({
   const childID: string = children.toLowerCase().split(" ").join("-");
 
   return (
-    <h2 id={childID} className="font-bold text-xl mb-2" {...h2Props}>
+    <h2 id={childID} className="text-2xl mb-4" {...h2Props}>
       {children}
     </h2>
   );

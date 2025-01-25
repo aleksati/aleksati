@@ -60,7 +60,7 @@ export const P5jsContainer: P5jsContainer = ({ sketch }) => {
 };
 ```
 
-### Importing p5 and p5-sounds
+## Importing p5 and p5-sounds
 
 When using p5 and p5-sounds with the full-stack and server-side architecture of Nextjs, you have to ensure that the libraries are imported/required on the client-side. The most common approach for client-side imports in Nextjs is to use the Next Dynamic function to achieve lazy loading. This method is also the documented best practice when using the react-p5, a now deprecated third-party library built to help with compatibility between React and p5.
 
@@ -114,7 +114,7 @@ Notice that the p5-sounds library is imported separately from p5. The p5-sounds 
 
 However, you may encounter reference errors and other troubles when importing p5-sounds the way I demonstrated above, especially on the newest versions of Nextjs (v.14.1.0) and p5 (v1.9.0). If so, see the alternative way to import p5-sounds below.
 
-### Alternative p5-sounds Import
+## Alternative p5-sounds Import
 
 I roamed the internet for some time in search of a decent workaround to the reference errors I got trying to import p5-sounds on new versions of Next (both client- and server-side). Luckily, I came across <MyLink href="https://stackoverflow.com/questions/61985249/how-to-import-and-utilize-p5-sound-in-vue">a genius answer</MyLink> by Bob McBobson from 2020 in response to an issue with p5 sounds not being recognized in Vue. Bob suggests simply to use an older version of p5-sounds together with the latest version of p5. This worked perfectly for me, as well.
 
