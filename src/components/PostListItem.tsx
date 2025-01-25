@@ -25,7 +25,7 @@ const PostListItem = ({
       ref={ref}>
       <Link className="space-y-2" href={`/${typ}/${slug}`}>
         <h2
-          className={`text-2xl leading-8 font-bold ${
+          className={`text-xl font-bold ${
             isHovered ? "underline decoration-2" : null
           }`}>
           {title}
