@@ -3,6 +3,7 @@ import { commonApiHandlers } from "../../functions/commonApiHandlers";
 import connectMongo from "../../functions/connectMongo";
 import TableTotal from "../../models/TableTotal";
 import nextConnect from "next-connect";
+import { NextResponse } from "next/server";
 
 const putValidator = initValidation([
   check("value").exists().withMessage("Value is missing"),
@@ -22,6 +23,7 @@ export default nextConnect()
     if (!total) throw new Error(`No total was found`);
 
     res.status(200).json(total.value);
+    // NextResponse.status(200).json(total.value)
   })
   .put(async (req, res) => {
     // edit total - with only body (value)

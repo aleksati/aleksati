@@ -6,40 +6,36 @@ export default function handler({ table, total }: BankProps) {
     <LayoutPage pageMeta={{ title: "bank" }}>
       <Bank table={table} total={total} />
     </LayoutPage>
-  );
+    );
 }
 
 import connectMongo from "../functions/connectMongo";
 import { GetServerSideProps } from "next";
-import { SITE_DOMAIN } from "../config";
+import Table from "../models/Table";
+import TableTotal from "../models/TableTotal";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   await connectMongo();
 
-  const resTotal = await fetch(`${SITE_DOMAIN}/api/tabletotal`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-    },
+  // the same as the GET api routes.. but using them i got 500 Server Error when deployed.
+  // didnt have time to figure it out. so same code in two places.
+
+  let data: TableList = await Table.find();
+  let data2: number = await TableTotal.findOne({
+    _id: "67b233cc84cf8d7f6dbcc49d",
   });
 
-  const resTable = await fetch(`${SITE_DOMAIN}/api/table`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-    },
-  });
+  let tables = JSON.parse(JSON.stringify(data));
+  let total = JSON.parse(JSON.stringify(data2));
 
-  const total: number = await resTotal.json();
-  let tableList: TableList = await resTable.json();
-
-  // sort by date (newest first) should be a function now
-  const table: TableList = tableList
+  // sort by date (newest first)
+  const table = tables
     .sort((a, b) => {
       if (a.date > b.date) return 1;
       if (a.date < b.date) return -1;
       return 0;
     })
+    .reverse();
 
-  return { props: { table, total } };
+  return { props: { table, total : total.value } };
 };

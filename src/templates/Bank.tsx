@@ -28,7 +28,7 @@ const Bank = ({ table, total }: BankProps) => {
       const newVal = localTotal + Number(input) ;
 
       // add new total item to database
-      const res = await fetch(`${SITE_DOMAIN}/api/tabletotal`, {
+      const res = await fetch(`${SITE_DOMAIN}/api/bank-total`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -55,7 +55,7 @@ const Bank = ({ table, total }: BankProps) => {
     try {
       setIsLoading(true);
 
-      await fetch(`${SITE_DOMAIN}/api/tabletotal`, {
+      await fetch(`${SITE_DOMAIN}/api/bank-total`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -80,7 +80,7 @@ const Bank = ({ table, total }: BankProps) => {
       setIsLoading(true);
       // add new localTable item to database
       // requires (value number and date string)
-      const tableItem = await fetch(`${SITE_DOMAIN}/api/table`, {
+      const tableItem = await fetch(`${SITE_DOMAIN}/api/bank-table`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -111,7 +111,7 @@ const Bank = ({ table, total }: BankProps) => {
       setIsLoading(true);
       // add new localTable item to database
       // requires (value number and date string)
-      await fetch(`${SITE_DOMAIN}/api/table`, {
+      await fetch(`${SITE_DOMAIN}/api/bank-table`, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",

@@ -8,6 +8,7 @@ import { commonApiHandlers } from "../../functions/commonApiHandlers";
 import connectMongo from "../../functions/connectMongo";
 import Table from "../../models/Table";
 import nextConnect from "next-connect";
+import { NextResponse } from "next/server";
 
 const postValidator = initValidation([
   check("value").exists().withMessage("Value is missing"),
@@ -36,8 +37,7 @@ export default nextConnect()
         if (a.date > b.date) return 1;
         if (a.date < b.date) return -1;
         return 0;
-      })
-      .reverse();
+      }).reverse()
 
     res.status(200).json(tableSorted);
   })
