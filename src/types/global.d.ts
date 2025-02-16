@@ -52,6 +52,7 @@ declare global {
     [x: string]: JSONArray;
   }
 
+  // for use in commentsection.tsx
   interface MyComment {
     name: string;
     comment: string;
@@ -66,6 +67,21 @@ declare global {
   interface MyTextProps<T> {
     children: string;
     object: T;
+  }
+
+  // for use in Bank.tsx
+
+  interface TableItem {
+    value: number;
+    date: string;
+    _id: any;
+  }
+
+  type TableList = TableItem[];
+
+  type BankProps = {
+    table: TableList;
+    total: number;
   }
 
   //type OneOrMany<Type> = Type | Type[];

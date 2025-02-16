@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 25 Jan 2025 14:22:57 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 Feb 2025 20:38:21 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 25 Jan 2025 14:22:57 GMT</pubDate>
+        <pubDate>Fri, 14 Feb 2025 20:38:21 GMT</pubDate>
         <item>
             <title><![CDATA[How to Position Your Studio Monitors Better and More Accurately]]></title>
             <description><![CDATA[Improving the positioning of your studio monitors can significantly improve the sound quality of your studio. In this post, I share an easy and practical way to find optimal placements for your studio monitors with just some basic tools and a little know-how.]]></description>
@@ -35,7 +35,7 @@
         </item>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
-            <description><![CDATA[Recently, I was involved in a research project aiming to create software to generate datasets from musical devices for audio-related machine-learning tasks. This post takes a closer look at the Dataset Generator for Musical Devices (DGMD), including links to in-depth tutorials and download pages. Original post by Stefano Fasciani.]]></description>
+            <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is a research project and software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
             <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
             <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>

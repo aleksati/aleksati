@@ -4,20 +4,20 @@ import connectMongo from "../../functions/connectMongo";
 import Comments from "../../models/Comments";
 import nextConnect from "next-connect";
 
-const musicPostValidator = initValidation([check("slug").exists().withMessage("Slug is missing"), check("name").exists().withMessage("Name is missing"), check("comment").exists().withMessage("Comment is missing"), check("date").exists().withMessage("Date is missing")]);
+const postValidator = initValidation([check("slug").exists().withMessage("Slug is missing"), check("name").exists().withMessage("Name is missing"), check("comment").exists().withMessage("Comment is missing"), check("date").exists().withMessage("Date is missing")]);
 
-const musicDeleteValidator = initValidation([check("id").exists().withMessage("Comment ID is missing")]);
+const deleteValidator = initValidation([check("id").exists().withMessage("Comment ID is missing")]);
 
-const musicPutValidator = initValidation([
+const putValidator = initValidation([
   check("id").exists().withMessage("Comment ID is missing"),
   oneOf([check("name").exists().withMessage("Name is required"), check("slug").exists().withMessage("Slug is required"), check("date").exists().withMessage("Date is required"), check("comment").exists().withMessage("Comment is required")]),
 ]);
 
 export default nextConnect()
   .use(commonApiHandlers)
-  .use(post(musicPostValidator))
-  .use(del(musicDeleteValidator))
-  .use(put(musicPutValidator))
+  .use(post(postValidator))
+  .use(del(deleteValidator))
+  .use(put(putValidator))
   .get(async (req, res) => {
     // get all comments
     // with query (post slug) get all comments of specific post
