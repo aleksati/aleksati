@@ -3,30 +3,67 @@ import { date2text } from "../functions/date2text";
 import { useEffect, useState } from "react";
 import { SITE_DOMAIN } from "../config";
 
-const Bank = ({ table, total }: BankProps) => {
+// fetching stuff client-side because getServerSideProps is not working so well weith Next v.14.
+
+const Bank = () => {
   const [input, setInput] = useState<string>("");
   const [localTotal, setLocalTotal] = useState<number>(0);
   const [localTable, setLocalTable] = useState<TableList>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
   const [isError, setIsError] = useState<Boolean>(false);
 
-  // upade the local table on mount
+  // on mount - fetch table and total from DB
   useEffect(() => {
-    setLocalTable(table);
-    setLocalTotal(total);
-  }, [table, total]);
+    const getTable = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${SITE_DOMAIN}/api/bank-table`, {
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        const newTabe: TableList = await res.json();
+        setLocalTable(newTabe);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+        setIsError(true);
+      }
+    };
+
+    const getTotal = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${SITE_DOMAIN}/api/bank-total`, {
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        const newTotal: number = await res.json();
+        setLocalTotal(newTotal);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+        setIsError(true);
+      }
+    };
+
+    getTable();
+    getTotal();
+  }, []);
 
   // localTotal and localTable when component mounts
   const handleClearInput = () => {
     setInput("");
   };
 
+  // add curent total to db
   const handleAddTotal = async () => {
     try {
       setIsLoading(true);
-
-      const newVal = localTotal + Number(input) ;
-
+      const newVal = localTotal + Number(input);
       // add new total item to database
       const res = await fetch(`${SITE_DOMAIN}/api/bank-total`, {
         method: "PUT",
@@ -37,7 +74,6 @@ const Bank = ({ table, total }: BankProps) => {
       });
 
       const newTotal: number = await res.json();
-
       // add new total to local UI version.
       setLocalTotal(newTotal);
 
@@ -51,6 +87,7 @@ const Bank = ({ table, total }: BankProps) => {
     setInput("");
   };
 
+  //clear curent total to db
   const handleClearTotal = async () => {
     try {
       setIsLoading(true);
@@ -65,7 +102,6 @@ const Bank = ({ table, total }: BankProps) => {
 
       setLocalTotal(0);
       setIsLoading(false);
-
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -73,6 +109,7 @@ const Bank = ({ table, total }: BankProps) => {
     }
   };
 
+  // add curent total as table item to db
   const handleAddData = async () => {
     if (localTotal == 0) return;
 
@@ -106,6 +143,7 @@ const Bank = ({ table, total }: BankProps) => {
     await handleClearTotal();
   };
 
+  // clear items in table in db
   const handleClearData = async (_id: string) => {
     try {
       setIsLoading(true);

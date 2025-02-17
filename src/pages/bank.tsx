@@ -1,41 +1,46 @@
 import LayoutPage from "../layouts/LayoutPage";
+import { GetStaticProps } from "next";
 import Bank from "../templates/Bank";
 
-export default function handler({ table, total }: BankProps) {
+export default function handler() {
   return (
     <LayoutPage pageMeta={{ title: "bank" }}>
-      <Bank table={table} total={total} />
+      <Bank />
     </LayoutPage>
     );
 }
 
-import connectMongo from "../functions/connectMongo";
-import { GetServerSideProps } from "next";
-import Table from "../models/Table";
-import TableTotal from "../models/TableTotal";
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: {} };
+}
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  await connectMongo();
+// import connectMongo from "../functions/connectMongo";
+// import { GetServerSideProps } from "next";
+// import Table from "../models/Table";
+// import TableTotal from "../models/TableTotal";
 
-  // the same as the GET api routes.. but using them i got 500 Server Error when deployed.
-  // didnt have time to figure it out. so same code in two places.
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   await connectMongo();
 
-  let data: TableList = await Table.find();
-  let data2: number = await TableTotal.findOne({
-    _id: "67b233cc84cf8d7f6dbcc49d",
-  });
+//   // the same as the GET api routes.. but using them i got 500 Server Error when deployed.
+//   // didnt have time to figure it out. so same code in two places.
 
-  let tables = JSON.parse(JSON.stringify(data));
-  let total = JSON.parse(JSON.stringify(data2));
+//   let data: TableList = await Table.find();
+//   let data2: number = await TableTotal.findOne({
+//     _id: "67b233cc84cf8d7f6dbcc49d",
+//   });
 
-  // sort by date (newest first)
-  const table = tables
-    .sort((a, b) => {
-      if (a.date > b.date) return 1;
-      if (a.date < b.date) return -1;
-      return 0;
-    })
-    .reverse();
+//   let tables = JSON.parse(JSON.stringify(data));
+//   let total = JSON.parse(JSON.stringify(data2));
 
-  return { props: { table, total : total.value } };
-};
+//   // sort by date (newest first)
+//   const table = tables
+//     .sort((a, b) => {
+//       if (a.date > b.date) return 1;
+//       if (a.date < b.date) return -1;
+//       return 0;
+//     })
+//     .reverse();
+
+//   return { props: { table, total : total.value } };
+// };
