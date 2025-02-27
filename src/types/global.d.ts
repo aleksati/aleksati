@@ -43,7 +43,7 @@ declare global {
     year: string;
     title: string;
     event: string;
-    link: string;
+    // link: string;
   }
 
   type ResearchDataList = Researchdata[];
@@ -79,10 +79,10 @@ declare global {
 
   type TableList = TableItem[];
 
-  type BankProps = {
-    table: TableList;
-    total: number;
-  }
+  // type BankProps = {
+  //   table: TableList;
+  //   total: number;
+  // }
 
   //type OneOrMany<Type> = Type | Type[];
   //const flaton: OneOrMany<string> = ["hey", "two", "three"];

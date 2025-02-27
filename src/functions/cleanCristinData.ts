@@ -34,7 +34,7 @@ export const cleanCristinData = (
       case "CHAPTERACADEMIC":
         // placeholder for now.
         event =
-          "Proceedings of the Sound and Music Computing Conference 2024. SMC Network. ISSN 2518-3672";
+          "Proceedings of the Sound and Music Computing Conference 2024";
         break;
       case "PERFORMINGARTS":
         event = "Performing Arts Research Event";
@@ -48,23 +48,22 @@ export const cleanCristinData = (
     const year = item.year_published;
 
     // DOI and links to papers.
-    let link = "";
-    if (item.links) {
-      let doi = item.links.filter((link: any) => link.url_type == "DOI");
-      let fulltekst = item.links.filter(
-        (link: any) => link.url_type == "FULLTEKST"
-      );
-      let data = item.links.filter((link: any) => link.url_type == "DATA");
-
-      link =
-        !doi.length && !fulltekst.length && !data.length
-          ? ""
-          : doi.length
-          ? doi[0].url
-          : data.length
-          ? data[0].url
-          : fulltekst[0].url;
-    }
+    // let link = "";
+    // if (item.links) {
+    //   let doi = item.links.filter((link: any) => link.url_type == "DOI");
+    //   let fulltekst = item.links.filter(
+    //     (link: any) => link.url_type == "FULLTEKST"
+    //   );
+    //   let data = item.links.filter((link: any) => link.url_type == "DATA");
+    //   link =
+    //     !doi.length && !fulltekst.length && !data.length
+    //       ? ""
+    //       : doi.length
+    //       ? doi[0].url
+    //       : data.length
+    //       ? data[0].url
+    //       : fulltekst[0].url;
+    // }
 
     // link = link === "" ? link : `Avaliable at: ${link}`;
 
@@ -74,7 +73,7 @@ export const cleanCristinData = (
       year,
       title,
       event,
-      link,
+      // link,
     };
 
     return [...accum, result];

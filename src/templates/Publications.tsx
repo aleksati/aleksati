@@ -43,18 +43,18 @@ const Publications = () => {
           <MyLink href="https://app.cristin.no/">Cristin</MyLink>...
         </p>
       ) : (
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col space-y-6">
           {researchData?.map((item, idx) => {
             // Remove certian results, if needed. Here I remove Hybrid Learning duplicate.
             if (item.cristin_result_id === "2044269") return;
             return (
               <div key={idx}>
-                {item.authors} ({item.year}). {item.title}. <i>{item.event}.</i>{" "}
-                {item.link ? (
+                {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}.
+                {/* {item.link ? (
                   <MyLink href={item.link}>Avaliable from here</MyLink>
                 ) : (
                   ""
-                )}
+                )} */}
               </div>
             );
           })}
