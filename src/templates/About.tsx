@@ -1,6 +1,8 @@
 import MyImage from "../components/MyImage";
 import MySoMeBar from "../components/MySoMeBar";
-import RSSLink from "../components/RSSLink";
+// import RSSLink from "../components/RSSLink";
+import { sphere } from "../p5jsSketches/sphere";
+import P5jsContainer from "../components/P5jsContainer";
 
 const About = () => (
   <div className="pb-10">
@@ -36,6 +38,9 @@ const About = () => (
         Stay updated on my posts by subscribing to my RSS feed. You can also
         reach out by leaving comments under each post.
       </p>
+    </div>
+    <div className="pt-8 md:pt-4">
+      <P5jsContainer sketch={sphere} />
     </div>
   </div>
 );
