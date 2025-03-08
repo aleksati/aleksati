@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 08 Mar 2025 21:15:02 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 Mar 2025 21:20:43 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 08 Mar 2025 21:15:02 GMT</pubDate>
+        <pubDate>Sat, 08 Mar 2025 21:20:43 GMT</pubDate>
         <item>
-            <title><![CDATA[An Easy Way to Improve the Position of Your Studio Monitors]]></title>
-            <description><![CDATA[Improving the positioning of your studio monitors can significantly improve the sound quality of your studio. In this post, I share an easy and practical way to find optimal placements for your studio monitors with just some basic tools and a little know-how.]]></description>
+            <title><![CDATA[An Easy Way to Optimize the Position of Your Studio Monitors]]></title>
+            <description><![CDATA[Improving the placements of your studio monitors can significantly improve the sound quality in your studio. In this post, I share an easy and practical way to find optimal placements for your studio monitors with just some basic tools and a little know-how.]]></description>
             <link>http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</link>
             <guid isPermaLink="true">http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</guid>
             <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
@@ -35,7 +35,7 @@
         </item>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
-            <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is a research project and software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
+            <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
             <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
             <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>

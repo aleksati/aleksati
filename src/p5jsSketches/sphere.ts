@@ -127,7 +127,7 @@ let theShader: any;
 // this variable will hold our createGraphics layer
 //let shaderTexture: any;
 
-let sphereSize: number = 125;
+let sphereSize: number = 80;
 
 export const sphere: P5jsSketch = (p5, parentRef) => {
   p5.setup = () => {
@@ -136,7 +136,7 @@ export const sphere: P5jsSketch = (p5, parentRef) => {
     // const parent = parentRef.current as Element;
     parentStyle = window.getComputedStyle(parentRef);
     canvasWidth = parseInt(parentStyle.width);
-    canvasHeight = parseInt(parentStyle.width) * 0.66;
+    canvasHeight = parseInt(parentStyle.width) * 0.55;
     //////////////////////////////////////
 
     // shaders require WEBGL mode to work
