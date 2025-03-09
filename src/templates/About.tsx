@@ -1,11 +1,9 @@
 import MyImage from "../components/MyImage";
 import MySoMeBar from "../components/MySoMeBar";
 // import RSSLink from "../components/RSSLink";
-import { sphere } from "../p5jsSketches/sphere";
-import P5jsContainer from "../components/P5jsContainer";
 
 const About = () => (
-  <div className="pb-10">
+  <div className="pb-6">
     <div className="grid grid-cols-4 gap-4 pb-6 items-start">
       <div className="col-span-4 sm:col-span-1 flex md:flex">
         <MyImage
@@ -35,12 +33,8 @@ const About = () => (
         Engineer for the Musicology Department at the University of Oslo.
       </p>
       <p>
-        Stay updated on my posts by subscribing to my RSS feed. You can also
-        reach out by leaving comments under each post.
+        Stay updated on my posts by subscribing to my RSS feed from the menubar. You can also reach out by leaving comments under each post.
       </p>
-    </div>
-    <div className="pt-6 md:pt-0">
-      <P5jsContainer sketch={sphere} />
     </div>
   </div>
 );

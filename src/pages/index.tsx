@@ -1,7 +1,7 @@
-// import PostListSmall from "../templates/PostListSmall";
+import PostListSmall from "../templates/PostListSmall";
 import PostList from "../templates/PostList";
 import LayoutPage from "../layouts/LayoutPage";
-// import About from "../templates/About";
+import About from "../templates/About";
 import { GetStaticProps } from "next";
 
 type Props = {
@@ -14,7 +14,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
     <LayoutPage pageMeta={{ title: "", keywords }}>
       {/* <About /> */}
       {/* <div className="py-4"> */}
-      <h3 className="hidden md:flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark text-xl">
+      <h3 className="flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark text-xl">
         Latest
       </h3>
       {/* <PostListSmall frontMatterList={frontMatterList} /> */}

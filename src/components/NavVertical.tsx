@@ -44,8 +44,7 @@ const NavVertical = ({ showNavTop, onToggleNavVertical }: Props) => {
         </div>
       </div>
       <div className="fixed bottom-6 left-4">
-        <div className="flex space-x-4">
-          {/* <ButtonTheme /> */}
+        <div className="flex space-x-4 z-50">
           <RSSLink />
         </div>
       </div>
