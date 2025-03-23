@@ -1,0 +1,157 @@
+---
+title: "Measuring Latency in Networked Art Performances, Part 2: Video"
+date: "2025-03-22"
+keywords:
+  [
+    "nmp",
+    "video",
+    "latency",
+    "realtime",
+    "network",
+    "engineering",
+    "synchronization",
+    "analysis",
+    "research",
+    "telematic",
+    "performance",
+  ]
+type: "post"
+summary: "Measuring the video latency in networked music and dance systems involves navigating complex technical setups in multiple locations at once, usually on a tight schedule. In this post, I write about solid strategies and share good practical ways to measure video latency in real-life networked performances."
+---
+
+<MyImage
+  src="videolatency-irl-main.jpg"
+  alt="From Telematic Testing, an event that combined live music and dance from three remote locations using advanced networked technology, hosted at Popsenteret in Oslo, April 2024. Photo by Thusha Rajendran."
+  caption="From Telematic Testing, an event that combined live music and dance using advanced networked technology in three different places, hosted at Popsenteret, Oslo, April 2024. Photo by Thusha Rajendran."
+/>
+
+My previous post was all about audio latency and how we can scientifically measure audio latency in networked performance contexts. Now, let's focus on video. Even though we are more tolerant of video delays than audio delays, video latency has a huge impact on stage aesthetics, _flow_ and audio-video synchronization of networked performances.
+
+The first step in managing video latency is to know how to properly measure it. There are many approaches to measuring video latency, but few of these methods are particularly well-designed for real-life scenarios, such as networked music and dance performances.
+
+In this post, I write about some strategies and practical ways to measure video latency in networked performance scenarios, inspired by recent research and developed from years of experience running networked music courses for the <MyLink href="https://mct-master.github.io/">MCT masters programme</MyLink> at the University of Oslo. Hopefully, this can guide you toward better and more scientific measurement practice.
+
+# Contents
+
+1. <MyLink type="toc" href="#how-to-measure">How to Measure</MyLink>
+2. <MyLink type="toc" href="#what-to-measure">What to Measure</MyLink>
+3. <MyLink type="toc" href="#measurement-strategy">Measurement Strategy</MyLink>
+4. <MyLink type="toc" href="#measurement-procedure">Measurement Procedure</MyLink>
+5. <MyLink type="toc" href="#summary">Summary</MyLink>
+6. <MyLink type="toc" href="#sources">Sources</MyLink>
+
+---
+
+# How to Measure
+
+Put simply, video latency is the time it takes an image or a video feed to travel from A to B. In technical systems, video delays are usually caused by various encoding and decoding stages that involve numerous hardware or software operations that take time to complete.
+
+A clever way to measure video latency is to film a time-critical source with a camera, like a clock, and pass the signal through a dedicated signal chain before displaying it live on a screen nearby. Then, a secondary measurement system/camera is used to capture the source and the time-delayed source displayed on the screen. The time difference between the time-critical source and the same source displayed on-screen is the video latency of the system.
+
+<MyImage
+  src="videolatency-figure-ubik.jpg"
+  alt="One of the video latency measurement methods by Ubik and Pospíšilík involves the use of accurate clocks to isolate the latency of a dedicated signal chain. Source: Ubik and Pospíšilík, 2021"
+  caption="One of the video latency measurement methods presented by Ubik and Pospíšilík involves clever filming of precision clocks to isolate a given measurement object in the signal chain. Source: Ubik and Pospíšilík, 2021."
+/>
+
+This general technique, and many others, was presented by Sven Ubik and Jiri Pospíšilík in their article from 2021, entitled **Video Camera Latency Analysis and Measurement**. But networked performances are chaotic endeavors, usually with limited time and resources allocated for scientific measurements. This makes using Ubik and Pospíšilík's method challenging to use off-the-shelf. Instead, we should use it as guidelines for building a measurement scheme more suitable for networked concert contexts. 
+
+I prefer to modify Ubik and Pospíšilík's method by using different time-critical sources and measurement devices. For my sources, I usually switch out precision clocks for an easier and equally reliable option, namely hand-clapping. Dealing with precision clocks and high-framerate devices to capture digital numbers can be a real hassle in the field. Hand-clapping gives a surprising amount of accuracy and doesn't require any extra hardware. Of course, the accuracy will depend on what measurement camera is used. Smartphone cameras can be perfect measurement devices, if you can control and log the framerate (FPS). The more the FPS, the more accurate your measurements will be. 
+
+<MyImage
+  src="videolatency-diagram-clappingmethod.png"
+  alt="Clapping is an efficient time-critical source that works great when measuring video latency in the field."
+  caption="Clapping is an excellent time-critical source that works well when measuring video latency in the field."
+/>
+
+In the end, experimenting with different techniques and practices is necessary to find a suitable method for the given context. But using scientifically-based techniques is always a good starting point. Then, the question simply becomes what kind of quality and accuracy you're after. The more simplifications and shortcuts you include, the lower the quality and accuracy you should expect from your experiments.
+
+# What to Measure
+
+To measure video latency, we must first know what to measure. In other words, what is the _measurement object_ ? Finding this object is a process of filtering out irrelevant factors and can be different things depending on the context. For instance, one measurement object could be interpreted as being only between the transmission computers, while another could be from time-critical source to PC-screen, or from TV-screen to TV-screen, etc.
+
+For networked performances, it's common to consider the entire video chain as the measurement object, known as the glass-to-glass or end-to-end latency. The end-to-end latency is the time it takes for an image to be sent from one camera until it's displayed on-screen on the remote location end, including the time it takes the image to travel to from the screen to the eyes of the performers. This metric is particularly valuable as it informs us what it's actually like to be a performer in the given scenario.
+
+<MyImage
+  src="videolatency-diagram-endtoend.png"
+  alt="The end-to-end video latency encapsultes the entire performance chain, from the movement of the performer to the eyes of the remote audience."
+  caption="The end-to-end video latency encapsulates the entire networked performance chain; from the movement of the performer in one end, to the eyes of the audience in the opposite end."
+/>
+
+However, the image latency is not all that matters in a performance. Aesthetic factors, such as the image quality and framerate, are equally important for producing quality concert experiences. In fact, aesthetic factors are probably what matters most. This is why we should only care about the latency of a video transmission if the quality of that transmission is above a certain standard. This will ensure that the latency you are measuring is representative of a real-world scenario that is aesthetically acceptable for audiences to sit through. For clarity, we can call this expanded definition for the _Stable_ end-to-end latency.
+
+Aesthetic video factors are usually dependent on the network being used, specifically its bandwidth limitations. Therefore, always get to know the bandwidth of the performance network and dial-in aesthetic factors before doing any kind of latency measurements.
+
+# Measurement Strategy
+
+After the measurement object is determined, it's time to discuss the measurement strategy. There are two main strategies we can use when measuring latency in networked systems, standard one-way and Round-Trip Time (RTT). When adopting an RTT strategy for video latency measurements, the delayed image is sent to the remote location and looped back to the source before being measured (Carôt 2009). The downside of the RTT strategy is that it requires the same technical setup in each location to know the one-way latency. And from experience, similar technical setups are rare.
+
+<MyImage
+  src="videolatency-diagram-endtoend-rtt.png"
+  alt="Adopting an RTT measurement strategy involves looping back the signal on the remote end by filming the screen with the system camera. If the technical setups are identical, the one-way latency can be deduced."
+  caption="Adopting an RTT measurement strategy involves looping back the signal on the remote end by filming the screen with the system camera. If the technical setups are identical, the one-way latency can be deduced."
+/>
+
+Alternatively, it's possible to adopt a one-way measurement strategy as demonstrated in the hand-clapping diagram in the <MyLink href="#how-to-measure">How to measure</MyLink> section above. This method can be suitable if the performance locations are particularly close, such as in the same building, or use the same local network.
+
+On the other hand, a one-way measurement strategy is challenging to perform if the performance locations are remote. But it's not impossible. For example, if you have access to a common sync source, like a <MyLink href="https://time.curby.net/clock">global clock</MyLink>, a video feed of the clock can be used as the time-critical source and compared against a local instance of the same clock. However, although this method has been proven viable in several cases (Clim 2021, Fiebrink 2016), global clock dependencies are risky in the field and can be problematic for the future validity of your measurements.
+
+<MyImage
+  src="videolatency-diagram-endtoend-oneway-clock.png"
+  alt="By using a common reference, such as a global clock, a one-way measurement strategy can be used to measure latency between two remote location."
+  caption="By using a common reference, such as a global clock, a one-way measurement strategy can be used to measure latency between two remote location."
+/>
+
+Regardless of which strategy you choose, it's wise to give some extra thought to designing the video signal chain in advance. Video transmissions usually require a huge amount of bandwidth, much more than audio, so all processing stages (like format conversions, encoding, decoding, etc.) will most likely have a heavy impact on the latency. Try to have as few hardware and software stages as possible in the signal chain. Also, the power of your streaming PC matters! If resources are scarce, always prioritize having your most powerful laptops or PCs do the video encoding. This can significantly improve latency.
+
+# Measurement Procedure
+
+Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity in chaotic times. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
+
+## Step 1 - Verify The Measurement System
+
+First thing is first, set up and verify the measurement system. Use your designated measurement camera and film a simple clock or a timer for a few seconds. Then, verify the framerate and quality of your camera in the editing software. You can also go one step further and connect the networked performance camera to a local TV and do some test measurements. This can be time well spent to get used to running the experiments. This is also a good time to run some bandwidth tests and configure any network settings.
+
+<MyImage src="videolatency-irl-clappingmethod.gif" />
+
+## Step 2 - Fine-Tune The Video Quality
+
+As mentioned, the key to unlocking a meaningful networked performances is to achieve high quality and stable video transmissions. Therefore, spend good time fine-tuning the video system and balance quality vs. latency vs. stability. This is an iterative process that involves adjusting various framerate, resolution and compression settings. A good way to analyze the video quality is to film the performers in action watch the result on-screen. Use your eyes.
+
+## Step 4 - Measure The Latency
+
+Finally, you can measure the latency of your system. Since these measurement practices are essentially statistical exercises, so the more data you collect have, the better.
+
+## Step 5 (extra) - Measure With Alternative Parameters
+
+In addition, it can be well worth collecting data with different settings to get a better understanding of the system and gain important clues to how to make it more efficient. For instance, experimenting with different resolutions, framerates, compression settings, and even without certain modules in the chain, will give you insights into how each component contributes to the overall latency.
+
+To measure the latency with alternative parameters, make a table beforehand where you systematically list all the configurations you want to test.
+
+<MyTable
+  cols={[
+    ["Resolution", "1920x1080", "920x720", "1920x1080", "920x720"],
+    ["FPS", "60", "60", "30", "30"],
+    ["Compression", "90%", "90%", "90%", "90%"],
+  ]}
+/>
+
+# Summary
+
+In this post, I've shared some theories and practical strategies to achieve good video latency measurements in networked performance systems. The post has covered **how** to best measure the latency, **what** you should aim to measure, the **strategies** you can use, and what a good measurement **procedure** should look like.
+
+To me, the three most important factors when measuring video latency in a networked performance systems are: 1) considering the entire signal chain from end-to-end, 2) ensuring the video system is producing glitch-free and acceptable video tranmissions (stable), and 3) using a scientific measurement method that accurately isolates the desired measurement object. It's also a good idea to plan ahead with concrete steps.
+
+Good luck!
+
+# Sources
+
+Carôt, A., & Werner, C. (2009). Fundamentals and principles of musical telepresence. *Journal of Science and Technology of the Arts*. [https://doi.org/10.7559/CITARJ.V1I1.6](https://doi.org/10.7559/CITARJ.V1I1.6)
+
+Clim, A. (2021). Video latency: definition, key concepts, and examples. *The MCT Blog.* Online at: [https://mct-master.github.io/networked-music/2021/11/15/alenacl-video-latency-clarifications.html](https://mct-master.github.io/networked-music/2021/11/15/alenacl-video-latency-clarifications.html)
+
+Hope, C. (2024). Unit 6: Networked Music Performance. *Mutor Music Technology Online Repository.* Online at: [https://mutor-2.github.io/HistoryAndPracticeOfMultimedia/units/06/index.html](https://mutor-2.github.io/HistoryAndPracticeOfMultimedia/units/06/index.html)
+
+Oda, R., & Fiebrink, R. (2016). The Global Metronome: Absolute Tempo Sync For Networked Musical Performance. *Proceedings of the International Conference on New Interfaces for Musical Expression (NIME)*. [https://doi.org/10.5281/zenodo.1176096](https://doi.org/10.5281/zenodo.1176096)
+
+Ubik, S., & Pospíšilík, J. (2021). Video Camera Latency Analysis and Measurement. _IEEE Transactions on Circuits and Systems for Video Technology_, 31(1).
