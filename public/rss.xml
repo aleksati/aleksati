@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 23 Mar 2025 10:31:13 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 23 Mar 2025 20:39:29 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 23 Mar 2025 10:31:13 GMT</pubDate>
+        <pubDate>Sun, 23 Mar 2025 20:39:29 GMT</pubDate>
         <item>
             <title><![CDATA[Measuring Latency in Networked Art Performances, Part 2: Video]]></title>
             <description><![CDATA[Measuring the video latency in networked music and dance systems involves navigating complex technical setups in multiple locations at once, usually on a tight schedule. In this post, I write about solid strategies and share good practical ways to measure video latency in real-life networked performances.]]></description>
