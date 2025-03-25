@@ -54,9 +54,9 @@ A clever way to measure video latency is to film a time-critical source with a c
   caption="One of the video latency measurement methods presented by Ubik and Pospíšilík involves clever filming of precision clocks to isolate a given measurement object in the signal chain. Source: Ubik and Pospíšilík, 2021."
 />
 
-This general technique, and many others, was presented by Sven Ubik and Jiri Pospíšilík in their article from 2021, entitled **Video Camera Latency Analysis and Measurement**. But networked performances are chaotic endeavors, usually with limited time and resources allocated for scientific measurements. This makes using Ubik and Pospíšilík's method challenging to use off-the-shelf. Instead, we should use it as guidelines for building a measurement scheme more suitable for networked concert contexts. 
+This general technique, and many others, was presented by Sven Ubik and Jiri Pospíšilík in their article from 2021, entitled **Video Camera Latency Analysis and Measurement**. But networked performances are chaotic endeavors, usually with limited time and resources allocated for scientific measurements. This makes it challenging to use Ubik and Pospíšilík's method off the shelf. Instead, we should build simpler measurement schemes more suitable for networked concert contexts that are based on scientific methods. 
 
-I prefer to modify Ubik and Pospíšilík's method by using different time-critical sources and measurement devices. For my sources, I usually switch out precision clocks for an easier and equally reliable option, namely hand-clapping. Dealing with precision clocks and high-framerate devices to capture digital numbers can be a real hassle in the field. Hand-clapping gives a surprising amount of accuracy and doesn't require any extra hardware. Of course, the accuracy will depend on what measurement camera is used. Smartphone cameras can be perfect measurement devices, if you can control and log the framerate (FPS). The more the FPS, the more accurate your measurements will be. 
+For example, I prefer to use more conventional equipment when in the field, modifying the time-critical sources, measurement devices, and editing procedures proposed in Ubik and Pospíšilík's method. For my sources, I usually switch out precision clocks for hand-clapping. Dealing with precision clocks and high-framerate devices to capture digital numbers can be a real hassle in the field. Hand-clapping gives a surprising amount of accuracy, is equally reliable, and doesn't require extra hardware. Of course, the accuracy will depend on what measurement camera is used. Smartphone cameras can be perfect measurement devices, but make sure you can control and log the framerate (FPS) before you use them. Knowing the FPS is vital when calculating the latency. Finally, as video is usually shot between 30 and 60FPS, free video editing software such as DaVinci and iMovie is more than enough advanced for post-analysis of the measurement footage to determine the latency.
 
 <MyImage
   src="videolatency-diagram-clappingmethod.png"
@@ -64,7 +64,7 @@ I prefer to modify Ubik and Pospíšilík's method by using different time-criti
   caption="Clapping is an excellent time-critical source that works well when measuring video latency in the field."
 />
 
-In the end, experimenting with different techniques and practices is necessary to find a suitable method for the given context. But using scientifically-based techniques is always a good starting point. Then, the question simply becomes what kind of quality and accuracy you're after. The more simplifications and shortcuts you include, the lower the quality and accuracy you should expect from your experiments.
+In the end, experimenting with different techniques and practices is necessary to find suitable methods depending on the context. But using scientifically-based techniques is always a good starting point. Then, the question simply becomes what kind of quality and accuracy you're after. Keep in mind that the more simplifications and shortcuts you include, the lower the quality and accuracy you should expect from your experiments.
 
 # What to Measure
 
@@ -80,11 +80,11 @@ For networked performances, it's common to consider the entire video chain as th
 
 However, the image latency is not all that matters in a performance. Aesthetic factors, such as the image quality and framerate, are equally important for producing quality concert experiences. In fact, aesthetic factors are probably what matters most. This is why we should only care about the latency of a video transmission if the quality of that transmission is above a certain standard. This will ensure that the latency you are measuring is representative of a real-world scenario that is aesthetically acceptable for audiences to sit through. For clarity, we can call this expanded definition for the _Stable_ end-to-end latency.
 
-Aesthetic video factors are usually dependent on the network being used, specifically its bandwidth limitations. Therefore, always get to know the bandwidth of the performance network and dial-in aesthetic factors before doing any kind of latency measurements.
+It should be stated that aesthetic video factors are usually network dependent, specifically on its bandwidth limitations. Therefore, always get to know the bandwidth of the performance network and dial-in aesthetic factors before doing any kind of latency measurements.
 
 # Measurement Strategy
 
-After the measurement object is determined, it's time to discuss the measurement strategy. There are two main strategies we can use when measuring latency in networked systems, standard one-way and Round-Trip Time (RTT). When adopting an RTT strategy for video latency measurements, the delayed image is sent to the remote location and looped back to the source before being measured (Carôt 2009). The downside of the RTT strategy is that it requires the same technical setup in each location to know the one-way latency. And from experience, similar technical setups are rare.
+After the measurement object is determined, it's time to construct a measurement strategy. There are two main strategies we can use when measuring latency in networked systems, standard one-way and Round-Trip Time (RTT). When adopting an RTT strategy for video latency measurements, the delayed image is sent to the remote location and looped back to the source before being measured (Carôt 2009). The downside of the RTT strategy is that it requires the same technical setup in each location to know the one-way latency. And from experience, similar technical setups are rare.
 
 <MyImage
   src="videolatency-diagram-endtoend-rtt.png"
@@ -106,7 +106,7 @@ Regardless of which strategy you choose, it's wise to give some extra thought to
 
 # Measurement Procedure
 
-Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity in chaotic times. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
+Setting up networked performance systems is usually pretty hectic. There are many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity in chaotic times. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
 
 ## Step 1 - Verify The Measurement System
 
