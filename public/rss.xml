@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 29 Mar 2025 13:15:02 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 10 Apr 2025 07:55:06 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 29 Mar 2025 13:15:02 GMT</pubDate>
+        <pubDate>Thu, 10 Apr 2025 07:55:06 GMT</pubDate>
         <item>
             <title><![CDATA[Measuring Video Latency Beyond the Lab in Real-World Networked Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. As delays are shaped by many unpredictable real-world factors, most lab-based techniques usually fall short. In this post, I share practical strategies for measuring video latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
+            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
             <link>http://localhost:3000/posts/latency-in-real-world-networked-performances-video</link>
             <guid isPermaLink="true">http://localhost:3000/posts/latency-in-real-world-networked-performances-video</guid>
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
@@ -28,7 +28,7 @@
         </item>
         <item>
             <title><![CDATA[Measuring Audio Latency Beyond the Lab in Real-World Networked Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. As delays are shaped by many unpredictable real-world factors, most lab-based techniques usually fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
+            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
             <link>http://localhost:3000/posts/latency-in-real-world-networked-performances-audio</link>
             <guid isPermaLink="true">http://localhost:3000/posts/latency-in-real-world-networked-performances-audio</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>

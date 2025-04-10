@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: false, // false because stict mode now render every onMount useEffect twice for some reason.. This messes up my AudioPlayer
   swcMinify: true,
   images: {
-    domains: ["aleksati.net", "www.aleksati.net", "m.aleksati.net"],
+    domains: ["aleksati.net", "www.aleksati.net", "m.aleksati.net", "sdo.gsfc.nasa.gov"],
   },
 
   // user lands on posts
