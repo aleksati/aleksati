@@ -52,39 +52,40 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4 lg:min-h-screen bg-black">
-      {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
-      <div className="text-xs col-span-1 text-secondary-dark px-2">
-        <p>The Sun Right Now,</p>
-        <p>
-          with new images from{" "}
-          <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
-            NASA SDO
-          </a> every 5 minutes.
-        </p>
-        {isLoading ? <p>Loading latest images...</p> : <></>}
-      </div>
-      <div className="flex col-span-1 lg:col-span-3 items-start justify-start">
-        {isError ? (
-          <p>Obs! Something went wrong</p>
-        ) : !isReady ? (
-          <></>
-        ) : (
-          <Image
-            src={imgFileNames[currIdx]}
-            width={windowSize.height || 720}
-            height={windowSize.height || 720}
-            object-fit="cover"
-            alt="Sun Image"
-            quality={100}
-            priority
-            // fill
-            // className={`relative object-contain object-center`}
-          />
-        )}
-      </div>
-      {/* <div className="bg-red-400 col-span-1">
+    <div className="min-h-screen bg-black">
+      <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4">
+        {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
+        <div className="text-xs col-span-1 text-secondary-dark px-2">
+          <p>The Sun Right Now</p>
+          <p>
+            Images from{" "}
+            <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
+              NASA SDO
+            </a>
+            , fetched every 5 minutes.
+          </p>
+          {isLoading ? <p>Loading latest images...</p> : <></>}
+        </div>
+        <div className="flex col-span-1 lg:col-span-3 items-start justify-start">
+          {isError ? (
+            <p>Obs! Something went wrong</p>
+          ) : !isReady ? (
+            <></>
+          ) : (
+            <Image
+              src={imgFileNames[currIdx]}
+              width={windowSize.height || 720}
+              height={windowSize.height || 720}
+              object-fit="cover"
+              alt="Sun Image"
+              quality={100}
+              priority
+            />
+          )}
+        </div>
+        {/* <div className="bg-red-400 col-span-1">
       </div> */}
+      </div>
     </div>
   );
 };
