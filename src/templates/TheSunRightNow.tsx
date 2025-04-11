@@ -50,7 +50,7 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="flex flex-col min-h-screen max-h-screen bg-black">
+    <div className="flex flex-col min-h-screen bg-black">
       <div className="text-xs text-secondary-dark p-2">
         <p>
           The sun right now. Images sourced from{" "}
