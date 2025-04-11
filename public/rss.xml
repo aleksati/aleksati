@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 11 Apr 2025 05:25:28 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Apr 2025 18:03:12 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 11 Apr 2025 05:25:28 GMT</pubDate>
+        <pubDate>Fri, 11 Apr 2025 18:03:12 GMT</pubDate>
         <item>
             <title><![CDATA[Measuring Video Latency Beyond the Lab in Real-World Networked Performances]]></title>
             <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>

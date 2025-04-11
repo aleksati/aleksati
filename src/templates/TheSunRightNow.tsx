@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
 import Image from "next/image";
 
 // Show slideshow of realtime NASA images of the sun. The images are fetched from the NASA SDO database (../pages/api/sun.api), and updated every 5 minutes.
@@ -8,6 +9,7 @@ const TheSunRightNow = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [isReady, setIsReady] = useState<boolean>(false);
+  const windowSize = useWindowSize();
 
   const getImgFileNames = async () => {
     try {
@@ -50,24 +52,19 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-black">
-      <div className="text-xs text-secondary-dark p-2">
+    <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4 bg-black">
+      {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
+      <div className="text-xs col-span-1 text-secondary-dark px-2">
+        <p>The Sun Right Now,</p>
         <p>
-          The sun right now. Images sourced from{" "}
+          with new images from{" "}
           <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
             NASA SDO
-          </a>
-          . Updates every 5 minutes.
+          </a> every 5 minutes.
         </p>
+        {isLoading ? <p>Loading latest images...</p> : <></>}
       </div>
-      {isLoading ? (
-        <p className=" px-2 text-xs text-secondary-dark">
-          Loading new images...
-        </p>
-      ) : (
-        <></>
-      )}
-      <div className="flex flex-grow items-center justify-center">
+      <div className="flex col-span-1 lg:col-span-3 items-start justify-start">
         {isError ? (
           <p>Obs! Something went wrong</p>
         ) : !isReady ? (
@@ -75,8 +72,8 @@ const TheSunRightNow = () => {
         ) : (
           <Image
             src={imgFileNames[currIdx]}
-            width="920"
-            height="920"
+            width={windowSize.height || 720}
+            height={windowSize.height || 720}
             object-fit="cover"
             alt="Sun Image"
             quality={100}
@@ -86,6 +83,8 @@ const TheSunRightNow = () => {
           />
         )}
       </div>
+      {/* <div className="bg-red-400 col-span-1">
+      </div> */}
     </div>
   );
 };
