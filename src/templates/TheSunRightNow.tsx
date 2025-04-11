@@ -52,7 +52,7 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4 bg-black">
+    <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4 lg:min-h-screen bg-black">
       {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
       <div className="text-xs col-span-1 text-secondary-dark px-2">
         <p>The Sun Right Now,</p>
