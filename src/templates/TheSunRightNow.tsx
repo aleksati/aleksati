@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Show slideshow of realtime NASA images of the sun. The images are fetched from the NASA SDO database (../pages/api/sun.api), and updated every 5 minutes.  
+// Show slideshow of realtime NASA images of the sun. The images are fetched from the NASA SDO database (../pages/api/sun.api), and updated every 5 minutes.
 const TheSunRightNow = () => {
   const [currIdx, setCurrIdx] = useState<number>(0);
   const [imgFileNames, setImgFileNames] = useState<string[]>([""]);
@@ -50,9 +50,9 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-black">
-      <div>
-        <p className="text-xs text-secondary-dark p-2">
+    <div className="flex flex-col min-h-screen max-h-screen bg-black">
+      <div className="text-xs text-secondary-dark p-2">
+        <p>
           The sun right now. Images sourced from{" "}
           <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
             NASA SDO
@@ -75,12 +75,14 @@ const TheSunRightNow = () => {
         ) : (
           <Image
             src={imgFileNames[currIdx]}
-            width="1024"
-            height="1024"
+            width="920"
+            height="920"
             object-fit="cover"
             alt="Sun Image"
             quality={100}
             priority
+            // fill
+            // className={`relative object-contain object-center`}
           />
         )}
       </div>
