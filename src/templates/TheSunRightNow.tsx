@@ -16,7 +16,7 @@ const TheSunRightNow = () => {
       setIsLoading(true);
       const res = await fetch("./api/thesunrightnow");
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       setImgFileNames(data);
       setIsLoading(false);
       setIsReady(true);
@@ -62,7 +62,7 @@ const TheSunRightNow = () => {
             <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
               NASA SDO
             </a>
-            , fetched every 5 minutes.
+            , updated every 5 minutes.
           </p>
           {isLoading ? <p>Loading latest images...</p> : <></>}
         </div>
