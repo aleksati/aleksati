@@ -30,10 +30,12 @@ export default function handler() {
 
   useEffect(() => {
     // on mount
-    //get new filenames from API every 10 minutes
+    getImgFileNames()
+
+    //get new filenames from API every 5 minutes
     const interval = setInterval(() => {
       getImgFileNames();
-    }, 600000);
+    }, 300000);
 
     // cleanup on unmount
     return () => clearInterval(interval)
