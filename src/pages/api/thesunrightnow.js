@@ -8,7 +8,7 @@ import nextConnect from "next-connect";
 // YYYMMDD_HHMMSS_512_0211.jpg
 
 export default nextConnect()
-  .use(commonApiHandlers)
+    .use(commonApiHandlers)
   .get(async (req, res) => {
     // retrieve new imgfilenames from the NASA server.
     // get date "2025-12-24" and make "2025/12/24"
@@ -32,8 +32,13 @@ export default nextConnect()
     // get latest 16 filenames
     const lastSixteen = sorted.slice(0, 16);
 
-    // choose the first filename of each set of 4. ["", "", "", "", "remove", "", "" etc.]
-    const imgFileNames = lastSixteen.filter((e, i) => i % 4 == 0);
+    // choose the first filename of each set of 4. ["", "", "", "", "take this one", "", "" etc.]
+    // const imgFileNames = lastSixteen.filter((e, i) => i % 4 == 0);
+
+    // every images comes in 3 resolutions, 512, 2048, 4096. 
+    // only grab the images with 2048 resolution.
+    // this leaves 4 images in total.
+    const imgFileNames = lastSixteen.filter((e) => e.includes("2048"));
 
     res.status(200).json(imgFileNames);
   });

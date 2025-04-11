@@ -49,7 +49,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   jitter: "#9d174d", //pink-800
   band: "#86198f", //fuchsia-800
   sculpture: "#92400e", //amber-800
-  studio: "#292524", // stone-800 free!
+  studio: "#292524", // stone-800
   // starting over !!
   pop: "#ecfccb", //lime-100
   drums: "#fee2e2", //red-100
@@ -66,9 +66,11 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   jacktrip: "#fce7f3", //pink-100
   "machine-learning": "#fae8ff", //fuchsia-100
   react: "#e879f9", // Fuschsia-400
-  electronic: "#fef3c7", //amber-100 //
+  electronic: "#fef3c7", //amber-100
   engineering: "#dbeafe", //blue-100
   "sp-tools": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
-  // NEED ACOUSTICS
+    // starting over !!
+  "pure-data" : "#ecfccb", //lime-100"
+  // NEED pure-data
 };
