@@ -52,7 +52,7 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black overflow-hidden">
       <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4">
         {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
         <div className="text-xs col-span-1 text-secondary-dark px-2">
@@ -62,7 +62,7 @@ const TheSunRightNow = () => {
             <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
               NASA SDO
             </a>
-            , updated every 5 minutes.
+            , updates every 5 minutes.
           </p>
           {isLoading ? <p>Loading latest images...</p> : <></>}
         </div>
