@@ -58,9 +58,9 @@ const TheSunRightNow = () => {
     <div className="min-h-screen bg-black">
         <div className="flex items-center justify-center">
           {isError ? (
-            <p>Obs! Something went wrong</p>
+            <p className="text-secondary text-xs pt-4">Obs! Something went wrong</p>
           ) : !isReady ? (
-            <p className="text-secondary text-xs">Fetching first images...</p>
+            <p className="text-secondary text-xs pt-4">Fetching first images...</p>
           ) : (
             <Image
               src={imgFileNames[currIdx]}
