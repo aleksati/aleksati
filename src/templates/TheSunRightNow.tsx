@@ -32,6 +32,9 @@ const TheSunRightNow = () => {
     // on mount
     getImgFileNames();
 
+    console.log("----")
+    console.log("The Sun Right Now. Images from NASA SDO satellite observatory. Slideshow updates every 5 minutes.")
+
     //get new filenames from API every 5 minutes
     const interval = setInterval(() => {
       getImgFileNames();
@@ -52,25 +55,12 @@ const TheSunRightNow = () => {
   }, [imgFileNames.length]);
 
   return (
-    <div className="min-h-screen bg-black overflow-hidden">
-      <div className="grid grid-cols-1 pt-2 gap-4 lg:gap-0 lg:grid-cols-4">
-        {/* <div className="min-h-screen container pb-6 mx-auto flex-1"> */}
-        <div className="text-xs col-span-1 text-secondary-dark px-2">
-          <p>The Sun Right Now</p>
-          <p>
-            Images from{" "}
-            <a className="text-blue-500" href="https://sdo.gsfc.nasa.gov/">
-              NASA SDO
-            </a>
-            , updates every 5 minutes.
-          </p>
-          {isLoading ? <p>Loading latest images...</p> : <></>}
-        </div>
-        <div className="flex col-span-1 lg:col-span-3 items-start justify-start">
+    <div className="min-h-screen bg-black">
+        <div className="flex items-center justify-center">
           {isError ? (
             <p>Obs! Something went wrong</p>
           ) : !isReady ? (
-            <></>
+            <p className="text-secondary text-xs">Fetching first images...</p>
           ) : (
             <Image
               src={imgFileNames[currIdx]}
@@ -83,10 +73,7 @@ const TheSunRightNow = () => {
             />
           )}
         </div>
-        {/* <div className="bg-red-400 col-span-1">
-      </div> */}
       </div>
-    </div>
   );
 };
 
