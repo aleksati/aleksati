@@ -27,7 +27,7 @@ const About = () => (
       <p>
         My name is Aleksander and I am passionate about music, software and
         science. I live in Oslo where I work as a Senior Engineer for the
-        Musicology Department at the University of Oslo, and play drums for
+        Musicology Department at the University of Oslo, and play drums with
         various artists. This website is part portfolio and part blog, a
         platform where I share my projects and write about music
         technology-related topics, such as networked music, audio and web
