@@ -16,7 +16,7 @@ const About = () => (
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg -mb-1 font-bold">Aleksander Tidemann</h1>
-        <p>Music technologist</p>
+        <p>Music technologist and developer</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
