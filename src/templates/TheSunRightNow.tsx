@@ -32,7 +32,6 @@ const TheSunRightNow = () => {
     // on mount
     getImgFileNames();
 
-    console.log("----")
     console.log("The Sun Right Now. Images from NASA SDO satellite observatory. Slideshow updates every 5 minutes.")
 
     //get new filenames from API every 5 minutes
