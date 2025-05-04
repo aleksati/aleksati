@@ -16,7 +16,7 @@ const About = () => (
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-3">
         <h1 className="text-lg -mb-1 font-bold">Aleksander Tidemann</h1>
-        <p>Music technologist and software developer</p>
+        <p>Music technologist</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
@@ -26,12 +26,12 @@ const About = () => (
     <div className="space-y-4">
       <p>
         My name is Aleksander and I am passionate about music, software and
-        science. I live in Oslo where I work as a Senior Engineer for the
-        Musicology Department at the University of Oslo, and play drums with
-        various artists. This website is part portfolio and part blog, a
-        platform where I share my projects and write about music
-        technology-related topics, such as networked music, audio and web
-        programming, studio production and more.
+        science. I live in Oslo where I play drums for various artists and work
+        as a Senior Engineer for the Musicology Department at the University of
+        Oslo. This website is part portfolio and part blog, a platform where I
+        share my projects and write about music technology-related topics, such
+        as networked music, audio and web programming, studio production and
+        more.
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.
