@@ -35,7 +35,7 @@ const About = () => (
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.
-        You can also reach out by comments under my posts.
+        You can also reach out by leaving comments under my posts.
       </p>
     </div>
   </div>

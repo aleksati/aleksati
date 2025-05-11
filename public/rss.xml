@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 12 Apr 2025 07:32:38 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 11 May 2025 20:05:36 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 12 Apr 2025 07:32:38 GMT</pubDate>
+        <pubDate>Sun, 11 May 2025 20:05:36 GMT</pubDate>
+        <item>
+            <title><![CDATA[Understanding OSC Timestamps and Forward Synchronization of Musical Devices]]></title>
+            <description><![CDATA[Summary...]]></description>
+            <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
+            <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Measuring Video Latency Beyond the Lab in Real-World Networked Performances]]></title>
             <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
@@ -35,7 +42,7 @@
         </item>
         <item>
             <title><![CDATA[Audio Latency Examiner]]></title>
-            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); a software tool for batch collecting audio latency data from both musical software and hardware devices. The app is open-source and free to download, avaliable for both Windows and Mac.]]></description>
+            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); a software tool for batch collecting audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
             <link>http://localhost:3000/works/audio-latency-examiner</link>
             <guid isPermaLink="true">http://localhost:3000/works/audio-latency-examiner</guid>
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>

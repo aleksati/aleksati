@@ -1,0 +1,440 @@
+---
+title: "Understanding OSC Timestamps and Forward Synchronization of Musical Devices"
+date: "2025-05-11"
+keywords: ["network", "audio", "osc", "synchronization", "latency", "telematic", "python", "pure-data", "programming"]
+type: "post"
+summary: "Summary..."
+---
+
+keywords:
+- OSC timestmps
+- scalable and dynamic system
+- bidirectional
+- strategy called forward syncronization
+- step-by-step guide 
+- how to implement
+- between Python and Pure Data.
+
+<MyImage
+  src="audiolatency-irl-nmp-1.png"
+  alt="."
+  caption="."
+/>
+
+In early 2024, I decided to host a few workshops on the networking capabilities of <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) as part of my networked music course (MCT4025) at UiO. OSC is a high-resolution (64-bit), lightweight, and flexible encoding designed to communicate music data between hardware and software devices, similar to MIDI. But in addition to transmitting control messages between devices, OSC offers precision timing capabilities through integrated Timestamps. 
+
+OSC timestamps are basically large and super accurate numbers that are easy to maniuplate. This makes OSC an ideal choice if we want to explore new and interesting ways to synchronize musical devices and manage latency in networked music scenarios. Modern development libraries with big community support have also drastically improved OSC workflow over the years. But understanding how to best use and take advantage of OSC Timestamps in networked musical settings might not be as straightforward as it sounds.
+
+In this post, I share a step-by-step approach for how to build and customize your own system for synchronizing musical devices using OSC and timestamps. For demonstration purposes, and to make it interesting, I show how this can be achieved using a strategy called Forward Synchronization between Pure Data and Python (different programming environments), showing appropriate third-party libraries in the process and demonstrating how to use them. Visit <MyLink href="https://github.com/aleksati/understanding-osc-timestamps-and-forward-sync-of-musical-devices">the full code repository from here</MyLink>.
+
+# Contents
+1. What is OSC and Forward Synchronization? 
+2. Code Setup and Dependencies
+3. Part 1 - Simple P2P Messaging
+4. Part 2 - Network Controlled Metronome
+5. Part 3 - OSC Timestamp Controlled Metronome
+6. Part 4 - Forward Synchronized Metronome
+7. Sources
+
+__NB:__ Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data.
+
+---
+
+# What is OSC and Forward Synchronization? 
+
+OSC is a digital media format designed for streaming real-time audio control messages between musical devices. It is a kind of alternative to MIDI, developed by researchers Matt Wright and Adrian Freed at CNMAT, Stanford, in 1997 (Schmeder, Freed, 2008). OSC streams consist of sequences of OSC bundles, where each bundle includes a unique identifier, encapsulated message, and timestamp.   
+
+[osctime-osc-anatomy]
+The anatomy of OSC messages
+
+OSC timestamps are essentially <MyLink href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP</MyLink> timestamp; a 64-bit fixed floating point number that tells the time since midnight on January 1st, 1900, down to a fractional part of a second. The first 32 bits specify the number of seconds since midnight on January 1, 1900, and the last 32 bits specify fractional parts of a second to a precision of about 200 picoseconds. For example, the OSC timestamp 1746381622 corresponds to May 5th, 2025, at 20:00:48 PM. 
+
+With high-resolution timestamps, OSC is capable of precision synchronization between musical devices even across remote distances. One exciting technique for syncing remote devices with OSC is Forward Synchronization, a method described by Schmeder, Freed & Wessel in their 2010 paper *Best Practices for Open Sound Control.*
+
+Forward synchronization is a technique where a fixed delay is added to the timestamps in charge of syncing two remote devices. Typically, this delay is only a few seconds, scheduling all musical events in the system to happen a short while into the future. The optimal delay time will vary depending on the context and needs fine-tuning. To paraphrase Schmeder et.al, "we can use Forward Synchronization to remove jitter and better synchronize our system if the clock sync error is smaller than the average transport jitter". This is because late-arriving bundles will be discarded and there is usually a limit to how many bundles can que. In any case, Forward sync enables us to mitigate the network transport delay in a dynamic way that also accounts for jitter affecting the stability of network communication.
+
+[plot and diagram of forward sync?]
+
+# Code Setup and Dependencies
+
+This guide below details OSC communication specifically between Python and Pure Data (PD). You can choose to follow in both environemnts, as demonstrated, or simply use the one you are most familiar with.
+
+For the python development, download and install <MyLink href="https://www.python.org/downloads/">Python version 3</MyLink>. Then, install the playsound and python-osc libraries through pip or via download. we will use these two libraries for simple audio playback and networked OSC communication. 
+
+```
+pip install playsound==1.2.2
+pip install python-osc
+```
+
+For the PD development, install <MyLink href="https://puredata.info/downloads/pure-data">Pure Data Vanilla, version 0.54</MyLink>. Next, download the wonderful <MyLink href="https://github.com/pd-externals/mrpeach">mrpeach</MyLink> library which we will use for OSC communication. I recommend installing the 32-bit version of PD vanilla for mrpeach to work as intended.
+
+Find <MyLink href="https://github.com/aleksati/understanding-osc-timestamps-and-forward-sync-of-musical-devices">the full code repository</MyLink> at my GitHub, complete with full PD patches and both jupyter notebooks and pyscript versions of the Python parts.
+
+# Part 1 - Simple P2P Messaging
+
+To be able to communicate OSC bidirectionally over a local network, we must first define some clients and servers. These will be the basis for the entire tutorial. 
+
+[osctime-part1-diagram.jpg]
+
+Creating an OSC server in PD is simple using the mrpeach objects. Use [udpreceive] to get remote messages from the network, [unpackOSC] to unpack the OSC bundles and finally [routeOSC] to filter based on unique OSC addresses. You can also use the [netsend] and [netreceive] objects that are native to PD when handle the networking, However, note that these native networking objects might require additional arguments to be compatible with OSC streams. 
+
+[osctime-part1-pd.jpg]
+
+Similarly, on the client side, we can use [packOSC] from mrpeach to pack OSC bundles neatly before transmitting to a remote server with [udpsend]. In the example below, notice that the OSC bundles are manually opened and closed using square brackets before entering [packOSC]. The desired OSC messages are added between the brackets. This might seem overkill for sending simple messages (and it is), but we will need this logic later when we manipulate bundle timestamps. 
+
+Last, specify the network port numbers to use. In my examples, I use port 8001 for sending from PD and receiving in Python, and port 8000 for sending from Python and receiving in PD.  
+
+When moving over to Python, we start by separating the server and client logic. Using the python-osc library, our server will handle all the incoming OSC messages on the network. With python-osc, we can also create individual dispatcher functions to listen for particular OSC addresses. This is handy if we want to increase the complexity of our code and listen to more addresses at once. In our simple case, we will create one dispatcher that listens for "/tick" messages. 
+
+```Python
+# Part 1 - Simple p2p Messaging server
+from pythonosc import dispatcher, osc_server
+import threading
+import time
+
+# Config
+serverIp = '127.0.0.1'
+serverPort = 8000
+
+# handler for incoming /tick OSC messages
+def pyHandler(address, args):
+    print(f'{address} {args}')
+  
+    if args == "tick":
+        # If a /tick message is recevied, print the message
+        print(args)
+
+# OSC server and dispatchers
+dispatcher = dispatcher.Dispatcher()
+dispatcher.map("/tick*", pyHandler)
+server = osc_server.ThreadingOSCUDPServer((serverIp, serverPort), dispatcher)
+
+def startOSCServer():
+    print(f"Starting OSC server on {server.server_address[0]}:{server.server_address[1]}")
+    server.serve_forever()
+
+if __name__ == "__main__":
+    # Start thread with OSC server and listen for messages
+    t_server = threading.Thread(target=startOSCServer, daemon=True)
+    t_server.start()
+    print("Press Ctrl+C to exit.")
+
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Exiting...")
+```
+
+Finally, since we're going to run the server concurrently with one or more clients, I recommend using Python Threading and starting your OSC server within a unique thread. Threading gives us an elegant and dynamic way to start and stop the continuous OSC network transmission processes.
+
+The Python clients (./client.py) are built with udp_client, a boilerplate python-osc class for generating a simple OSC client. A you may notice, the below client code below includes code that manually assembles each OSC bundle before they are sent, similar to the PD clients. This gives us more control over the bundle content, as we will explore further in the post.
+
+```Python
+# Part 1 - Simple p2p Messaging client
+from pythonosc import udp_client
+from pythonosc import osc_bundle_builder, osc_message_builder
+import time
+
+# Define OSC remote client (Pure Data)
+clientIp = '127.0.0.1'
+clientPort = 8001
+client1 = udp_client.UDPClient(clientIp, clientPort)
+
+# Message sending logic
+def sendMsg(client):
+    print('Sending 10 messages to the client.')
+    for i in range(10):
+        # Create bundle with IMMEDIATE timestamp
+        bundle = osc_bundle_builder.OscBundleBuilder(
+            osc_bundle_builder.IMMEDIATELY)
+        # Create and add message
+        msg = osc_message_builder.OscMessageBuilder(address="/tick")
+        msg.add_arg(f'Hello nr.{i} from Python client!')
+        bundle.add_content(msg.build())
+        # Send the bundle
+        client.send(bundle.build())
+        # Wait for the next beat
+        time.sleep(0.5)
+    
+    print("done sending...")
+
+if __name__ == "__main__":
+    sendMsg(client1)
+```
+
+# Part 2 - Network Controlled Metronome  
+
+In this example, we will build on the code developed in part 1 and design a simple system for controlling audio playback in a remote location, basically a network-controlled metronome. This metronome works by sending "tick" messages that generate a tick sound when received on the server. 
+
+[osctime-part2-diagram.jpg] 
+
+In PD, we can use the [soundfiler] object to create a buffer for an audio file and [tabplay~] to play the audio on demand. Sending a bang to tabplay will play the audio once at normal speed. On the client side, simply add a [metro] object at the top of the chain to send tick messages in a nice and consistent sequence.  
+
+[osctime-part2-pd.jpg] 
+
+Similarly, in our OSC python server, we expand the code to listen and play an audio file when receiving "tick" messages. First, add a desired audio file in the root directory (or use mine) and set its relative path to a variable called "audio" in the config section. Then, in our dispatcher function for handling incoming tick messages, pass the audio variable to the playsound function from the playsound library. When called, playsound will play the audio once at normal speed.
+
+```Python
+# Part 2 - Network-Controlled Metronome server
+from pythonosc import dispatcher, osc_server
+from playsound import playsound
+import threading
+import time
+
+# Config
+serverIp = '127.0.0.1'
+serverPort = 8000
+audio = "./tick.wav" # New path to local audio file
+
+# handler for incoming /tick OSC messages
+def pyHandler(address, args):
+  print(f'{address} {args}')
+  if args == "tick":
+    # If a tick message is recevied, play audio
+    playsound(audio)
+
+# OSC server
+dispatcher = dispatcher.Dispatcher()
+dispatcher.map("/tick*", pyHandler)
+server = osc_server.ThreadingOSCUDPServer((serverIp, serverPort), dispatcher)
+
+def startOSCServer():
+  print(f"Starting OSC server on {server.server_address[0]}:{server.server_address[1]}")
+  server.serve_forever()  
+
+if __name__ == "__main__":
+  # Start thread with OSC server and listen for messages
+  t_server = threading.Thread(target=startOSCServer, daemon=True)
+  t_server.start()
+  print("Press Ctrl+C to exit.")
+
+  try:
+    while True:
+      time.sleep(1)
+  except KeyboardInterrupt:
+    print("Exiting...")
+```
+
+In the Python client, we imitate the PD code by adding metronome logic for consistent and stable ticking. First, add two config variables, BPM and BEAT_INTERVAL. Changing the value of BPM will alter the speed of the metronome ticking. Next, in the sendMsg function, change the for loop into a while loop and insert a sleep function at the end. 
+
+The BEAT_INTERVAL variable is passed as the main argument to the sleep function so the rate of the loop is essentially controlled by the BPM variable. Finally, because we are now dealing with an endless while loop, similar threading logic as the server is used to start the clients, allowing better cleanup and keyboard control. 
+
+```Python
+# Part 2 - Network-Controlled Metronome client
+from pythonosc import udp_client
+from pythonosc import osc_bundle_builder, osc_message_builder
+import time
+import threading
+  
+# Config
+BPM = 100
+BEAT_INTERVAL = 60 / BPM
+
+# Define OSC remote client (Pure Data)
+clientIp = '127.0.0.1'
+clientPort = 8001
+client1 = udp_client.UDPClient(clientIp, clientPort)
+  
+# Message sending logic
+def sendMsg(client):
+  print('Sending messages to client.')
+  while True:
+    # Create bundle with IMMEDIATE timestamp
+    bundle = osc_bundle_builder.OscBundleBuilder(
+      osc_bundle_builder.IMMEDIATELY)
+    # Create and add message
+    msg = osc_message_builder.OscMessageBuilder(address="/tick")
+    msg.add_arg("tick")
+    bundle.add_content(msg.build())
+		# Send the bundle
+    client.send(bundle.build())  
+    # Wait for the next beat
+    time.sleep(BEAT_INTERVAL)   
+
+if __name__ == "__main__":
+  # introduce threading for better cleanup of endless while Loop.
+  t_client1 = threading.Thread(target=sendMsg, args=(client1,), daemon=True)
+  # Start sending messages to remote client in a thread
+  t_client1.start()
+
+  print("Press Ctrl+C to exit.")
+
+  try:
+    while True:
+      time.sleep(1)
+  except KeyboardInterrupt:
+    print("Exiting...")
+```
+
+# Part 3 - OSC Timestamp Controlled Metronome 
+
+In this segment, I will begin to demonstrate how we can use and manipulate OSC timestamps to synchronize musical devices across a network. The code for part 3 is almost identical to part 2, but with added logic to include custom timestamps on the client side and to review timestamps on the server side.
+
+[osctime-part3-diagram.jpg] 
+
+In PD, the mrpeach library conveniently hides most of the complexity needed to evaluate and create timestamps. However, on the server side, we still need to add the [pipelist] object after [unpackOSC] to delay the incoming message according to its timestamp. On the client side, the [packOSC] object allows us to create custom timestamps for our bundles through the timestampOffset argument. More on this in part 4. 
+ 
+[osctime-part3-pd.jpg] 
+
+In Python, we can use the same server code described in part 2. This is because the python-osc library also conveniently hides most of the complexity needed to evaluate timestamps. The client side is a different story. 
+
+To pack a custom timestamp to a OSC bundle with python-osc, we need to supply the OscBundleBuilder function with a UTC timestamp; a floating point number of seconds since the epoch (midnight on January 1, 1900) in UTC. However, implementing the timestamp retrieval into our client loop system was not as straightforward as I thought. At first, I attempted to simply retrieve the current UTC timestamp at the start of the messaging loop in the sendMsg function using the Python time function, as such:
+
+```Python
+def sendMsg(client):
+  print('Sending messages to client.')
+  
+  while True:
+		# Get current UTC timestamp
+    custom_timestamp = time.time()
+    # open a OSC bundle add our timestamp to the bundle builder object
+    bundle = osc_bundle_builder.OscBundleBuilder(custom_timestamp)
+    # Create and add message
+    msg = osc_message_builder.OscMessageBuilder(address="/tick")
+    msg.add_arg("tick")
+    bundle.add_content(msg.build())
+    # Send the bundle
+    client.send(bundle.build())
+    # Wait for the next beat
+    time.sleep(BEAT_INTERVAL)
+```
+
+Unfortunately, this approach failed. Multiple bundles ended up having the same timestamp, resulting in multiple audio ticks being scheduled to play at exactly the same time. After some debugging, I found that the error was due to the sleep function not receiving a unique timestamp at every loop.  
+
+To fix the issue, I designed a better system that creates predictable and unique sequences of timestamps based on the BPM and BEAT_INTERVAL variables. In this design, the current UTC timestamp is only retrieved once before the main while loop starts. Then, the timestamp is incremented manually based on the BEAT_INTERVAL and the current iteration of the loop, resulting in unique timestamps whose values are only separated by the duration of one beat.
+
+```Python
+# Part 3 - OSC Timestamp Controlled Metronome client
+from pythonosc import udp_client
+from pythonosc import osc_bundle_builder, osc_message_builder
+import time
+import threading
+
+# Config
+BPM = 100
+BEAT_INTERVAL = 60 / BPM
+
+# Define OSC remote client (Pure Data)
+clientIp = '127.0.0.1'
+clientPort = 8001
+client1 = udp_client.UDPClient(clientIp, clientPort) 
+
+# Message sending logic
+def sendMsg(client):
+  print('Sending messages to client.')
+  # using the current time once and increment ticks over every while Loop is a more predicable metronome for creating custom timestamp based on a fixed tempo.
+  start_time = time.time()
+  beat_number = 0  
+
+  while True:
+    # Custom timestamp = start time + current while Loop round /tick_numb)
+    custom_timestamp = start_time + (beat_number * BEAT_INTERVAL)
+    # open a OSC bundle and add our timestamp to the bundle builder object
+    bundle = osc_bundle_builder.OscBundleBuilder(custom_timestamp) 
+    # Create and add message
+    msg = osc_message_builder.OscMessageBuilder(address="/tick")
+    msg.add_arg("tick")
+    bundle.add_content(msg.build())
+    # Send the bundle
+    client.send(bundle.build())
+    # increment the beat number for every loop
+    beat_number += 1
+    # Wait for the next beat
+    time.sleep(BEAT_INTERVAL)   
+
+if __name__ == "__main__":
+  # Start sending messages to remote client in a thread
+  t_client1 = threading.Thread(target=sendMsg, args=(client1,), daemon=True)
+  t_client1.start()
+  print("Press Ctrl+C to exit.")
+
+  try:
+    while True:
+      time.sleep(1)
+  except KeyboardInterrupt:
+    print("Exiting...")
+```
+
+# Part 4 - Forward Synchronized Metronome
+
+In this final part, we put the cherry on top and see how to achieve Forward Synchronization, building on the code we developed in part 3. Until now, we've only sent control messages in one direction where playback occurs on the server side. In this example, we're going to have synced playback in two location, both on the sending and receiving side. For this to work, all we have to do is create a second local client to which we send the exact same OSC bundle we send to the remote server.
+
+[osctime-part3-diagram.jpg] 
+
+In PD, leave the server as is and just create another [udpsend] object that sends messages to the local server port. Notice also how it's possible to customize timestamps with the timetagoffset argument going into [packOSC]. The argument metric is in microseconds, so a value of 4 million (4e+06) corresponds to a 4-second offset into the future. Find more about this in the object help file.
+
+[osctime-part4-pd.jpg] 
+
+In Python, we need to make similar changes to the client code. First, add a new variable in the config section called FORWARD_OFFSET. This will define how many seconds into the future you wish to schedule your playback. Then, add FORWARD_OFFSET to the custom_timestmap variable in the messaging loop of the sendMsg function to offset the timestamp a fixed amount. 
+
+Finally, duplicate the client logic to create another udp_client and connect it to the port of your local Python server. To transmit the same bundle to both locations, copy and paste the send function in the messaging loop and make other necessary changes to the Threading logic to ensure both clients are on the same thread. 
+
+```Python
+#  Part 4 - Forward Synchronized Metronome client (requires the local server to also be running)
+from pythonosc import udp_client
+from pythonosc import osc_bundle_builder, osc_message_builder
+import time
+import threading
+
+# Config
+BPM = 100  # Beats per minute
+BEAT_INTERVAL = 60 / BPM
+FORWARD_OFFSET = 4 # seconds into the future to schedule ticks
+
+# Define two OSC clients
+# Remote client (Pure Data)
+clientIp = '127.0.0.1'
+clientPort = 8001
+client1 = udp_client.UDPClient(clientIp, clientPort)
+
+# Local client (Python server)
+client2Ip = '127.0.0.1'
+client2Port = 8000
+client2 = udp_client.UDPClient(client2Ip, client2Port)
+
+# Message sending logic
+def sendMsg(clients):
+    print(f'Sending messages to client.')
+    start_time = time.time()
+    beat_number = 0
+
+    while True:
+        # NEW custom timestamp = start time + current while Loop round /tick_numb) + forward sync offset
+        custom_timestamp = start_time + (beat_number * BEAT_INTERVAL) + FORWARD_OFFSET
+        # Create bundle with future timestamp
+        bundle = osc_bundle_builder.OscBundleBuilder(custom_timestamp)
+        # Create and add message
+        msg = osc_message_builder.OscMessageBuilder(address="/tick")
+        msg.add_arg("tick")
+        bundle.add_content(msg.build())
+        # Send the bundle
+        clients[0].send(bundle.build())
+        clients[1].send(bundle.build())
+        # increment the beat number for every loop
+        beat_number += 1
+        # Wait for the next beat
+        time.sleep(BEAT_INTERVAL)
+
+if __name__ == "__main__":
+    # Start sending messages to two identical clients (local and remote), but in individual threads
+    t_clients = threading.Thread(target=sendMsg, args=([client1, client2],), daemon=True)
+    # start sending
+    t_clients.start()
+    print("Press Ctrl+C to exit.")
+
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Exiting...")
+```
+
+That's it. Now we have a scalable and dynamic system for bidirectional forward synchronization of musical devices between PD and Python. 
+
+# Sources
+
+Schmeder, & Freed, A. (2008). Implementation and applications of open sound control timestamps. ICMC.[http://cnmat.berkeley.edu/publications/implementation-and-applications-open-sound-control-timestamps](http://cnmat.berkeley.edu/publications/implementation-and-applications-open-sound-control-timestamps)
+
+Schmeder, Freed, Wessel (2010). Best Practices for Open Sound Control. Center for New Music and Audio Technologies (CNMAT), UC Berkeley.[https://opensoundcontrol.stanford.edu/files/osc-best-practices-final.pdf](https://opensoundcontrol.stanford.edu/files/osc-best-practices-final.pdf)
+
