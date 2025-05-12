@@ -4,9 +4,11 @@ import Post from "../../../templates/Post";
 
 let page: string = "post";
 
-export default function handler({ frontMatter, mdxSource }: MDXPostProps) {
+export default function handler({ frontMatter, mdxSource, toc}: MDXPostProps) {
   return (
     <LayoutPage
+    // isPostWithToc=True
+    // toc={toc}
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),
@@ -38,7 +40,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 
   // [ 'helloworld', 'bender', 'lorem-ipsum' ]
-  const slugs: string[] = frontMatterList.reduce((accum, fr) => [...accum, fr.slug], []);
+  const slugs: string[] = frontMatterList.reduce(
+    (accum, fr) => [...accum, fr.slug],
+    []
+  );
 
   return {
     paths: slugs.map((slug) => ({ params: { post: slug } })),

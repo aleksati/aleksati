@@ -4,7 +4,7 @@ import Post from "../../../templates/Post";
 
 let page: string = "work";
 
-export default function handler({ frontMatter, mdxSource }: MDXPostProps) {
+export default function handler({ frontMatter, mdxSource, toc }: MDXPostProps) {
   return (
     <LayoutPage
       pageMeta={{

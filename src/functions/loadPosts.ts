@@ -74,6 +74,52 @@ export function getKeysFromFr(frontMatterList: FrontMatterList): string[] {
   return uniques;
 }
 
+// extract only the TOC from each post. Only used in getPostFromSlug
+function getTocFromSlug(markdown: string) {
+  // const paths: string = path.join(root, postType);
+  // const markdown: string = fs.readFileSync(
+  //   path.join(paths, `${slug}.mdx`),
+  //   "utf8"
+  // );
+
+  const lines = markdown.split("\n");
+  const toc: object[] = [];
+  
+  let inCodeBlock: boolean = false;
+
+  // for every line in my blogpost
+  for (const line of lines) {
+
+    // Toggle in/out of fenced code block
+    if (/^```/.test(line.trim())) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+
+    // Skip lines inside code blocks
+    if (inCodeBlock) continue;
+
+    // Skip inline HTML code blocks
+    if (line.trim().startsWith('<pre') || line.trim().startsWith('</pre>')) {
+      inCodeBlock = line.trim().startsWith('<pre');
+      continue;
+    }
+    if (inCodeBlock) continue;
+
+  // Match markdown headings (e.g., # Title)
+    const match = line.match(/^(#{1,6})\s+(.*)/);
+
+    if (match) {
+      // strip the header size and text
+      const depth = match[1].length;
+      const text = match[2].replace(/[*_`~]/g, "").trim(); // Strip simple formatting
+      toc.push({ depth, text });
+    }
+  }
+
+  return toc;
+}
+
 // should be get MDX post from slug
 export async function getPostFromSlug(
   postType: string = NAV_TABS["posts"],
@@ -82,6 +128,8 @@ export async function getPostFromSlug(
   const postPath: string = path.join(root, postType, `${slug}.mdx`);
   const post: string = fs.readFileSync(postPath, "utf-8");
   const { data, content } = matter(post);
+
+  const toc = getTocFromSlug(post)
 
   // turn it into HTML
   const mdxSource: MDXRemoteSerializeResult = await serialize(content);
@@ -92,7 +140,8 @@ export async function getPostFromSlug(
   };
 
   return {
-    mdxSource,
     frontMatter,
+    mdxSource,
+    toc
   };
 }

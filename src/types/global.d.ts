@@ -22,11 +22,16 @@ declare global {
     [x: string]: JSONArray;
   }
 
+  // for my MDX posts 
+  type toc = object[]
+
   interface MDXPostProps {
-    mdxSource: MDXRemoteSerializeResult;
     frontMatter: FrontMatter;
+    mdxSource: MDXRemoteSerializeResult;
+    toc?: toc;
   }
 
+  // everything p5js
   type P5jsContainerRef = HTMLDivElement;
 
   type P5jsSketch = (p: p5Types, parentRef: P5jsContainerRef) => void;

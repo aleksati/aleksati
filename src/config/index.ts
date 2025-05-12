@@ -72,5 +72,4 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   mapping: "#f5f5f4", // stone-100
     // starting over !!
   "pure-data" : "#ecfccb", //lime-100"
-  // NEED pure-data
 };
