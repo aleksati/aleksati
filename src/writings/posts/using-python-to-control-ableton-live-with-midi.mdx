@@ -1,29 +1,55 @@
 ---
 title: "Using Python to Control Ableton Live with MIDI"
 date: "2023-07-10"
-keywords: ["python", "ableton", "mapping", "midi", "performance", "realtime", "audio", "programming", "synth"]
+keywords:
+  [
+    "python",
+    "ableton",
+    "mapping",
+    "midi",
+    "performance",
+    "realtime",
+    "audio",
+    "programming",
+    "synth",
+  ]
 type: "post"
 summary: "While designing a new liveset, I wrote some code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did, and how."
 ---
-{/* 
-# Using Python to Control Ableton Live with MIDI
-*/}
 
-<MyImage src="abletonmidi-overview1.gif" alt="overview of my setup to navigate Ableton Live using python" caption="Only using one button(!) on my MIDI-controller to jump between tracks and one button to iterate over scenes."/>
+{/*
+# Using Python to Control Ableton Live with MIDI
+\*/}
+
+<MyImage
+  src="abletonmidi-overview1.gif"
+  alt="overview of my setup to navigate Ableton Live using python"
+  caption="Only using one button(!) on my MIDI-controller to jump between tracks and one button to iterate over scenes."
+/>
 
 Designing live performances for <MyLink url="https://theholymountain.net">The Holy Mountain</MyLink> (my band) has always been challenging. During our live shows, we have to manage looping, sample triggering, complex tempo changes, and fast navigation between synthesizer presets. For our upcoming liveset, I have been trying to figure out how to play drums and synthesizers simultaneously, playing synth with my right hand and drumming with my remaining limbs. This problem inspired me to develop a clever way to navigate Ableton Live (Live) using very few midi controls.
 
 In this post, I demonstrate how you can use some Python code (++) to acheive more complex midi mapping capabilities between your midi-controller and digital audio workstation (DAW).
 
 {/*
-1. <MyLink type="toc" href="#overview-and-requirements">Overview and Requirements</MyLink>
-2. <MyLink type="toc" href="#python-setup">Python Setup</MyLink>
-3. <MyLink type="toc" href="#live-setup">Live Setup</MyLink>
-4. <MyLink type="toc" href="#concluding-thoughts">Concluding Thoughts</MyLink>
-5. <MyLink type="toc" href="#download-link-and-source-code">Download Link and Source Code</MyLink> 
-<hr />
-*/}
 
+1. <MyLink type="toc" href="#overview-and-requirements">
+     Overview and Requirements
+   </MyLink>
+2. <MyLink type="toc" href="#python-setup">
+     Python Setup
+   </MyLink>
+3. <MyLink type="toc" href="#live-setup">
+     Live Setup
+   </MyLink>
+4. <MyLink type="toc" href="#concluding-thoughts">
+     Concluding Thoughts
+   </MyLink>
+5. <MyLink type="toc" href="#download-link-and-source-code">
+     Download Link and Source Code
+   </MyLink>
+   <hr />
+   */}
 
 # Overview and Requirements
 
@@ -31,18 +57,29 @@ When searching for a solution to my "playing drums and synth at the same time" p
 
 The result was a mapping system built with Ableton and some Python software that enabled me to skip up and down scenes (vertical axis) and between audio tracks (horizontal axis) using very few midi controls. But navigating Live's visual interface like a 2D matrix is not uncommon. In fact, most midi-controllers afford this kind of behavior for traversing sample spaces and audio effects. What makes my system unique is that I use Python to associate custom collections of audio tracks with individual scenes in Live. With this mapping approach, it's possible (and easy) to jump between different mapping presets for each scene, dramatically limiting the number of controls needed to navigate fairly complex Live sessions.
 
-<MyImage src="abletonmidi-live-overview.jpg" alt="overview of my setup to navigate Ableton Live using python" caption="Live's session view is an interface designed and made for live performance. Highlighted in red are scenes and tracks that together can be perceived as a 2D matrix structure." />
+<MyImage
+  src="abletonmidi-live-overview.jpg"
+  alt="overview of my setup to navigate Ableton Live using python"
+  caption="Live's session view is an interface designed and made for live performance. Highlighted in red are scenes and tracks that together can be perceived as a 2D matrix structure."
+/>
 
 Below you'll find important details about the design, code, and general Live specs I used to build this custom navigation system for my liveset. To be able to replicate my system, you only need a few key items:
 
 <ul>
   <li>A USB midi keyboard or controller</li>
-  <li>a Python environment with the <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink> library installed</li>
+  <li>
+    a Python environment with the{" "}
+    <MyLink href="https://pypi.org/project/python-rtmidi/">rtmidi</MyLink>{" "}
+    library installed
+  </li>
   <li>A virtual midi driver</li>
   <li>Ableton Live 11 (++)</li>
 </ul>
 
-<MyImage src="abletonmidi-system-diagram.png" alt="An overview diagram of my setup." />
+<MyImage
+  src="abletonmidi-system-diagram.png"
+  alt="An overview diagram of my setup."
+/>
 
 For the record, I use the MIDIPLUS X4 as a midi-controller and <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsen's loopMIDI</MyLink> as my virtual device. For Mac/OSX users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
 
@@ -156,7 +193,16 @@ In response to points one and three, I wrote an additional Python script to guid
 
 To see the full code, visit the source code section below.
 
-<MySlideshow imgs={["abletonmidi-ableton-midi-mapping.png", "abletonmidi-ableton-midi.png"]} captions={["Making a `daw-midi-mapping.py` is recommended when your Ableton setup is tighly coupled with Python variables.", "Configure the midi settings to listen for data from python."]} />
+<MySlideshow
+  imgs={[
+    "abletonmidi-ableton-midi-mapping.png",
+    "abletonmidi-ableton-midi.png",
+  ]}
+  captions={[
+    "Making a `daw-midi-mapping.py` is recommended when your Ableton setup is tighly coupled with Python variables.",
+    "Configure the midi settings to listen for data from python.",
+  ]}
+/>
 
 Finally, after midi-mapping, I have to set the correct midi settings. Per default, Live will usually recognize and enable any compatible midi device it detects for track, sync and remote. However, we dont want Live to listen directly to our midi controller. We only want to intercept message from Python on the virtual midi port we have initialized. To open the midi preferences in Live, Hit **"ctrl" + ","** and navigate to the midi section. Here, uncheck every device except for incoming messages on your virtual midi port.
 

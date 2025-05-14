@@ -9,15 +9,15 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 14 May 2025 09:51:50 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 May 2025 10:26:00 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 14 May 2025 09:51:50 GMT</pubDate>
+        <pubDate>Wed, 14 May 2025 10:26:00 GMT</pubDate>
         <item>
             <title><![CDATA[Understanding OSC Timestamps and Forward Synchronization of Musical Devices]]></title>
-            <description><![CDATA[ In early 2024, I led workshops on advanced networking with Open Sound Control (OSC), focusing on OSC Timestamps for precise synchronization of musical devices. In this post, I refine these sessions into a practical, step-by-step guide for implementing a scalable, bidirectional Forward Synchronization system in Python and Pure Data.]]></description>
+            <description><![CDATA[In early 2024, I led workshops on advanced networking with Open Sound Control (OSC), focusing on OSC Timestamps for precise synchronization of musical devices. In this post, I refine these sessions into a practical, step-by-step guide for implementing a scalable, bidirectional Forward Synchronization system in Python and Pure Data.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
-            <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Measuring Video Latency Beyond the Lab in Real-World Networked Performances]]></title>
