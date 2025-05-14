@@ -23,12 +23,16 @@ declare global {
   }
 
   // for my MDX posts 
-  type toc = object[]
+  type Toc = {
+    depth: number;
+    text: string;
+  }
+  type TocList = toc[] | null
 
   interface MDXPostProps {
     frontMatter: FrontMatter;
     mdxSource: MDXRemoteSerializeResult;
-    toc?: toc;
+    toc?: tocList;
   }
 
   // everything p5js

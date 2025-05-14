@@ -7,8 +7,8 @@ let page: string = "post";
 export default function handler({ frontMatter, mdxSource, toc}: MDXPostProps) {
   return (
     <LayoutPage
-    // isPostWithToc=True
-    // toc={toc}
+      isPostWithToc={true}
+      toc={toc}
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),

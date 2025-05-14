@@ -7,6 +7,8 @@ let page: string = "music";
 export default function handler({ frontMatter, mdxSource, toc }: MDXPostProps) {
   return (
     <LayoutPage
+      isPostWithToc={true}
+      toc={toc}
       pageMeta={{
         title: frontMatter.title,
         keywords: frontMatter.keywords.join(", "),

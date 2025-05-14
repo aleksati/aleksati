@@ -13,20 +13,26 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }: Props) => {
   // remove /[post] stuff on nested rutes, and remaining "/" at the end
   let firstRoute: string = route.split("[")[0].split("/")[0];
   // default to about
-  const currRoute: string = firstRoute.length ? firstRoute : "latest";
+  const currRoute: string = firstRoute.length ? firstRoute : "";
 
   return (
     <nav
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="flex p-4 items-center space-x-1">
+      <div className="flex p-4 items-center space-x-1 font-bold">
         {/* This is the path link at the top */}
         {/* <p className="font-bold">/</p> */}
         <Link
-          href={`/${currRoute === "latest" ? "" : currRoute}`}
-          className="font-bold hover:cursor-pointer">
-          {currRoute}
+          href={`/`}
+          className="hover:cursor-pointer">
+        aleksati.net
+        </Link>
+        {currRoute ? <p>/</p> : null} 
+        <Link
+          href={`/${currRoute}`}
+          className="hover:cursor-pointer">
+        {currRoute}
         </Link>
       </div>
       {/* fixed class, because it messes with the transition from navtop to nav vertical (just a tiny bit) */}

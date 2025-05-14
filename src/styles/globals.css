@@ -30,6 +30,12 @@
   margin-right: var(--scrollbar-compensation);
 } */
 
+/* for the TOC in menubar */
+ol li::marker {
+ /* content: "✝ "; */
+ color: #8b949e;
+}
+
 /* For the active slideshow indicators */
 .indicators .active {
   background-color: #4b5563 !important;

@@ -13,12 +13,13 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   pageMeta?: MetaProps;
+  toc?: TocList;
+  isPostWithToc?: boolean;
 };
 
-const LayoutPage = ({ pageId = "top", children, className, pageMeta }: Props) => {
+const LayoutPage = ({ pageId = "top", children, className, pageMeta,  toc=null, isPostWithToc=false}: Props) => {
   const { width } = useWindowSize();
   const pageTopRef = useRef<HTMLDivElement>(null);
-
   // const [isMounted, setIsMounted] = useIsMounted();
   // if (!isMounted) return null;
 
@@ -27,11 +28,11 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta }: Props) =>
       <Meta {...pageMeta} />
       <div className="min-h-screen max-w-6xl flex relative">
         {width < widthTresh ? (
-          <LayoutPageMobile pageId={pageId} className={className} ref={pageTopRef}>
+          <LayoutPageMobile pageId={pageId} className={className}  toc={toc} isPostWithToc={isPostWithToc} ref={pageTopRef}>
             {children}
           </LayoutPageMobile>
         ) : (
-          <LayoutPageDesktop pageId={pageId} className={className} ref={pageTopRef}>
+          <LayoutPageDesktop pageId={pageId} className={className}  toc={toc} isPostWithToc={isPostWithToc} ref={pageTopRef}>
             {children}
           </LayoutPageDesktop>
         )}
