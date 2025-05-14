@@ -15,8 +15,9 @@ keywords:
     "programming",
   ]
 type: "post"
-summary: "In early 2024, I led workshops on advanced networking with Open Sound Control (OSC), focusing on OSC Timestamps for precise synchronization of musical devices. In this post, I refine these sessions into a practical, step-by-step guide for implementing a scalable, bidirectional Forward Synchronization system in Python and Pure Data."
+summary: "Last year, I led several workshops on audio networking with OSC, focusing on using timestamps and synchronization between musical devices. In this post, I refine my workshops into a practical, step-by-step guide to developing your own synchronization scheme with OSC, using a technique called Forward Synchronization in Python and Pure Data."
 ---
+
 {/* 
 # Understanding OSC Timestamps and Forward Synchronization
 */}
@@ -27,14 +28,12 @@ summary: "In early 2024, I led workshops on advanced networking with Open Sound 
   alt="OSC LOGO"
 /> */}
 
-In early 2024, I led a few workshops on the advanced networking capabilities of <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) as part of my networked music course at UiO. OSC provides the perfect framework to explore new and interesting ways to synchronize musical devices and manage latency in networked music scenarios due to its high-resolution data transfer (64-bit compared to 8-bit MIDI) and Timestamp integration. 
+Last year, I led a few workshops on the advanced audio networking capabilities of <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) as part of my networked music course at UiO. OSC provides an ideal framework to explore new and creative ways to synchronize and manage latency between musical devices, thanks to its high-resolution data transfer (64-bit compared to 8-bit MIDI) and built-in timestamp support. 
 
-In this post, I attempt to distill my workshop experiences into a practical, step-by-step guide for implementing a scalable and bidirectional system for synchronizing musical devices using OSC and a strategy called Forward Synchronization, in Python and Pure Data. Visit <MyLink href="https://github.com/aleksati/understanding-osc-timestamps-and-forward-sync-of-musical-devices">the full code repository from here</MyLink>.
+In this post, I attempt to distill my workshop experiences into a practical, step-by-step guide for building your own syncronization scheme in Python and Pure-data. Over four steps, we will develop a bidirectional, scalable, and dynamic approach to synchronizing musical devices using OSC and a strategy called Forward Synchronization. Included below are detailed code examples and links to the full codebase.
 
-{/* this is a comment
-TODO -> 
-* OSC post, delete some of the OSC definition. Have in two places. Ja. kutt ned. then post.
 
+{/* 
 1. What are OSC Timestamps and Forward Synchronization?
 2. Code Setup and Dependencies
 3. Step 1 - Simple P2P Messaging
@@ -45,8 +44,6 @@ TODO ->
 ---
 **NB:** Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data.
 */}
-
-
 
 # What is it?
 
