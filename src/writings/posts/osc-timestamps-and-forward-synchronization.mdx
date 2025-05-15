@@ -1,5 +1,5 @@
 ---
-title: "Understanding OSC Timestamps and Forward Synchronization"
+title: "OSC Timestamps and Forward Synchronization in Python and Pure Data"
 date: "2025-05-14"
 keywords:
   [
@@ -15,11 +15,11 @@ keywords:
     "programming",
   ]
 type: "post"
-summary: "Last year, I led several workshops on audio networking with OSC, focusing on using timestamps and synchronization between musical devices. In this post, I refine my workshops into a practical, step-by-step guide to developing your own synchronization scheme with OSC, using a technique called Forward Synchronization in Python and Pure Data."
+summary: "Last year, I led several workshops on audio networking with OSC, focusing on using timestamps to synchronize musical devices. In this post, I refine my workshops into a practical, step-by-step guide to developing your own synchronization scheme with OSC, using a technique called Forward Synchronization between Python and Pure Data."
 ---
 
 {/* 
-# Understanding OSC Timestamps and Forward Synchronization
+# OSC Timestamps and Forward Synchronization in Python and Pure Data
 */}
 
 {/* <MyImage
@@ -30,7 +30,7 @@ summary: "Last year, I led several workshops on audio networking with OSC, focus
 
 Last year, I led a few workshops on the advanced audio networking capabilities of <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) as part of my networked music course at UiO. OSC provides an ideal framework to explore new and creative ways to synchronize and manage latency between musical devices, thanks to its high-resolution data transfer (64-bit compared to 8-bit MIDI) and built-in timestamp support. 
 
-In this post, I attempt to distill my workshop experiences into a practical, step-by-step guide for building your own syncronization scheme in Python and Pure-data. Over four steps, we will develop a bidirectional, scalable, and dynamic approach to synchronizing musical devices using OSC and a strategy called Forward Synchronization. Included below are detailed code examples and links to the full codebase.
+In this post, I attempt to distill my workshop experiences into a practical, step-by-step guide for building your own networked syncronization scheme in Python and Pure data. Over four steps, we will develop a bidirectional, scalable, and dynamic approach to synchronizing musical devices using OSC and a strategy called Forward Synchronization. Included below are detailed code examples and links to the full codebase.
 
 
 {/* 
