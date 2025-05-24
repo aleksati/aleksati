@@ -39,7 +39,8 @@ const NavVertical = ({
         showNavTop ? "fixed" : "flex-none"
       } w-72 p-4`} // was 64
       ref={ref}>
-      <div className="w-56 fixed mt-0">
+      <div className="w-64 fixed mt-0">
+        {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
             <div className="flex justify-between items-end">

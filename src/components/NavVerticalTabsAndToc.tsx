@@ -9,7 +9,6 @@ import MyLink from "./MyLink";
 //   { depth: 1, text: "Step 5 - hey" },
 //   { depth: 1, text: "Step 6 - hey" },
 //   { depth: 2, text: "Step 7" },
-// ];
 
 type Props = {
   toc: TocList;
@@ -27,8 +26,8 @@ const NavVerticalTabsAndToc = ({ toc, isPostWithToc = false }: Props) => {
   return (
     <>
       {isPostWithToc ? (
-        <div className="space-y-4">
-          <p className="">contents:</p>
+        <div className="space-y-4 p-2 rounded-sm bg-gray-100 dark:bg-gray-800">
+          <p className="border-b pb-1 border-secondary-light dark:border-secondary-dark">Table of contents</p>
           <ol className="space-y-4 list-decimal leading-5">
             {toc.map((item, idx) => {
               // only incude H1 headers.

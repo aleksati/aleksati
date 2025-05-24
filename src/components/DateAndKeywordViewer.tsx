@@ -32,7 +32,7 @@ const DateAndKeywordViewer = ({
 }: Props) => {
   // On mobile view, we show less keywords.
   const { width } = useWindowSize();
-  const maxKeywords: number = width < widthTresh ? 3 : 4; // was 2 and 3
+  const maxKeywords: number = width < widthTresh ? 3 : 5; // was 2 and 3
 
   if (text === "sm") {
     return (
@@ -58,7 +58,7 @@ const DateAndKeywordViewer = ({
                   </div>
                 )
             )}
-            {keywords.length && keywords.length > maxKeywords && <p>...</p>}
+            {keywords.length > maxKeywords && <p>...</p>}
           </>
         ) : null}
       </div>
@@ -89,7 +89,7 @@ const DateAndKeywordViewer = ({
                   </div>
                 )
             )}
-            {keywords.length && keywords.length > maxKeywords && <p>...</p>}
+            {keywords.length > maxKeywords && <p>...</p>}
           </>
         ) : null}
       </div>

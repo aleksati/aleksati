@@ -11,9 +11,10 @@ interface MyImageProps extends ImageProps {
 const MyImage = ({
   caption,
   isExpandable = false,
+  width = 600,
   ...rest
 }: MyImageProps): React.JSX.Element => {
-  const { width, height, src } = rest;
+  const { height, src } = rest;
   const [modalIsShown, setModalIsShown] = useState(false);
   const handleImgClick = () => setModalIsShown(true);
   const handleModalClose = () => setModalIsShown(false);
@@ -47,7 +48,7 @@ const MyImage = ({
           ) : null} */}
         </div>
         {caption ? (
-          <figcaption className="text-xs text-secondary dark:text-secondary-dark">
+          <figcaption className={`text-xs w-[${myWidth}px] text-secondary dark:text-secondary-dark`}>
             {caption}
           </figcaption>
         ) : null}

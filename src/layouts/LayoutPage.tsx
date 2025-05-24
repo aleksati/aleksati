@@ -26,7 +26,7 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta,  toc=null, 
   return (
     <>
       <Meta {...pageMeta} />
-      <div className="min-h-screen max-w-6xl flex relative">
+      <div className="min-h-screen max-w-7xl flex relative">
         {width < widthTresh ? (
           <LayoutPageMobile pageId={pageId} className={className}  toc={toc} isPostWithToc={isPostWithToc} ref={pageTopRef}>
             {children}

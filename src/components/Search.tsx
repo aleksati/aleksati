@@ -59,7 +59,8 @@ const Search = () => {
   }, [results, arrowDownPressed, arrowUpPressed]);
 
   return (
-    <div className="flex z-50 flex-col w-56 absolute" ref={ref}>
+    <div className="flex z-50 flex-col w-64 absolute" ref={ref}>
+      {/* was w-56 */}
       <input className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-sm h-8" placeholder="search" id="search" type="search" value={query} onChange={onChange} readOnly={isError} autoComplete="off" />
       {/* to edit the height of the results list, edit max-h */}
       {results?.length ? (
