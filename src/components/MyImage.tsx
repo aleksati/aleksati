@@ -49,6 +49,7 @@ const MyImage = ({
         </div>
         {caption ? (
           <figcaption className={`text-xs w-[${myWidth}px] text-secondary dark:text-secondary-dark`}>
+            {/* this sizing doesnt really work.. But when the images are centered, the caption is nice as full post width */}
             {caption}
           </figcaption>
         ) : null}
