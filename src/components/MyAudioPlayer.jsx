@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState, useCallback, memo } from "react";
-import { useIsMounted } from "../hooks/useIsMounted";
+// import { useIsMounted } from "../hooks/useIsMounted";
 import getClockValue from "../functions/getClockValue";
-import getCurrTheme from "../functions/getCurrTheme";
+// import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
 
 const WaveFormOptions = (ref, opt) => ({
@@ -14,7 +14,7 @@ const WaveFormOptions = (ref, opt) => ({
   // normalize: true,
   cursorWidth: 2,
   responsive: true,
-  height: 80,
+  height: 120,
   partialRender: false, //true
   hideScrollbar: true,
   splitChannels: false,
@@ -93,7 +93,7 @@ const MyAudioPlayer = ({ src, newOptions = {} }) => {
             className="cursor-pointer"
             iconSize="text-lg"
           />
-          <p id="audiotime" className="text-sm">
+          <p id="audiotime" className="text-base">
             00:00
           </p>
         </div>

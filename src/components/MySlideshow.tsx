@@ -60,7 +60,7 @@ const MySlideshow = ({
               priority={priority}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
-              width={width ? width : null}
+              width={width ? width : 600}
             />
           ))}
         </Slide>
@@ -68,7 +68,7 @@ const MySlideshow = ({
         <MyImage
           src={imgs[0]}
           priority={priority}
-          width={width ? width : null}
+          width={width ? width : 600}
           alt={`slideshow image of ${imgs[0]}`}
         />
       )}

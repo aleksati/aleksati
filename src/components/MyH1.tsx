@@ -10,7 +10,7 @@ const MyH1 = ({
   const childID: string = children.toLowerCase().split(" ").join("-");
 
   return (
-    <h1 id={childID} className="pt-6 font-bold text-2xl mb-2" {...h1Props}>
+    <h1 id={childID} className="pt-8 font-bold text-2xl mb-2" {...h1Props}>
       {children}
     </h1>
   );

@@ -25,7 +25,7 @@ const MyImage = ({
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center">
+      <div className="w-full flex flex-col justify-center items-center">
         <div className="relative">
           <Image
             src={img}
