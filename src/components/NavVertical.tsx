@@ -37,7 +37,7 @@ const NavVertical = ({
     <div
       className={`z-50 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark ${
         showNavTop ? "fixed" : "flex-none"
-      } w-72 p-4`} // was 64
+      } w-72 p-4`}
       ref={ref}>
       <div className="w-64 fixed mt-0">
         {/* was w-56 */}

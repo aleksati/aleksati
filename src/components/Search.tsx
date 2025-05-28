@@ -64,7 +64,7 @@ const Search = () => {
       <input className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-sm h-8" placeholder="search" id="search" type="search" value={query} onChange={onChange} readOnly={isError} autoComplete="off" />
       {/* to edit the height of the results list, edit max-h */}
       {results?.length ? (
-        <div className="relative max-h-142 overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-600">
+        <div className="relative max-h-142 overflow-y-auto mt-0.5 rounded-sm bg-primary-light dark:bg-primary-dark border-x border-t border-gray-200 dark:border-gray-600 shadow-lg">
           {results.map((frontMatter, i) => (
             <SearchItem key={frontMatter.slug} fronMatter={frontMatter} isActive={i + 1 === keyNavIndex} />
           ))}

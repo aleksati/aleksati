@@ -26,8 +26,8 @@ const NavVerticalTabsAndToc = ({ toc, isPostWithToc = false }: Props) => {
   return (
     <>
       {isPostWithToc ? (
-        <div className="space-y-4 p-2 rounded-sm bg-gray-100 dark:bg-gray-800">
-          <p className="border-b pb-1 border-secondary-light dark:border-secondary-dark">Table of contents</p>
+        <div className="space-y-4 p-2 border-gray-200 dark:border-gray-600">
+          <p className="border-b pb-1 border-gray-200 dark:border-gray-600">Table of contents</p>
           <ol className="space-y-4 list-decimal leading-5">
             {toc.map((item, idx) => {
               // only incude H1 headers.

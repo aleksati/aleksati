@@ -15,7 +15,7 @@ const SearchItem = ({ fronMatter, isActive }: { fronMatter: FrontMatter; isActiv
 
   return (
     <Link href={`/${typ}/${slug}`} ref={ref}>
-      <div className={`border-b ${isActive ? "bg-blue-200 dark:bg-blue-800" : "null"} hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 hover:cursor-pointer`}>
+      <div className={`border-b ${isActive ? "bg-blue-200 dark:bg-blue-800" : "none"} hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 hover:cursor-pointer`}>
         {title}
         <DateAndKeywordViewer showKeywords={false} showType={true} date={date} type={type} text={"xs"} />
       </div>
