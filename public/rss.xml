@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 28 May 2025 18:45:19 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Jun 2025 14:23:16 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 28 May 2025 18:45:19 GMT</pubDate>
+        <pubDate>Mon, 02 Jun 2025 14:23:16 GMT</pubDate>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[Last year, I led several workshops on audio networking with OSC, focusing on using timestamps to synchronize musical devices. In this post, I refine my workshops into a practical, step-by-step guide to developing your own synchronization scheme with OSC, using a technique called Forward Synchronization between Python and Pure Data.]]></description>
+            <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I try to channel my workshop experiences into a written step-by-step guide, detailing how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
@@ -87,6 +87,13 @@
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/works/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
+            <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The Sun Right Now - Screensaver]]></title>
+            <description><![CDATA[something]]></description>
+            <link>http://localhost:3000/works/thesunrightnow-screensaver</link>
+            <guid isPermaLink="true">http://localhost:3000/works/thesunrightnow-screensaver</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>

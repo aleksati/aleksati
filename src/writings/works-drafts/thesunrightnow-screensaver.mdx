@@ -1,0 +1,123 @@
+---
+title: "The Sun Right Now - Screensaver"
+date: "2025-06-02"
+keywords: ["max", "software", "audio", "video", "analysis", "programming", "jitter", "opengl", "realtime", "mapping", "synchronization", "kuramoto"]
+type: "work"
+summary: "something"
+---
+{/* 
+# The Sun Right Now - Screensaver
+*/}
+
+PICTURE (slideshow? yes)
+
+In a recent episode of [Nyskjerrige Norge](https://www.forskningsradet.no/om-oss/forskningskommunikasjon/podkast/), the new podcast by the Norwegian Research Council, host Kristoffer Schau meets professor Mats Carlsson at the Rosseland Centre for Solar Physics, UiO, to discuss the mysteries of our sun. Aside from the interesting contents of the show, a particular comment made by Schau about a TV feed in Carlsson's UiO lunchroom caught my interest. The TV feed was made up of real-time scientific images of the sun and Schau remarked how great it would be if such a feed was available as a screensaver for TVs and laptops. Due to my lifelong interest in space, and more recent venture as an amateur astrophotographer, I was instantly inspired and decided to build the screensaver for myself.
+
+In this post, I present *The Sun Right Now*, my new desktop screensaver that displays real-time 4K images of the sun in a mesmerizing slideshow. What's more, the images are updated automatically every 5 minutes to ensure only the very latest captures are shown. Below, I share how the app works and how you can use it for yourself. 
+
+For a quick preview, check out a live browser version of the screensaver here - [https://aleksati.net/thesunrightnow](https://aleksati.net/thesunrightnow)
+
+# How it Works 
+
+The screensaver is essentially a tiny Nodejs API and Electron application window that runs some React frontend to display images on the screen.
+
+**DIAGRAM**
+
+The Nodejs API has one job; to retrieve image filenames from a public NASA repository that holds images from their Solar Dynamics Observatory (SDO). The SDO is a satellite currently in orbit around Earth whose job is to take photos and continuous measurements of the sun. Read more about the SDO project [on their website](https://sdo.gsfc.nasa.gov/). Fortunately, all the scientific data from NASA SDO is publically available and hosted online. For my screensaver app, this was great news. Since the images are already hosted online, I didn't need to fetch them from some API, I could just retrieve the URLs to the images and load them inside an HTML iframe element.
+
+To get the very latest images on demand, I took advantage of how NASA organizes its SDO images. The photos are put into a folder structure that represents days, months and years. The image filenames themselves also include the date, time, type, and resolution of the images. You can browse the SDO assets folder I use [here](https://sdo.gsfc.nasa.gov/assets/img/browse). With this in place, I only had to add the current date to the fetching URL to find the correct image folder. Then, to get the latest images, I simply fetched all the filenames in the folder and sorted them on my API based on the values in their filenames. Finally, I filtered for only 4k images. 
+
+On the React frontend, I call the API to acquire the first batch of image filenames when the component has mounted. Then, I use the setInterval() method to schedule further API calls at a fixed interval, making the filename-fetching recurrent and self-updating. I chose to make this happen every 5 minutes, but you can easily choose another interval by editing the second argument of the setInterval method.
+
+```TypeScript
+// React frontend component
+// ./src/TheSunRightNow.jsx
+import { useEffect, useState } from "react";
+import useWindowSize from "./hooks/useWindowSize";
+
+const TheSunRightNow = () => {
+  // Show slideshow of real-time NASA images of the sun. 
+  // The images are fetched from the NASA SDO database (../api.mjs)
+  // and updated every 5 minutes.
+  const [currIdx, setCurrIdx] = useState(0);
+  const [imgFileNames, setImgFileNames] = useState([""]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+  const windowSize = useWindowSize();
+
+  const getImgFileNames = async () => {
+   // Fetch new filenames from API
+    try {
+      setIsLoading(true);
+      const res = await fetch("http://localhost:8001/api/thesunrightnow");
+      const data = await res.json();
+      setImgFileNames(data);
+      setIsLoading(false);
+      setIsReady(true);
+    } catch (error) {
+      setIsError(true);
+      setIsLoading(false);
+      setIsReady(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    // on mount
+    getImgFileNames();
+    // Get new filenames from API every 5 minutes
+    const interval = setInterval(() => {
+      getImgFileNames();
+    }, 300000);
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Rotate sun image every 10 seconds
+    const interval = setInterval(() => {
+      setCurrIdx((prevIndex) => (prevIndex + 1) % imgFileNames.length);
+    }, 10000);
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, [imgFileNames.length]);
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-black text-white">
+        {isError ? (
+          <p>Shit. Something went wrong</p>
+        ) : !isReady ? (
+          <></>
+        ) : (
+          <img
+            src={imgFileNames[currIdx]}
+            alt="Sun Image"
+            style={{
+              width: windowSize.height || 720,
+              height: windowSize.height || 720,
+            }}
+          />
+        )}
+    </div>
+  );
+};
+  
+export default TheSunRightNow;
+```
+
+To render the images on screen, the filenames are passed one by one to an img HTML element. To handle the "one-by-one" part, another setInterval() method is used to iterates over the list of filenames and choose a new index automatically every 10 seconds, essentially rotating the image carousell.
+
+Finally, I use the Electron library as a wrapper for my React frontend to host it inside a nice application window that's not a browser window. Electron also provides a lot of necessary tools to manage user input and the compilation of the app into an executable. 
+
+# How to Use it
+
+On Win.. Win To make it a screensaver, you just edit the name and .. boom.
+
+On OSX.. 
+
+For development.. 
+
+# Download Links
+
+
