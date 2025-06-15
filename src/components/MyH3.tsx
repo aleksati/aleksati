@@ -12,7 +12,7 @@ const MyH3 = ({
   console.log(childID);
 
   return (
-    <h3 id={childID} className="font-bold text-lg mb-2" {...h3Props}>
+    <h3 id={childID} className="font-bold text-xl mb-2" {...h3Props}>
       {children}
     </h3>
   );

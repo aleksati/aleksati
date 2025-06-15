@@ -34,10 +34,10 @@ const MyLink = ({
   if (type === "nav") {
     return (
       <div className="flex space-x-1">
-        {active && <p className="font-bold">/</p>}
+        {/* {active && <p className="font-bold">/</p>} */}
         {/* (active || divHovered) */}
         <Link
-          className={`hover:cursor-pointer border-primary-light dark:border-primary-dark ${className}`}
+          className={`hover:cursor-pointer ${className}`}
           href={href}>
           {children}
         </Link>
@@ -59,20 +59,21 @@ const MyLink = ({
 
   if (type == "toc") {
     return (
-      <a
+      <Link
         role="link"
         href={href}
-        className={`hover:cursor-pointer no-underline ${className}`}>
+        className={`hover:cursor-pointer ${className}`}>
         {children}
-      </a>
+      </Link>
     );
   }
 
   return (
+    // These are the ones usually in the blog posts.
     <a
       role="link"
       href={href}
-      className={`hover:cursor-pointer no-underline text-blue-400 ${className}`}>
+      className={`hover:cursor-pointer no-underline text-secondary ${className}`}>
       {children}
     </a>
   );

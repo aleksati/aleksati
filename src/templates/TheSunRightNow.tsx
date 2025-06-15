@@ -2,27 +2,25 @@ import { useEffect, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 import Image from "next/image";
 
-// Show slideshow of realtime NASA images of the sun. The images are fetched from the NASA SDO database (../pages/api/sun.api), and updated every 5 minutes.
-const TheSunRightNow = () => {
+const TheSunRightNow = () => {  
+  // Show slideshow of realtime NASA images of the sun. 
+  // The images are fetched from the NASA SDO database 
+  // (../pages/api/sun.api), and updated every 5 minutes.
   const [currIdx, setCurrIdx] = useState<number>(0);
   const [imgFileNames, setImgFileNames] = useState<string[]>([""]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [isReady, setIsReady] = useState<boolean>(false);
   const windowSize = useWindowSize();
 
   const getImgFileNames = async () => {
     try {
-      setIsLoading(true);
       const res = await fetch("./api/thesunrightnow");
       const data = await res.json();
       // console.log(data);
       setImgFileNames(data);
-      setIsLoading(false);
       setIsReady(true);
     } catch (error) {
       setIsError(true);
-      setIsLoading(false);
       setIsReady(false);
       console.log(error);
     }

@@ -26,7 +26,7 @@ const NavVerticalTabsAndToc = ({ toc, isPostWithToc = false }: Props) => {
   return (
     <>
       {isPostWithToc ? (
-        <div className="space-y-4 p-2 border-gray-200 dark:border-gray-600">
+        <div className="space-y-4 border-gray-200 dark:border-gray-600">
           <p className="border-b pb-1 border-gray-200 dark:border-gray-600">Table of contents</p>
           <ol className="space-y-4 list-decimal leading-5">
             {toc.map((item, idx) => {
@@ -44,7 +44,7 @@ const NavVerticalTabsAndToc = ({ toc, isPostWithToc = false }: Props) => {
                 <li
                   key={headerID}
                   className="ml-4 text-sm space-x-1 items-center justify-start">
-                  <MyLink href={`#${idx === 0 ? "pageTitle" : headerID}`} type="nav">
+                  <MyLink href={`#${idx === 0 ? "pageTitle" : headerID}`} type="toc">
                     {item.text}
                   </MyLink>
                 </li>
