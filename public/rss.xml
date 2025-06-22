@@ -9,21 +9,21 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 15 Jun 2025 08:23:20 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Jun 2025 20:01:01 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 15 Jun 2025 08:23:20 GMT</pubDate>
+        <pubDate>Sun, 22 Jun 2025 20:01:01 GMT</pubDate>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshop experiences into a written step-by-step guide, detailing how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
+            <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Measuring Video Latency Beyond the Lab in Real-World Networked Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
-            <link>http://localhost:3000/posts/latency-in-real-world-networked-performances-video</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/latency-in-real-world-networked-performances-video</guid>
+            <title><![CDATA[Strategies for Measuring Video Latency in Networked Music and Dance Performances]]></title>
+            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring video latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
+            <link>http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</guid>
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -34,10 +34,10 @@
             <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Measuring Audio Latency Beyond the Lab in Real-World Networked Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
-            <link>http://localhost:3000/posts/latency-in-real-world-networked-performances-audio</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/latency-in-real-world-networked-performances-audio</guid>
+            <title><![CDATA[Strategies for Measuring Audio Latency in Networked Music and Dance Performances]]></title>
+            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience]]></description>
+            <link>http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
