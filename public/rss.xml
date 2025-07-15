@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 08 Jul 2025 20:08:35 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Jul 2025 11:06:40 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 08 Jul 2025 20:08:35 GMT</pubDate>
+        <pubDate>Tue, 15 Jul 2025 11:06:40 GMT</pubDate>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
             <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>

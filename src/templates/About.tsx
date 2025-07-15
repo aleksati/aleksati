@@ -29,7 +29,7 @@ const About = () => (
         science. I live in Oslo where I play drums for various artists and work
         as an engineer and lecturer for the Musicology Department at the University of
         Oslo. This website is part portfolio and part blog, a platform where I
-        share my projects and write about audio programming and music tech.
+        share my projects and write about music tech, audio programming and computer music.
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.
