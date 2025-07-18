@@ -103,7 +103,7 @@ However, the OOSE delay metric only carries real value if it's measured in a sys
 
 The desired audio latency measurement object in networked music contexts should be the OOSE delay of a system that is fine-tuned to produce stable and high-quality audio over a significant period with minimal dropouts. For clarity, we can call this expanded definition for _Stable_ OOSE, or SOOSE for short.
 
-# Measurement Strategy
+# Measurement Strategy and Procedure
 
 Measuring latency always requires us to adopt a measurement strategy in advance. In most cases, a one-way measurement strategy is sufficient, where the delayed impulse is sent across the signal chain (one way) and compared with the reference at the end. However, when dealing with network transmission, we cannot simply compare the reference to the delayed impulse because the delayed impulse is sent to a remote location. We cannot also send the reference because we want to isolate and measure the network path. In these cases, the solution is to adopt a Round-Trip Time (RTT) strategy, where the delayed impulse is sent to the remote location and looped back to the source before being measured (Carôt 2009, Rottondi et.al 2016, Fasciani 2020). This strategy is similar to how computers negotiate clock time, actively measuring RTT latencies from fixed locations and subtracting the results from a common source. If the technical setups in a networked performance are similar in both locations, with matching software and hardware configurations, then dividing the RTT SOOSE delay metric by two should give you the one-way latency.
 
@@ -119,9 +119,7 @@ Regardless of which strategy you choose, it's always wise to allocate extra time
 
 Finally, **when** should you do the measuring? If it's a networked concert, I recommend doing all technical measurements on the day of the performance, for instance during the final soundchecks. Networks are fundamentally non-deterministic, meaning that the conditions might change from day to day, even from hour to hour. Measuring right before a show is therefore the best indication of the true latency in the system at the time when it matters most.
 
-# Measurement Procedure
-
-Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity in chaotic times. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with four individual steps that, when followed, will give accurate and precise audio latency measurements.
+Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with four individual steps that, when followed, will give accurate and precise audio latency measurements.
 
 ## Step 1 - Verify The Measurement System
 

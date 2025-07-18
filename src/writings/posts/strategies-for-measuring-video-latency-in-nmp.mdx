@@ -86,7 +86,7 @@ However, the image latency is not all that matters in a performance. Aesthetic f
 
 It should be stated that aesthetic video factors are usually network dependent, specifically on its bandwidth limitations. Therefore, always get to know the bandwidth of the performance network and dial-in aesthetic factors before doing any kind of latency measurements.
 
-# Measurement Strategy
+# Measurement Strategy and Procedure
 
 After the measurement object is determined, it's time to construct a measurement strategy. There are two main strategies we can use when measuring latency in networked systems, standard one-way and Round-Trip Time (RTT). When adopting an RTT strategy for video latency measurements, the delayed image is sent to the remote location and looped back to the source before being measured (Carôt 2009). The downside of the RTT strategy is that it requires the same technical setup in each location to know the one-way latency. And from experience, similar technical setups are rare.
 
@@ -108,9 +108,7 @@ On the other hand, a one-way measurement strategy is challenging to perform if t
 
 Regardless of which strategy you choose, it's wise to give some extra thought to designing the video signal chain in advance. Video transmissions usually require a huge amount of bandwidth, much more than audio, so all processing stages (like format conversions, encoding, decoding, etc.) will most likely have a heavy impact on the latency. Try to have as few hardware and software stages as possible in the signal chain. Also, the power of your streaming PC matters! If resources are scarce, always prioritize having your most powerful laptops or PCs do the video encoding. This can significantly improve latency.
 
-# Measurement Procedure
-
-Setting up networked performance systems is usually pretty hectic. There are many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity in chaotic times. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
+Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can therefore ensure precision and scientific validity. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
 
 ## Step 1 - Verify The Measurement System
 
