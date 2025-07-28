@@ -25,15 +25,11 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        My name is Aleksander and I am passionate about music, software and
-        science. I live in Oslo where I play drums for various artists and work
-        as an engineer and lecturer for the Musicology Department at the University of
-        Oslo. This website is part portfolio and part blog, a platform where I
-        share my projects and write about music tech, audio programming and computer music.
+        My name is Aleksander and I am passionate about sound, software and science. I live in Oslo where I drum for various artists and work as an engineer and lecturer for the Musicology Department at the University of Oslo. This website is part portfolio and part blog, a platform where I share my projects and write about music technology, audio programming, networked music, and more.
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.
-        You can also reach out by leaving comments under each posts.
+        You can also reach out by leaving comments under each post.
       </p>
     </div>
   </div>

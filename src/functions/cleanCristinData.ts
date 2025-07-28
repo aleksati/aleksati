@@ -20,7 +20,7 @@ export const cleanCristinData = (
     // remove last comma and first space
     authors = authors.slice(1, -1);
 
-    // console.log(item);
+    console.log(item);
 
     // Get the journal or event name from different research categories
     let event: string = "";
@@ -34,7 +34,7 @@ export const cleanCristinData = (
       case "CHAPTERACADEMIC":
         // placeholder for now.
         event =
-          "Proceedings of the Sound and Music Computing Conference 2024";
+          "Proceedings of the Sound and Music Computing Conference";
         break;
       case "PERFORMINGARTS":
         event = "Performing Arts Research Event";
@@ -44,7 +44,7 @@ export const cleanCristinData = (
     }
 
     // title and year
-    const title = item.title ? item.title.en : "2024";
+    const title = item.title ? item.title.en : "2025";
     const year = item.year_published;
 
     // DOI and links to papers.

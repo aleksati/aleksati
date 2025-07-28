@@ -1,6 +1,6 @@
 ---
 title: "The Sun Right Now - Screensaver"
-date: "2025-06-02"
+date: "2025-07-27"
 keywords:
   [
     "astronomy",
@@ -12,7 +12,7 @@ keywords:
     "programming"
   ]
 type: "work"
-summary: "something"
+summary: "The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself. Avaliable for Win and OSX."
 ---
 
 {/*
@@ -25,11 +25,11 @@ summary: "something"
   captions={["",""]}
 />
 
-In a recent episode of <MyLink href="https://www.forskningsradet.no/om-oss/forskningskommunikasjon/podkast">Nyskjerrige Norge</MyLink>, the new podcast by the Norwegian Research Council, host Kristoffer Schau meets professor Mats Carlsson at the Rosseland Centre for Solar Physics, UiO, to discuss the mysteries of our sun. Aside from the interesting contents of the show, a particular comment made by Schau about a TV feed in Carlsson's UiO lunchroom caught my interest. The TV feed was made up of real-time scientific images of the sun and Schau remarked how great it would be if such a feed was available as a screensaver for TVs and laptops. Due to my lifelong interest in space, and more recent venture as an amateur astrophotographer, I was instantly inspired and decided to build the screensaver for myself.
+In a recent episode of <MyLink href="https://www.forskningsradet.no/om-oss/forskningskommunikasjon/podkast">Nyskjerrige Norge</MyLink>, a podcast by the Norwegian Research Council, host Kristoffer Schau meets with professor Mats Carlsson at the Rosseland Centre for Solar Physics, UiO, to discuss the mysteries of our sun. During the show, a particular comment made by Schau caught my interest. There was TV-feed in Carlsson's UiO lunchroom that displayed scientific images of the sun in real-time, and Schau remarked that it would be great if such a feed was available as a personal screensaver. This inspired me, and due to my lifelong interest in space, amateur astrophotography and software development, I decided to build such a screensaver for myself.
 
-In this post, I present _The Sun Right Now_, my new desktop screensaver that displays real-time 4K images of the sun in a mesmerizing slideshow. What's more, the images are updated automatically every 5 minutes to ensure only the very latest captures are shown. Below, I share how the app works and how you can use it for yourself.
+In this post, I present _The Sun Right Now_, my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. What's more, these images are real-time and updates automatically every 5 minutes to ensure only the very latest captures are shown. Below, I share how the app works and how you can use it for yourself.
 
-For a quick preview, check out a live browser version of the screensaver <MyLink href="https://aleksati.net/thesunrightnow-preview">here</MyLink>.
+To download the screensaver, visit my <MyLink href="https://github.com/aleksati/the-sun-right-now-screensaver/releases">GitHub release page</MyLink>. For a quick preview, check out  <MyLink href="https://aleksati.net/thesunrightnow-preview">this online version in the browser</MyLink>.
 
 # How it Works
 
@@ -37,14 +37,85 @@ The screensaver is essentially a tiny Nodejs API and Electron application window
 
 <MyImage src="thesunrightnow-diagram.png" alt="Diagram showing how my screensaver is designed." />
 
-The Nodejs API has one job; to retrieve image filenames from a public NASA repository that holds images from their Solar Dynamics Observatory (SDO). The SDO is a satellite currently in orbit around Earth whose job is to take photos and continuous measurements of the sun. Read more about the SDO project <MyLink href="https://sdo.gsfc.nasa.gov/">on their website</MyLink>. Fortunately, all the scientific data from NASA SDO is publically available and hosted online. For my screensaver app, this was great news. Since the images are already hosted online, I didn't need to fetch them from some API, I could just retrieve the URLs to the images and load them inside an HTML iframe element.
+The Nodejs API has one job; to retrieve image filenames from a public NASA repository that holds images from their Solar Dynamics Observatory (SDO). The SDO is a satellite currently in orbit around Earth taking photos and continuous measurements of the sun. Read more about the <MyLink href="https://sdo.gsfc.nasa.gov/">SDO project</MyLink> on their website. All the scientific data from NASA SDO is publically available and hosted online. This was great news for me because when the images are already hosted, I didn't need to fetch them from some API, I could just retrieve the URLs to the images and load them inside my app.
 
-To get the very latest images on demand, I took advantage of how NASA organizes its SDO images. The photos are put into a folder structure that represents days, months and years. The image filenames themselves also include the date, time, type, and resolution of the images. You can browse the NASA SDO assets folder I use <MyLink href="https://sdo.gsfc.nasa.gov/assets/img/browse">here</MyLink>. With this in place, I only had to add the current date to the fetching URL to find the correct image folder. Then, to get the latest images, I simply fetched all the filenames in the folder and sorted them on my API based on the values in their filenames. Finally, I filtered for only 4k images.
+To get the very latest images, on demand, I took advantage of how NASA organizes their SDO images. The photos are put into a folder structure that represents days, months and years. The image filenames themselves also include the date, time, type, and resolution of the images. You can browse the NASA SDO assets folder I use <MyLink href="https://sdo.gsfc.nasa.gov/assets/img/browse">here</MyLink>. With this in place, I only had to use the current date to find the correct image folder. Then, to get the latest images, I simply fetched all the filenames in the folder and sorted them locally on my node API based on the values in their filenames. Here I filter for 4k images only.
 
-On the React frontend, I call the API to acquire the first batch of image filenames when the component has mounted. Then, I use the setInterval() method to schedule further API calls at a fixed interval, making the filename-fetching recurrent and self-updating. I chose to make this happen every 5 minutes, but you can easily choose another interval by editing the second argument of the setInterval method.
+Here is the Node local server in full:
+```javascript
+// NodeJs API local server -> "./src/api.mjs"
+// Fetches, cleans and filers image filenames from NASA SDO.
+import express from "express";
+import cors from "cors";
 
+const app = express();
+const port = 8001;
+app.use(cors());
+app.use(express.json());
+
+const getCurrDate = () => {
+  // get current date in format string "YYYY-MM-DD"
+  let dateObj = new Date();
+  let year = String(dateObj.getUTCFullYear());
+  let month = String(dateObj.getUTCMonth() + 1); // get month 1-12
+  month = Number(month) < 10 ? "0" + month : month;
+  let day = String(dateObj.getUTCDate());
+  day = Number(day) < 10 ? "0" + day : day;
+  return `${year}-${month}-${day}`;
+};
+
+app.get("/api/thesunrightnow", async (req, res) => {
+  // retrieve new imgfilenames from the NASA server.
+  // get date "2025-12-24" and make "2025/12/24"
+  let date = getCurrDate();
+  date = date.replaceAll("-", "/");
+  const baseUrl = `https://sdo.gsfc.nasa.gov/assets/img/browse/${date}/`;
+  const res2 = await fetch(baseUrl);
+  const html = await res2.text();
+
+  // Find all hrefs ending in .jpg
+  const imageRegex = /href="(.*?\.jpg)"/g;
+  const matches = [...html.matchAll(imageRegex)];
+  // Build full URLs from these
+  const filenames = matches.map((match) => baseUrl + match[1]);
+  // Sort by filename descending (based on timestamp in filename)
+  const sorted = filenames.sort().reverse();
+  // get only latest 16 filenames
+  const lastSixteen = sorted.slice(0, 16);
+
+  // every images comes in 3 resolutions, 512, 2048, 4096. 
+  // When I only grab the images with 4096 resolution, this leaves 4 images in total.
+  const imgFileNames = lastSixteen.filter((e) => e.includes("4096"));
+
+  res.status(200).json(imgFileNames);
+});
+
+const server = app.listen(port, () => {
+  console.log(`Local API listening at http://localhost:${port}`);
+});
+
+// properly close the server when .exe is quit or interuppted
+process.on("SIGTERM", () => {
+  server.close(() => {
+    console.log("HTTP server closed.");
+  });
+});
+
+process.on("SIGINT", () => {
+  server.close(() => {
+    console.log("HTTP server closed.");
+  });
+});
+```
+
+In my React front-end, I call my local Node API first to acquire the initial batch of image filenames and to initalize the image slideshow. To make the filename-fetching recurrent and self-updating, I use the setInterval method in a UseEffect function to schedule API calls at fixed intervals. This happen every 5 minutes in my app, but it's easy to choose another interval simply by editing the second argument of the setInterval method.
+
+To render the sun images on-screen, the filenames are passed one by one to an img HTML element. To handle the "one-by-one" slideshow-part, another setInterval method is used to iterate over the list of filenames and choose a new index automatically every 10 seconds, essentially rotating the image carousell.
+
+Here is the React front-end component in full:
 ```JSX
-// React frontend component -> "./src/TheSunRightNow.jsx"
+// React front-end -> "./src/TheSunRightNow.jsx"
+// get and display sun images in fullscreen
 import { useEffect, useState } from "react";
 import useWindowSize from "./hooks/useWindowSize";
 
@@ -119,14 +190,115 @@ const TheSunRightNow = () => {
 export default TheSunRightNow;
 ```
 
-To render the images on screen, the filenames are passed one by one to an img HTML element. To handle the "one-by-one" part, another setInterval() method is used to iterates over the list of filenames and choose a new index automatically every 10 seconds, essentially rotating the image carousell.
+Finally, to host my project inside a nice application window (and not a browser window) I used the Electron library as a wrapper for my React front-end and Node API. Electron provides a lot of boilerplates and tools to manage user input and the compilation of the app into a ready executable.
 
-Finally, I use the Electron library as a wrapper for my React frontend to host it inside a nice application window that's not a browser window. Electron also provides a lot of necessary tools to manage user input and the compilation of the app into an executable.
+In my case, not much config was needed with Electron, but I had to be explicit about a few processes to make my app window act like a screensaver. For instance, I had to make sure that it loaded in fullscreen, covering any taskbar or cursor that might be in front, see to it that cursor movements and keyboard presses exited the app, and start the Node API in the correct order. At the very end, I also added some Electron config for switching between development and production mode and edited the package.json with the necessary build settings for both Windows and macOS.
+
+See my full Electron "main.js" here:
+```javascript
+// Electron config file -> "./src/main.js"
+// Starts my API node server and hosts my React front-end as a desktop App using Electron
+import { app, BrowserWindow, screen } from "electron";
+import isDev from "electron-is-dev";
+import { fileURLToPath } from "url";
+import path from "path";
+
+// First, start my API server for fetching images from NASA
+import "./api.mjs";
+
+// Flag true if running "npm run start" (checking prod build in dev mode).
+// Flag false for dev and production.
+const checkBuild = false;
+
+// Create the main screensaver window
+const createWindow = () => {
+  const win = new BrowserWindow({
+    fullscreen: true,
+    frame: false,
+    alwaysOnTop: true,
+    skipTaskbar: true,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
+
+  if (isDev && checkBuild) {
+    // when I want to check the prod build in dev
+    console.log("Dev and checkBuild env");
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const filePath = path.join(__dirname, "dist", "index.html");
+    console.log("Loading from file:", filePath);
+    win.loadFile(filePath);
+  } else if (isDev) {
+    // dev
+    console.log("Dev env");
+    win.loadURL("http://localhost:8000");
+    console.log("Loading from dev server:", "http://localhost:8000");
+  } else {
+    // this is production
+    console.log("Production env");
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const filePath = path.join(__dirname, "dist", "index.html");
+    console.log("Loading from file:", filePath);
+    win.loadFile(filePath);
+  }
+
+  // Exit screensaver on mouse or keyboard activity
+  win.webContents.on("before-input-event", (event, input) => {
+    if (["mouseDown", "mouseMove", "keyDown"].includes(input.type)) {
+      app.quit();
+    }
+  });
+
+  // Extra exit method for mouse movements
+  const monitorMouseMovement = () => {
+    let lastPos = screen.getCursorScreenPoint();
+    const interval = setInterval(() => {
+      const currentPos = screen.getCursorScreenPoint();
+      if (currentPos.x !== lastPos.x || currentPos.y !== lastPos.y) {
+        clearInterval(interval);
+        app.quit();
+      }
+      lastPos = currentPos;
+    }, 1000); // check every second
+  };
+
+  monitorMouseMovement();
+};
+
+function showConfig() {
+  console.log("Screensaver config requested.");
+}
+
+// Handle command-line arguments and slice out the first one (electron binary)
+const args = process.argv.slice(1);
+
+app.whenReady().then(() => {
+  if (args.some((arg) => arg.toLowerCase() === "/s")) {
+    createWindow();
+  } else if (args.some((arg) => arg.toLowerCase() === "/c")) {
+    showConfig();
+    app.quit();
+  } else if (args.some((arg) => arg.toLowerCase() === "/p")) {
+    // Preview mode (not handled here)
+    app.quit();
+  } else {
+    // Default behavior: launch screensaver
+    createWindow();
+  }
+});
+
+app.on("window-all-closed", () => {
+  app.quit();
+});
+```
 
 # How to Use it
 
-To use the screensaver on a Windows machine, first download the latest version for your system from <MyLink href="https://github.com/aleksati/the-sun-right-now-screensaver/releases">the GitHub repository</MyLink>. Then, change the extension on the main executable file from ".exe" to ".scr" which will make Windows recognize the app as a Screensaver program. Finally, right-click on the now screensaver app and hit "install". Be aware that you may need to approve a few security warnings when first running the screensaver. This is simply because it hosts a tiny server and makes some HTTP requests while running, nothing dangerous.
+To use the screensaver on a Windows machine, first download the latest version for your system from this <MyLink href="https://github.com/aleksati/the-sun-right-now-screensaver/releases">GitHub release page</MyLink>. Then, right-click on the screensaver file (.scr) and hit "install". Be aware that you may need to approve a few security warnings when first running the screensaver. This is simply because it hosts a tiny server and makes some HTTP requests while running, nothing dangerous.
 
-On OSX, ...
+On OSX, _coming soon_...
 
-For development, follow the instructions on the GitHub repository.
+For development, follow the instructions in the <MyLink href="https://github.com/aleksati/the-sun-right-now-screensaver">GitHub code repository</MyLink> README.

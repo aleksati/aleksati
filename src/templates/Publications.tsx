@@ -47,6 +47,10 @@ const Publications = () => {
           {researchData?.map((item, idx) => {
             // Remove certian results, if needed. Here I remove Hybrid Learning duplicate.
             if (item.cristin_result_id === "2044269") return;
+            // Remove also the duplicate Hardanger Fiddle papers
+            if (item.cristin_result_id === "1939273") return;
+            // Remove also the duplicate Pop senter dance event
+            if (item.cristin_result_id === "2305608") return;
             return (
               <div key={idx}>
                 {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}.
