@@ -6,7 +6,7 @@ import LayoutPageMobile from "./LayoutPageMobile";
 import Meta from "../components/Meta";
 import React, { useRef } from "react";
 
-const widthTresh: number = 768; // tailwind md; 768 // lg
+const widthTresh: number = 1322; // tailwind md; var 768 // lg 1024
 
 type Props = {
   pageId?: string;
@@ -26,7 +26,8 @@ const LayoutPage = ({ pageId = "top", children, className, pageMeta,  toc=null, 
   return (
     <>
       <Meta {...pageMeta} />
-      <div className="min-h-screen max-w-7xl flex relative">
+      <div className="min-h-screen flex relative">
+        {/* var max-w-7xl */}
         {width < widthTresh ? (
           <LayoutPageMobile pageId={pageId} className={className}  toc={toc} isPostWithToc={isPostWithToc} ref={pageTopRef}>
             {children}

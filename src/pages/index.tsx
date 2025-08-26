@@ -13,11 +13,12 @@ export default function handler({ frontMatterList, keywords }: Props) {
     <LayoutPage pageMeta={{ title: "", keywords }}>
       {/* <About /> */}
       {/* <div className="py-4"> */}
-      <h2 className="flex md:flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark text-2xl">
+      <h2 className="flex md:flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark text-xl">
         Latest
       </h2>
       {/* <PostListSmall frontMatterList={frontMatterList} /> */}
       <PostList frontMatterList={frontMatterList} showType={true} />
+      <p className="pt-6">...</p>
       {/* </div> */}
     </LayoutPage>
   );

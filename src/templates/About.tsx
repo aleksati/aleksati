@@ -4,13 +4,14 @@ import MySoMeBar from "../components/MySoMeBar";
 
 const About = () => (
   <div className="pb-6">
-    <div className="grid grid-cols-4 gap-4 pb-6 items-start">
-      <div className="col-span-4 sm:col-span-1 flex md:flex">
+    <div className="grid grid-cols-4 gap-4 items-start pb-6">
+      <div className="col-span-4 sm:col-span-2 flex md:flex">
         <MyImage
           alt="Portrett pic of me"
           isExpandable={true}
           priority={true}
           src="me.jpg"
+          padding={false}
           // width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.
         />
       </div>

@@ -6,12 +6,14 @@ import Image, { ImageProps } from "next/image";
 interface MyImageProps extends ImageProps {
   caption?: string;
   isExpandable?: boolean;
+  padding?: boolean;
 }
 
 const MyImage = ({
   caption,
   isExpandable = false,
-  width = 600,
+  width = 736, // was 600
+  padding = true,
   ...rest
 }: MyImageProps): React.JSX.Element => {
   const { height, src } = rest;
@@ -25,7 +27,7 @@ const MyImage = ({
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-center">
+      <div className={`w-full flex flex-col justify-center items-left ${padding ? "py-8" : "py-0"}`}>
         <div className="relative">
           <Image
             src={img}

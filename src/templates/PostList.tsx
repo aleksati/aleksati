@@ -1,8 +1,8 @@
 import PostListItem from "../components/PostListItem";
-import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 
 // how many items to show on each page
-const pageThresh = 5;
+// const pageThresh = 5;
 
 const PostList = ({
   frontMatterList,
@@ -12,13 +12,16 @@ const PostList = ({
   showType?: boolean;
 }) => (
   <div className="grid grid-cols-1 gap-12">
+    {frontMatterList.map((fr) => <PostListItem key={fr.slug} showType={showType} {...fr}/>)}
+    {/* 
+    // With pagination!
     <Pagination frontMatterList={frontMatterList} threshold={pageThresh}>
       {(data) =>
         data.map((post) => (
           <PostListItem key={post.slug} showType={showType} {...post} />
         ))
       }
-    </Pagination>
+    </Pagination> */}
   </div>
 );
 

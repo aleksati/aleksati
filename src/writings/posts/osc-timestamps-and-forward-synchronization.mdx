@@ -63,18 +63,14 @@ Forward synchronization is a technique where a fixed delay is added to timestamp
 
 # Code Setup and Dependencies
 
-This guide below details OSC communication specifically between Python and Pure Data (PD). You can choose to follow in both environemnts, as demonstrated, or simply use the one you are most familiar with.
-
-For the Python development, download and install <MyLink href="https://www.python.org/downloads/">Python version 3</MyLink>. Then, install the libraries playsound, for audio playcback, and python-osc, for OSC commnication, through pip or via download.
+This guide below details OSC communication specifically between Python and Pure Data (PD). You can choose to follow in both environemnts, as demonstrated, or simply use the one you are most familiar with. For the Python development, download and install <MyLink href="https://www.python.org/downloads/">Python version 3</MyLink>. Then, install the libraries playsound, for audio playcback, and python-osc, for OSC commnication, through pip or via download.
 
 ```
 pip install playsound==1.2.2
 pip install python-osc
 ```
 
-For PD, install <MyLink href="https://puredata.info/downloads/pure-data">Pure Data Vanilla, version 0.54</MyLink>. Then, download the <MyLink href="https://github.com/pd-externals/mrpeach">mrpeach</MyLink> library. We will use mrpeach for OSC communication. I recommend installing the 32-bit version of PD vanilla for mrpeach to work as intended.
-
-Find <MyLink href="https://github.com/aleksati/osc-timestamps-and-forward-synchronization-workshop">the full code repository</MyLink> at my GitHub, complete with full PD patches and both jupyter notebooks and pyscript versions of the Python parts.
+For PD, install <MyLink href="https://puredata.info/downloads/pure-data">Pure Data Vanilla, version 0.54</MyLink>. Then, download the <MyLink href="https://github.com/pd-externals/mrpeach">mrpeach</MyLink> library. We will use mrpeach for OSC communication. I recommend installing the 32-bit version of PD vanilla for mrpeach to work as intended. Find <MyLink href="https://github.com/aleksati/osc-timestamps-and-forward-synchronization-workshop">the full code repository</MyLink> at my GitHub, complete with full PD patches and both jupyter notebooks and pyscript versions of the Python parts.
 
 # Step 1 - Simple P2P Messaging
 

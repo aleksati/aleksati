@@ -9,16 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 28 Jul 2025 13:48:13 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Aug 2025 12:58:55 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 28 Jul 2025 13:48:13 GMT</pubDate>
-        <item>
-            <title><![CDATA[The Sun Right Now - Screensaver]]></title>
-            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself.]]></description>
-            <link>http://localhost:3000/works/thesunrightnow-screensaver</link>
-            <guid isPermaLink="true">http://localhost:3000/works/thesunrightnow-screensaver</guid>
-            <pubDate>Sun, 27 Jul 2025 00:00:00 GMT</pubDate>
-        </item>
+        <pubDate>Tue, 26 Aug 2025 12:58:55 GMT</pubDate>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
             <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>

@@ -40,6 +40,7 @@ type Props = {
   width?: number | null;
   captions?: string[];
   priority?: boolean;
+  padding?: boolean;
 };
 
 const MySlideshow = ({
@@ -47,6 +48,7 @@ const MySlideshow = ({
   captions = [],
   width = null,
   priority = false,
+  padding = true,
 }: Props) => {
   const w: string | null = width ? `w-[${width}px]` : null;
   return (
@@ -60,7 +62,8 @@ const MySlideshow = ({
               priority={priority}
               alt={`slideshow image of ${slug}`}
               caption={captions ? captions[index] : null}
-              width={width ? width : 600}
+              width={width ? width : null}
+              padding={padding}
             />
           ))}
         </Slide>
@@ -68,8 +71,9 @@ const MySlideshow = ({
         <MyImage
           src={imgs[0]}
           priority={priority}
-          width={width ? width : 600}
+          width={width ? width : null}
           alt={`slideshow image of ${imgs[0]}`}
+          padding={padding}
         />
       )}
     </div>
