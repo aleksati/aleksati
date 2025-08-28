@@ -8,10 +8,10 @@ export const SITE_DOMAIN: string = dev
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).
 export const NAV_TABS: Record<string, string> = {
   // "identifyer" : "url/key/title"
-  about: "about",
   posts: "posts",
   works: "works",
   music: "music",
+  about: "about",
   publications: "publications",
 };
 

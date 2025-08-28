@@ -27,7 +27,7 @@ const MyImage = ({
 
   return (
     <>
-      <div className={`w-full flex flex-col justify-center items-left ${padding ? "py-8" : "py-0"}`}>
+      <div className={`w-full flex flex-col justify-center items-left ${padding ? "py-6" : "py-0"}`}>
         <div className="relative">
           <Image
             src={img}

@@ -11,7 +11,7 @@ const PostList = ({
   frontMatterList: FrontMatterList;
   showType?: boolean;
 }) => (
-  <div className="grid grid-cols-1 gap-12">
+  <div className="grid grid-cols-1 gap-8">
     {frontMatterList.map((fr) => <PostListItem key={fr.slug} showType={showType} {...fr}/>)}
     {/* 
     // With pagination!

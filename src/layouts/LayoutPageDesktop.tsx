@@ -15,7 +15,7 @@ const LayoutPageDesktop = forwardRef<Ref, Props>(
     <>
       <NavVertical showNavTop={false} toc={toc} isPostWithToc={isPostWithToc} />
       <div
-        className={`container pb-6 mx-auto flex-1 overflow-hidden px-4 pt-4 ${className}`}
+        className={`container pb-6 mx-auto flex-1 overflow-hidden px-4 sm:px-2 pt-4 ${className}`}
         id={pageId}
         ref={ref}>
         {children}

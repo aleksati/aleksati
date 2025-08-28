@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import ButtonIcon from "./ButtonIcon";
 import Link from "next/link";
+import Search from "./Search";
 
 type Props = {
   onToggleNavVertical: () => void;
@@ -23,17 +24,17 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }: Props) => {
       <div className="flex p-4 items-center space-x-1 font-bold">
         {/* This is the path link at the top */}
         {/* <p className="font-bold">/</p> */}
-        <Link
-          href={`/`}
-          className="hover:cursor-pointer">
-        aleksati.net
-        </Link>
-        {currRoute ? <p>/</p> : null} 
-        <Link
-          href={`/${currRoute}`}
-          className="hover:cursor-pointer">
-        {currRoute}
-        </Link>
+          <Link
+            href={`/`}
+            className="hover:cursor-pointer">
+            aleksati.net
+          </Link>
+          {currRoute ? <p>/</p> : null}
+          <Link
+            href={`/${currRoute}`}
+            className="hover:cursor-pointer">
+            {currRoute}
+          </Link>
       </div>
       {/* fixed class, because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
       <div className="fixed top-3 right-4">

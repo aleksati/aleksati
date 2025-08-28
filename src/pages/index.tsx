@@ -18,7 +18,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
       </h2>
       {/* <PostListSmall frontMatterList={frontMatterList} /> */}
       <PostList frontMatterList={frontMatterList} showType={true} />
-      <p className="pt-6">...</p>
+      {/* <p className="pt-6">...</p> */}
       {/* </div> */}
     </LayoutPage>
   );
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
   await generateRSS(frontMatterListCache);
 
   // get the 5 of the latest post/works
-  const frontMatterList: FrontMatterList = frontMatterListCache.slice(0, 5);
+  const frontMatterList: FrontMatterList = frontMatterListCache; // frontMatterListCache.slice(0, 5); I used to filter this..
   const keywords: string[] = getKeysFromFr(frontMatterListCache);
 
   return { props: { frontMatterList, keywords } };
