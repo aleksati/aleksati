@@ -20,7 +20,7 @@ export const cleanCristinData = (
     // remove last comma and first space
     authors = authors.slice(1, -1);
 
-    console.log(item);
+    // console.log(item);
 
     // Get the journal or event name from different research categories
     let event: string = "";
