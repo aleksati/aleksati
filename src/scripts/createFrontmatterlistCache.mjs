@@ -11,7 +11,7 @@ import fs from "fs";
 
 const root = process.cwd() + "/src/writings";
 
-console.log(root);
+// console.log(root);
 
 // sort by date
 // SHOULD BE UPDATED, ONLY COMPARES STRINGS.
@@ -48,14 +48,14 @@ function getAllFr(postType = "posts") {
 
 // gather all frontmatter and make one big list
 const posts = getAllFr("posts");
-const projects = getAllFr("works");
+const projects = getAllFr("projects");
 const music = getAllFr("music");
 const allFr = posts.concat(projects, music);
 
 // sort by date
 const allFrSorted = sortFrByDate(allFr);
 
-const fileContents = `export const frontMatterListCache = ${JSON.stringify(
+const fileContents = `export const frontMatterListCache : FrontMatterList = ${JSON.stringify(
   allFrSorted
 )}`;
 
@@ -66,8 +66,8 @@ try {
   fs.mkdirSync("./src/cache");
 }
 
-fs.writeFile("./src/cache/frontmatterlist.js", fileContents, (err) => {
+fs.writeFile("./src/cache/frontmatterlist.ts", fileContents, (err) => {
   // writing to the frontmatter.js file
   if (err) return console.log(err);
-  console.log("Frontmatter cached.");
+  console.log("Frontmatter cached successfully!");
 });

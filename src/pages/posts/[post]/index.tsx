@@ -7,7 +7,6 @@ let page: string = "post";
 export default function handler({ frontMatter, mdxSource, toc}: MDXPostProps) {
   return (
     <LayoutPage
-      isPostWithToc={true}
       toc={toc}
       pageMeta={{
         title: frontMatter.title,

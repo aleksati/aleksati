@@ -1,14 +1,31 @@
 import { useRouter } from "next/router";
+import useWindowSize from "../hooks/useWindowSize";
 import ButtonIcon from "./ButtonIcon";
 import Link from "next/link";
 import Search from "./Search";
+import ModalSearch from "./ModalSearch";
 
 type Props = {
   onToggleNavVertical: () => void;
   showNavVertical: boolean;
+  onToggleNavVerticalToc: () => void;
+  showNavVerticalToc: boolean;
+  isPostWithToc: boolean;
 };
 
-const NavTop = ({ onToggleNavVertical, showNavVertical }: Props) => {
+const NavTop = ({
+  onToggleNavVertical,
+  showNavVertical,
+  showNavVerticalToc,
+  onToggleNavVerticalToc,
+  isPostWithToc,
+}: Props) => {
+  // to determine which Search bar to use
+  const { width } = useWindowSize();
+  // the width of the screen when the Seach bar goes from desktop to mobile version
+  const widthTresh: number = 1024; // tailwind md; var 768 // lg 1024
+
+  // to set the curren route in the title of the page
   // get the current route after /pages and remove the first "/" with slice
   const route: string = useRouter().pathname.slice(1);
   // remove /[post] stuff on nested rutes, and remaining "/" at the end
@@ -18,31 +35,39 @@ const NavTop = ({ onToggleNavVertical, showNavVertical }: Props) => {
 
   return (
     <nav
-      className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
+      className="z-40 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
       role="toolbar">
-      <div className="flex p-4 items-center space-x-1 font-bold">
-        {/* This is the path link at the top */}
-        {/* <p className="font-bold">/</p> */}
-          <Link
-            href={`/`}
-            className="hover:cursor-pointer">
+      <div className="flex items-center justify-between p-4">
+        <div className="flex space-x-1 -mt-1 lg:-mt-2 font-bold w-1/4">
+          <Link href={`/`} className="hover:cursor-pointer">
             aleksati.net
           </Link>
           {currRoute ? <p>/</p> : null}
-          <Link
-            href={`/${currRoute}`}
-            className="hover:cursor-pointer">
+          <Link href={`/${currRoute}`} className="hover:cursor-pointer">
             {currRoute}
           </Link>
-      </div>
-      {/* fixed class, because it messes with the transition from navtop to nav vertical (just a tiny bit) */}
-      <div className="fixed top-3 right-4">
-        <ButtonIcon
-          iconSize="text-xl"
-          iconId={showNavVertical ? "x" : "threedots"}
-          onClick={onToggleNavVertical}
-        />
+        </div>
+        <div className="flex w-1/3 ml-9">
+          {/* on desktop */}
+          {width > widthTresh && <Search />}
+        </div>
+        <div className="flex justify-end space-x-2 w-1/3">
+          {/* on mobile */}
+          {width < widthTresh && <ModalSearch />}
+          <ButtonIcon
+            iconId={showNavVertical ? "x" : "threedots"}
+            onClick={onToggleNavVertical}
+            aria-label="Menu"
+          />
+          {isPostWithToc ? (
+            <ButtonIcon
+              iconId={showNavVerticalToc ? "x" : "toc"}
+              onClick={onToggleNavVerticalToc}
+              aria-label="Table of contents"
+            />
+          ) : null}
+        </div>
       </div>
     </nav>
   );

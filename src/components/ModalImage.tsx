@@ -1,8 +1,7 @@
+import { useIsMounted } from "../hooks/useIsMounted";
 import ClientOnlyPortal from "./ClientOnlyPortal";
 import { useRef, useEffect } from "react";
-// import FocusTrap from "focus-trap-react";
 import ButtonIcon from "./ButtonIcon";
-import { useIsMounted } from "../hooks/useIsMounted";
 
 type Props = {
   onModalClose: () => void;
@@ -46,7 +45,7 @@ const ModalImage = ({ onModalClose, children }: Props) => {
         className="fixed inset-0 z-50 flex items-center justify-center p-2 backdrop-brightness-50">
         {/* The Modal Card*/}
         <div
-          className={`max-h-full relative overflow-auto bg-primary-light dark:bg-primary-dark max-w-2xl`}
+          className={`max-h-full relative overflow-auto bg-primary-light dark:bg-primary-dark max-w-3xl`}
           ref={modalRef}>
           {/* The close button at the top right */}
           {children}

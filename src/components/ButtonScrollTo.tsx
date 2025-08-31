@@ -38,7 +38,7 @@ const ButtonScrollTo = ({ targetId, PageTopRef }: Props) => {
   if (isVisible) {
     return (
       <ButtonIcon
-        iconSize="text-xl"
+        // iconSize="text-xl"
         iconId="upArrow"
         onClick={handleButtonClick}
       />

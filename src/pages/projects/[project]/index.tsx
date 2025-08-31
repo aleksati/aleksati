@@ -2,12 +2,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import LayoutPage from "../../../layouts/LayoutPage";
 import Post from "../../../templates/Post";
 
-let page: string = "work";
+let page: string = "project";
 
 export default function handler({ frontMatter, mdxSource, toc }: MDXPostProps) {
   return (
     <LayoutPage
-      isPostWithToc={true}
       toc={toc}
       pageMeta={{
         title: frontMatter.title,
@@ -24,7 +23,7 @@ import { frontMatterListCache } from "../../../cache/frontmatterlist";
 import { dev, NAV_TABS } from "../../../config";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params.work as string;
+  const slug = params.project as string;
   const post: MDXPostProps = await getPostFromSlug(NAV_TABS[page + "s"], slug);
   return { props: { ...post } };
 };
@@ -46,7 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
 
   return {
-    paths: slugs.map((slug: string) => ({ params: { work: slug } })),
+    paths: slugs.map((slug: string) => ({ params: { project: slug } })),
     fallback: false,
   };
 };
