@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title><![CDATA[aleksati.net / music tech and creative computing]]></title>
-        <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, networked music, creative computing, software development, and more.]]></description>
+        <title><![CDATA[aleksati.net]]></title>
+        <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, creative computing, software development and more.]]></description>
         <link>http://localhost:3000</link>
         <image>
             <url>http://localhost:3000/img/me.jpg</url>
-            <title>aleksati.net / music tech and creative computing</title>
+            <title>aleksati.net</title>
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 28 Aug 2025 12:52:25 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Aug 2025 10:25:14 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 28 Aug 2025 12:52:25 GMT</pubDate>
+        <pubDate>Sun, 31 Aug 2025 10:25:14 GMT</pubDate>
+        <item>
+            <title><![CDATA[The Sun Right Now - Screensaver]]></title>
+            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself. Avaliable for Win and OSX.]]></description>
+            <link>http://localhost:3000/projects/thesunrightnow-screensaver</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/thesunrightnow-screensaver</guid>
+            <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
             <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
@@ -43,22 +50,22 @@
         <item>
             <title><![CDATA[Audio Latency Examiner]]></title>
             <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); a software tool for batch collecting audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
-            <link>http://localhost:3000/works/audio-latency-examiner</link>
-            <guid isPermaLink="true">http://localhost:3000/works/audio-latency-examiner</guid>
+            <link>http://localhost:3000/projects/audio-latency-examiner</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/audio-latency-examiner</guid>
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices]]></title>
             <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
-            <link>http://localhost:3000/works/dataset-generator-for-musical-devices</link>
-            <guid isPermaLink="true">http://localhost:3000/works/dataset-generator-for-musical-devices</guid>
+            <link>http://localhost:3000/projects/dataset-generator-for-musical-devices</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Software Poème Symphonique]]></title>
             <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
-            <link>http://localhost:3000/works/software-poeme-symphonique</link>
-            <guid isPermaLink="true">http://localhost:3000/works/software-poeme-symphonique</guid>
+            <link>http://localhost:3000/projects/software-poeme-symphonique</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -78,15 +85,15 @@
         <item>
             <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
             <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>
-            <link>http://localhost:3000/works/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
-            <guid isPermaLink="true">http://localhost:3000/works/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
+            <link>http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[aleks.max - a Tiny MaxMSP Bundle]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
-            <link>http://localhost:3000/works/aleks-max</link>
-            <guid isPermaLink="true">http://localhost:3000/works/aleks-max</guid>
+            <link>http://localhost:3000/projects/aleks-max</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -99,8 +106,8 @@
         <item>
             <title><![CDATA[0101101000 ... (hello world)]]></title>
             <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
-            <link>http://localhost:3000/works/hello-world</link>
-            <guid isPermaLink="true">http://localhost:3000/works/hello-world</guid>
+            <link>http://localhost:3000/projects/hello-world</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/hello-world</guid>
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -127,15 +134,15 @@
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
             <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone software tool for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
-            <link>http://localhost:3000/works/audiovideoanalysis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/audiovideoanalysis</guid>
+            <link>http://localhost:3000/projects/audiovideoanalysis</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[VideoAnalysis - Analyzing Music-related Body Motion]]></title>
             <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
-            <link>http://localhost:3000/works/videoanalysis</link>
-            <guid isPermaLink="true">http://localhost:3000/works/videoanalysis</guid>
+            <link>http://localhost:3000/projects/videoanalysis</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/videoanalysis</guid>
             <pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>

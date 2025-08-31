@@ -1,30 +1,23 @@
 import { useClickOutside } from "../hooks/useClickOutside";
-import NavVerticalTabsAndToc from "./NavVerticalTabsAndToc";
 import ButtonTheme from "./ButtonTheme";
 import { useEffect } from "react";
-import Search from "./Search";
 import Link from "next/link";
 import RSSLink from "./RSSLink";
 import { useRouter } from "next/router";
+import { NAV_TABS } from "../config";
+import MyLink from "./MyLink";
 
 type Props = {
-  showNavTop: boolean;
   onToggleNavVertical?: () => void;
-  isPostWithToc: boolean;
-  toc: TocList;
 };
 
-const NavVertical = ({
-  showNavTop,
-  onToggleNavVertical,
-  toc,
-  isPostWithToc,
-}: Props) => {
+const NavVertical = ({ onToggleNavVertical }: Props) => {
   const [ref, isClickOutside] = useClickOutside<HTMLDivElement>();
 
+  // This is for closing the menu when clicking outside of the menu.
   useEffect(() => {
-    if (isClickOutside && showNavTop) onToggleNavVertical();
-  }, [isClickOutside, onToggleNavVertical, showNavTop]);
+    if (isClickOutside) onToggleNavVertical();
+  }, [isClickOutside, onToggleNavVertical]);
 
   // get the current route after /pages and remove the first "/" with slice
   const route: string = useRouter().pathname.slice(1);
@@ -35,12 +28,10 @@ const NavVertical = ({
 
   return (
     <div
-      className={`z-50 min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark ${
-        showNavTop ? "fixed" : "fixed"
-      } w-72 p-4`}
+      className={`z-50 fixed min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-64 p-4`}
       ref={ref}>
-        {/* was ": flex-none" before */}
-      <div className="w-64 fixed mt-0">
+      {/* was ": flex-none" before */}
+      <div className="w-56 fixed">
         {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
@@ -50,7 +41,9 @@ const NavVertical = ({
                   <p>aleksati.net</p>
                 </Link>
                 {currRoute ? <p>/</p> : null}
-                <Link href={`/${currRoute}`} className="font-bold flex items-start space-x-2">
+                <Link
+                  href={`/${currRoute}`}
+                  className="font-bold flex items-start space-x-2">
                   <p>{currRoute}</p>
                 </Link>
               </div>
@@ -58,17 +51,39 @@ const NavVertical = ({
               <ButtonTheme />
             </div>
           </div>
-          <Search />
-          <div className="flex flex-col pt-14">
-            <NavVerticalTabsAndToc toc={toc} isPostWithToc={isPostWithToc} />
+          <div className="flex flex-col">
+            {/* This are the items in the nav */}
+            <div className="space-y-4">
+              {Object.entries(NAV_TABS).map(([id, url], index) => (
+                // https://stackoverflow.com/questions/34913675/how-to-iterate-keys-values-in-javascript
+                // <div className={`space-y-2`} key={url}>
+                //  <div
+                //   key={url}
+                //   className="flex space-x-1 items-center justify-start">
+                //   <MyLink active={url === currRoute} href={`/${url}`} type="nav">
+                //     {url}
+                //   </MyLink>
+                // </div>
+                <div
+                  key={url}
+                  className="flex space-x-1 items-center justify-start">
+                  <MyLink href={`/${url}`} type="nav">
+                    {id}
+                  </MyLink>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <RSSLink />
           </div>
         </div>
       </div>
-      <div className="fixed bottom-6 left-4">
+      {/* <div className="fixed bottom-6 left-4">
         <div className="flex space-x-4 z-50">
           <RSSLink />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

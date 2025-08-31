@@ -48,7 +48,7 @@ function getAllFr(postType = "posts") {
 
 // gather all frontmatter and make one big list
 const posts = getAllFr("posts");
-const projects = getAllFr("works");
+const projects = getAllFr("projects");
 const music = getAllFr("music");
 const allFr = posts.concat(projects, music);
 

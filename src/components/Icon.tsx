@@ -1,8 +1,12 @@
-import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from "react-icons/md";
+import {
+  MdOutlineArrowForwardIos,
+  MdOutlineArrowBackIosNew,
+  // MdToc 
+} from "react-icons/md";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { RiQuestionMark } from "react-icons/ri";
 import { RiCloseLine } from "react-icons/ri";
-// import { FaBandcamp } from "react-icons/fa";
+import { FaBandcamp, FaListOl, FaBars   } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 // import { AiFillYoutube } from "react-icons/ai";
 import { LuWaves } from "react-icons/lu";
@@ -20,7 +24,14 @@ import { AiOutlineCheck, AiOutlineExpandAlt } from "react-icons/ai";
 import { HiAdjustments, HiRss } from "react-icons/hi";
 // import { BsKey } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsBuildings, BsInstagram, BsLinkedin, BsMastodon, BsSearch, BsGithub } from "react-icons/bs";
+import {
+  BsBuildings,
+  BsInstagram,
+  BsLinkedin,
+  BsMastodon,
+  BsSearch,
+  BsGithub,
+} from "react-icons/bs";
 
 const icons: object = {
   wave: (s: string) => <LuWaves className={s} />,
@@ -36,8 +47,18 @@ const icons: object = {
   details: (s: string) => <GiMagnifyingGlass className={s} />,
   prevArrow: (s: string) => <MdOutlineArrowBackIosNew className={s} />,
   nextArrow: (s: string) => <MdOutlineArrowForwardIos className={s} />,
-  downArrow: (s: string) => <MdOutlineArrowForwardIos className={s} style={{ transform: "rotate(90deg)" }} />,
-  upArrow: (s: string) => <MdOutlineArrowForwardIos className={s} style={{ transform: "rotate(-90deg)" }} />,
+  downArrow: (s: string) => (
+    <MdOutlineArrowForwardIos
+      className={s}
+      style={{ transform: "rotate(90deg)" }}
+    />
+  ),
+  upArrow: (s: string) => (
+    <MdOutlineArrowForwardIos
+      className={s}
+      style={{ transform: "rotate(-90deg)" }}
+    />
+  ),
   x: (s: string) => <RiCloseLine className={s} />,
   facebook: (s: string) => <BsFacebook className={s} />,
   instagram: (s: string) => <BsInstagram className={s} />,
@@ -55,12 +76,15 @@ const icons: object = {
   // threedots: (s) => (
   //   <HiDotsHorizontal className={s} style={{ transform: "rotate(-90deg)" }} />
   // ),
-  threedots: (s: string) => <AiOutlineMenu className={s} />,
-  filter: (s: string) => <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />,
+  threedots: (s: string) => <FaBars className={s} />,
+  filter: (s: string) => (
+    <HiAdjustments className={s} style={{ transform: "rotate(-90deg)" }} />
+  ),
   // web: (s) => <TbWorldWww className={s} />,
   mastodon: (s: string) => <BsMastodon className={s} />,
   linkedin: (s: string) => <BsLinkedin className={s} />,
   github: (s: string) => <BsGithub className={s} />,
+  toc: (s: string) => <FaListOl  className={s} />,
 };
 
 type Props = {
@@ -68,7 +92,7 @@ type Props = {
   id: string;
 };
 
-const Icon = ({ iconSize = "text-2xl", id }: Props) => {
+const Icon = ({ iconSize = "text-xl", id }: Props) => {
   const icon: (item: string) => React.JSX.Element = icons[id];
   return icon(iconSize);
 };

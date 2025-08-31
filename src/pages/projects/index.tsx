@@ -2,7 +2,7 @@ import LayoutPage from "../../layouts/LayoutPage";
 import PostList from "../../templates/PostList";
 import { GetStaticProps } from "next";
 
-let page: string = "work";
+let page: string = "project";
 
 type Props = {
   frontMatterList: FrontMatterList;
@@ -13,7 +13,7 @@ export default function handler({ frontMatterList, keywords }: Props) {
   return (
     <LayoutPage
       pageMeta={{
-        title: page,
+        title: page + "s",
         keywords,
       }}>
       <PostList frontMatterList={frontMatterList} />

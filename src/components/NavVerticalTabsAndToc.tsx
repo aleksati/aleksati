@@ -5,10 +5,6 @@ import MyLink from "./MyLink";
 //   { depth: 1, text: "Step 1 - hey" },
 //   { depth: 1, text: "Step 2 - hey me" },
 //   { depth: 1, text: "Step 3 - hey" },
-//   { depth: 1, text: "Step 4 - hey" },
-//   { depth: 1, text: "Step 5 - hey" },
-//   { depth: 1, text: "Step 6 - hey" },
-//   { depth: 2, text: "Step 7" },
 
 type Props = {
   toc: TocList;
@@ -80,7 +76,6 @@ const NavVerticalTabsAndToc = ({ toc, isPostWithToc = false }: Props) => {
                 {url}
               </MyLink>
             </div>
-            // </div>
           ))}
         </div>
       )}

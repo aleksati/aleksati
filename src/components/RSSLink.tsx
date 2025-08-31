@@ -5,7 +5,7 @@ import Link from "next/link";
 const RSSLink = () => (
   <Link href="/rss.xml">
     <div className="flex space-x-1 items-center">
-      <Icon id="rss" iconSize="sm" />
+      <Icon id="rss" iconSize="md" />
       <p>RSS</p>
     </div>
   </Link>
