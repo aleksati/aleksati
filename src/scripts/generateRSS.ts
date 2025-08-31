@@ -2,6 +2,7 @@ import { SITE_DOMAIN } from "../config";
 import RSS from "rss";
 import fs from "fs";
 
+// Generate an upated RSS feed with all my posts/projects etc.
 // gets called from pages/index.js
 export const generateRSS = async (frontMatterList: FrontMatterList): Promise<void> => {
   const feedOptions = {
@@ -25,5 +26,5 @@ export const generateRSS = async (frontMatterList: FrontMatterList): Promise<voi
   });
 
   fs.writeFileSync("./public/rss.xml", feed.xml({ indent: true }));
-  console.log("RSS generated.");
+  console.log("RSS generated successfully!");
 };

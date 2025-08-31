@@ -39,7 +39,7 @@ const NavTop = ({
       aria-label="Navbar"
       role="toolbar">
       <div className="flex items-center justify-between p-4">
-        <div className="flex space-x-1 -mt-1 lg:-mt-2 font-bold w-1/3">
+        <div className="flex space-x-1 -mt-1 lg:-mt-2 font-bold w-1/4">
           <Link href={`/`} className="hover:cursor-pointer">
             aleksati.net
           </Link>
@@ -48,7 +48,7 @@ const NavTop = ({
             {currRoute}
           </Link>
         </div>
-        <div className="flex w-1/3">
+        <div className="flex w-1/3 ml-9">
           {/* on desktop */}
           {width > widthTresh && <Search />}
         </div>

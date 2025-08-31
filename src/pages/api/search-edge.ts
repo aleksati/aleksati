@@ -4,11 +4,45 @@ import type { NextRequest } from "next/server";
 // handles my page search queries, but with edge runtime instead of nodejs. Maybe this is faster.
 // titles first then keywords
 
-const resultLimit: number = 5;
-
 export const config = {
   runtime: "edge",
 };
+
+const resultLimit: number = 5;
+
+// I also add some pages manually just ecause its cool when they appears in the search.
+const extra: FrontMatterList = [
+  {
+    slug: "about",
+    title: "About me",
+    date: "1991-12-12",
+    keywords: [
+      "music technologist",
+      "developer",
+      "networked music",
+      "aleksati",
+      "alexfurimmer"
+    ],
+    type: "extra",
+    summary: "",
+  },
+  {
+    slug: "publications",
+    title: "Publications",
+    date: "1991-12-12",
+    keywords: [
+      "A Universal Tool for Generating Datasets from Audio Effects",
+      "DGMD",
+      "Hybrid Learning Spaces with Spatial Audio",
+      "Towards New Analysis And Visualization Software For Studying Performance Patterns in Hardanger Fiddle Music",
+      "Interactive tools for exploring performance patterns in hardanger fiddle music",
+    ],
+    type: "extra",
+    summary: "",
+  },
+];
+
+const FrList: FrontMatterList = frontMatterListCache.concat(extra);
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -31,7 +65,7 @@ export default async function handler(req: NextRequest) {
     // with only "javascript" or "node".
 
     // start with titles
-    titleHits = frontMatterListCache.filter((fr) =>
+    titleHits = FrList.filter((fr) =>
       query_array.every((q) => fr.title.toLowerCase().includes(q.toLowerCase()))
     );
 
@@ -42,10 +76,10 @@ export default async function handler(req: NextRequest) {
     } else {
       // if there is still "more room" for results, search for keyword matches
       // but dont add duplicates (items that are in titleHits already)
-      keywordHits = frontMatterListCache.filter((fr) => {
+      keywordHits = FrList.filter((fr) => {
         if (titleHits.includes(fr)) return false;
         return query_array.every((query) =>
-          fr.keywords.some((keywords) => keywords.includes(query.toLowerCase()))
+          fr.keywords.some((keywords) => keywords.toLowerCase().includes(query.toLowerCase()))
         );
       });
 
