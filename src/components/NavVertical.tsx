@@ -47,7 +47,7 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                   <p>{currRoute}</p>
                 </Link>
               </div>
-              <div></div>
+              {/* <div></div> */}
               <ButtonTheme />
             </div>
           </div>

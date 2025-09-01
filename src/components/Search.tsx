@@ -67,8 +67,8 @@ const Search = () => {
   return (
     <div className="relative w-full" ref={ref}>
       <input
-        className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-md h-10 lg:h-8 w-full"
-        placeholder="&#x1F50E;&#xFE0E; search posts, keywords and more"
+        className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-md h-16 lg:h-8 w-full"
+        placeholder="search posts, keywords, projects and more"
         id="search"
         type="search"
         value={query}

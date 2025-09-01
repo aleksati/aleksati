@@ -41,8 +41,8 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
               <div className="flex space-x-1 font-bold">
                 <p>Table of contents</p>
               </div>
-              <div></div>
-              <ButtonTheme />
+              {/* <div></div>
+              <ButtonTheme /> */}
             </div>
           </div>
           <div className="flex flex-col">
