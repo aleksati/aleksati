@@ -7,25 +7,9 @@ import Search from "./Search";
 const ModalSearch = () => {
   // This is new for SearchMobile
   const [SearchIsEnabled, setSearchIsEnabled] = useState<boolean>(false);
-  // const toggleSearch = useCallback(() => {
-  //   setSearchIsEnabled((prevState) => !prevState);
-  // }, []);
-
-  // const [isMounted, setIsMounted] = useIsMounted();
-  // const closeBtnRef = useRef<HTMLButtonElement>();
   const modalRef = useRef<HTMLDivElement>();
 
-  // useEffect(() => {
-  //   if (closeBtnRef.current && isMounted) {
-  //     closeBtnRef.current.focus();
-  //   }
-  // }, [isMounted, closeBtnRef]);
-
   const closeModal = () => setSearchIsEnabled(false);
-
-  // const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-  //   if (e.key === "Escape") return closeModal();
-  // };
 
   const handleClickOutside = (e: React.MouseEvent<HTMLElement>) => {
     const item = e.target as HTMLElement;
@@ -52,10 +36,10 @@ const ModalSearch = () => {
             // onKeyDown={handleKeyDown}
             className="fixed inset-0 z-50 items-start p-2 backdrop-brightness-50">
             {/* The Modal Card*/}
-            <div ref={modalRef} className="pt-12">
+            <div ref={modalRef} className="pt-8">
               <Search />
             </div>
-            <div className="absolute right-6 top-16 pt-2">
+            <div className="absolute right-6 top-12 pt-1">
               <ButtonIcon
                 aria-label="Close SearchMobile"
                 onClick={closeModal}

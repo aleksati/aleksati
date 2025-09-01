@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 01 Sep 2025 05:47:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Sep 2025 13:49:10 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 01 Sep 2025 05:47:10 GMT</pubDate>
+        <pubDate>Mon, 01 Sep 2025 13:49:10 GMT</pubDate>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself. Avaliable for Win and OSX.]]></description>
@@ -21,7 +21,7 @@
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[Last year, I led a few workshops on audio networking with OSC, focusing on Timestamps and synchronization of musical devices. In this post, I channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
+            <description><![CDATA[Last year, I led a few workshops on audio networking with the OSC protocol. In this post, I try to channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
@@ -62,7 +62,7 @@
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Software Poème Symphonique]]></title>
+            <title><![CDATA[Software Poeme Symphonique]]></title>
             <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
             <link>http://localhost:3000/projects/software-poeme-symphonique</link>
             <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>

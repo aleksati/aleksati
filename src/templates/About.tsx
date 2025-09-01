@@ -12,7 +12,7 @@ const About = () => (
           priority={true}
           src="me.jpg"
           padding={false}
-        // width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.
+          // width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.
         />
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-4">
@@ -26,7 +26,12 @@ const About = () => (
     </div>
     <div className="space-y-4">
       <p>
-        My name is Aleksander and I am passionate about sound, software and science. I live in Oslo with my partner and our cat where I drum for various artists and work as an engineer+lecturer for the Musicology Department at the University of Oslo. This website is part portfolio and part blog, a platform where I share my projects and write about music technology, audio programming, networked music, and more.
+        My name is Aleksander and I am passionate about sound, software and
+        science. I live in Oslo with my partner and our cat where I drum for
+        various artists and work as an engineer+lecturer for the Musicology
+        Department at the University of Oslo. This website is part portfolio and
+        part blog, a platform where I share my projects and write about music
+        technology, audio programming, networked music, and more.
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.

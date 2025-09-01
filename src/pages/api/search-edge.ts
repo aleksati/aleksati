@@ -21,10 +21,11 @@ const extra: FrontMatterList = [
       "developer",
       "networked music",
       "aleksati",
-      "alexfurimmer"
+      "alexfurimmer",
     ],
     type: "extra",
-    summary: "",
+    summary:
+      "My name is Aleksander and I am passionate about sound, software and science. I live in Oslo with my partner and our cat where I drum for various artists and work as an engineer+lecturer for the Musicology Department at the University of Oslo.",
   },
   {
     slug: "publications",
@@ -79,7 +80,9 @@ export default async function handler(req: NextRequest) {
       keywordHits = FrList.filter((fr) => {
         if (titleHits.includes(fr)) return false;
         return query_array.every((query) =>
-          fr.keywords.some((keywords) => keywords.toLowerCase().includes(query.toLowerCase()))
+          fr.keywords.some((keywords) =>
+            keywords.toLowerCase().includes(query.toLowerCase())
+          )
         );
       });
 
