@@ -36,10 +36,10 @@ const ModalSearch = () => {
             // onKeyDown={handleKeyDown}
             className="fixed inset-0 z-50 items-start p-2 backdrop-brightness-50">
             {/* The Modal Card*/}
-            <div ref={modalRef} className="pt-8">
+            <div ref={modalRef} className="pt-6">
               <Search />
             </div>
-            <div className="absolute right-6 top-12 pt-1">
+            <div className="absolute right-6 top-10 pt-1">
               <ButtonIcon
                 aria-label="Close SearchMobile"
                 onClick={closeModal}

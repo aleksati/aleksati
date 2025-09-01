@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 01 Sep 2025 13:49:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 01 Sep 2025 14:07:32 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 01 Sep 2025 13:49:10 GMT</pubDate>
+        <pubDate>Mon, 01 Sep 2025 14:07:32 GMT</pubDate>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself. Avaliable for Win and OSX.]]></description>

@@ -35,8 +35,8 @@ const SearchItem = ({
     <Link href={`/${typ}/${slug}`} ref={ref}>
       <div
         className={`border-b ${isActive ? "bg-blue-200 dark:bg-blue-800" : "none"
-          } hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 hover:cursor-pointer`}>
-        {title}
+          } hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 space-y-1 hover:cursor-pointer`}>
+        <p>{title}</p>
         <DateAndKeywordViewer
           showKeywords={true}
           keywords={keywords}
@@ -45,7 +45,7 @@ const SearchItem = ({
           type={type}
           text={"xs"}
         />
-        <p className="text-sm text-secondary">{summary.slice(0, 150)} ...</p>
+        <p className="text-sm text-secondary">{summary.slice(0, 100)} ...</p>
       </div>
     </Link>
   );
