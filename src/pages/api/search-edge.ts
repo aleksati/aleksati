@@ -39,7 +39,8 @@ const extra: FrontMatterList = [
       "Interactive tools for exploring performance patterns in hardanger fiddle music",
     ],
     type: "extra",
-    summary: "",
+    summary:
+      "A Universal Tool for Generating Datasets from Audio Effects, DGMD, Hybrid Learning Spaces with Spatial Audio, Towards New Analysis And Visualization Software For Studying Performance Patterns in Hardanger Fiddle Musi, Interactive tools for exploring performance patterns in hardanger fiddle music",
   },
 ];
 

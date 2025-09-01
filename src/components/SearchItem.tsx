@@ -17,7 +17,7 @@ const SearchItem = ({
     if (isActive) ref.current.focus();
   }, [ref, isActive]);
 
-  // handle different types 
+  // handle different types
   let typ: string;
   switch (type) {
     case "music":
@@ -34,17 +34,22 @@ const SearchItem = ({
   return (
     <Link href={`/${typ}/${slug}`} ref={ref}>
       <div
-        className={`border-b ${isActive ? "bg-blue-200 dark:bg-blue-800" : "none"
-          } hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 space-y-1 hover:cursor-pointer`}>
+        className={`border-b ${
+          isActive ? "bg-blue-200 dark:bg-blue-800" : "none"
+        } hover:bg-blue-200 hover:dark:bg-blue-800 border-gray-200 dark:border-gray-600 p-2 space-y-1 hover:cursor-pointer`}
+      >
         <p>{title}</p>
-        <DateAndKeywordViewer
-          showKeywords={true}
-          keywords={keywords}
-          showType={true}
-          date={date}
-          type={type}
-          text={"xs"}
-        />
+        {/* This just looks better, to ignore keyword for the "extra" search items (about, publications)*/}
+        {type === "extra" ? null : (
+          <DateAndKeywordViewer
+            showKeywords={true}
+            keywords={keywords}
+            showType={true}
+            date={date}
+            type={type}
+            text={"xs"}
+          />
+        )}
         <p className="text-sm text-secondary">{summary.slice(0, 100)} ...</p>
       </div>
     </Link>

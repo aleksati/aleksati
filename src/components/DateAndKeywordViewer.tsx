@@ -67,10 +67,10 @@ const DateAndKeywordViewer = ({
 
   if (text === "xs") {
     return (
-      <div className="flex flex-wrap text-xs text-secondary dark:text-secondary-dark space-x-2 items-center">
+      <div className="flex flex-wrap text-xs text-secondary dark:text-secondary-dark space-x-1 items-center">
         {showType ? (
-          <div className="flex space-x-2 items-center">
-            <p>{type}</p> <p className="text-md"> - </p>
+          <div className="flex space-x-1 items-center">
+            <p>{type}</p> <p className="text-md">•</p>
           </div>
         ) : null}
         {showDate ? <p>{date2text(date)}</p> : null}
