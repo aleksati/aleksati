@@ -9,26 +9,26 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 01 Sep 2025 14:26:14 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Sep 2025 13:32:31 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 01 Sep 2025 14:26:14 GMT</pubDate>
+        <pubDate>Tue, 02 Sep 2025 13:32:31 GMT</pubDate>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
-            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays 4K images of the sun in a mesmerizing slideshow. The images are real-time and retrieved from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it for yourself. Avaliable for Win and OSX.]]></description>
+            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are real-time and retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it yourself.]]></description>
             <link>http://localhost:3000/projects/thesunrightnow-screensaver</link>
             <guid isPermaLink="true">http://localhost:3000/projects/thesunrightnow-screensaver</guid>
             <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[Last year, I led a few workshops on audio networking with the OSC protocol. In this post, I try to channel my workshops into a written step-by-step guide on how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks, using a technique called Forward Synchronization. Full code examples and repository included.]]></description>
+            <description><![CDATA[Last year, I led a few workshops on audio networking with the OSC protocol. In this post I channel my workshop experiences into a written step-by-step guide on how synchronize musical devices using OSC Timestamps and technique called Forward Synchronization, in both Python and Pure Data.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Video Latency in Networked Music and Dance Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring video latency in complex and multi-location networked performances, in ways that reflect what performers actually experience.]]></description>
+            <description><![CDATA[Measuring video latency in networked art performances can be challenging on many levels. There is usually a shortage of both resources and time, and on-site conditions can vary, making it hard to apply research-based methods developed in controlled lab settings. In this post, I share practical strategies for measuring video latency in real-world networked performances that try to reflect what performers actually experience.]]></description>
             <link>http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</link>
             <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</guid>
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
@@ -42,14 +42,14 @@
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Audio Latency in Networked Music and Dance Performances]]></title>
-            <description><![CDATA[Measuring latency in networked performances is far from straightforward. Audio and video delays are shaped by many real-world factors, making most lab-based techniques fall short. In this post, I share practical strategies for measuring audio latency in complex and multi-location networked performances, in ways that reflect what performers actually experience]]></description>
+            <description><![CDATA[Measuring audio latency in networked art performances can be challenging on many levels. There is usually a shortage of both resources and time, and on-site conditions can vary, making it hard to apply research-based methods developed in controlled lab settings. In this post, I share practical strategies for measuring audio latency in real-world networked performances that try to reflect what performers actually experience.]]></description>
             <link>http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</link>
             <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Audio Latency Examiner]]></title>
-            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); a software tool for batch collecting audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
+            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); my new software tool that can batch collect audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
             <link>http://localhost:3000/projects/audio-latency-examiner</link>
             <guid isPermaLink="true">http://localhost:3000/projects/audio-latency-examiner</guid>
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
@@ -62,15 +62,15 @@
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Software Poeme Symphonique]]></title>
-            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software with a realtime ML-based sound engine. Read more about the process and see a full demo.]]></description>
+            <title><![CDATA[Recreating Ligeti's Poème Symphonique as Audio Software]]></title>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for synchronization and a realtime ML-based sound engine. Read more about my process here and listen to the result.]]></description>
             <link>http://localhost:3000/projects/software-poeme-symphonique</link>
             <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to use p5js and p5-sounds with Nextjs in 2024]]></title>
-            <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to re-design and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. Read more to learn how.]]></description>
+            <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to re-design and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. In this post, I share all my code and detail my process.]]></description>
             <link>http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</link>
             <guid isPermaLink="true">http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</guid>
             <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
@@ -84,7 +84,7 @@
         </item>
         <item>
             <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
-            <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. Here is a quick look at the software and its main features.]]></description>
+            <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. This post takes a quick look at the software and its main features.]]></description>
             <link>http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
             <guid isPermaLink="true">http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
@@ -98,21 +98,21 @@
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
-            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how you can enrich your data visualizations with model-based sonification in a browser using the p5js library.]]></description>
+            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how you can pimp your data visualizations with model-based sonification in a browser using the p5js library.]]></description>
             <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
             <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
             <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[0101101000 ... (hello world)]]></title>
-            <description><![CDATA[A sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture generates sound and vibrations based on the wifi traffic on-site. Made in collaboration with Henrik Nordahl.]]></description>
+            <description><![CDATA['Hello World' is a sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture is made by artist Henrik Nordahl, but I was asked to make it sing, i.e generate sound and vibrations based on the WiFi traffic on-site. In this post I share what we did and how it turned out.]]></description>
             <link>http://localhost:3000/projects/hello-world</link>
             <guid isPermaLink="true">http://localhost:3000/projects/hello-world</guid>
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Using Python to Control Ableton Live with MIDI]]></title>
-            <description><![CDATA[While designing a new liveset, I wrote some code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did, and how.]]></description>
+            <description><![CDATA[While designing a new liveset, I wrote some Python code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did and how.]]></description>
             <link>http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</link>
             <guid isPermaLink="true">http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>

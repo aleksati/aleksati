@@ -16,13 +16,7 @@ const extra: FrontMatterList = [
     slug: "about",
     title: "About me",
     date: "1991-12-12",
-    keywords: [
-      "music technologist",
-      "developer",
-      "networked music",
-      "aleksati",
-      "alexfurimmer",
-    ],
+    keywords: ["about"],
     type: "extra",
     summary:
       "My name is Aleksander and I am passionate about sound, software and science. I live in Oslo with my partner and our cat where I drum for various artists and work as an engineer+lecturer for the Musicology Department at the University of Oslo.",
@@ -41,6 +35,31 @@ const extra: FrontMatterList = [
     type: "extra",
     summary:
       "A Universal Tool for Generating Datasets from Audio Effects, DGMD, Hybrid Learning Spaces with Spatial Audio, Towards New Analysis And Visualization Software For Studying Performance Patterns in Hardanger Fiddle Musi, Interactive tools for exploring performance patterns in hardanger fiddle music",
+  },
+  {
+    slug: "posts",
+    title: "Posts",
+    date: "",
+    keywords: ["posts"],
+    type: "extra",
+    summary: "See and read my blog-style posts about music and audio tech.",
+  },
+  {
+    slug: "projects",
+    title: "Projects",
+    date: "",
+    keywords: ["projects"],
+    type: "extra",
+    summary:
+      "See and read about a selection my personal music tech projects over the years.",
+  },
+  {
+    slug: "music",
+    title: "Music",
+    date: "",
+    keywords: ["music"],
+    type: "extra",
+    summary: "Listen and read about my past and present musical endeavours.",
   },
 ];
 

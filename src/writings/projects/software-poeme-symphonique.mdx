@@ -1,9 +1,9 @@
 ---
-title: "Software Poeme Symphonique"
+title: "Recreating Poème Symphonique for 100 Metronomes as Audio Software"
 date: "2024-04-05"
 keywords: ["audio", "art", "software", "machine-learning", "max", "kuramoto", "synchronization", "programming", "realtime", "mapping", "sp-tools"]
 type: "project"
-summary: "Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for syncronization and a realtime ML-based sound engine. Read more about my process here and watch a video demo."
+summary: "Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for synchronization and a realtime ML-based sound engine. Read more about my process here and listen to the result."
 ---
 
 {/* 
@@ -16,7 +16,8 @@ Sometime in the fall of 2022, I found myself talking to my colleague and friend 
 
 I was facinated by this topic and spent a great deal of time after my conversation with Peter researching algorithms and models for synchronizing oscillators in the digital audio realm. Eventually, my curiosity led me to create an audio software version of Poème Symphonique that uses the Kuramoto model and a realtime ML-based sound engine. This post shares how I made the software and provides some relevant backstory on Poème Symphonique and the Kuramoto model in music research.
 
-Also, to watch a full demo of my piece, visit the link at the bottom of the page.
+To watch a full demo of my piece, visit the link at the bottom of the post.
+Also, find the <MyLink href="https://github.com/aleksati">full source code</MyLink> for my project on my GitHub page.
 
 {/* 
 1. <MyLink type="toc" href="#poème-symphonique">Poème Symphonique</MyLink>
@@ -53,8 +54,6 @@ In the governing Kuramoto equation, seen below, the phase (θ) of an oscillator 
 
 <MyImage src="dsp-kuramoto-model.png" width="400" alt="The Kuramoto model equation" />
 
-## The Kuramoto Model in Music Reasearch
-
 Kuramoto-like models have had an impact on a variety of scientific fields, including music. A big part of music research with the Kuramoto model has revolved around new complex forms of synthesis, studying how we can derive complex behavior from simple oscillator systems, experimenting with generative synthesis, sonification applications, and even waveshaping.
 
 Rythmn studies is another research area where these models have been put to use (of course, you might think). Some of these studies have experimented with self-organizing rhythmical systems and intelligent systems that can enable better musicking between humans and machines/robots. If you want to learn more about this topic, I made a reference list of relevant papers and articles at the bottom for your reading pleasure.
@@ -75,7 +74,7 @@ Since I wanted to work exclusively with audio oscillators for my project, I deci
 
 5. For maintainablilty, the implementation should be 100% Max-native, meaning no third-party dependencies.
 
-When searching for similar Max Kuramoto Model implementations, I came across several candidates I could use for my project. Most notable was the <MyLink href="https://github.com/nolanlem/Kuroscillators">Kuroscillator objects</MyLink>, developed by Nolan Lem in Faust for Max. Although Nolan's implementation is elegant and supports both synthesis and rhythm synchronization(!), I could not use it for my project as it did not fulfill most of my requirements. It was easier to build my own version.
+When searching for similar Max Kuramoto Model implementations, I came across several candidates I could use for my project. Most notable was the <MyLink href="https://github.com/nolanlem/Kuroscillators">Kuroscillator objects</MyLink>, developed by Nolan Lem in Faust for Max. Although Nolan's implementation is elegant and supports both synthesis and rhythm synchronization, I could not use it for my project as it did not fulfill most of my requirements. It was easier to build my own version.
 
 <MySlideshow
   imgs={["dsp-ksync-under-the-hood.png", "dsp-ksync-node-diagram.png"]}
@@ -124,7 +123,7 @@ When I was happy with my sound space, I created a 1:1 mapping scheme between the
 
 Finally, I connected each matrixctl group to its own instance of aleks.ksync to create a system where only metronome groups were coupled together.
 
-# Un Poème Symphonique Numérique
+# Video Demo
 
 So there you have it, my software rendition of Ligeti's Poème Symphonique for 100 metronomes, my Poème Symphonique Numérique. In my video demo, I tried to follow the score as much as possible but also practiced some artistic freedom by gradually starting the metronomes one by one, manually turning them off again at the end instead of waiting for them to wind down by themselves, and giving each metronome group a slightly different coupling strength for the Kuramoto model.
 
