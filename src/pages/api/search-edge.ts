@@ -33,7 +33,8 @@ const extra: FrontMatterList = [
       "Interactive tools for exploring performance patterns in hardanger fiddle music",
     ],
     type: "extra",
-    summary: "View a list of my academic publications, fetched directly from CRISTIN."
+    summary:
+      "Go to a page with all my academic publications, fetched directly from CRISTIN.",
   },
   {
     slug: "posts",
@@ -41,7 +42,7 @@ const extra: FrontMatterList = [
     date: "",
     keywords: ["posts"],
     type: "extra",
-    summary: "Check out all my blog posts.",
+    summary: "Go to a page with all my blog posts.",
   },
   {
     slug: "projects",
@@ -49,8 +50,7 @@ const extra: FrontMatterList = [
     date: "",
     keywords: ["projects"],
     type: "extra",
-    summary:
-      "Read about some of my more interesting music tech projects.",
+    summary: "Go to a page with all my projects.",
   },
   {
     slug: "music",
@@ -58,8 +58,7 @@ const extra: FrontMatterList = [
     date: "",
     keywords: ["music"],
     type: "extra",
-    summary:
-      "Listen and read about my past and present musical endeavours.",
+    summary: "Go to a page with all my musical endeavours.",
   },
 ];
 

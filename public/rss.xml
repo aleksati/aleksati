@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 02 Sep 2025 13:32:31 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Sep 2025 19:35:20 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 02 Sep 2025 13:32:31 GMT</pubDate>
+        <pubDate>Tue, 02 Sep 2025 19:35:20 GMT</pubDate>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are real-time and retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it yourself.]]></description>
@@ -55,14 +55,14 @@
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Dataset Generator for Musical Devices]]></title>
+            <title><![CDATA[Dataset Generator for Musical Devices (DGMD)]]></title>
             <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
             <link>http://localhost:3000/projects/dataset-generator-for-musical-devices</link>
             <guid isPermaLink="true">http://localhost:3000/projects/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Recreating Ligeti's Poème Symphonique as Audio Software]]></title>
+            <title><![CDATA[Recreating Poème Symphonique for 100 Metronomes as Audio Software]]></title>
             <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for synchronization and a realtime ML-based sound engine. Read more about my process here and listen to the result.]]></description>
             <link>http://localhost:3000/projects/software-poeme-symphonique</link>
             <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>
@@ -90,7 +90,7 @@
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[aleks.max - a Tiny MaxMSP Bundle]]></title>
+            <title><![CDATA[My Tiny MaxMSP Bundle called aleks.max]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/projects/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/projects/aleks-max</guid>
