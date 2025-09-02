@@ -42,7 +42,7 @@ const extra: FrontMatterList = [
     date: "",
     keywords: ["posts"],
     type: "extra",
-    summary: "See and read my blog-style posts about music and audio tech.",
+    summary: "Check out all my blogposts.",
   },
   {
     slug: "projects",
@@ -51,7 +51,7 @@ const extra: FrontMatterList = [
     keywords: ["projects"],
     type: "extra",
     summary:
-      "See and read about a selection my personal music tech projects over the years.",
+      "Check out a selection of my personal projects.",
   },
   {
     slug: "music",
@@ -59,7 +59,8 @@ const extra: FrontMatterList = [
     date: "",
     keywords: ["music"],
     type: "extra",
-    summary: "Listen and read about my past and present musical endeavours.",
+    summary:
+      "Listen and read about my past and present musical endeavours.",
   },
 ];
 
