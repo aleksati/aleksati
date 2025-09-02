@@ -24,7 +24,7 @@ const extra: FrontMatterList = [
   {
     slug: "publications",
     title: "Publications",
-    date: "1991-12-12",
+    date: "",
     keywords: [
       "A Universal Tool for Generating Datasets from Audio Effects",
       "DGMD",
