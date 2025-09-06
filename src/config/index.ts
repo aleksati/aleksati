@@ -15,6 +15,7 @@ export const NAV_TABS: Record<string, string> = {
   publications: "publications",
 };
 
+// MAKE THIS ONLY COLORS, AND THE DISTRIVUTE TO KEYWORDS.
 export const KEYWORDS_2_COLOR: Record<string, string> = {
   audio: "#a3e635", //lime-400
   analysis: "#60a5fa", //blue-400
@@ -72,5 +73,6 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   mapping: "#f5f5f4", // stone-100
     // starting over !!
   "pure-data" : "#ecfccb", //lime-100"
-  astronomy: "#fee2e2" //red-100
+  astronomy: "#fee2e2", //red-100
+  fx: "#purple-100" //red-100
 };
