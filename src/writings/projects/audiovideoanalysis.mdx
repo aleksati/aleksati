@@ -37,42 +37,28 @@ To read more about motiongrams and how they're made, visit my previous post on t
 
 AVA sports many advanced audio, video, and display options. You can use multi-channel audio, apply inverted and grayscale colors, dynamically adjust frequency logarithms, apply filters, and more. Let's take a closer look at some of the interesting features of AudioVideoAnalysis v2.0.
 
-## Rate of Play
-
-AVA works by printing images across the display window from left to right. By default, it takes 60 seconds for the images to loop back to start. However, there is a way to configure the speed of image printing.
+AVA works by printing images across the display window from left to right. By default, it takes 60 seconds for the images to loop back to start. However, there is a way to configure the speed of image printing. The printing rate determines how fast the images are printed across the display window. By adjusting the _Rate_ dial while monitoring the _Total Display Time_ in AVA's display settings, users can customize a desired speed that corresponds with the length of their recording.
 
 <MyImage src="ava-printing-rate.jpg" alt="audiovideoanalysis printing rate" caption="Adjust the printing rate to peer deeper into the spectral content." />
 
-The printing rate determines how fast the images are printed across the display window. By adjusting the _Rate_ dial while monitoring the _Total Display Time_ in AVA's display settings, users can customize a desired speed that corresponds with the length of their recording.
-
 A nice effect of increasing the printing rate is that it will increase the temporal resolution of the images, enabling you to zoom in on the spectral content. However, the downside of higher printing rates is that it decreases the overall image resolution.
 
-## Analysis Markers
-
-Perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording. The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
+But perhaps the most useful feature of AVA is the ability to apply analysis markers and retrieve data from the display window. These features can help users to conduct some basic analysis immediately after recording. The analysis markers are frequency and time labels on the X and Y-axis of the images. The markers give a necessary frame of reference and are especially useful when resizing the window, adjusting the printing rate, or configuring the logarithmic frequency distribution of the spectrogram.
 
 <MyImage caption="Analysis markers and grids can assist with orientation and analysis." src="ava-analysis-markers.gif" alt="audiovideoanalysis analysis markers" />
 
-Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar. To accommodate the analysis markers and grid function, AVA also features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content.
+Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar. To accommodate the analysis markers and grid function, AVA also features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content. I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
 
 <MySlideshow
   imgs={["ava-clickpoint-light.jpg", "ava-analysis-logfreq.gif"]}
   captions={["Retrieve Hz, Amplitude, and Time from anywhere on the spectrogram at clickpoint.", "The logarithmic dial controls how logarithmic the spectrogram frequency distribution is. A higher logarithmic value will create a steeper logarithmic curve along the Y-axis of the spectrogram."]}
 />
 
-I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
-
-## Image Layering
-
-To add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view the spectral images in different configurations in the display window. The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
+To further add to the visual and real-time capabilities of AVA, I introduced additional display options for image layering. With image layering, users can view the spectral images in different configurations in the display window. The layering options include the ability to view the images individually (only audio or only video), in a cake-like fashion (one in on top of the other), or layered (one is over the other).
 
 <MyImage src="ava-display-options.gif" alt="audiovideoanalysis display options" />
 
-## Export Options
-
-The final images you create in the AVA display window can be exported via the export options in the menubar. The available formats are JPEG, TIFF (lossless), and PNG.
-
-Unfortunately, the image resolution cannot be customized due to several processing constraints. The maximum export image resolution is 1024x720, and it will decrease based on the printing rate you use.
+The final images you create in the AVA display window can be exported via the export options in the menubar. The available formats are JPEG, TIFF (lossless), and PNG. Unfortunately, the image resolution cannot be customized due to several processing constraints. The maximum export image resolution is 1024x720, and it will decrease based on the printing rate you use.
 
 # Download Link and Resources
 
