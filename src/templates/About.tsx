@@ -17,7 +17,7 @@ const About = () => (
       </div>
       <div className="space-y-1 col-span-4 sm:col-span-4">
         <h1 className="text-lg -mb-1 font-bold">Aleksander Tidemann</h1>
-        <p>Music technologist and developer</p>
+        <p>Sound & Music technologist</p>
         <p className="text-secondary dark:text-secondary-dark text-sm">
           @aleksati @alexfürimmer
         </p>
@@ -31,7 +31,7 @@ const About = () => (
         various artists and work as an engineer+lecturer for the Musicology
         Department at the University of Oslo. This website is part portfolio and
         part blog, a platform where I share my projects and write about music
-        technology, audio programming, networked music, and more.
+        technology, audio programming, networked sound, and much more.
       </p>
       <p>
         Stay updated on my posts by subscribing to my RSS feed from the menubar.

@@ -2,8 +2,8 @@
 import LayoutPage from "../layouts/LayoutPage";
 import About from "../templates/About";
 import { GetStaticProps } from "next";
-import { sphere } from "../p5jsSketches/sphere";
-import P5jsContainer from "../components/P5jsContainer";
+// import { sphere } from "../p5jsSketches/sphere";
+// import P5jsContainer from "../components/P5jsContainer";
 
 type Props = {
   frontMatterList: FrontMatterList;
@@ -14,7 +14,7 @@ export default function handler({ keywords }: Props) {
   return (
     <LayoutPage pageMeta={{ title: "about", keywords }}>
       <About />
-      <P5jsContainer sketch={sphere} />
+      {/* <P5jsContainer sketch={sphere} /> */}
       {/* <div className="py-4 border-t border-secondary-light dark:border-secondary-dark rounded-sm">
         <h1 className="font-bold text-2xl mb-6">Latest writings</h1>
         <PostListSmall frontMatterList={frontMatterList} />

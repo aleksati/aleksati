@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 02 Sep 2025 19:35:20 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 23 Oct 2025 12:41:14 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 02 Sep 2025 19:35:20 GMT</pubDate>
+        <pubDate>Thu, 23 Oct 2025 12:41:14 GMT</pubDate>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are real-time and retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it yourself.]]></description>
@@ -90,7 +90,7 @@
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[My Tiny MaxMSP Bundle called aleks.max]]></title>
+            <title><![CDATA[My Tiny MaxMSP Bundle - aleks.max]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
             <link>http://localhost:3000/projects/aleks-max</link>
             <guid isPermaLink="true">http://localhost:3000/projects/aleks-max</guid>

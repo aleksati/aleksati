@@ -135,8 +135,8 @@ export const sphere: P5jsSketch = (p5, parentRef) => {
     // (without that p5 will render the canvas outside of your component)
     // const parent = parentRef.current as Element;
     parentStyle = window.getComputedStyle(parentRef);
-    canvasWidth = parseInt(parentStyle.width) * 0.35;
-    canvasHeight = parseInt(parentStyle.width) * 0.35;
+    canvasWidth = parseInt(parentStyle.width) * 0.65;
+    canvasHeight = parseInt(parentStyle.width) * 0.65;
     //////////////////////////////////////
 
     // shaders require WEBGL mode to work
