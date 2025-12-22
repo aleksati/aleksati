@@ -1,0 +1,134 @@
+---
+title: "How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs"
+date: "2025-12-21"
+keywords: ["audio", "fx", "machine-learning", "vst", "research", "python", "realtime", "engineering"]
+type: "post"
+summary: "I was recently involved in a research project that examined if a compression technique called Knowledge Distillation could be used to make neural audio effects smaller and more efficient. In this post, I walk through our experiments and show how we were able to distill knowledge from larger audio distortion models to enhance the performance of smaller models. Also included are VST downloads, audio examples, source code and more."
+---
+
+{/* 
+# How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs
+*/}
+
+<MyImage src="kd-audio-fx-main.jpg" alt="kd-audio-fx-main.jpg" padding={false} />
+
+Having a good teacher can change your life. When I was 16 years old, I took theoretical maths at my public high-school in Kongsberg with a teacher named Roger. I didn't do very well in this course. In fact, I was failing. Hard to say for sure what the actual reason was, but I didn't study or care much for it, at the time. What I do know is that I loved Roger's math classes. And I loved Roger. He was open, old, funny and knowledgeable in the best and most non-condescending way. He loved maths and wanted to share his passion with us. Because of this, I stayed in Roger's class for way too long, to the point where he actually took me aside and asked me to switch to a simpler programme. In hindsight, it's clear that I was inspired by Roger, but I don't think we weren't the best teacher-student combo. Recently, I have been thinking more about this. About what it means to be a good student and teacher.
+
+I am currently sitting in a hot conference room at Queen Mary University College in London, listening to a talk about AI ethics at the first-ever international conference on AI and Machine Learning for Audio, hosted by the Audio Engineering Society in September 2025 (called AES AIMLA). I am here because I was involved in a research paper that got accepted here last spring. This all started in 2024 when my friend and former colleague (he is now elsewhere in the world) Riccardo Simionato asked me to help him explore whether neural audio effects, which are audio effects built with neural networks, could be made more efficient using a compression technique called Knowledge Distillation. With knowledge distillation, the inner workings of large neural networks called _teachers_ are transferred, or distilled, to smaller _student_ networks. The students are taught by their teacher, basically. 
+
+At the conference, the question about how AI will affect the music industry is up in the air, and a man from the team that originally developed the MP3 codec just raised his hand. Through a prolonged comment, the man argued that we might better understand the fate of AI in the music industry by looking to other similar technological advancements that have occured in the past. MP3 and online sharing were thought to be the end of the music industry as we knew it. There was a lot of criticism and huge concern about piracy, especially among artists. The reality, however, turned out to be less extreme. Of course, the music industry did change a lot in this time, but the point was that the role of MP3 in the matter was less significant than expected. This comment reminded me of an image I saw not too long ago, a graph that depicted how the popularity of new technologies almost always tends to receede over time, that our expectations are almost always wrong. That the rapid increase in popularity and hype of new technology almost always decreases and stabilizes at a sober level. Might this be the case with AI as well? Are we currently at the very peak of the curve, waiting for an imminent fall? 
+
+It's quite often in life that we must choose what sources to learn and gain insights from, whether it's history itself or a high-school maths teacher. In this blog post, I will assume the role of a teacher, attempting to distill the knowledge of our AES paper, the preliminary explorations into the effect of knowledge distillation on neural audio distortion effects, to you! The post touches on the most central aspects of our paper and discloses the most prominent results. 
+
+Before we start, here are some useful links: 
+* Full <MyLink href="https://aes2.org/publications/elibrary-page/?id=23001">AES research paper</MyLink>
+* <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink> with source code and plugin/VST version of our distortion models. 
+* Jump straight down to some <MyLink href="#audio-examples">audio examples</MyLink>.
+
+# VA Modeling and Audio Effects Compression
+
+Not too long ago, researchers in the field of Virtual-Analog (VA) modeling discovered the effectiveness of using neural networks to emulate analog audio effects in the digital domain. The advantages of using machine learning for VA-modeling are many, but it comes down to its exceptional ability to find patterns in large quantities of data. Analog audio effects consist of complex hardware circuits that shape the sound in an unpredictable and _non-linear_ way. These non-linearities are hard to describe mathematically. With machine learning, however, we can essentially skip the hard part and train models to recreate the analog behaviour without us actually knowing intricate inner goings on. This approach, of treating the analog audio effect as a "black box", is amply called black-box modeling. The process concerned with mathematically describing the details in the hardware circuitry is called white-box modeling.
+
+Black-box approaches to modeling audio effects have been successful on a wide variety of effects, including tube amplification, distortion, optical compressors, and other time-based effects. This has been possible using certain neural architectures, particularly Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN). But one major issue is that these networks can easily become large and clunky, requiring significant amounts of operations per sample during runtime. This is a problem because we usually want audio effects to be computationally efficient and run smoothly on many consumer-grade devices, like laptops and phones. Said in another way, large neural networks can hinder the real-time capabilities of models that strive for efficiency. We want our neural audio effects to be as lightweight as possible. 
+
+But making neural audio effects smaller, i.e reducing the number of operations in the network, is hard. And not only that, compression is often harmful to the quality and accuracy of these models (how good they sound). But despite the challenges, many compression techniques exist that are able to optimize the size of neural network models without compromising too much on performance. For instance, Pruning is a technique that identifies and removes parameters in a neural networks that seem redundant and therefore contributes less to the training process. Pruning has been shown to be effective on RNN networks of audio effects. There is also Quantization, a technique that compresses networks by lowering the bits required to represent each weight of the network, and Low-rank factorization, which uses matrix and tensor decomposition to identify redundant weights, all of which have been proven to be effective compression methods for neural audio effects.  
+
+Finally, there is Knowledge Distillation. 
+
+# Knowledge Distillation on Neural Audio Effects 
+
+Knowledge distillation (KD) is a technique where smaller neural networks, often called _students_, are trained to mimic a larger _teacher_ network. This works by leveraging the fact that neural networks capture meaningful and complex representations of their training data in hidden layers of their networks. Once a teacher network achieves good generalization and performance on a set of data, its knowledge can be transferred to a smaller student network through the process called distillation. Read more about the inner workings of KD on neural networks, check out <MyLink href="https://arxiv.org/abs/1503.02531">this famous paper</MyLink> by Geoffrey Hinton et al.
+
+What was interesting to us about KD, scientifically speaking, was that this technique had not been explored for neural audio effects before. In fact, we found very few cases where KD was applied to regression problems at all (which is what is used when handling real-time audio), and none dealing with audio distortion effects. The bulk of existing research on KD with audio is mostly concerned with classification tasks.
+
+<MyImage src="kd-audio-fx-figure-1.png" alt="kd-audio-fx-figure-1.png" caption="Figure 1: Feature-based distillation. During training, the feature representations from the last LSTM layers of both the teacher and student models are aligned using a designated distillation loss function." width={600} />
+
+There are three primary types of KD for neural networks, each with a unique approach to the distillation process. We have response-based, feature-based, and relation-based KD. For our experiments, we choose to focus on feature-based distillation. If you're interested in learning more about these other types of KD, I recommend <MyLink href="https://blog.roboflow.com/what-is-knowledge-distillation/">this blog post</MyLink>. In short, instead of teaching students to mimic the output of a teacher model, feature-based KD focuses on transferring, or distilling, a teacher's **internal representations**, or features, to a smaller student network, as seen in Figure 1. The idea is that this "feature transplant" allows student models to capture more nuanced representations of the input data, leading to improved generalization and performance.
+
+Additionally, with feature-based distillation, specific layers of the teacher network are identified as important intermediary feature representations of the input data. Similar intermediate layers of a student network are then aligned to those of the teacher. During training, the student model learns to produce feature maps similar to the teacher model, inheriting its structure and hierarchical understanding of the data. To make the model learn, a loss function is defined to minimize the difference between the feature representations of the teacher and student models at these corresponding layers, as illustrated in Figure 1 above. 
+
+# Building and Training our Audio Distortion Network
+
+To experiment with KD on audio distortion effects, we first built a general neural network architecture using recurrent LSTMs. This approach has become a common starting point for modeling neural audio effects of this sort. The goal of our experiments was not only to see whether KD was successful on neural audio effects, but also to examine and learn more about the relationship between teacher and student models. What configuration works best, and why? To explore this, we experimented with slightly different network architectures for both the teacher and student models, each with varying network depths and sizes.
+
+For teachers, we opted for two different configurations; one large with seven hidden layers and units distributed in an hourglass shape, as shown in Figure 2, and one smaller with only two hidden layers with fixed unit sizes. All our student models consisted also of two hidden layers, but each with a varying number of units in the second layer. In total, we tried four different student configurations per teacher model, varying the unit size in the second layer from 8 to 64.
+
+<MyImage src="kd-audio-fx-figure-2.png" alt="kd-audio-fx-figure-2.png" caption="Figure 2: The neutral architecture of our hourglass-shaped teacher (left) and student (right) models. The teacher features 7 LSTM layers, while the student model has only 2 LSTM layers. A conditioning layer is introduced for the conditioned dataset, and it is positioned before the final LSTM layer in both the teacher and student models." />
+
+No two distortion units sound the same, especially not analog ones. It's because of this that using more than one dataset can be wise to get a better idea about how your models are working. For our training and evaluation, we used data from three different audio distortion devices: the Blackstar <MyLink href="https://blackstaramps.com/ht-1r-mkii/">HT-1</MyLink> vacuum tube amplifier, Electro-Harmonix <MyLink href="https://www.ehx.com/products/big-muff-pi/">Big Muff</MyLink> guitar pedal, and the analog-modeled overdrive VST plugin <MyLink href="https://www.audiority.com/shop/dr-drive/">DrDrive</MyLink>. The datasets themselves consisted of a bunch of 10-minute-long audio files where the distortion effects were added to various music, such as frequency sweeps, white noise, physical recordings of bass, drums, piano, pads and sections from various pop/rock songs. The HT-1 and Big Muff data was sourced from previous research projects (Südholt 2023, Wright 2019), but we collected the DrDrive data ourselves using <MyLink href="https://github.com/stefanofasciani/DGMD">DGMD</MyLink>, a standalone software for generating datasets for audio-related ML tasks (Fasciani 2023). You can also read more about the DGMD software project in a previous post of mine.
+
+We also had time to experiment with some conditioned data. The primary difference between conditioned and unconditioned datasets is that conditioned data (sometimes referred to as parametric data) includes one or more parameters that add additional dimensions to the dataset. Because making models perform well on both conditioned and unconditioned data is very challenging, and therefore interesting, we wanted to include at least one conditioned case in our evaluation. When dealing with audio effects, conditioning is usually represented in the form of added effect parameters, such as Drive, Brightness, Dry/Wet, Amplitude, etc. In the end, we included a conditioned version of the DrDrive dataset in our evaluation with one parameter, the 'Drive' knob,  which determines the amount of distortion applied to the input signal. This made four datasets in total for our evaluation.
+
+<MyImage src="kd-audio-fx-drdrive-data.png" alt="kd-audio-fx-drdrive-data.png" width={600} />
+
+For both students and teachers, our training strategy was to run each model 1000 epochs. An early stopping mechanism was in place to stop training if there was no reduction in validation loss for 30 consecutive epochs. The batch size is set to 8 examples, with each example composed of 2048 input audio samples. You can read much more in-depth descriptions about the training strategy, loss function (MAE), and other evaluation metrics in the full paper.
+
+# Experiment Results and Discussion 
+
+Overall, the results from our experiments were positive, showing that Knowledge distillation has the potential to improve the performance of neural audio effects. But the interesting part is how they improve performance, and to what degree. 
+
+Table 1 presents the test loss results of the large hourglass-shaped teacher models, while Table 2 displays the performance of both distilled and non-distilled student models. Distilled students are those taught by a larger teacher network, and non-distilled students are the standard ones trained on the regular dataset. **The way to read these tables** is to compare the distilled and non-distilled loss metrics of students with the same network architecture (the S-8-16 markings, and so on). If a distilled student shows a lower loss score than its non-distilled counterpart, then that model is performing better. The key here is to realize that these models are the same exact size. So, if a distilled student performs better than a non-distilled student for a given network, it means that we could (in theory) reduce the size of the distilled model and still achieve the same performance as the non-distilled one. This is how we know that our knowledge distillation is working. 
+
+<MyImage src="kd-audio-fx-table-1.png" alt="kd-audio-fx-table-1.png" caption="Table 1: Test performance and loss of large hourglass-shaped teacher models (S) with related number of parameters and floating-point operations per sample (FLOPs)." />
+
+<MyImage src="kd-audio-fx-table-2.png" alt="kd-audio-fx-table-2.png" caption="Table 2: Test performance and loss of student models trained on the large hourglass-shaped teacher models, with related number of parameters and floating-point operations per sample (FLOPs). Instances with the best performance are highlighted in bold. Variations in the hidden size of the network's LSTM
+layer are presented row-by-row." />
+
+The results tell us that student models typically performed better with larger hidden layer sizes (units). This suggests that the effectiveness of distillation is proportional to the size of the models. Figure 3 takes a closer look at this. Here, the size of the second student LSTM layers are represented along the X-axis, while the improvement of using distilled models over non-distilled models is detailed along the Y-axis (in %). So, a high score on the Y-axis means that there is a big performance advantage in favor of using the distilled model for that particular unit size. Graphing this paints a clearer picture of how distillation seems to improve as the size of the student models increases. However, some metrics tell another story. For instance, the ESR loss exhibits large variability, with both extreme negative and positive values. This variance could be caused by ESR being a normalized function, and that the distillation improves more when the signal's amplitude is larger than low. 
+
+Also, the HT-1 and the conditioned set of DrDrive seem to improve more at lower model sizes. Some of the smallest student models (8 units) even show negative improvements from distillation. This is particularly true with Big Muff and the unconditioned set of DrDrive. However, these two both seem to recover quickly at 16 units and beyond, following an upward trend, like the rest. It's also noteworthy that when non-distilled students are performing well, the benefits of distillation are much less pronounced.
+
+<MyImage src="kd-audio-fx-figure-3.png" alt="kd-audio-fx-figure-3.png" caption="Figure 3: Plots detailing the improvements, in percent (%), of using distilled models over non-distilled models for different hidden layer sizes, with the large hourglass-shaped teacher. Comparisons are made using ESR, STFT, and MAE loss metrics." width={600} />
+
+Further, it's not conclusive from the results which teacher architecture is best for any given student. But we did observe that the smallest teacher model (with only two layers) was more effective than the large hourglass-shaped teacher when it came to the smallest students. In this scenario, the complexity gap is smaller between the teacher and the student. This might be a hint. These results are presented in Table 3, below. 
+
+<MyImage src="kd-audio-fx-table-3.png" alt="kd-audio-fx-table-3.png" caption="Table 3: Test performance and loss of student models trained on the smaller teacher model, with the related number of parameters and floating-point operations per sample (FLOPs). Instances with the best performance are highlighted in bold. Variations in the hidden size of the network's LSTM layer are presented row-by-row." />
+
+## Listening tests
+
+In addition to the quantitative results, we conducted a MUSHRA-style listening test to explore the perceptual quality of distilled versus non-distilled models. Does one sound better than the other? And if so, in what way? Our hypothesis was that distilled models would sound better than non-distilled models with the same unit size, matching the quantitative results. 
+
+In each listening test trial, participants were subjected to five audio examples and one reference example of the distortion units applied to either guitar, bass, or drum signals. The audio examples included both distilled and non-distilled examples of a specific student model, a hidden reference, as well as a low and mid-range anchor where the reference is passed through low-pass filters at 3.5KHz and 7KHz, respectively. The reference audio was sourced directly from the device dataset and acted as the ground truth. Afterwards, the participants were asked to rate the perceptual quality of each example against the reference on a scale from 0 to 100. In total, thirteen people participated in the listening tests, although three were later removed in a post-screening process. 
+ 
+<MyImage src="kd-audio-fx-figure-4.png" alt="kd-audio-fx-figure-4.png" caption="Figure 4: Box plot showing the rating results of the listening tests for students trained on large teacher models (a) and on smaller teacher models (b), for HT-1 (top-left), Big Muff (top-right), non-conditioned DrDrive (bottom-left), and conditioned DrDrive (bottom-right). The orange horizontal lines indicate the median value, and the outliers are displayed as circles." />
+
+As presented in Figure 5, the listening test revealed that both distilled and non-distilled models scored quite high. This was good news, but it also meant that the perceptual advantage of distillation was not as pronounced as we anticipated. In fact, the finding suggests that it's still inconclusive whether there are any definitive perceptual advantages of distillation. This being said, we did notice a slight preference for distilled models in most cases. Non-distilled models also show greater variability, suggesting slightly less consistency in their perceived quality over their distilled counterparts.
+
+# Audio Examples
+
+We evaluated our distillation architecture on three datasets of audio distortion effects: the Blackstar HT-1 vacuum tube amplifier (HT-1), the Electro-Harmonix Big Muff (Big Muff) guitar pedal, and the analog-modeled overdrive plugin DrDrive. Below are some examples from the unconditioned set of DrDrive, both distilled student models, standard (non-distilled) student networks, and the target audio.
+
+**DrDrive Target**
+<MyAudioPlayer src="drdrive-uncond-1-tar-64.mp3" />
+
+**DrDrive Student Distilled**
+<MyAudioPlayer src="drdrive-uncond-1-pred-distilled-64.mp3" />
+
+**DrDrive Student Standard (non-distilled)**
+<MyAudioPlayer src="drdrive-uncond-1-pred-nondistilled-64.mp3" />
+
+For many more audio examples, visit the my dedicated <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink>.
+
+# Summary 
+
+In this post, I've tried to do a bit of what Roger once did for me: take something complex, slightly intimidating, and hopefully make it a little more approachable. We explored whether knowledge distillation, a technique built around the idea of good teachers and smaller students, can help make neural audio distortion effects more efficient without sacrificing quality. We found that distillation can indeed improve performance for student models, effectively allowing us to shrink models while retaining accuracy. The results weren't perfectly uniform, dataset complexity, student size, and the gap between teacher and student all mattered, but the overall trend was clear. When applied thoughtfully, knowledge distillation is a promising tool for lightweight neural audio effects.
+
+Our experiments showed consistent gains in many scenarios, especially with larger student models, while perceptual listening tests suggested a small but noticeable preference for distilled models. But just as importantly, our work raised new questions about _how_ teachers should teach. Sometimes smaller, simpler teachers turned out to be better mentors than very large ones. This suggests that knowledge distillation is not a silver bullet, but it is a valuable addition to the toolbox for building real-time, deployable neural audio effects. Like most technologies riding the hypetrain, its real impact will likely be quieter, steadier, and more practical than dramatic, but that's often where the most meaningful progress lives.
+
+Again, some useful links: 
+* Full <MyLink href="https://aes2.org/publications/elibrary-page/?id=23001">AES research paper</MyLink>
+* <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink> with source code and plugin/VST version of our distortion models. 
+
+For future work, more exhaustive architectural modifications should be considered. Additionally, designing more efficient loss functions could help refine the distance metrics between the probability distributions of teachers and students. Finally, employing a multiteacher ensemble approach could be advantageous in mitigating potential complexity gaps between models.
+
+# Some Useful Sources
+
+Fasciani, S., Simionato, R., and Tidemann, A., “A Universal Tool for Generating Datasets from Audio Effects,” in Proceedings of the Sound and Music Computing conference (SMC), 2024.
+
+Hinton, G., Vinyals, O., and Dean, J., “Distilling the Knowledge in a Neural Network,” in NIPS Deep Learning and Representation Learning Workshop, 2015.
+
+Simionato, R., Tidemann, A. "Compressing Neural Network Models of Audio Distortion Effects Using Knowledge Distillation Techniques." International Conference on Artificial Intelligence and Machine Learning for Audio (AES AIMLA), 2025.
+
+Südholt, D., Wright, A., Erkut, C., and Välimäki, V., “Pruning Deep Neural Network Models of Guitar Distortion Effects,” IEEE/ACM Transactions on Audio, Speech, and Language Processing, 31, 2023, doi:10.1109/TASLP.2022.3223257.
+
+Wright, A., Damskägg, E.-P., and Välimäki, V., “Real-Time Black-Box Modelling With Recurrent Neural Networks,” in Proceedings of the International Conference on Digital Audio Effects (DAFx), 2019.

@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 23 Oct 2025 12:41:14 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Dec 2025 20:59:41 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 23 Oct 2025 12:41:14 GMT</pubDate>
+        <pubDate>Mon, 22 Dec 2025 20:59:41 GMT</pubDate>
+        <item>
+            <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
+            <description><![CDATA[I was recently involved in a research project that examined if a compression technique called Knowledge Distillation could be used to make neural audio effects smaller and more efficient. In this post, I walk through our experiments and show how we were able to distill knowledge from larger audio distortion models to enhance the performance of smaller models. Also included are VST downloads, audio examples, source code and more.]]></description>
+            <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
+            <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are real-time and retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth. In this post, I share how the app works and how you can use it yourself.]]></description>
@@ -76,10 +83,10 @@
             <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Improve your Networked Audio Engineering Practice]]></title>
-            <description><![CDATA[The success of a telematic event depends largly on the technician's familiarity with networked audio engineering, a field that is very different from usual concert tech. In this post, I share some steps and strategies that can help improve your networked audio engineering practice.]]></description>
-            <link>http://localhost:3000/posts/improve-your-networked-audio-engineering-practice</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/improve-your-networked-audio-engineering-practice</guid>
+            <title><![CDATA[Things to Remember when Audio Engineering for Networked Concerts]]></title>
+            <description><![CDATA[Mixing live sound for networked music events, where several locations are connected together in real-time, is very different from mixing in an average concert setting. Having to manage different stages through an added network layer can be a real challenge, especially when it's showtime and the pressure is on. In this post, I share some useful steps and strategies that can help improve your networked audio engineering practice.]]></description>
+            <link>http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
