@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 29 Dec 2025 15:31:55 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 15:39:45 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 29 Dec 2025 15:31:55 GMT</pubDate>
+        <pubDate>Mon, 29 Dec 2025 15:39:45 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
-            <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VSTs) built with neural networks. And the short answer is Yes! Also included are VST downloads, audio examples, source code and more.]]></description>
+            <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VSTs) built with neural networks. And the short answer is yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
             <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
             <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
             <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
@@ -28,7 +28,7 @@
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[OSC is a protocol for sending messages between musical devices, a 32-bit alternative to MIDI. Last year, I led some workshops on OSC and some of its unique audio synchronization capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively synchronize musical devices between Python and Pure Data.]]></description>
+            <description><![CDATA[OSC is a protocol for sending messages between musical devices, an alternative to MIDI. Last year, I led some workshops on OSC and some of its unique audio synchronization capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively synchronize musical devices between Python and Pure Data.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
