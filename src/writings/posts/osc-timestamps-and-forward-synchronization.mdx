@@ -15,16 +15,18 @@ keywords:
     "programming",
   ]
 type: "post"
-summary: "OSC is a protocol for sending messages between musical devices, a 10-bit alternative to MIDI. Last year, I led some workshops on OSC and some of its unique audio synchronization capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively synchronize musical devices between Python and Pure Data."
+summary: "OSC is a protocol for sending messages between musical devices, an alternative to MIDI. Last year, I led some workshops on OSC and some of its unique audio synchronization capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively synchronize musical devices between Python and Pure Data."
 ---
 
 {/*
 # OSC Timestamps and Forward Synchronization in Python and Pure Data
 */}
 
-Last year, I led a few workshops on the advanced audio networking capabilities of <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) as part of my networked music course at UiO. OSC provides an ideal framework to explore new and creative ways to synchronize and manage latency between musical devices, thanks to its high-resolution data transfer (64-bit compared to 8-bit MIDI) and built-in timestamp support.
+<MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) is a flexible and high-resolution media encoding designed for sending audio control messages between musical devices in real time, similar to MIDI, originally developed by researchers Matt Wright and Adrian Freed at CNMAT, UC Berkeley, in 1997 (Schmeder, Freed, 2008). Because of its high-resolution data transfer (64-bit compared to 8-bit MIDI) and built-in Timestamp support, OSC provides an ideal framework for exploring creative and new approaches to synchronization and latency management over networks.
 
-In this post, I try to channel my workshop experiences into a written step-by-step guide, detailing how to use OSC Timestamps in Python and Pure Data to synchronize musical devices over networks using a technique called Forward Synchronization. Full code examples and codebase included.
+Last year, I led a few workshops on the unique synchronization capabilities of OSC as part of my networked music course at the University of Oslo. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively synchronize musical devices between Python and Pure Data. Full code examples and source code included below.
+
+**NB:** Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data.
 
 {/* 1. What are OSC Timestamps and Forward Synchronization?
 2. Code Setup and Dependencies
@@ -35,13 +37,14 @@ In this post, I try to channel my workshop experiences into a written step-by-st
 7. Sources
 
 ---
+ */}
 
-**NB:** Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data. */}
 
+{/* # What is it? */}
 
-# What is it?
+# Timestamps and Forward Sync
 
-OSC is a high-resolution, lightweight, and flexible multi-media encoding designed for sending audio control messages between musical devices in real time, similar to MIDI. The protocol was originally developed by researchers Matt Wright and Adrian Freed at CNMAT, UC Berkeley, in 1997 (Schmeder, Freed, 2008). OSC streams consist of sequences of OSC bundles. Each bundle includes a unique identifier, encapsulated message, and timestamp.
+OSC streams consist of sequences of OSC bundles. Each bundle includes a unique identifier, encapsulated message, and timestamp.
 
 <MyImage
   src="osctime-osc-anatomy.png"
