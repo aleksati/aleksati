@@ -7,7 +7,7 @@ import Search from "./Search";
 const ModalSearch = () => {
   // This is new for SearchMobile
   const [SearchIsEnabled, setSearchIsEnabled] = useState<boolean>(false);
-  const modalRef = useRef<HTMLDivElement>();
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const closeModal = () => setSearchIsEnabled(false);
 

@@ -10,7 +10,7 @@ const SearchItem = ({
   isActive: boolean;
 }) => {
   const { type, slug, title, date, summary, keywords } = fronMatter;
-  const ref = useRef<HTMLAnchorElement>();
+  const ref = useRef<HTMLAnchorElement>(null);
 
   // focus the item on Arrow keypress
   useEffect(() => {

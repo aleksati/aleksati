@@ -10,8 +10,8 @@ type Props = {
 
 const ModalImage = ({ onModalClose, children }: Props) => {
   const [isMounted, setIsMounted] = useIsMounted();
-  const closeBtnRef = useRef<HTMLButtonElement>();
-  const modalRef = useRef<HTMLDivElement>();
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (closeBtnRef.current && isMounted) {

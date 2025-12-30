@@ -22,8 +22,8 @@ const WaveFormOptions = (ref, opt) => ({
 });
 
 const MyAudioPlayer = ({ src, newOptions = {} }) => {
-  const containerRef = useRef();
-  const waveFormRef = useRef();
+  const containerRef = useRef(null);
+  const waveFormRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [waveFormIsMounted, setWaveFormIsMounted] = useState(false);
 

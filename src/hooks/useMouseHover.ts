@@ -5,7 +5,7 @@ export const useMouseHover = <T extends HTMLElement>(): [
   boolean
 ] => {
   const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef<T>();
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const handleMouseOver = () => setIsHovered(true);
