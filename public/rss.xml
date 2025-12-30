@@ -9,9 +9,9 @@
             <link>https://aleksati.net</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Dec 2025 13:20:22 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Dec 2025 13:49:14 GMT</lastBuildDate>
         <atom:link href="https://aleksati.net/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Dec 2025 13:20:22 GMT</pubDate>
+        <pubDate>Tue, 30 Dec 2025 13:49:14 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
             <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VST) built with neural networks. And the short answer is Yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
@@ -28,7 +28,7 @@
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[OSC is a high-resolution protocol (64-bit) for sending messages between musical devices, similar to MIDI (8-bit). Last year, I led some workshops on OSC focusing on some of its unique audio networking capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to achieve custom and precise sync between musical devices in Python and Pure Data.]]></description>
+            <description><![CDATA[OSC is a high-resolution protocol (64-bit) for sending messages between musical devices, similar to MIDI (8-bit). Last year, I led some workshops on OSC focusing on its unique audio networking capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively sync musical devices in Python and Pure Data.]]></description>
             <link>https://aleksati.net/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">https://aleksati.net/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
