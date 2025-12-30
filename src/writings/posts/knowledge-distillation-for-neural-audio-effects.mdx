@@ -98,14 +98,14 @@ As presented in Figure 5, the listening test revealed that both distilled and no
 
 We evaluated our distillation architecture on three datasets of audio distortion effects: the Blackstar HT-1 vacuum tube amplifier (HT-1), the Electro-Harmonix Big Muff (Big Muff) guitar pedal, and the analog-modeled overdrive plugin DrDrive. Below are some examples from the unconditioned set of DrDrive, both distilled student models, standard (non-distilled) student networks, and the target audio.
 
-**DrDrive Target**
+**DrDrive Target** - This target audio is taken straight from the dataset we collected. The original audio source is clean, but its recorded through the DrDrive distortion plugin. This is what's called the ground truth:
 <MyAudioPlayer src="drdrive-uncond-1-tar-64.mp3" />
 
-**DrDrive Student Distilled**
-<MyAudioPlayer src="drdrive-uncond-1-pred-distilled-64.mp3" />
-
-**DrDrive Student Standard (non-distilled)**
+**DrDrive Student Standard (non-distilled)** - This is the same musical source but where the audio is passed through a neural student model of DrDrive instead, trained on the dataset where the target audio came from: 
 <MyAudioPlayer src="drdrive-uncond-1-pred-nondistilled-64.mp3" />
+
+**DrDrive Student Distilled** - This is the same source, again, but where the audio is passed through a distilled version of our neural student DrDrive model. This model is the same exact size as the non-distilled one, 64-units, but this has been "taught" (trained) on the data produced by a larger teacher model instead of the normal dataset: 
+<MyAudioPlayer src="drdrive-uncond-1-pred-distilled-64.mp3" />
 
 For many more audio examples, visit the my dedicated <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink>.
 
