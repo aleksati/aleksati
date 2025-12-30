@@ -49,7 +49,7 @@ router.get(async (req, res) => {
 export default router.handler({
   onError(error, req, res) {
     console.error(error);
-    res.status(500).json({ error: error.message || "Internal Server Error" });
+    res.status(500).json({ error: (error as Error).message || "Internal Server Error" });
   },
   onNoMatch(req, res) {
     res.status(405).json({ error: `Method ${req.method} Not Allowed` });

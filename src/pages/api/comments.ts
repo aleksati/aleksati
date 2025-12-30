@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import {createRouter} from "next-connect";
+import { createRouter } from "next-connect";
 
 // import { initValidation, check, post, del, put, oneOf, get } from "../../middleware/middlewareApi";
 import connectMongo from "../../functions/connectMongo";
@@ -46,8 +46,8 @@ router.get(async (req, res) => {
   const slug = req.query.slug;
 
   const comments = slug
-    ? await Comments.find({ slug })
-    : await Comments.find();
+    ? await (Comments as any).find({ slug })
+    : await (Comments as any).find();
 
   // Ensure array, even if empty
   const commentsSorted = (comments || [])
@@ -72,7 +72,8 @@ router.delete(async (req, res) => {
   await connectMongo();
 
   const { deletedCount } = await Comments.deleteOne({ _id: id });
-  if (!deletedCount) return res.status(404).json({ error: "Comment not found" });
+  if (!deletedCount)
+    return res.status(404).json({ error: "Comment not found" });
 
   res.status(200).json({ message: `Comment ${id} removed` });
 });
@@ -84,7 +85,9 @@ router.put(async (req, res) => {
   const { id, ...update } = req.body;
   if (!id) return res.status(400).json({ error: "Comment ID is required" });
 
-  const doc = await Comments.findOneAndUpdate({ _id: id }, update, { new: true });
+  const doc = await Comments.findOneAndUpdate({ _id: id }, update, {
+    new: true,
+  });
   if (!doc) return res.status(404).json({ error: "Comment not found" });
 
   res.status(200).json(doc);
@@ -94,7 +97,7 @@ router.put(async (req, res) => {
 export default router.handler({
   onError(error, req, res) {
     console.error(error);
-    res.status(500).json({ error: error.message || "Internal Server Error" });
+    res.status(500).json({ error: (error as Error).message || "Internal Server Error" });
   },
   onNoMatch(req, res) {
     res.status(405).json({ error: `Method ${req.method} Not Allowed` });
