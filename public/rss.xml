@@ -2,168 +2,168 @@
     <channel>
         <title><![CDATA[aleksati.net]]></title>
         <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, creative computing, software development and more.]]></description>
-        <link>https://aleksati.net</link>
+        <link>http://localhost:3000</link>
         <image>
-            <url>https://aleksati.net/img/me.jpg</url>
+            <url>http://localhost:3000/img/me.jpg</url>
             <title>aleksati.net</title>
-            <link>https://aleksati.net</link>
+            <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Dec 2025 20:03:32 GMT</lastBuildDate>
-        <atom:link href="https://aleksati.net/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Dec 2025 20:03:32 GMT</pubDate>
+        <lastBuildDate>Tue, 30 Dec 2025 20:37:20 GMT</lastBuildDate>
+        <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Tue, 30 Dec 2025 20:37:20 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
             <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VST) built with neural networks. And the short answer is Yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
-            <link>https://aleksati.net/posts/knowledge-distillation-for-neural-audio-effects</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/knowledge-distillation-for-neural-audio-effects</guid>
+            <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
             <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
             <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth, in real-time. In this post, I share how the app works and how you can use it yourself. Also, check out my online browser version of the app.]]></description>
-            <link>https://aleksati.net/projects/thesunrightnow-screensaver</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/thesunrightnow-screensaver</guid>
+            <link>http://localhost:3000/projects/thesunrightnow-screensaver</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/thesunrightnow-screensaver</guid>
             <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
             <description><![CDATA[OSC is a high-resolution protocol (64-bit) for sending messages between musical devices, similar to MIDI (8-bit). Last year, I led some workshops on OSC focusing on its unique audio networking capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively sync musical devices in Python and Pure Data.]]></description>
-            <link>https://aleksati.net/posts/osc-timestamps-and-forward-synchronization</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/osc-timestamps-and-forward-synchronization</guid>
+            <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Video Latency in Networked Music and Dance Performances]]></title>
             <description><![CDATA[Measuring video latency in networked music performances (NMP) is stressful and hard. There is usually little time and resources at hand, and on-site conditions often alot vary from controlled lab-scenarios and research setups. In this post, I share a few practical methods for measuring video latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
-            <link>https://aleksati.net/posts/strategies-for-measuring-video-latency-in-nmp</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/strategies-for-measuring-video-latency-in-nmp</guid>
+            <link>http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</guid>
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[An Easy Way to Optimize the Position of Your Studio Monitors]]></title>
             <description><![CDATA[By improving the placement of your studio monitors, you can significantly improve the sound quality in your studio. In this post, I share an easy and practical way to find optimal placements for your studio monitors with just some basic tools and a little know-how.]]></description>
-            <link>https://aleksati.net/posts/how-to-position-your-studio-monitors-better-and-more-accurately</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/how-to-position-your-studio-monitors-better-and-more-accurately</guid>
+            <link>http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</guid>
             <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Audio Latency in Networked Music and Dance Performances]]></title>
             <description><![CDATA[Measuring audio latency in networked music performances (NMP) is stressful and hard. There is usually little time and resources at hand, and on-site conditions often alot vary from controlled lab-scenarios and research setups. In this post, I share a few practical methods for measuring audio latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
-            <link>https://aleksati.net/posts/strategies-for-measuring-audio-latency-in-nmp</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/strategies-for-measuring-audio-latency-in-nmp</guid>
+            <link>http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Audio Latency Examiner]]></title>
             <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); my new software tool that can batch collect audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
-            <link>https://aleksati.net/projects/audio-latency-examiner</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/audio-latency-examiner</guid>
+            <link>http://localhost:3000/projects/audio-latency-examiner</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/audio-latency-examiner</guid>
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Dataset Generator for Musical Devices (DGMD)]]></title>
             <description><![CDATA[the Dataset Generator for Musical Devices (DGMD) is software that can generate datasets from audio effects specifically for machine-learning tasks. This post takes a closer look at the DGMD software, including links to tutorials and download pages. Original post by Stefano Fasciani.]]></description>
-            <link>https://aleksati.net/projects/dataset-generator-for-musical-devices</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/dataset-generator-for-musical-devices</guid>
+            <link>http://localhost:3000/projects/dataset-generator-for-musical-devices</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/dataset-generator-for-musical-devices</guid>
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Recreating Poème Symphonique for 100 Metronomes as Audio Software]]></title>
             <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for synchronization and a realtime ML-based sound engine. Read more about my process here and listen to the result.]]></description>
-            <link>https://aleksati.net/projects/software-poeme-symphonique</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/software-poeme-symphonique</guid>
+            <link>http://localhost:3000/projects/software-poeme-symphonique</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[How to use p5js and p5-sounds with Nextjs in 2024]]></title>
             <description><![CDATA[I sometimes use the p5js libraries to make little audio-visual widgets and sonification examples in my posts. Recently, I decided to re-design and update my p5 and p5-sounds implementation to support newer versions of p5, React, Nextjs (v14.1), and TypeScript. In this post, I share all my code and detail my process.]]></description>
-            <link>https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/how-to-use-p5js-with-nextjs-in-2024</guid>
+            <link>http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/how-to-use-p5js-with-nextjs-in-2024</guid>
             <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Things to Remember when Audio Engineering for Networked Concerts]]></title>
             <description><![CDATA[Mixing live sound for networked music events, where several locations are connected together in real-time, is very different from mixing in an average concert setting. Having to manage different stages through an added network layer can be a real challenge, especially when it's showtime and the pressure is on. In this post, I share some useful steps and strategies that can help improve your networked audio engineering practice.]]></description>
-            <link>https://aleksati.net/posts/things-to-remember-when-audio-engineering-for-networked-concerts</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/things-to-remember-when-audio-engineering-for-networked-concerts</guid>
+            <link>http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Tools for Exploring Performance Patterns in Norwegian Folk Music]]></title>
             <description><![CDATA[For my master thesis, I developed a series of interactive software tools to explore performance patterns in Hardanger Fiddle Music, in collaboration with the MIRAGE Research Project at UiO. This post takes a quick look at the software and its main features.]]></description>
-            <link>https://aleksati.net/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
+            <link>http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[My Tiny MaxMSP Bundle - aleks.max]]></title>
             <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
-            <link>https://aleksati.net/projects/aleks-max</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/aleks-max</guid>
+            <link>http://localhost:3000/projects/aleks-max</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/aleks-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
             <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some content from a workshop I recently held on ways to enhance data visualizations with model-based sonification in a browser using the p5js library. Interactive examples included!]]></description>
-            <link>https://aleksati.net/posts/exploring-dataset-sonification-with-web-audio</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/exploring-dataset-sonification-with-web-audio</guid>
+            <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
             <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[0101101000 ... (hello world)]]></title>
             <description><![CDATA['Hello World' is a sound-sculpture made of burned drywall paper tape, methyl cellulose, aluminum flashing, bluetooth transducers, concrete and steel rods. The sculpture is made by artist Henrik Nordahl, but I was asked to make it sing, i.e generate sound and vibrations based on the WiFi traffic on-site. In this post I share what we did and how it turned out.]]></description>
-            <link>https://aleksati.net/projects/hello-world</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/hello-world</guid>
+            <link>http://localhost:3000/projects/hello-world</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/hello-world</guid>
             <pubDate>Sun, 30 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Using Python to Control Ableton Live with MIDI]]></title>
             <description><![CDATA[While designing a new liveset, I wrote some Python code to help me map and navigate Ableton Live more efficiently using very few MIDI controls. Here is what I did and how.]]></description>
-            <link>https://aleksati.net/posts/using-python-to-control-ableton-live-with-midi</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/using-python-to-control-ableton-live-with-midi</guid>
+            <link>http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/using-python-to-control-ableton-live-with-midi</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[5G Networked Music Performances - Will it Work?]]></title>
             <description><![CDATA[My collegue and I teamed up with Telenor Research to see if it's possible to play music together over next generation 5G networks. Here are the preliminary results from our first audio latency tests on private and commercial 5G networks.]]></description>
-            <link>https://aleksati.net/posts/fiveg-networked-music-performances</link>
-            <guid isPermaLink="true">https://aleksati.net/posts/fiveg-networked-music-performances</guid>
+            <link>http://localhost:3000/posts/fiveg-networked-music-performances</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/fiveg-networked-music-performances</guid>
             <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Karwowski, Kann & Tidemann + Nordahl]]></title>
             <description><![CDATA[An improvisational audio-visual quartet that offers thought-provoking and immersive concert experiences, combining guitar, vocals, live electronics, and projected visual art.]]></description>
-            <link>https://aleksati.net/musics/karwowski-kann-tidemann</link>
-            <guid isPermaLink="true">https://aleksati.net/musics/karwowski-kann-tidemann</guid>
+            <link>http://localhost:3000/musics/karwowski-kann-tidemann</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/karwowski-kann-tidemann</guid>
             <pubDate>Sat, 17 Dec 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
             <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone software tool for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
-            <link>https://aleksati.net/projects/audiovideoanalysis</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/audiovideoanalysis</guid>
+            <link>http://localhost:3000/projects/audiovideoanalysis</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[VideoAnalysis - Analyzing Music-related Body Motion]]></title>
             <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
-            <link>https://aleksati.net/projects/videoanalysis</link>
-            <guid isPermaLink="true">https://aleksati.net/projects/videoanalysis</guid>
+            <link>http://localhost:3000/projects/videoanalysis</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/videoanalysis</guid>
             <pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Radio 9]]></title>
             <description><![CDATA[A krautrock electronic pop trio from Oslo that takes you on a sonic journey from subtle electronic atmospheres to jarring post-punk whiteouts.]]></description>
-            <link>https://aleksati.net/musics/radio9</link>
-            <guid isPermaLink="true">https://aleksati.net/musics/radio9</guid>
+            <link>http://localhost:3000/musics/radio9</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/radio9</guid>
             <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Holy Mountain]]></title>
             <description><![CDATA[The Holy Mountain is a dark synth-pop trio with accordion, vocals, synth and drums. Since 2015, the band has produced an impressive discography of critically acclaimed genre-defying music with a taste for the mysterious and transcendental.]]></description>
-            <link>https://aleksati.net/musics/the-holy-mountain</link>
-            <guid isPermaLink="true">https://aleksati.net/musics/the-holy-mountain</guid>
+            <link>http://localhost:3000/musics/the-holy-mountain</link>
+            <guid isPermaLink="true">http://localhost:3000/musics/the-holy-mountain</guid>
             <pubDate>Mon, 15 Aug 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>
