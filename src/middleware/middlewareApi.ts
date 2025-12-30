@@ -1,42 +1,36 @@
 import { check, oneOf, validationResult, body } from "express-validator";
-import { NextApiRequest, NextApiResponse } from "next";
-import nextConnect from "next-connect";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { NextHandler } from "next-connect";
 
-// validates the incoming request before it's procced by the API
-function initValidation(validations: any) {
-  return async (req: NextApiRequest, res: NextApiResponse, next: any) => {
-    await Promise.all(validations.map((validation: any) => validation.run(req)));
+
+// DEPRECATED! I THINK..
+
+// Validation middleware
+// --------------------------
+function initValidation(validations: any[]) {
+  return async (req: NextApiRequest, res: NextApiResponse, next: NextHandler) => {
+    await Promise.all(validations.map((validation) => validation.run(req)));
 
     const errors = validationResult(req);
 
     if (errors.isEmpty()) return next();
 
-    const err = [];
-    errors.array().map((error) => err.push(error.msg));
-    throw new Error(...err);
+    // Collect all error messages
+    const err = errors.array().map((e) => e.msg);
+
+    // Throw a single error with all messages
+    throw new Error(err.join(", "));
   };
 }
 
-// to use inside nextConnect().use() functions in the API
-// to use inside nextConnect().use() functions in the API
-const patch = (middleware: any) => {
-  return nextConnect().patch(middleware);
-};
+// Method wrappers
+// These are now just helpers to create middleware for specific HTTP methods
+// Usage inside createRouter().use() or router.METHOD()
+const post = (middleware: any) => middleware;
+const put = (middleware: any) => middleware;
+const patch = (middleware: any) => middleware;
+const get = (middleware: any) => middleware;
+const del = (middleware: any) => middleware;
 
-const put = (middleware: any) => {
-  return nextConnect().put(middleware);
-};
-
-const post = (middleware: any) => {
-  return nextConnect().post(middleware);
-};
-
-const get = (middleware: any) => {
-  return nextConnect().get(middleware);
-};
-
-const del = (middleware: any) => {
-  return nextConnect().delete(middleware);
-};
-
+// Exports
 export { patch, put, post, get, del, initValidation, check, oneOf, body };

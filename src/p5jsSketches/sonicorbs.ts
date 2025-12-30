@@ -85,14 +85,14 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
     p5.textSize(14);
     p5.fill(0, 0, 0);
 
-    p5.textAlign("CENTER");
+    // p5.textAlign("CENTER");
     p5.text("Body (x)", canvasWidth / 2 - 20, 15);
 
-    p5.textAlign("LEFT");
+    // p5.textAlign("LEFT");
     p5.text("Balance (y)", 10, canvasHeight / 2);
 
     p5.textSize(10);
-    p5.textAlign("LEFT");
+    // p5.textAlign("LEFT");
     p5.text(
       "Year: " +
         data.getColumn("Year").slice(0, data_size + 1)[slider_data_val],
@@ -100,10 +100,10 @@ export const sonicorbs: P5jsSketch = (p5, parentRef) => {
       canvasHeight - 25
     );
 
-    p5.textAlign("LEFT");
+    // p5.textAlign("LEFT");
     p5.text("Data index: " + slider_data_val, 5, canvasHeight - 5);
 
-    p5.textAlign("LEFT");
+    // p5.textAlign("LEFT");
     p5.text(
       "Carrier frequency factor: " + slider_freq_val,
       130,

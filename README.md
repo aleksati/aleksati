@@ -1,6 +1,6 @@
 # aleksati net
 
-Part portfolio and part blog, a platform where I share my projects and write about music/audio tech stuff. A TypeScript Nextjs website built with React and Tailwind CSS.
+Part portfolio and part blog, a platform where I share my projects and write about music technology. A TypeScript Nextjs website built with React and Tailwind CSS.
 
 <!--
 - A blog powered by the MDX (markdown -> HTML) library

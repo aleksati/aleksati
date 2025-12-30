@@ -12,7 +12,7 @@ summary: "I sometimes use the p5js libraries to make little audio-visual widgets
 
 I sometimes use the <MyLink href="https://p5js.org/">p5js library</MyLink> to create cool little audio-visual widgets and sonification examples in my posts. When I recently discovered that the go-to p5 library for React users had been deprecated (<MyLink href="https://www.npmjs.com/package/react-p5">p5-react</MyLink>), I knew it was time to create a new implementation with the p5 standard library for my site that supports newer versions of p5, React, Nextjs (v14.1), and TypeScript.
 
-This dev job was much more challenging than I had expected. Even though the compatibility issues between p5, React, and the server-side rendering framework of Nextjs are well documented, new software versions always mean renewed integration hell. However, after lots of trial and error, online research, and study of previous p5 implementations, I was able to put together some code that worked.
+This job was much more challenging than I had expected. Even though the compatibility issues between p5, React, and the server-side rendering framework of Nextjs are well documented, new software versions always mean renewed integration hell. However, after lots of trial and error, online research, and study of previous p5 implementations, I was able to put together some code that worked.
 
 Here's how you integrate p5js and p5-sounds into Nextjs TypeScript projects in 2024.
 
@@ -121,7 +121,7 @@ However, you may encounter reference errors and other troubles when importing p5
 
 I roamed the internet for some time in search of a decent workaround to the reference errors I got trying to import p5-sounds on new versions of Next (both client- and server-side). Luckily, I came across <MyLink href="https://stackoverflow.com/questions/61985249/how-to-import-and-utilize-p5-sound-in-vue">a genius answer</MyLink> by Bob McBobson from 2020 in response to an issue with p5 sounds not being recognized in Vue. Bob suggests simply to use an older version of p5-sounds together with the latest version of p5. This worked perfectly for me, as well.
 
-First use "npm uninstall p5" and "npm install p5@0.9.0" to downgrade your p5 version to version 0.9.0 (it might work with newer versions, as well). Then, copy the downgraded version of "p5.sound.js" from node_modules to a custom folder in your root directory, such as "lib". Once you have copied the file, use "npm uninstall p5" and "npm install p5@latest" again to upgrade your p5 to the latest version. Finally, change the import statement in your components to point to your custom folder with the older version of p5-sounds:
+First use "npm uninstall p5" and "npm install p5@0.9.0" to downgrade your p5 version to version 0.9.0 (it might work with newer versions, as well). Then, copy the downgraded version of "p5.sound.js" from node_modules to a custom folder in your root directory, such as "lib". Once you have copied the file, use "npm uninstall p5" and "npm install p5@latest" again to upgrade your p5 to the v1.9.0 again. Finally, change the import statement in your components to point to your custom folder with the older version of p5-sounds:
 
 ```TypeScript
 // components/P5jsContainer.tsx

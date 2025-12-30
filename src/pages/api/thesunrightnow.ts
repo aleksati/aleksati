@@ -1,15 +1,17 @@
-import { commonApiHandlers } from "../../functions/commonApiHandlers";
+// import { commonApiHandlers } from "../../functions/commonApiHandlers";
+import { NextApiRequest, NextApiResponse } from "next";
+import {createRouter} from "next-connect";
+
 import { getCurrDate } from "../../functions/getCurrDate";
-import nextConnect from "next-connect";
 
 // images from:
 // https://sdo.gsfc.nasa.gov/assets/img/browse/2025/04/05/
 // filename logic:
 // YYYMMDD_HHMMSS_512_0211.jpg
 
-export default nextConnect()
-    .use(commonApiHandlers)
-  .get(async (req, res) => {
+const router = createRouter<NextApiRequest, NextApiResponse>();
+
+router.get(async (req, res) => {
     // retrieve new imgfilenames from the NASA server.
     // get date "2025-12-24" and make "2025/12/24"
     let date = getCurrDate();
@@ -41,4 +43,15 @@ export default nextConnect()
     const imgFileNames = lastSixteen.filter((e) => e.includes("4096"));
 
     res.status(200).json(imgFileNames);
-  });
+})
+
+// Export handler
+export default router.handler({
+  onError(error, req, res) {
+    console.error(error);
+    res.status(500).json({ error: error.message || "Internal Server Error" });
+  },
+  onNoMatch(req, res) {
+    res.status(405).json({ error: `Method ${req.method} Not Allowed` });
+  },
+});

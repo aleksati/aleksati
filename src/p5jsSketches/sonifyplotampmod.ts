@@ -80,7 +80,7 @@ export const sonifyplotampmod: P5jsSketch = (p5, parentRef) => {
     p5.textSize(20);
     p5.fill(0, 0, 0);
     p5.text(match_owner, 40, canvasHeight - 20);
-    p5.textAlign("CENTER");
+    // p5.textAlign("CENTER");
   };
 
   const drawDots = () => {

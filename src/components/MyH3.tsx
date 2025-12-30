@@ -9,8 +9,6 @@ const MyH3 = ({
   // convert all spaces to "-" and text to lowercase.
   const childID: string = children.toLowerCase().split(" ").join("-");
 
-  console.log(childID);
-
   return (
     <h3 id={childID} className="font-bold text-xl mb-2" {...h3Props}>
       {children}
