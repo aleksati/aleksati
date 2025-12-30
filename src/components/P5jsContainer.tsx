@@ -10,7 +10,7 @@ import p5Types from "p5";
 
 const P5jsContainer: P5jsContainer = ({ sketch }) => {
   const [isMounted, setIsMounted] = useIsMounted();
-  const parentRef = useRef<P5jsContainerRef>();
+  const parentRef = useRef<P5jsContainerRef>(null);
 
   useEffect(() => {
     if (!isMounted) return;

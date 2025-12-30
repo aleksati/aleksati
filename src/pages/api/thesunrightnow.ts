@@ -1,4 +1,3 @@
-// import { commonApiHandlers } from "../../functions/commonApiHandlers";
 import { NextApiRequest, NextApiResponse } from "next";
 import {createRouter} from "next-connect";
 

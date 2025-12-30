@@ -12,7 +12,7 @@ const ClientOnlyPortal = ({
   selector,
 }: Props): React.ReactPortal | null => {
   const [isMounted, setIsMounted] = useIsMounted();
-  const ref = useRef<HTMLElement>();
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     ref.current = document.querySelector(selector);

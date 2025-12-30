@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createRouter } from "next-connect";
 
-// import { initValidation, check, post, del, put, oneOf, get } from "../../middleware/middlewareApi";
 import connectMongo from "../../functions/connectMongo";
 import Comments from "../../models/Comments";
 
