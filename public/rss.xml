@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Dec 2025 19:22:40 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Dec 2025 19:45:51 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Dec 2025 19:22:40 GMT</pubDate>
+        <pubDate>Tue, 30 Dec 2025 19:45:51 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
             <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VST) built with neural networks. And the short answer is Yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
@@ -105,7 +105,7 @@
         </item>
         <item>
             <title><![CDATA[Exploring Dataset Sonification with Web Audio]]></title>
-            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some examples of how you can pimp your data visualizations with model-based sonification in a browser using the p5js library.]]></description>
+            <description><![CDATA[Thanks to modern browsers and open-source coding libraries, creating audio-visual art on the Web is easier than ever. In this post, I share some content from a workshop I recently held on ways to enhance data visualizations with model-based sonification in a browser using the p5js library. Interactive examples included!]]></description>
             <link>http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</link>
             <guid isPermaLink="true">http://localhost:3000/posts/exploring-dataset-sonification-with-web-audio</guid>
             <pubDate>Wed, 20 Sep 2023 00:00:00 GMT</pubDate>
