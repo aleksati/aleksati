@@ -9,19 +9,19 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 29 Dec 2025 15:39:45 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 15:59:29 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 29 Dec 2025 15:39:45 GMT</pubDate>
+        <pubDate>Mon, 29 Dec 2025 15:59:29 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
-            <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VSTs) built with neural networks. And the short answer is yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
+            <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VST) built with neural networks. And the short answer is Yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
             <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
             <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
             <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
-            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth, in real-time. In this post, I share how the app works and how you can use it yourself. Also check out a live browser version of the slideshow.]]></description>
+            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth, in real-time. In this post, I share how the app works and how you can use it yourself. Also, check out my online browser version of the app.]]></description>
             <link>http://localhost:3000/projects/thesunrightnow-screensaver</link>
             <guid isPermaLink="true">http://localhost:3000/projects/thesunrightnow-screensaver</guid>
             <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
