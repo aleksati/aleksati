@@ -98,13 +98,13 @@ As presented in Figure 5, the listening test revealed that both distilled and no
 
 Below are some audio examples from our attempts to model the DrDrive plugin with neural networks and optimization using KD. What you hear are three versions of the same audio where the only difference is what's creating the distortion effect. 
 
-**DrDrive target** - The target audio is taken straight out of the dataset. This is just the audio being recorded through the actual DrDrive plugin, usually referred to as the ground truth:
+**DrDrive target** - The target audio is taken straight out of the dataset. This is just the audio being recorded through the actual DrDrive plugin, sometimes referred to as the *ground truth*:
 <MyAudioPlayer src="drdrive-uncond-1-tar-64.mp3" />
 
-**DrDrive student network (non-distilled)** - In this scenario, the audio was recorded through a small student network that models the DrDrive plugin. The network is trained on the dataset where the target audio came from:
+**DrDrive student network (non-distilled)** - Here, the audio is recorded through a small student network that is trained to mimicks the DrDrive distortion plugin. The network is trained on the regular dataset where the target audio came from:
 <MyAudioPlayer src="drdrive-uncond-1-pred-nondistilled-64.mp3" />
 
-**DrDrive student network (distilled)** - In this scenario, the audio was recorded through another small student network that models the DrDrive plugin, but this network has been "taught", or trained, on data produced by a larger teacher model instead of the target dataset:
+**DrDrive student network (distilled)** - In this scenario, the audio is also recorded through a small student network that mimicks the DrDrive distortion plugin. However, instead of being trained on the regular dataset, this network has been "taught" by a larger teacher model:
 <MyAudioPlayer src="drdrive-uncond-1-pred-distilled-64.mp3" />
 
 For many more audio examples, visit the my dedicated <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink>.
