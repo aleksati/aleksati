@@ -101,17 +101,17 @@ Below are some audio examples from our attempts to model the DrDrive plugin with
 **DrDrive target** - The target audio is taken straight out of the dataset. This is just the audio being recorded through the actual DrDrive plugin, usually referred to as the ground truth:
 <MyAudioPlayer src="drdrive-uncond-1-tar-64.mp3" />
 
-**DrDrive student network (non-distilled)** - In this scenario, the audio is recorded through a small neural network (student) that models the DrDrive plugin. The network is trained on the dataset where the target audio came from: 
+**DrDrive student network (non-distilled)** - In this scenario, the audio was recorded through a small student network that models the DrDrive plugin. The network is trained on the dataset where the target audio came from:
 <MyAudioPlayer src="drdrive-uncond-1-pred-nondistilled-64.mp3" />
 
-**DrDrive student network (distilled)** - In this scenario, the audio is also recorded through a small neural network (student) that models the DrDrive plugin, but this time the model has been "taught", or trained, on data produced by a larger teacher model instead of the target dataset:
+**DrDrive student network (distilled)** - In this scenario, the audio was recorded through another small student network that models the DrDrive plugin, but this network has been "taught", or trained, on data produced by a larger teacher model instead of the target dataset:
 <MyAudioPlayer src="drdrive-uncond-1-pred-distilled-64.mp3" />
 
 For many more audio examples, visit the my dedicated <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink>.
 
 # Summary 
 
-In this post, I've tried to do a bit of what Roger once did for me: take something complex, slightly intimidating, and hopefully make it a little more approachable. We explored whether knowledge distillation, a technique built around the idea of good teachers and smaller students, can help make neural audio distortion effects more efficient without sacrificing quality. We found that distillation can indeed improve performance for student models, effectively allowing us to shrink models while retaining accuracy. The results weren't perfectly uniform, dataset complexity, student size, and the gap between teacher and student all mattered, but the overall trend was clear. When applied thoughtfully, knowledge distillation is a promising tool for lightweight neural audio effects.
+In this post, I've tried to do a bit of what Roger once did for me, take something complex, slightly intimidating, and hopefully make it a little more approachable. We explored whether knowledge distillation, a technique built around the idea of good teacher-student combos, can help make neural audio distortion effects more efficient. We found that distillation can indeed improve performance for student models, effectively allowing us to shrink the networks while retaining accuracy. The results weren't perfectly uniform, dataset complexity, student size, and the gap between teacher and student all mattered, but the overall trend was clear. When applied thoughtfully, knowledge distillation is a promising tool for lightweight neural audio effects.
 
 Our experiments showed consistent gains in many scenarios, especially with larger student models, while perceptual listening tests suggested a small but noticeable preference for distilled models. But just as importantly, our work raised new questions about _how_ teachers should teach. Sometimes smaller, simpler teachers turned out to be better mentors than very large ones. This suggests that knowledge distillation is not a silver bullet, but it is a valuable addition to the toolbox for building real-time, deployable neural audio effects. Like most technologies riding the hypetrain, its real impact will likely be quieter, steadier, and more practical than dramatic, but that's often where the most meaningful progress lives.
 
