@@ -39,7 +39,7 @@ router.get(async (req, res) => {
     // every images comes in 3 resolutions, 512, 2048, 4096. 
     // only grab the images with 2048 resolution.
     // this leaves 4 images in total.
-    const imgFileNames = lastSixteen.filter((e) => e.includes("4096"));
+    const imgFileNames = lastSixteen.filter((e) => e.includes("2048"));
 
     res.status(200).json(imgFileNames);
 })
