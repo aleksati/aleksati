@@ -1,0 +1,106 @@
+---
+title: "ss"
+date: ""
+keywords: ["audio", "synchronization", "software", "max", "kuramoto", "programming", "realtime", "mapping"]
+type: "project"
+summary: "."
+---
+
+add "algorithm" to this and the other one.
+
+In a previous post, I go into depth about hos I recreated the famous piece by  György Ligeti Symphonique <MyLink href="">Poème Symphonique for 100 metronomes as audio software</MyLink>. 
+
+During the development, I created t
+
+MAX MC TO KURAMOTO.... unique because it handled any number of oscillators.. dynamic coupling constants.. works in real-time..
+
+It warrents a post by itself, even though most of this text is in my Poème Symphonique post. 
+
+
+Real-time .. multi-channel ...
+
+Bringing the Kuramoto Model to 
+
+# Synchronization With The Kuramoto Model
+
+Synchronization can be defined as an interaction between independent rhythmical processes. It's a natural process we observe everywhere, from light pulses of large groups of fireflies, to musical ensembles reaching a state of rhythmical unity. Technically speaking, the result of synchronization is a transition to phase equality (θ ≡ θ) for all oscillators in a system at a rate described by how much they are interacting/coupled.
+
+<MyImage src="dsp-in-sync.png" alt="Sine-wave that syncronize with each other." />
+
+The Kuramoto model is a simple and well-known mathematical framework for understanding synchronization in globally coupled non-linear oscillators, developed by Yoshiki Kuramoto in the 1970s. In simple terms, the model describes how groups of interacting oscillators synchronize, just like what we experience with Ligeti's metronomes and the fireflies. I was first introduced to the Kuramoto equation through a great video by Matt Parker on <MyLink href="https://www.youtube.com/watch?v=J4PO7NbdKXg"> Syncronizing Metronomes in a Spreadsheet</MyLink>.
+
+In the governing Kuramoto equation, seen below, the phase (θ) of an oscillator is extracted by calculating the sine of difference between all oscillators (_N_) in the system. The strength of the interaction between the oscillators is determined by the coupling constant (_K_), a parameter that also controls the rate of synchronization. Also, the fundamental frequencies (ω) of the oscillators must be added.
+
+<MyImage src="dsp-kuramoto-model.png" width="400" alt="The Kuramoto model equation" />
+
+Kuramoto-like models have had an impact on a variety of scientific fields, including music. A big part of music research with the Kuramoto model has revolved around new complex forms of synthesis, studying how we can derive complex behavior from simple oscillator systems, experimenting with generative synthesis, sonification applications, and even waveshaping.
+
+Rythmn studies is another research area where these models have been put to use (of course, you might think). Some of these studies have experimented with self-organizing rhythmical systems and intelligent systems that can enable better musicking between humans and machines/robots.
+
+# Bringing The Kuramoto Model To Max
+
+When searching for Kuramoto Models implemented in Max, I came across several existing candidates. Most notable was the <MyLink href="https://github.com/nolanlem/Kuroscillators">Kuroscillator objects</MyLink>, developed by Nolan Lem in Faust for Max. Although Nolan's implementation is elegant and supports both synthesis and rhythm synchronization, I could .... 
+
+However, for my implemetation, I wanted something more dynamic and that supports the amazing multi-channel (MC) domain in Max.. and something that was 100% Max-native for future maintenence..
+
+real-time ... 
+
+not in the multi-channel domain.. 
+
+100% Max-native for future maintenence.
+...
+.. Hvorfor er den dårlig?
+
+
+I wanted something where you could set some parameters and get sinewaves as an output. Something easy and useable in many contexts.  
+
+I started my development process by formulating a set of requirements for my Kuramoto model software implementation:
+
+1. The software should support an arbitrary number of oscillators, meaning it should be equally simple to use with 2 oscillators as with 200 (it should be multi-channel).
+
+2. The user should be able to toggle oscillators on/off at arbitrary times, mimicking how you start and stop a mechanical metronome.
+
+3. The user should also be able to change the oscillator frequencies and adjust the coupling constant (K-value) at arbitrary times.
+
+4. One shared K-value should apply for all oscillators in the system. Also, setting a K-value equal to 0 should bypass the Kuramoto effect and return the oscillator phases their original state.
+
+5. For maintainablilty, the implementation should be 100% Max-native, meaning no third-party dependencies.
+
+ADD IMAGE WITH OVERVIEW and ARROW TO NEXT! "SEE UNDER THE HOOD -->", see further under the hood"
+
+FIRST, BARE BILDE of the overview
+
+<MySlideshow
+  imgs={["dsp-ksync-under-the-hood.png", "dsp-ksync-node-diagram.png"]}
+  captions={[
+    "with alx.sync, you can couple and synchronize oscillators with the Kuramoto model. Under the hood, the object is 100% Max-native and uses the mc.gen~ to handle the core audio processing.",
+    "Under the hood (overview) of the gen code (ksync_node) where I continously calculate the kuramoto model offsets to all incoming oscillators.",
+  ]}
+/>
+
+As result, I developed <MyLink href="https://aleksati.net/projects/alx-max">alx.ksync</MyLink>, a simple Max object with three inlets, one for K-value, one for oscillator states (on/off), and one for oscillator frequencies. Once oscillators are toggled, the object outputs sine waves with the desired frequencies.
+
+my ksync software consist of a ksync node together with some governing logic and basic math to turn the input parameters into sinewave ouputs. 
+
+The ksync node is therefore the heart of the 
+
+Something else to add??? Tha main part is Gen and buffer combo.. With a little help from a firend of mine.
+
+The most challenging part was to find elegant solutions to requirements 1 and 2. I had trouble finding a dynamic way for each channel to access the current phases of every other channel, an important component of the Kuramoto equation. In the end, I sought guidance from a brilliant coder and friend, Balint Lazcko, who proposed a solution using an external buffer to hold current oscillator phases. 
+
+SLIDESHOW!!.. A look under the hood of [aleks.ksync]
+
+Since its at audio rate in real-time... I had to make some other ajustments to the algorithm.. Being executed at audio rate, the implementation also required extra scaling and fine-tuning. Specifically, I had to scale the coupling constant (k-value) and natural frequencies to the system sampling rate to get usable performance. Fortunately, you can access all kinds of system variables globally in the Max multi-channel gen~ environment, like the channel count, channel, and sampling rate.
+
+```C
+///inside [mc.gen~ ksync_node] codeblock. Scaling the k_value and n_freq to the system sampling rate using global gen variables
+k_value_scaled = (k_value / mc_channelcount) / samplerate; // (K) k_value is the current coupling constant
+n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natural frequency of each oscillator
+
+```
+
+# Download 
+
+In the end, it works well.
+
+It also includes a stress test with 250 oscillators! 

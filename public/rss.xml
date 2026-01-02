@@ -9,33 +9,33 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Dec 2025 20:37:20 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Jan 2026 13:46:01 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Dec 2025 20:37:20 GMT</pubDate>
+        <pubDate>Fri, 02 Jan 2026 13:46:01 GMT</pubDate>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
-            <description><![CDATA[Making neural networks smaller without affecting their accuracy is hard. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through my recent research project where we examined if KD could be used to enhance audio effects (VST) built with neural networks. And the short answer is Yes, it can! Also included are VST downloads, audio examples, source code and more.]]></description>
+            <description><![CDATA[Making neural networks smaller without harming their accuracy is difficult. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through a recent research project where we examined if KD could enhance audio effects (VST) built with neural nets. And the short answer is yes, it can!]]></description>
             <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
             <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
             <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Sun Right Now - Screensaver]]></title>
-            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth, in real-time. In this post, I share how the app works and how you can use it yourself. Also, check out my online browser version of the app.]]></description>
+            <description><![CDATA[The Sun Right Now is my new desktop screensaver that displays colorful 4K images of the sun in a cool slideshow. The images are retrieved directly from the NASA SDO, a satellite observatory currently orbiting Earth, in real-time. In this post, I share how the app works and how you can use it yourself. You can also check out an online browser demo of the app.]]></description>
             <link>http://localhost:3000/projects/thesunrightnow-screensaver</link>
             <guid isPermaLink="true">http://localhost:3000/projects/thesunrightnow-screensaver</guid>
             <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[OSC Timestamps and Forward Synchronization in Python and Pure Data]]></title>
-            <description><![CDATA[OSC is a high-resolution protocol (64-bit) for sending messages between musical devices, similar to MIDI (8-bit). Last year, I led some workshops on OSC focusing on its unique audio networking capabilities. In this post, I distill my workshops into a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively sync musical devices in Python and Pure Data.]]></description>
+            <description><![CDATA[OSC is a high-res protocol (64-bit) for sending messages between musical devices, similar to MIDI (8-bit). Last year, I led some workshops on OSC focusing on its unique networking capabilities. In this post, I present my workshops as a written step-by-step guide, showing how to use OSC Timestamps and a technique called Forward Synchronization to effectively sync musical devices in Python and Pure Data.]]></description>
             <link>http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</link>
             <guid isPermaLink="true">http://localhost:3000/posts/osc-timestamps-and-forward-synchronization</guid>
             <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Video Latency in Networked Music and Dance Performances]]></title>
-            <description><![CDATA[Measuring video latency in networked music performances (NMP) is stressful and hard. There is usually little time and resources at hand, and on-site conditions often alot vary from controlled lab-scenarios and research setups. In this post, I share a few practical methods for measuring video latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
+            <description><![CDATA[Measuring video latency in networked music performances (NMP) is stressful. There is little time and resources at hand, and on-site conditions often differ alot from controlled research setups. In this post, I share a few practical methods and strategies for measuring video latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
             <link>http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</link>
             <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-video-latency-in-nmp</guid>
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
@@ -49,7 +49,7 @@
         </item>
         <item>
             <title><![CDATA[Strategies for Measuring Audio Latency in Networked Music and Dance Performances]]></title>
-            <description><![CDATA[Measuring audio latency in networked music performances (NMP) is stressful and hard. There is usually little time and resources at hand, and on-site conditions often alot vary from controlled lab-scenarios and research setups. In this post, I share a few practical methods for measuring audio latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
+            <description><![CDATA[Measuring audio latency in networked music performances (NMP) is stressful. There is little time and resources at hand, and on-site conditions often differ alot from controlled research setups. In this post, I share a few practical methods and strategies for measuring audio latency that guarantee precise and reliable data collection in the field, developed from years of professional experience.]]></description>
             <link>http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</link>
             <guid isPermaLink="true">http://localhost:3000/posts/strategies-for-measuring-audio-latency-in-nmp</guid>
             <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
@@ -97,10 +97,10 @@
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[My Tiny MaxMSP Bundle - aleks.max]]></title>
-            <description><![CDATA[aleks.max is my small library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others.]]></description>
-            <link>http://localhost:3000/projects/aleks-max</link>
-            <guid isPermaLink="true">http://localhost:3000/projects/aleks-max</guid>
+            <title><![CDATA[My Tiny MaxMSP Library for Audio, Video and Data Processing - alx.max]]></title>
+            <description><![CDATA[alx.max is my tiny library of MaxMSP abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others, and for me later on. All code and downloads are avaliable open-source.]]></description>
+            <link>http://localhost:3000/projects/alx-max</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/alx-max</guid>
             <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
