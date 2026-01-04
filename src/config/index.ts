@@ -75,5 +75,6 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   "pure-data" : "#ecfccb", //lime-100"
   astronomy: "#fee2e2", //red-100
   fx: "#purple-100", //red-100
-  vst: "#f3e8ff" //purple-100
+  vst: "#f3e8ff", //purple-100
+  dsp: "#fef9c3"
 };

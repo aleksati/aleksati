@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 02 Jan 2026 13:46:01 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 04 Jan 2026 21:10:50 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 02 Jan 2026 13:46:01 GMT</pubDate>
+        <pubDate>Sun, 04 Jan 2026 21:10:50 GMT</pubDate>
+        <item>
+            <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
+            <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model deserves a post of its own, a post describing the process and how I designed it as a dynamic and multi-channel audio object in Max, able to sync hundreds of oscillators on the fly.]]></description>
+            <link>http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</guid>
+            <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs]]></title>
             <description><![CDATA[Making neural networks smaller without harming their accuracy is difficult. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through a recent research project where we examined if KD could enhance audio effects (VST) built with neural nets. And the short answer is yes, it can!]]></description>
@@ -69,10 +76,10 @@
             <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Recreating Poème Symphonique for 100 Metronomes as Audio Software]]></title>
-            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I recreated his famous 'Poème Symphonique for 100 metronomes' as audio software using the Kuramoto model for synchronization and a realtime ML-based sound engine. Read more about my process here and listen to the result.]]></description>
-            <link>http://localhost:3000/projects/software-poeme-symphonique</link>
-            <guid isPermaLink="true">http://localhost:3000/projects/software-poeme-symphonique</guid>
+            <title><![CDATA[Poème Symphonique Numérique: Ligeti’s 100 Metronomes as Software]]></title>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I dediced to create a version of his famous 'Poème Symphonique for 100 metronomes' in MaxMSP, using the Kuramoto model for synchronization and a real-time ML-based sound engine. Read more about my process, see the code and listen to the results here.]]></description>
+            <link>http://localhost:3000/projects/poeme-symphonique-numerique</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/poeme-symphonique-numerique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -83,10 +90,10 @@
             <pubDate>Sat, 03 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Things to Remember when Audio Engineering for Networked Concerts]]></title>
+            <title><![CDATA[Things to Remember when Audio Engineering for Networked Music Performances]]></title>
             <description><![CDATA[Mixing live sound for networked music events, where several locations are connected together in real-time, is very different from mixing in an average concert setting. Having to manage different stages through an added network layer can be a real challenge, especially when it's showtime and the pressure is on. In this post, I share some useful steps and strategies that can help improve your networked audio engineering practice.]]></description>
-            <link>http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/things-to-remember-when-audio-engineering-for-networked-concerts</guid>
+            <link>http://localhost:3000/posts/audio-engineering-for-nmp</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/audio-engineering-for-nmp</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>

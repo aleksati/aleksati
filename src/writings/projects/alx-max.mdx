@@ -1,7 +1,7 @@
 ---
 title: "My Tiny MaxMSP Library for Audio, Video and Data Processing - alx.max"
 date: "2023-10-21"
-keywords: ["max", "software", "audio", "video", "analysis", "programming", "jitter", "opengl", "realtime", "mapping", "synchronization", "kuramoto"]
+keywords: ["max", "software", "audio", "video", "dsp", "analysis", "programming", "jitter", "opengl", "realtime", "mapping", "synchronization", "kuramoto"]
 type: "project"
 summary: "alx.max is my tiny library of MaxMSP abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others, and for me later on. All code and downloads are avaliable open-source."
 ---
@@ -45,7 +45,7 @@ A multi-channel and Max-native DSP abstraction for synchronizing an arbitrary nu
 
 Specify the number of oscillators as the object argument and define their states (on/off) and frequencies as mc.sig~ inputs. Toggle sine waves at arbitrary times and commence the synchronization process by providing a k-value (coupling constant) greater than 0. The higher this k-value, the quicker the synchronization process occurs.
 
-<MyImage src="alx-ksync.png" alt="alx.ksync object demonstration" caption="Use alx.ksync to couple and synchronize oscillators with the kuramoto model." />
+<MyImage src="alx-ksync.png" alt="alx.ksync object demonstration" caption="Use alx.ksync to couple and synchronize oscillators with the kuramoto model. Add how many oscillators you want to sync, provide the frequency and on/off state for each oscillator and your done. Finally, turn the K-value to increase coupling and initiate syncronization" />
 
 ### Related Content
 
