@@ -3,7 +3,7 @@ title: "Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in 
 date: "2026-01-04"
 keywords: ["audio", "max", "synchronization", "dsp", "kuramoto", "software", "programming", "realtime"]
 type: "post"
-summary: "Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my software Kuramoto model deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly."
+summary: "Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly."
 ---
 
 
@@ -33,7 +33,7 @@ Almost two years ago, I wrote a post about an art project I did where I made a d
 
 Today, I had almost forgotten about this software escapade of mine because the details about its development were "hidden" in my post about my Ligeti metronome project. Upon rediscovering it, I feel that my Kuramoto model deserves a post of its own, a post describing the development process and how I designed it as a dynamic and MC (multi-channel) audio object in Max, able to sync 100+ oscillators on the fly. So, in this post, I do just that. I also define what synchronization is and include some links for download and further reading, if you're still interested.
 
-By the way, if you want to read more about my digital version of _Poème Symphonique for 100 metronomes_, read all about it in this post: <MyLink href="./projects/poeme-symphonique-numerique">Poème Symphonique Numérique: Ligeti's 100 Metronomes as Software</MyLink>. Here you will also find info about the ML-based sound engine I made to make music from the Kuramoto model output. 
+By the way, if you want to read more about my digital version of _Poème Symphonique for 100 metronomes_, read all about it in this post: <MyLink href="/projects/poeme-symphonique-numerique">Poème Symphonique Numérique: Ligeti's 100 Metronomes as Software</MyLink>. Here you will also find info about the ML-based sound engine I made to make music from the Kuramoto model output. 
 
 # Synchronization and the Kuramoto Model
 
@@ -98,7 +98,7 @@ n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natura
 
 If you want to look at the code more in detail or download and try the model out for youself, visit my GitHub reporsitory for <MyLink href="https://github.com/aleksati/alx.max">alx.max</MyLink>. There, it's all open source and avaliable. 
 
-And again, if you want to read more about my Ligeti 100 metronome art project where I used my Kuramoto model, read all about it in this post: <MyLink href="./projects/poeme-symphonique-numerique">>Poème Symphonique Numérique: Ligeti's 100 Metronomes as Software </MyLink>. Here you will also find info about the ML-based sound engine I made to make music from the Kuramoto model output. 
+And again, if you want to read more about my Ligeti 100 metronome art project where I used my Kuramoto model, read all about it in this post: <MyLink href="/projects/poeme-symphonique-numerique">Poème Symphonique Numérique: Ligeti's 100 Metronomes as Software </MyLink>. Here you will also find info about the ML-based sound engine I made to make music from the Kuramoto model output. 
 
 Happy pacthing.
 
