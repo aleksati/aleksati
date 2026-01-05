@@ -28,19 +28,6 @@ Last year, I led a few workshops on the unique synchronization capabilities of O
 
 **NB:** Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data.
 
-{/* 1. What are OSC Timestamps and Forward Synchronization?
-2. Code Setup and Dependencies
-3. Step 1 - Simple P2P Messaging
-4. Step 2 - Network Controlled Metronome
-5. Step 3 - OSC Timestamp Controlled Metronome
-6. Step 4 - Forward Synchronized Metronome
-7. Sources
-
----
- */}
-
-
-{/* # What is it? */}
 
 # Timestamps and Forward Sync
 
@@ -70,8 +57,10 @@ This guide below details OSC communication specifically between Python and Pure 
 
 ```
 pip install playsound==1.2.2
-pip install python-osc
+pip install python-osc==1.9.3
 ```
+
+I've teste on playsound v.1.2.2 and python-osc v.1.9.3. Playsound is trickier with the latest versions but python-osc seems to work fine still (january 2026).
 
 For PD, install <MyLink href="https://puredata.info/downloads/pure-data">Pure Data Vanilla, version 0.54</MyLink>. Then, download the <MyLink href="https://github.com/pd-externals/mrpeach">mrpeach</MyLink> library. We will use mrpeach for OSC communication. I recommend installing the 32-bit version of PD vanilla for mrpeach to work as intended. Find <MyLink href="https://github.com/aleksati/osc-timestamps-and-forward-synchronization-workshop">the full code repository</MyLink> at my GitHub, complete with full PD patches and both jupyter notebooks and pyscript versions of the Python parts.
 
@@ -105,12 +94,12 @@ serverIp = '127.0.0.1'
 serverPort = 8000
 
 # handler for incoming /tick OSC messages
-def pyHandler(address, args):
+def pyHandler(address, *args):
     print(f'{address} {args}')
 
-    if args == "tick":
+    if args[0] == "tick":
         # If a /tick message is recevied, print the message
-        print(args)
+        print(args[0])
 
 # OSC server and dispatchers
 dispatcher = dispatcher.Dispatcher()
