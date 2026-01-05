@@ -1,5 +1,7 @@
 export const getCurrDate = (): string => {
-  // get current date in format string "YYYY-MM-DD"
+  // Used for post primarily, but also with comment section
+  // returns current date in string format "YYYY-MM-DD"
+
   let dateObj: Date = new Date();
 
   let year: string = String(dateObj.getUTCFullYear());

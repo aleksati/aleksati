@@ -61,11 +61,11 @@ declare global {
     [x: string]: JSONArray;
   }
 
-  // for use in commentsection.tsx
+  // for use in commentSection.tsx and Comment modal etc.
   interface MyComment {
     name: string;
     comment: string;
-    date: string;
+    date: string; // date and time UTC+1 in one string
     slug: string;
     _id?: string;
   }

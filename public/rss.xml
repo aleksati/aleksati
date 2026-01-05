@@ -9,12 +9,12 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 04 Jan 2026 21:10:50 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Jan 2026 14:22:43 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 04 Jan 2026 21:10:50 GMT</pubDate>
+        <pubDate>Mon, 05 Jan 2026 14:22:43 GMT</pubDate>
         <item>
             <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
-            <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model deserves a post of its own, a post describing the process and how I designed it as a dynamic and multi-channel audio object in Max, able to sync hundreds of oscillators on the fly.]]></description>
+            <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly.]]></description>
             <link>http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</link>
             <guid isPermaLink="true">http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</guid>
             <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
@@ -48,10 +48,10 @@
             <pubDate>Sat, 22 Mar 2025 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[An Easy Way to Optimize the Position of Your Studio Monitors]]></title>
+            <title><![CDATA[An Easy Way to Improve the Position of Studio Monitors]]></title>
             <description><![CDATA[By improving the placement of your studio monitors, you can significantly improve the sound quality in your studio. In this post, I share an easy and practical way to find optimal placements for your studio monitors with just some basic tools and a little know-how.]]></description>
-            <link>http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</link>
-            <guid isPermaLink="true">http://localhost:3000/posts/how-to-position-your-studio-monitors-better-and-more-accurately</guid>
+            <link>http://localhost:3000/posts/easy-way-to-improve-the-position-of-studio-monitors</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/easy-way-to-improve-the-position-of-studio-monitors</guid>
             <pubDate>Sun, 29 Sep 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -77,7 +77,7 @@
         </item>
         <item>
             <title><![CDATA[Poème Symphonique Numérique: Ligeti’s 100 Metronomes as Software]]></title>
-            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I dediced to create a version of his famous 'Poème Symphonique for 100 metronomes' in MaxMSP, using the Kuramoto model for synchronization and a real-time ML-based sound engine. Read more about my process, see the code and listen to the results here.]]></description>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I dediced to create a version of his famous 'Poème Symphonique for 100 metronomes' in MaxMSP, using the Kuramoto model for synchronization and a real-time ML-based sound engine. Read more about my process, see the code and listen to the result here!]]></description>
             <link>http://localhost:3000/projects/poeme-symphonique-numerique</link>
             <guid isPermaLink="true">http://localhost:3000/projects/poeme-symphonique-numerique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>

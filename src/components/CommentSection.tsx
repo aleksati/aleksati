@@ -1,4 +1,5 @@
 import { getCurrDate } from "../functions/getCurrDate";
+import { getCurrTime } from "../functions/getCurrTime";
 import { date2text } from "../functions/date2text";
 import { useEffect, useState } from "react";
 import { SITE_DOMAIN } from "../config";
@@ -13,6 +14,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
 
   // on mount - fetch comments for post (slug)
   useEffect(() => {
+
     const fetchCommentsFromDb = async () => {
       setIsLoading(true);
       try {
@@ -40,7 +42,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
       let newComment: MyComment = {
         name,
         comment: textArea,
-        date: getCurrDate(),
+        date: `${getCurrDate()} ${getCurrTime()}`,
         slug,
       };
 
@@ -106,7 +108,8 @@ const CommentSection = ({ slug }: { slug: string }) => {
           <div key={idx} className="border-b pb-4 border-secondary-light dark:border-secondary-dark">
             <div className="flex space-x-2 items-center">
               <p className="font-bold">{comment.name}</p>
-              <p className="text-sm">{date2text(comment.date)}</p>
+              {/* Fra "2025-04-12 13:12" til "04 dec 2024 13:12" */}
+              <p className="text-sm">{`${date2text(comment.date.split(" ")[0])} • ${comment.date.split(" ")[1]}`}</p>
             </div>
             <p>{comment.comment}</p>
           </div>

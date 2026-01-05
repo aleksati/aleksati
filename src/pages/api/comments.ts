@@ -48,7 +48,8 @@ router.get(async (req, res) => {
     ? await (Comments as any).find({ slug })
     : await (Comments as any).find();
 
-  // Ensure array, even if empty
+  // Sort so newest comments are first 
+  // the date strings are "YYYY-MM-DD HH-MM". This sorts them inside order.
   const commentsSorted = (comments || [])
     .sort((a, b) => (a.date > b.date ? 1 : -1))
     .reverse();
