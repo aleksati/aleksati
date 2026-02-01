@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Jan 2026 14:22:43 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Feb 2026 09:18:39 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 05 Jan 2026 14:22:43 GMT</pubDate>
+        <pubDate>Sun, 01 Feb 2026 09:18:39 GMT</pubDate>
         <item>
             <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
             <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly.]]></description>
@@ -63,7 +63,7 @@
         </item>
         <item>
             <title><![CDATA[Audio Latency Examiner]]></title>
-            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); my new software tool that can batch collect audio latency data from both musical software and hardware devices. The app is open-source and free to download, available for both Windows and Mac.]]></description>
+            <description><![CDATA[A quick look into Audio Latency Examiner (ALEX); my new all-in-one software tool for measuring and batch collecting audio latency data from different software and hardware scenarios. The app is open-source and free to download, available for both Windows and Mac.]]></description>
             <link>http://localhost:3000/projects/audio-latency-examiner</link>
             <guid isPermaLink="true">http://localhost:3000/projects/audio-latency-examiner</guid>
             <pubDate>Tue, 06 Aug 2024 00:00:00 GMT</pubDate>

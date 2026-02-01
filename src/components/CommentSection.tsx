@@ -74,7 +74,7 @@ const CommentSection = ({ slug }: { slug: string }) => {
       {/* <div className="flex flex-col space-y-2 mb-4 items-start"> */}
       <form onSubmit={(e) => handleSubmit(e)} aria-label="Comment section" className="flex flex-col space-y-2 py-4 items-start border-y border-secondary-light dark:border-secondary-dark">
         <h1 className="text-2xl font-bold mb-2" id="leave-a-comment">
-          Leave a Comment
+          Leave a comment
         </h1>
         <input
           type="text"
