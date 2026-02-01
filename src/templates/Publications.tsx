@@ -45,7 +45,9 @@ const Publications = () => {
       ) : (
         <div className="flex flex-col space-y-6">
           {researchData?.map((item, idx) => {
-            // Remove certian results, if needed. Here I remove Hybrid Learning duplicate.
+            // Remove certian results, if needed. Here I remove the KD audio duplicate.
+            if (item.cristin_result_id === "10310729") return;
+            // Remove also Hybrid Learning duplicate.
             if (item.cristin_result_id === "2044269") return;
             // Remove also the duplicate Hardanger Fiddle papers
             if (item.cristin_result_id === "1939273") return;

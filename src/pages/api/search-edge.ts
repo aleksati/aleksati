@@ -19,13 +19,14 @@ const extra: FrontMatterList = [
     keywords: ["about"],
     type: "extra",
     summary:
-      "My name is Aleksander and I am passionate about sound, software and science. I live in Oslo with my partner and our cat where I drum for various artists and work as an engineer+lecturer for the Musicology Department at the University of Oslo.",
+      "My name is Aleksander and I’m a musician and senior engineer in music technology at the Department of Musicology, University of Oslo. My work sits at the intersection between sound, software, and science, with a particular focus on audio programming and networked sound. Outside of work, I play drums, produce music with friends, and try to read a little every day.",
   },
   {
     slug: "publications",
     title: "Publications",
     date: "",
     keywords: [
+      "Compressing Neural Network Models of Audio Distortion Effects Using Knowledge Distillation Techniques",
       "A Universal Tool for Generating Datasets from Audio Effects",
       "DGMD",
       "Hybrid Learning Spaces with Spatial Audio",
