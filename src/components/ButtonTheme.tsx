@@ -12,15 +12,16 @@ const ButtonTheme = () => {
   return (
     // <MyLink onClick={handleButtonClick} href="" type="nav">
     <div
-      className="flex items-center hover:cursor-pointer"
+      className="flex items-center space-x-1 hover:cursor-pointer"
       onClick={handleButtonClick}>
       <ButtonIcon
         iconId={currTheme === "dark" ? "sun" : "moon"}
         // onClick={handleButtonClick}
         iconSize="text-md"
+        className="-pl-0.2"
         id="button-theme"
       />
-      {/* <p>Theme</p> */}
+      <p>Theme</p>
     </div>
     // </MyLink>
   );

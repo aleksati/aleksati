@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 12 Feb 2026 09:27:33 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Feb 2026 11:11:16 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 12 Feb 2026 09:27:33 GMT</pubDate>
+        <pubDate>Wed, 18 Feb 2026 11:11:16 GMT</pubDate>
         <item>
             <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
             <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly.]]></description>
