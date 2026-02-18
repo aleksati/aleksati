@@ -39,8 +39,8 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
         {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
-            <div className="flex justify-between items-end">
-              <div className="flex space-x-1 font-bold">
+            <div className="flex justify-between items-center">
+              <div className="flex font-bold">
                 <p>Table of contents</p>
               </div>
               <div></div>
@@ -51,7 +51,7 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
               />
             </div>
           </div>
-          <div className="flex flex-col pt-4">
+          <div className="flex flex-col">
             <div className="space-y-4 border-gray-200 dark:border-gray-600">
               <ol className="space-y-4 list-decimal leading-5">
                 {toc.map((item, idx) => {

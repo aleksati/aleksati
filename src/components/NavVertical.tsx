@@ -3,7 +3,7 @@ import ButtonTheme from "./ButtonTheme";
 import { useEffect } from "react";
 import Link from "next/link";
 import RSSLink from "./RSSLink";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { NAV_TABS } from "../config";
 import MyLink from "./MyLink";
 import ButtonIcon from "./ButtonIcon";
@@ -21,19 +21,19 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
   }, [isClickOutside, onToggleNavVertical]);
 
   // get the current route after /pages and remove the first "/" with slice
-  const route: string = useRouter().pathname.slice(1);
+  // const route: string = useRouter().pathname.slice(1);
   // remove /[post] stuff on nested rutes, and remaining "/" at the end
-  const firstRoute: string = route.split("[")[0].split("/")[0];
+  // const firstRoute: string = route.split("[")[0].split("/")[0];
   // default to about
-  const currRoute: string = firstRoute.length ? firstRoute : "";
+  // const currRoute: string = firstRoute.length ? firstRoute : "";
 
   return (
     <div
-      className={`z-40 fixed min-h-screen border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-48 p-4`}
+      className={`z-40 fixed min-h-screen border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-56 p-4`}
       ref={ref}
     >
       {/* was ": flex-none" before */}
-      <div className="w-40 fixed">
+      <div className="w-56 fixed">
         {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
@@ -84,12 +84,12 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
               ))}
             </div>
           </div>
-          <div>
-            <RSSLink />
-          </div>
           <div className="flex items-center">
             <ButtonTheme />
             {/* <p>Theme</p> */}
+          </div>
+          <div>
+            <RSSLink />
           </div>
         </div>
       </div>
