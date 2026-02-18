@@ -10,7 +10,7 @@ const About = () => (
         <MyImage
           alt="Portrett pic of me"
           isExpandable={true}
-          priority={true}
+          // preload={true}
           src="me.jpg"
           padding={false}
           // width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.

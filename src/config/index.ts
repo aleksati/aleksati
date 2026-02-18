@@ -7,8 +7,8 @@ export const SITE_DOMAIN: string = dev
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).
 export const NAV_TABS: Record<string, string> = {
-  // "identifyer" : "url/key/title"
-  about: "about",
+  // "identifyer/what shows in the nav" : "url/key/title"
+  "about me": "about",
   posts: "posts",
   projects: "projects",
   music: "music",

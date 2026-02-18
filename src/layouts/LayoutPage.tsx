@@ -65,18 +65,24 @@ const LayoutPage = ({
         {showNavVertical ? (
           <NavVertical onToggleNavVertical={handleToggleNavVertical} />
         ) : null}
-        {showNavVerticalToc ? (
+        {/* {showNavVerticalToc ? (
           <NavVerticalToc
             onToggleNavVerticalToc={handleToggleNavVerticalToc}
             toc={toc}
           />
-        ) : null}
+        ) : null} */}
         <div
           className={`container pb-6 mx-auto flex-1 overflow-hidden px-4 pt-20 ${className}`}
           id={pageId}
           ref={pageTopRef}>
           {children}
-        </div>
+        </div>      
+                 {showNavVerticalToc ? (
+          <NavVerticalToc
+            onToggleNavVerticalToc={handleToggleNavVerticalToc}
+            toc={toc}
+          />
+        ) : null}
         {/* <div
           className={`container pb-6 ${
             showNavVertical && "blur-sm"

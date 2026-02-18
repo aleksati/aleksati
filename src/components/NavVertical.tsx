@@ -3,9 +3,10 @@ import ButtonTheme from "./ButtonTheme";
 import { useEffect } from "react";
 import Link from "next/link";
 import RSSLink from "./RSSLink";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { NAV_TABS } from "../config";
 import MyLink from "./MyLink";
+import ButtonIcon from "./ButtonIcon";
 
 type Props = {
   onToggleNavVertical?: () => void;
@@ -20,16 +21,17 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
   }, [isClickOutside, onToggleNavVertical]);
 
   // get the current route after /pages and remove the first "/" with slice
-  const route: string = useRouter().pathname.slice(1);
+  // const route: string = useRouter().pathname.slice(1);
   // remove /[post] stuff on nested rutes, and remaining "/" at the end
-  const firstRoute: string = route.split("[")[0].split("/")[0];
+  // const firstRoute: string = route.split("[")[0].split("/")[0];
   // default to about
-  const currRoute: string = firstRoute.length ? firstRoute : "";
+  // const currRoute: string = firstRoute.length ? firstRoute : "";
 
   return (
     <div
-      className={`z-50 fixed min-h-screen border-r border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-64 p-4`}
-      ref={ref}>
+      className={`z-40 fixed min-h-screen border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-56 p-4`}
+      ref={ref}
+    >
       {/* was ": flex-none" before */}
       <div className="w-56 fixed">
         {/* was w-56 */}
@@ -40,15 +42,22 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                 <Link href="/">
                   <p>aleksati.net</p>
                 </Link>
-                {currRoute ? <p>/</p> : null}
-                <Link
+                {/* {currRoute ? <p>/</p> : null} */}
+                {/* <Link
                   href={`/${currRoute}`}
-                  className="font-bold flex items-start space-x-2">
+                  className="font-bold flex items-start space-x-2"
+                >
                   <p>{currRoute}</p>
-                </Link>
+                </Link> */}
               </div>
               {/* <div></div> */}
-              <ButtonTheme />
+              <ButtonIcon
+                iconId={"x"}
+                onClick={onToggleNavVertical}
+                aria-label="Menu"
+                className="mt-1"
+              />
+              {/* <ButtonTheme /> */}
             </div>
           </div>
           <div className="flex flex-col">
@@ -66,13 +75,18 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                 // </div>
                 <div
                   key={url}
-                  className="flex space-x-1 items-center justify-start">
+                  className="flex space-x-1 items-center justify-start"
+                >
                   <MyLink href={`/${url}`} type="nav">
                     {id}
                   </MyLink>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="flex items-center">
+            <ButtonTheme />
+            {/* <p>Theme</p> */}
           </div>
           <div>
             <RSSLink />
