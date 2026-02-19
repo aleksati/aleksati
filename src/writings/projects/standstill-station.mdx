@@ -1,5 +1,5 @@
 ---
-title: "The Standstill Station - How Still Can You Go?"
+title: "The Standstill Station - How Still Can We Be?"
 date: "2026-02-19"
 keywords: ["art", "installation", "motion", "analysis", "realtime", "python", "osc", "research", "programming"]
 type: "project"
@@ -7,7 +7,7 @@ summary: "This post takes a quick look at the Standstill station, an art-science
 ---
 
 {/* 
-# The Standstill Station - How Still Can You Go?
+# The Standstill Station - How Still Can We Be?
 */}
 
 <MyImage src="standstill-overview.png" alt="Standstill station 2026" padding={false}/>
@@ -26,14 +26,24 @@ The headphones-gyro hybrid is also a custom-made device where a small gyro is hi
 
 <MyImage src="standstill-system-overview.png" alt="System overview of the standstill station (anno 2026)" caption="Basic system overview of the standstill station (anno 2026)." />
 
-All the system software runs inside a small ThinkPad Windows machine mounted on the back of the structure. Software-wise, the standstill station requires three programs:
+All the system software runs inside a small ThinkPad M70q Windows 10 desktop machine mounted on the back of the structure. Software-wise, the standstill station requires three programs:
 1. A main Python script that handles the UI, data, calculations, and database storage, etc.
 2. A bridge software that converts and sends the 3D head-tracking data (XYZ) from the gyro to the main Python script via OSC. If you want to do development on the Standstill station, this OSC stream can easily be spoofed by setting up a local OSC stream. Just use the correct network info and schema. 
 3. A local SQL database for storing and retrieving data. It's important that this server is configured to run in the background of the machine from boot. I just use SQL Workbench to set everything up. I also put a number of _pings_ in the code to awaken the server if the installation has been running for a while.
 
 Yes, the standstill station records and retrieves data from all its users and displays this data in real-time. The user can therefore see how well they performed against all other participants. This is quite fun to watch and gamifies the whole experience.
 
-# Where Can I See It? 
+# Main Challenges and Future Development
+
+The main challenge of getting the Standstill station up and running was ensuring reliable runtime in my university environment. I had to ensure that it could run for weeks and months on end, without failing, even if no one used it, standing alone in the halls of my department. Previously, at Popsenteret, the installation ran on a small ThinkPad M70q desktop machine, with Windows 10, connected to a remote SQL server over the network. When revisiting the piece, I used the same machine but made a local database, keeping the SQL infrastructure but avoiding the heavily restricted network here at my university. As for usability, the Windows ThinkPad works great. It's easy to navigate and doesn't require a lot of know-how to configure. Good for development and easy prototyping. However, Windows will always be unreliable in the long run. A Linux solution on a Raspberry Pi or desktop machine would probably be best if the project ever gets revisited, yet again.
+
+The SQL database solution also functioned pretty well, but over time I noticed timeout issues when the software was left unattended for longer periods. I ended up adding some code to ensure that the database was regularly pinged and woken up every time activity was detected. For now, this seems to work fine, but I might have to install more safety features along the way. Local databases are easier to configure and have fewer points of error, but they're also a lot riskier. If the machine fails now, all data can be lost. So, in the future, if the local database solution continues, I would opt to install a backup drive somewhere in the chain as a safety measure. 
+
+The second big challenge was users messing up the software and finding new ways to break it. This is actually an unfair criticism as most UI concerns reflect directly back on the developer, me. We always underestimate the many ways in which things can break. Or, said in another way, there is only one way for something to work and an infinite number of ways for it _not_ to work. However, the UI bugs on the Standstill station were pretty obvious. For example, I noticed that users could easily avoid certain steps in the procedure (like not fill in their age or how they enjoyed the music etc.,) and just hit continue all the way. Stuff like this. So, to mitigate, I added more safety code to ensure that sessions could not be completed without all necessary info provided. But failures are bound to happen. As I said. So, it's wise to program with that in mind. For instance, make the data storing work even when the types sometimes are wrong.
+
+Anyway, it seems that the theme here was striking a balance between usability (easy to use) and reliability (works forever). Trading off one to get the other, and vice versa.
+
+# Where Can I See It Today? 
 
 The Standstill station is currently located at the Department of Musciology at UiO, at <MyLink href="https://maps.app.goo.gl/BpHuQU8JMMpCpCuT7">this address</MyLink>. It's free and open to everybody so if you're in the area, please stick by and test it for yourself. It stands in the Epicentre, a break room/study facility in the middle of the building. First floor.
 
