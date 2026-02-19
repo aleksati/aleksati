@@ -9,9 +9,16 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 18 Feb 2026 12:13:46 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Feb 2026 10:00:24 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 18 Feb 2026 12:13:46 GMT</pubDate>
+        <pubDate>Thu, 19 Feb 2026 10:00:24 GMT</pubDate>
+        <item>
+            <title><![CDATA[The Standstill Station - How Still Can You Go?]]></title>
+            <description><![CDATA[This post takes a quick look into the Standstill station, an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Originally developed in 2023 by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius. Revitalized in 2026 by 2026.]]></description>
+            <link>http://localhost:3000/projects/standstill-station</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/standstill-station</guid>
+            <pubDate>Thu, 19 Feb 2026 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
             <description><![CDATA[Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly.]]></description>
@@ -147,14 +154,14 @@
         </item>
         <item>
             <title><![CDATA[AudioVideoAnalysis - Realtime Spectral Analysis of Audio and Video]]></title>
-            <description><![CDATA[A quick look into AudioVideoAnalysis (v2.0); a standalone software tool for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
+            <description><![CDATA[This post takes a quick look into AudioVideoAnalysis (v2.0), a standalone software tool for real-time OpenGL rendering of video motiongrams and audio spectrograms, developed in collaboration with FourMS Lab at the RITMO research center, University of Oslo.]]></description>
             <link>http://localhost:3000/projects/audiovideoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/projects/audiovideoanalysis</guid>
             <pubDate>Fri, 11 Nov 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[VideoAnalysis - Analyzing Music-related Body Motion]]></title>
-            <description><![CDATA[A quick look into VideoAnalysis (v2.1); a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
+            <description><![CDATA[This post takes a quick look into VideoAnalysis (v2.1), a beginners tool for analyzing music-related body motion, developed in collaboration with FourMS Lab at the RITMO research centre, University of Oslo.]]></description>
             <link>http://localhost:3000/projects/videoanalysis</link>
             <guid isPermaLink="true">http://localhost:3000/projects/videoanalysis</guid>
             <pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>

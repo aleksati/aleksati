@@ -1,0 +1,44 @@
+---
+title: "The Standstill Station - How Still Can You Go?"
+date: "2026-02-19"
+keywords: ["art", "installation", "motion", "analysis", "realtime", "python", "osc", "research", "programming"]
+type: "project"
+summary: "This post takes a quick look at the Standstill station, an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius in 2023. Revitalized by me in 2026."
+---
+
+{/* 
+# The Standstill Station - How Still Can You Go?
+*/}
+
+<MyImage src="standstill-overview.png" alt="Standstill station 2026" padding={false}/>
+
+The Standstill station is an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Users put on a pair of headphones and are asked to stand still for 40 seconds while listening to music and silence. The movements are tracked by a small gyro placed inside the headphones, and the movement data is displayed to the user on screen in real-time. After each trial, users can see how well they perform compared to all previous participants.
+
+The exhibit was originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius in 2023, as part of a collaboration between <MyLink href="https://www.uio.no/ritmo/english/">RITMO Centre of Excellence</MyLink> at the University of Oslo and the <MyLink href="https://www.popsenteret.no/">Popsenteret museum</MyLink> in downtown Oslo. In 2026, after Popsenteret closed, the installation was updated and revitalized at the <MyLink href="https://www.hf.uio.no/imv/english/">Department of Musicology</MyLink>, at the University of Oslo, by Aleksander Tidemann.
+
+This post just a quick overview of how the installtion is made and how it can be used. 
+
+# How It's Made
+
+The system consists of a large physical structure, a touchscreen computer, and a pair of headphones with a gyroscope inside. The wooden structure is custom-made and places the user inside a half-box, creating an immersive space that allows for focused attention. All electronics are fastened to the back of the structure. Only the headphones, touchscreen, and documentation plaque are visible. 
+
+The headphones-gyro hybrid is also a custom-made device where a small gyro is hidden inside the headband of a pair of headphones. Their cables are also intertwined and run through an encompassing cable, so all you see is a clean pair of headphones with an unusual Ethernet connector at the end. The Ethernet port adapter effectively separates the gyro and audio signals, again, so they can be connected to the computer via USB-A and mini-jack (3.5mm).
+
+<MyImage src="standstill-system-overview.png" alt="System overview of the standstill station (anno 2026)" caption="Basic system overview of the standstill station (anno 2026)." />
+
+All the system software runs inside a small ThinkPad Windows machine mounted on the back of the structure. Software-wise, the standstill station requires three programs:
+1. A main Python script that handles the UI, data, calculations, and database storage, etc.
+2. A bridge software that converts and sends the 3D head-tracking data (XYZ) from the gyro to the main Python script via OSC. If you want to do development on the Standstill station, this OSC stream can easily be spoofed by setting up a local OSC stream. Just use the correct network info and schema. 
+3. A local SQL database for storing and retrieving data. It's important that this server is configured to run in the background of the machine from boot. I just use SQL Workbench to set everything up. I also put a number of _pings_ in the code to awaken the server if the installation has been running for a while.
+
+Yes, the standstill station records and retrieves data from all its users and displays this data in real-time. The user can therefore see how well they performed against all other participants. This is quite fun to watch and gamifies the whole experience.
+
+# Where Can I See It? 
+
+The Standstill station is currently located at the Department of Musciology at UiO, at <MyLink href="https://maps.app.goo.gl/BpHuQU8JMMpCpCuT7">this address</MyLink>. It's free and open to everybody so if you're in the area, please stick by and test it for yourself. It stands in the Epicentre, a break room/study facility in the middle of the building. First floor.
+
+# Source code and Documentation
+
+You will find much more technical information about the Standstill station on it's dedicated <MyLink href="https://github.com/aleksati/standstill-station">GitHub reporsitory</MyLink>. In this codebase, there is detailed info on how to setup the SQL data handling, how to do development, and how to install and run the software.
+
+If you want to build it yourself one day, feel free to get in touch with us about specifics. 
