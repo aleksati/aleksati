@@ -65,7 +65,7 @@ const Search = () => {
   }, [results, arrowDownPressed, arrowUpPressed]);
 
   return (
-    <div className="relative w-full" ref={ref}>
+    <div className="relative w-full -mt-2" ref={ref}>
  { !query ?     
        // Show magnifying glass only if input is empty
       <svg
@@ -83,7 +83,7 @@ const Search = () => {
         />
       </svg> : null}
       <input
-        className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-md h-14 lg:h-8 w-full"
+        className="border text-base border-gray-200 dark:border-gray-600 bg-primary-light dark:bg-primary-dark rounded-md h-14 lg:h-10 w-full"
         placeholder="        search posts, keywords, projects and more"
         id="search"
         type="search"

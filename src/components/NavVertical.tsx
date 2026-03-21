@@ -6,7 +6,7 @@ import RSSLink from "./RSSLink";
 // import { useRouter } from "next/router";
 import { NAV_TABS } from "../config";
 import MyLink from "./MyLink";
-import ButtonIcon from "./ButtonIcon";
+// import ButtonIcon from "./ButtonIcon";
 
 type Props = {
   onToggleNavVertical?: () => void;
@@ -30,15 +30,14 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
   return (
     <div
       className={`z-40 fixed min-h-screen border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-56 p-4`}
-      ref={ref}
-    >
+      ref={ref}>
       {/* was ": flex-none" before */}
       <div className="w-56 fixed">
         {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
             <div className="flex justify-between items-end">
-              <div className="flex space-x-1 font-bold">
+              <div className="flex space-x-1 font-bold text-lg">
                 <Link href="/">
                   <p>aleksati.net</p>
                 </Link>
@@ -51,12 +50,12 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                 </Link> */}
               </div>
               {/* <div></div> */}
-              <ButtonIcon
+              {/* <ButtonIcon
                 iconId={"x"}
                 onClick={onToggleNavVertical}
                 aria-label="Menu"
                 className="mt-1"
-              />
+              /> */}
               {/* <ButtonTheme /> */}
             </div>
           </div>
@@ -75,8 +74,7 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                 // </div>
                 <div
                   key={url}
-                  className="flex space-x-1 items-center justify-start"
-                >
+                  className="flex space-x-1 items-center justify-start">
                   <MyLink href={`/${url}`} type="nav">
                     {id}
                   </MyLink>
@@ -84,20 +82,24 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
               ))}
             </div>
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <ButtonTheme />
-            {/* <p>Theme</p> */}
+          </div>
+          <div>
+            <RSSLink />
+          </div> */}
+        </div>
+      </div>
+      <div className="fixed bottom-6 left-4">
+        <div className="flex flex-col space-y-2">
+          <div>
+            <ButtonTheme />
           </div>
           <div>
             <RSSLink />
           </div>
         </div>
       </div>
-      {/* <div className="fixed bottom-6 left-4">
-        <div className="flex space-x-4 z-50">
-          <RSSLink />
-        </div>
-      </div> */}
     </div>
   );
 };

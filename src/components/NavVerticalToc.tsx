@@ -1,8 +1,11 @@
 import { useClickOutside } from "../hooks/useClickOutside";
 // import ButtonTheme from "./ButtonTheme";
-import ButtonIcon from "./ButtonIcon";
+// import ButtonIcon from "./ButtonIcon";
+import MyMenu from "./MyMenu";
 import { useEffect } from "react";
 import MyLink from "./MyLink";
+import ButtonTheme from "./ButtonTheme";
+import RSSLink from "./RSSLink";
 
 type Props = {
   onToggleNavVerticalToc: () => void;
@@ -32,23 +35,24 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
   return (
     <div
       className={`z-50 fixed right-0 min-h-screen border-secondary bg-primary-light dark:bg-primary-dark dark:border-secondary-dark w-72 p-4`}
-      ref={ref}
-    >
+      ref={ref}>
       {/* was ": flex-none" before */}
       <div className="w-64 fixed">
         {/* was w-56 */}
         <div className="flex-col space-y-4">
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
-              <div className="flex font-bold">
+              <div className="flex font-bold text-lg">
                 <p>Table of contents</p>
               </div>
               <div></div>
-              <ButtonIcon
-                iconId={"x"}
+              {/* <ButtonIcon
+                iconId="x"
                 onClick={onToggleNavVerticalToc}
+                iconSize="text-2xl"
                 aria-label="Quit Table of contents"
-              />
+              /> */}
+              <MyMenu iconId="x" onClick={onToggleNavVerticalToc}/>
             </div>
           </div>
           <div className="flex flex-col">
@@ -68,12 +72,10 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
                   return (
                     <li
                       key={headerID}
-                      className="ml-4 space-x-1 items-center justify-start"
-                    >
+                      className="ml-4 space-x-1 items-center justify-start">
                       <MyLink
                         href={`#${idx === 0 ? "pageTitle" : headerID}`}
-                        type="toc"
-                      >
+                        type="toc">
                         {item.text}
                       </MyLink>
                     </li>
@@ -82,13 +84,22 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
                 {/* Always have comments at the end. */}
                 <li
                   key="comment"
-                  className="ml-4 space-x-1 items-center justify-start"
-                >
+                  className="ml-4 space-x-1 items-center justify-start">
                   <MyLink href={`#leave-a-comment`} type="nav">
                     Comments
                   </MyLink>
                 </li>
               </ol>
+            </div>
+          </div>
+        </div>
+        <div className="fixed bottom-6 right-52">
+          <div className="flex flex-col space-y-2">
+            <div>
+              <ButtonTheme />
+            </div>
+            <div>
+              <RSSLink />
             </div>
           </div>
         </div>

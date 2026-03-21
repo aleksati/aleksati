@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import getCurrTheme from "../functions/getCurrTheme";
 import ButtonIcon from "./ButtonIcon";
 // import MyLink from "./MyLink";

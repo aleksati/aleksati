@@ -51,6 +51,9 @@ const LayoutPage = ({
     setShowNavVerticalToc((prevState) => !prevState);
   };
 
+  console.log(path)
+  const containerWidth: string = path === "/about" ? "max-w-5xl" : "max-w-3xl"; 
+
   return (
     <>
       <Meta {...pageMeta} />
@@ -71,13 +74,14 @@ const LayoutPage = ({
             toc={toc}
           />
         ) : null} */}
+        {/* mellom 5 og 3*/}
         <div
-          className={`container pb-6 mx-auto flex-1 overflow-hidden px-4 pt-20 ${className}`}
+          className={`container ${containerWidth} pb-6 mx-auto flex-1 overflow-hidden px-4 pt-20 ${className}`}
           id={pageId}
           ref={pageTopRef}>
           {children}
-        </div>      
-                 {showNavVerticalToc ? (
+        </div>
+        {showNavVerticalToc ? (
           <NavVerticalToc
             onToggleNavVerticalToc={handleToggleNavVerticalToc}
             toc={toc}

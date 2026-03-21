@@ -5,6 +5,9 @@ import { GetStaticProps } from "next";
 export default function handler() {
   return (
     <LayoutPage pageMeta={{ title: "publications" }}>
+      <h2 className="flex md:flex font-bold mb-6 pb-2 border-b border-secondary-light dark:border-secondary-dark text-xl">
+        Latest
+      </h2>
       <Publications />
     </LayoutPage>
   );

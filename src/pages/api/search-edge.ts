@@ -14,12 +14,12 @@ const resultLimit: number = 5;
 const extra: FrontMatterList = [
   {
     slug: "about",
-    title: "About me",
+    title: "About",
     date: "1991-12-12",
     keywords: ["about"],
     type: "extra",
     summary:
-      "My name is Aleksander and I’m a musician and senior engineer in music technology at the Department of Musicology, University of Oslo. My work sits at the intersection between sound, software, and science, with a particular focus on audio programming and networked sound. Outside of work, I play drums, produce music with friends, and try to read a little every day.",
+      "My name is Aleksander and I'm a musician and senior engineer in music technology at the Department of Musicology, University of Oslo. My work sits at the intersection between sound, software, and science, with a particular focus on audio programming and networked sound. Outside of work, I play drums, produce music with friends, and try to read a little every day. This website is both a portfolio and a blog, a place where I share projects and write about music technology and related explorations.",
   },
   {
     slug: "publications",

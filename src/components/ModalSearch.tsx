@@ -22,7 +22,6 @@ const ModalSearch = () => {
       {!SearchIsEnabled ? (
         <ButtonIcon
           iconId="search"
-          iconSize="md"
           onClick={() => setSearchIsEnabled(true)}
         />
       ) : (
@@ -39,7 +38,7 @@ const ModalSearch = () => {
             <div ref={modalRef} className="pt-6">
               <Search />
             </div>
-            <div className="absolute right-6 top-10 pt-1">
+            <div className="absolute right-6 top-10 -mt-1">
               <ButtonIcon
                 aria-label="Close SearchMobile"
                 onClick={closeModal}

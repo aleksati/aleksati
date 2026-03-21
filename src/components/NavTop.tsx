@@ -4,6 +4,7 @@ import ButtonIcon from "./ButtonIcon";
 import Link from "next/link";
 import Search from "./Search";
 import ModalSearch from "./ModalSearch";
+import MyMenu from "./MyMenu";
 
 type Props = {
   onToggleNavVertical: () => void;
@@ -37,24 +38,24 @@ const NavTop = ({
     <nav
       className="z-50 fixed w-full bg-primary-light dark:bg-primary-dark"
       aria-label="Navbar"
-      role="toolbar"
-    >
+      role="toolbar">
       <div className="flex items-center justify-between p-4">
-          <div className="flex space-x-1 -mt-1 lg:-mt-2 font-bold w-1/3">
-                     <ButtonIcon
-              iconId={showNavVertical ? "x" : "threedots"}
-              onClick={onToggleNavVertical}
-              aria-label="Menu"
-              className="pr-1"
-              // iconSize="md"
-            />
-            <Link href={`/`} className="hover:cursor-pointer">
-              aleksati.net
-            </Link>
-            {currRoute ? <p>/</p> : null}
-            <Link href={`/${currRoute}`} className="hover:cursor-pointer">
-              {currRoute}
-            </Link>
+        <div className="flex space-x-1 -mt-1 lg:-mt-2 font-bold w-1/3 text-lg">
+        <MyMenu iconId={showNavVertical ? "x" : "menu"} onClick={onToggleNavVertical}/>
+          {/* <ButtonIcon
+            iconId={showNavVertical ? "x" : "threedots"}
+            onClick={onToggleNavVertical}
+            aria-label="Menu"
+            className="pr-1"
+          /> */}
+  
+          <Link href={`/`} className="hover:cursor-pointer">
+            aleksati.net
+          </Link>
+          {currRoute ? <p>/</p> : null}
+          <Link href={`/${currRoute}`} className="hover:cursor-pointer">
+            {currRoute}
+          </Link>
         </div>
         <div className="flex container w-1/3 px-2">
           {/* on desktop */}
@@ -70,11 +71,13 @@ const NavTop = ({
             aria-label="Menu"
           /> */}
           {isPostWithToc ? (
-            <ButtonIcon
-              iconId={showNavVerticalToc ? "x" : "toc"}
-              onClick={onToggleNavVerticalToc}
-              aria-label="Table of contents"
-            />
+            // <ButtonIcon
+            //   iconId={showNavVerticalToc ? "x" : "toc"}
+            //   onClick={onToggleNavVerticalToc}
+            //   aria-label="Table of contents"
+            // />
+            
+            <MyMenu iconId={showNavVerticalToc ? "x" : "toc"} onClick={(onToggleNavVerticalToc)}/>
           ) : null}
         </div>
       </div>
