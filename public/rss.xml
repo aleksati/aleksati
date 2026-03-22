@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title><![CDATA[aleksati.net]]></title>
-        <description><![CDATA[Part portfolio and part music technology blog. I write about audio programming, creative computing, software development and more.]]></description>
+        <description><![CDATA[This website is both a portfolio and a blog, a place where I share projects and write about music technology, software development and related explorations.]]></description>
         <link>http://localhost:3000</link>
         <image>
             <url>http://localhost:3000/img/me.jpg</url>
@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 21 Mar 2026 11:25:32 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Mar 2026 10:00:51 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 21 Mar 2026 11:25:32 GMT</pubDate>
+        <pubDate>Sun, 22 Mar 2026 10:00:51 GMT</pubDate>
         <item>
             <title><![CDATA[The Standstill Station - How Still Can We Be?]]></title>
             <description><![CDATA[This post takes a quick look at the Standstill station, an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius in 2023. Revitalized by me in 2026.]]></description>
