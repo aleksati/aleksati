@@ -19,6 +19,8 @@ const properties: object = {
   transitionDuration: 200,
   defaultIndex: 0,
   // cssClass: "flex flex-col",
+  arrows: true,
+  infinite: true,
   nextArrow: (
     <button
       className="text-primary-dark brightness-50"
@@ -70,7 +72,7 @@ const MySlideshow = ({
       ) : (
         <MyImage
           src={imgs[0]}
-          priority={priority}
+          preload={priority}
           width={width ? width : null}
           alt={`slideshow image of ${imgs[0]}`}
           padding={padding}
@@ -81,3 +83,6 @@ const MySlideshow = ({
 };
 
 export default MySlideshow;
+
+// #151515
+// #161618

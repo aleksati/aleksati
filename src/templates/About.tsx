@@ -17,19 +17,11 @@ const About = () => (
           // width="540" // I put a size to the img, even though its sized by the parent div, to speed up first contenfu  l load.
         />
       </div>
-      {/* <div className="space-y-1 col-span-2 sm:col-span-2 items-center"> */}
-      {/* <h1 className="text-lg -mb-1">Music Technologist</h1> */}
-      {/* <p>Music technologist</p> */}
-      {/* <p className="text-secondary dark:text-secondary-dark text-sm">
-          @aleksati @alexfürimmer
-        </p>
-        <MySoMeBar /> */}
-      {/* </div> */}
       <div className="space-y-4 col-span-2 md:col-span-1">
-        <div className="flex flex-col space-y-1 items-center justify-center md:items-start">
+        <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
           <h1 className="font-bold text-lg -mb-1">Aleksander Tidemann</h1>
-          <div>
-            <p>Music Technologist</p>
+          <p>Music Technologist</p>
+          <div className="flex flex-col items-center justify-center md:items-start">
             <MySoMeBar />
             <p className="text-secondary dark:text-secondary-dark text-sm">
               @aleksati @alexfürimmer
@@ -37,11 +29,12 @@ const About = () => (
           </div>
         </div>
         <p>
-          My name is Aleksander and I'm a senior engineer and lecturerer in music technology at the Department of Musicology, University of Oslo. My
+          My name is Aleksander and I'm a senior engineer and lecturer in music
+          technology at the Department of Musicology, University of Oslo. My
           work sits at the intersection between sound, software, and science,
-          with a particular focus on audio programming, networked sound and studios. Outside of work, I play drums, produce music for
-          various acts, and try to read a little every day. This website is both
-          a portfolio and a blog, a place where I share projects and write about
+          with a particular focus on audio programming, networked sound and
+          studio production. Outside of work, I play drums and create music with various acts, and try to read a little every day. This website is both a
+          portfolio and a blog, a place where I share projects and write about
           music technology and related explorations.
         </p>
         <p>
@@ -57,7 +50,7 @@ const About = () => (
           </p>
         </div> */}
         <div className="flex flex-col space-y-2 items-start">
-          <p className="">Current and past university teachings:</p>
+          <p className="">Current and past teachings:</p>
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MUS2850/">
             MUS2850 - Computer Music
           </MyLink>

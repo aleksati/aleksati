@@ -93,7 +93,7 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-6 right-52">
+        <div className="fixed bottom-6 right-50">
           <div className="flex flex-col space-y-2">
             <div>
               <ButtonTheme />

@@ -1,10 +1,35 @@
+// import { useState } from "react";
 import ButtonIcon from "./ButtonIcon";
 import getCurrTheme from "../functions/getCurrTheme";
+// import { useMouseHover } from "../hooks/useMouseHover";
+// import { useEffect } from "react";
+// import { KEYWORDS_2_COLOR } from "../config";
+
+const COLORS_800 = [
+  "#3f6212",
+  "#1e40af",
+  "#991b1b",
+  "#6b21a8",
+  "#854d0e",
+  "#155e75",
+  "#115e59",
+  "#075985",
+  "#9a3412",
+  "#3730a3",
+  "#5b21b6",
+  "#065f46",
+  "#9f1239",
+  "#9d174d",
+  "#86198f",
+  "#92400e",
+  "#292524",
+];
 
 const MyMenu = ({ onClick, iconId }) => {
   const { currTheme } = getCurrTheme();
-
-  if (iconId === "x") {
+  const baseColor: string = currTheme === "dark" ? "white" : "black";
+ 
+    if (iconId === "x") {
     return (
       <ButtonIcon
         iconId="x"
@@ -24,11 +49,11 @@ const MyMenu = ({ onClick, iconId }) => {
           width="25"
           height="24"
           fill="none"
-          stroke={currTheme === "dark" ? "white" : "black"}
+          stroke={baseColor}
           strokeWidth="3">
-          <path d="M4 8 Q8 4, 12 8 T20 8 T28 8" />
-          <path d="M4 16 Q8 12, 12 16 T20 16 T28 16" />
-          <path d="M4 24 Q8 20, 12 24 T20 24 T28 24" />
+          <path d="M4 8 Q8 4, 12 8 T20 8 T28 8" stroke={COLORS_800[Math.floor(Math.random() * COLORS_800.length)]} />
+          <path d="M4 16 Q8 12, 12 16 T20 16 T28 16" stroke={COLORS_800[Math.floor(Math.random() * COLORS_800.length)]} />
+          <path d="M4 24 Q8 20, 12 24 T20 24 T28 24" stroke={COLORS_800[Math.floor(Math.random() * COLORS_800.length)]} />
         </svg>
       ) : (
         <svg
@@ -37,7 +62,7 @@ const MyMenu = ({ onClick, iconId }) => {
           width="28"
           height="24"
           fill="none"
-          stroke={currTheme === "dark" ? "white" : "black"}
+          stroke={baseColor}
           strokeWidth="3"
           fontSize="8">
           <text x="2" y="9" strokeWidth="1">

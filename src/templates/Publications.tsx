@@ -31,7 +31,7 @@ const Publications = () => {
   }, []);
 
   return (
-    <>
+    <div className="space-y-4">
       {error ? (
         <p>
           Something went wrong while fetching data from{" "}
@@ -66,7 +66,13 @@ const Publications = () => {
           })}
         </div>
       )}
-    </>
+      <p>
+        See a full list of my publication at the{" "}
+        <MyLink href="https://nva.sikt.no/research-profile/1213045">
+          Norwegian Research Information Repository (NVA)
+        </MyLink>.
+      </p>
+    </div>
   );
 };
 

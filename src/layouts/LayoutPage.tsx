@@ -51,7 +51,7 @@ const LayoutPage = ({
     setShowNavVerticalToc((prevState) => !prevState);
   };
 
-  console.log(path)
+  // this is so my About page can be a little wider than the rest of the pages, since it has more content and no toc. I could also just make a separate layout for the about page, but this is easier.
   const containerWidth: string = path === "/about" ? "max-w-5xl" : "max-w-3xl"; 
 
   return (

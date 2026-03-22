@@ -72,9 +72,9 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   "sp-tools": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
     // starting over !!
-  "pure-data" : "#ecfccb", //lime-100"
-  astronomy: "#fee2e2", //red-100
-  fx: "#purple-100", //red-100
-  vst: "#f3e8ff", //purple-100
-  dsp: "#fef9c3"
+  "pure-data" : "#a3e635", //lime-400"
+  astronomy: "#60a5fa", //blue-400
+  fx: "#f87171", //red-400
+  vst: "#c084fc", // purple-400
+  dsp: "#facc15", //yellow-400
 };
