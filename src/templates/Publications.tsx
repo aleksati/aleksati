@@ -67,7 +67,7 @@ const Publications = () => {
         </div>
       )}
       <p>
-        See a full list of my publication at the{" "}
+        See a complete list of my academic publications at the{" "}
         <MyLink href="https://nva.sikt.no/research-profile/1213045">
           Norwegian Research Information Repository (NVA)
         </MyLink>.
