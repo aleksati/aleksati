@@ -4,8 +4,8 @@ import MySoMeBar from "../components/MySoMeBar";
 import MyLink from "../components/MyLink";
 
 const About = () => (
-  <div className="pb-6">
-    <div className="grid grid-cols-2 gap-4 md:gap-16 items-start">
+  <div className="pb-6 pt-4">
+    <div className="grid grid-cols-2 gap-4 md:gap-12 items-start">
       <div className="col-span-2 md:col-span-1">
         <MyImage
           alt="Portrett pic of me"
@@ -21,7 +21,7 @@ const About = () => (
         <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
           <h1 className="font-bold text-lg -mb-1">Aleksander Tidemann</h1>
           <p>Music Technologist</p>
-          <div className="flex flex-col items-center justify-center md:items-start">
+          <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
             <MySoMeBar />
             <p className="text-secondary dark:text-secondary-dark text-sm">
               @aleksati @alexfürimmer
@@ -49,7 +49,7 @@ const About = () => (
             @aleksati @alexfürimmer
           </p>
         </div> */}
-        <div className="flex flex-col space-y-2 items-start">
+        <div className="flex flex-col space-y-1 items-start">
           <p className="">Current and past teachings:</p>
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MUS2850/">
             MUS2850 - Computer Music

@@ -52,7 +52,7 @@ declare global {
     year: string;
     title: string;
     event: string;
-    // link: string;
+    doi: string;
   }
 
   type ResearchDataList = Researchdata[];

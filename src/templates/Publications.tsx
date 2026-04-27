@@ -1,9 +1,5 @@
-import { cleanCristinData } from "../functions/cleanCristinData";
 import { useEffect, useState } from "react";
 import MyLink from "../components/MyLink";
-
-// API DOC:
-// https://api.cristin.no/v2/doc/index.html
 
 const Publications = () => {
   const [researchData, setResearchData] = useState<ResearchDataList>();
@@ -12,35 +8,31 @@ const Publications = () => {
 
   // fetch reseach data client side.
   useEffect(() => {
-    const fetchCristindata = async () => {
+    const fetchData = async () => {
       setLoading(true);
       try {
-        const url: string = "https://api.cristin.no/v2/persons/1213045/results";
-        const res = await fetch(url);
+        const res = await fetch("./api/research");
         const data = await res.json();
-        const data_cleaned = cleanCristinData(data);
         setLoading(false);
-        setResearchData(data_cleaned);
+        setResearchData(data);
       } catch (error) {
         console.log(error);
         setError(true);
       }
     };
 
-    fetchCristindata();
+    fetchData();
   }, []);
 
   return (
     <div className="space-y-4">
       {error ? (
         <p>
-          Something went wrong while fetching data from{" "}
-          <MyLink href="https://app.cristin.no/">Cristin</MyLink> :(
+          OPS! Something went wrong while fetching the data.
         </p>
       ) : loading ? (
         <p>
-          Fetching data from{" "}
-          <MyLink href="https://app.cristin.no/">Cristin</MyLink>...
+          Fetching data...
         </p>
       ) : (
         <div className="flex flex-col space-y-6">
@@ -55,22 +47,18 @@ const Publications = () => {
             if (item.cristin_result_id === "2305608") return;
             return (
               <div key={idx}>
-                {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}.
-                {/* {item.link ? (
-                  <MyLink href={item.link}>Avaliable from here</MyLink>
-                ) : (
-                  ""
-                )} */}
+                {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}. doi: <MyLink href={item.doi}>{item.doi}</MyLink>. <MyLink href="">Full text in Research Archive</MyLink>
               </div>
             );
           })}
         </div>
       )}
       <p>
-        See a complete list of my academic publications at the{" "}
+        See a complete list of my research publications at {" "}
         <MyLink href="https://nva.sikt.no/research-profile/1213045">
-          Norwegian Research Information Repository (NVA)
-        </MyLink>.
+          NVA SIKT
+        </MyLink>
+        .
       </p>
     </div>
   );
