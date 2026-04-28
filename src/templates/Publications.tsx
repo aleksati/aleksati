@@ -6,12 +6,12 @@ const Publications = () => {
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<boolean>();
 
-  // fetch reseach data client side.
+  // fetch reseach data from API.
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch("./api/research");
+        const res = await fetch("./api/publications");
         const data = await res.json();
         setLoading(false);
         setResearchData(data);
@@ -43,11 +43,11 @@ const Publications = () => {
             if (item.cristin_result_id === "2044269") return;
             // Remove also the duplicate Hardanger Fiddle papers
             if (item.cristin_result_id === "1939273") return;
-            // Remove also the duplicate Pop senter dance event
+            // Remove also the Perfoming arts thing from Popsenteret dance event.
             if (item.cristin_result_id === "2305608") return;
             return (
               <div key={idx}>
-                {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}. doi: <MyLink href={item.doi}>{item.doi}</MyLink>. <MyLink href="">Full text in Research Archive</MyLink>
+                {item.authors} ({item.year}). <i>{item.title}.</i> {item.event}. doi: <MyLink href={item.doi} type="toc">{item.doi}</MyLink>. <MyLink href={item.handle}>Full text in Research Archive</MyLink>
               </div>
             );
           })}

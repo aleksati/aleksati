@@ -74,7 +74,7 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
                 // </div>
                 <div
                   key={url}
-                  className="flex space-x-1 items-center justify-start">
+                  className="flex text-lg space-x-1 items-center justify-start">
                   <MyLink href={`/${url}`} type="nav">
                     {id}
                   </MyLink>
@@ -91,7 +91,7 @@ const NavVertical = ({ onToggleNavVertical }: Props) => {
         </div>
       </div>
       <div className="fixed bottom-6 left-4">
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col text-lg space-y-2">
           <div>
             <ButtonTheme />
           </div>

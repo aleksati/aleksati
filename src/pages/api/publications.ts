@@ -47,7 +47,7 @@ router.get(async (req, res) => {
         const parentUrl: string = item.part_of.url;
         const resParent = await fetch(parentUrl);
         const parentData = await resParent.json();
-        const FirstEventTitle : any = Object.values(parentData.title)[0]
+        const FirstEventTitle: any = Object.values(parentData.title)[0];
         event = FirstEventTitle || "";
 
         break;
@@ -62,29 +62,33 @@ router.get(async (req, res) => {
     }
 
     // title and year
-    const firstTitle : any = Object.values(item.title)[0];
-    const title : string = firstTitle ? firstTitle : "Title";
-    const year : string = item.year_published ? item.year_published : "2026";
+    const firstTitle: any = Object.values(item.title)[0];
+    const title: string = firstTitle ? firstTitle : "Title";
+    const year: string = item.year_published ? item.year_published : "2026";
 
     // DOI and handle
     let doi: string = "";
+    let handle: string = "";
     if (item.links) {
-      let doi = item.links.filter((link: any) => link.url_type == "DOI");
-      let fulltekst = item.links.filter(
-        (link: any) => link.url_type == "FULLTEKST"
-      );
-      let data = item.links.filter((link: any) => link.url_type == "DATA");
-      doi =
-        !doi.length && !fulltekst.length && !data.length
-          ? ""
-          : doi.length
-          ? doi[0].url
-          : data.length
-          ? data[0].url
-          : fulltekst[0].url;
-    }
 
-    // const handle = "";
+      let doiLink = item.links.filter((link: any) => link.url_type == "DOI");
+
+      // if not a doi is there, check for the FULLTEKST type.
+      if (!doiLink.length) {
+        doiLink = item.links.filter((link: any) => link.url_type == "FULLTEKST");
+      }
+
+      doi = doiLink.length
+        ? doiLink[0].url
+        : "https://nva.sikt.no/research-profile/1213045";
+
+      let handleLinks = item.links.filter(
+        (link: any) => link.url_type == "ARKIV",
+      );
+      handle = handleLinks.length
+        ? handleLinks[0].url
+        : "https://nva.sikt.no/research-profile/1213045";
+    }
 
     const result: Researchdata = {
       cristin_result_id: item.cristin_result_id,
@@ -93,11 +97,13 @@ router.get(async (req, res) => {
       title,
       event,
       doi,
+      handle,
     };
 
     data_cleaned.push(result);
   }
 
+  res.status(200).json(data_cleaned);
 });
 
 // Export handler

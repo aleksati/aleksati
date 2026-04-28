@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 Apr 2026 20:17:35 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Apr 2026 07:29:49 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 27 Apr 2026 20:17:35 GMT</pubDate>
+        <pubDate>Tue, 28 Apr 2026 07:29:49 GMT</pubDate>
         <item>
             <title><![CDATA[The Standstill Station - How Still Can We Be?]]></title>
             <description><![CDATA[This post takes a quick look at the Standstill station, an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius in 2023. Revitalized by me in 2026.]]></description>

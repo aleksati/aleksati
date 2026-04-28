@@ -55,7 +55,7 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
               <MyMenu iconId="x" onClick={onToggleNavVerticalToc}/>
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-lg">
             <div className="space-y-4 border-gray-200 dark:border-gray-600">
               <ol className="space-y-4 list-decimal leading-5">
                 {toc.map((item, idx) => {
@@ -94,7 +94,7 @@ const NavVerticalToc = ({ onToggleNavVerticalToc, toc }: Props) => {
           </div>
         </div>
         <div className="fixed bottom-6 right-50">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col text-lg space-y-2">
             <div>
               <ButtonTheme />
             </div>

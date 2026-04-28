@@ -53,6 +53,7 @@ declare global {
     title: string;
     event: string;
     doi: string;
+    handle: string;
   }
 
   type ResearchDataList = Researchdata[];
