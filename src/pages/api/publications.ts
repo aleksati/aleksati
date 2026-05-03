@@ -18,7 +18,7 @@ router.get(async (req, res) => {
 
   // clean the Cristin data into a more usable format for the frontend.
 
-  const data_cleaned: ResearchDataList = [];
+  const data_cleaned: PublicationList = [];
   for (const item of data) {
     // get authors names in nice string
     let authors: string = item.contributors
@@ -90,7 +90,7 @@ router.get(async (req, res) => {
         : "https://nva.sikt.no/research-profile/1213045";
     }
 
-    const result: Researchdata = {
+    const result: Publication = {
       cristin_result_id: item.cristin_result_id,
       authors,
       year,

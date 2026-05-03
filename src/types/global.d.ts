@@ -46,7 +46,7 @@ declare global {
     sketch: P5jsSketch;
   }) => React.JSX.Element;
 
-  interface Researchdata {
+  interface Publication {
     cristin_result_id: string;
     authors: string;
     year: string;
@@ -56,11 +56,11 @@ declare global {
     handle: string;
   }
 
-  type ResearchDataList = Researchdata[];
+  type PublicationList = Publication[];
 
-  interface CristinDataResponseJSON {
-    [x: string]: JSONArray;
-  }
+  // interface CristinDataResponseJSON {
+  //   [x: string]: JSONArray;
+  // }
 
   // for use in commentSection.tsx and Comment modal etc.
   interface MyComment {

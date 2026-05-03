@@ -1,42 +1,38 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import MyLink from "../components/MyLink";
 
-const Publications = () => {
-  const [researchData, setResearchData] = useState<ResearchDataList>();
-  const [loading, setLoading] = useState<boolean>();
-  const [error, setError] = useState<boolean>();
+const Publications = ({publicationList, message}: {publicationList: PublicationList, message: string}) => {
+  // const [publications, setPublications] = useState<PublicationList>();
+  // const [loading, setLoading] = useState<boolean>();
+  // const [error, setError] = useState<boolean>();
 
-  // fetch reseach data from API.
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("./api/publications");
-        const data = await res.json();
-        setLoading(false);
-        setResearchData(data);
-      } catch (error) {
-        console.log(error);
-        setError(true);
-      }
-    };
-
-    fetchData();
-  }, []);
+  // useEffect(() => {
+    // fetch reseach data from API.
+    // const fetchData = async () => {
+    //   setLoading(true);
+    //   try {
+    //     const res = await fetch("./api/publications");
+    //     const data = await res.json();
+    //     setLoading(false);
+    //     setPublications(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //     setError(true);
+    //   }
+    // };
+    // setPublications(publicationList);
+    // fetchData();
+  // }, []);
 
   return (
     <div className="space-y-4">
-      {error ? (
+      {!publicationList.length ? (
         <p>
-          OPS! Something went wrong while fetching the data.
-        </p>
-      ) : loading ? (
-        <p>
-          Fetching data...
+          OPS! Something went wrong while fetching the data. {message}
         </p>
       ) : (
         <div className="flex flex-col space-y-6">
-          {researchData?.map((item, idx) => {
+          {publicationList?.map((item, idx) => {
             // Remove certian results, if needed. Here I remove the KD audio duplicate.
             if (item.cristin_result_id === "10268340") return;
             // Remove also Hybrid Learning duplicate.
