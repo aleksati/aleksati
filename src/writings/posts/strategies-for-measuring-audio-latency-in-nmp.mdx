@@ -1,5 +1,5 @@
 ---
-title: "Strategies for Measuring Audio Latency in Networked Music and Dance Performances"
+title: "Strategies for measuring audio latency in networked music and dance performances"
 date: "2024-08-08"
 keywords:
   [
@@ -20,7 +20,7 @@ summary: "Measuring audio latency in networked music performances (NMP) is stres
 ---
 
 {/* 
-# Strategies for Measuring Audio Latency in Networked Music and Dance Performances
+# Strategies for measuring audio latency in networked music and dance performances
 */}
 
 <MyImage
@@ -37,17 +37,7 @@ Managing audio latency starts with knowing how to measure it, but measuring it c
 
 At the Department of Musicology at UiO, we have developed solid strategies for measuring audio and video latency in networked performance systems after many years of running the <MyLink href="https://mct-master.github.io/">MCT masters programme</MyLink>. In this post, I write about some of these strategies and share good practical ways to measure audio latency in networked scenarios where multiple remote parties are involved.
 
-{/* 1. <MyLink type="toc" href="#how-to-measure">How to Measure</MyLink>
-2. <MyLink type="toc" href="#what-to-measure">What to Measure</MyLink>
-3. <MyLink type="toc" href="#measurement-strategy">Measurement Strategy</MyLink>
-4. <MyLink type="toc" href="#measurement-procedure">Measurement Procedure</MyLink>
-5. <MyLink type="toc" href="#summary">Summary</MyLink>
-6. <MyLink type="toc" href="#sources">Sources</MyLink> 
----
-*/}
-
-
-# How to Measure
+# How to measure the latency
 
 Sending an audio impulse through a signal chain and comparing it against some reference is the most widely used technique to measure audio latency in technical systems (Fasciani, 2020). The most crucial aspect of this technique is to ensure that the delayed and reference signal chains are subject to the exact same initial conditions before any measurement object is introduced. This is so important that, if we cannot empirically guarantee that these two signals are initially identical, we cannot trust any of the results.
 
@@ -90,7 +80,7 @@ To be able to best distinguish between the reference and delayed sound when coun
   ]}
 />
 
-# What To Measure
+# What exactly to measure
 
 For networked performance audio, **what** we are interested in measuring is usually called the Over-all One-way Source-to-Ear delay, or OOSE for short (Rottondi et.al, 2016). The OOSE delay encompasses everything from sound in air, traveling from the source of the sound to the microphone, to the sound propagating from the loudspeaker to the ears of listners at the destination. In between, we might find several AD/DA conversions, hardware modules, network and software layers.
 
@@ -104,7 +94,7 @@ However, the OOSE delay metric only carries real value if it's measured in a sys
 
 The desired audio latency measurement object in networked music contexts should be the OOSE delay of a system that is fine-tuned to produce stable and high-quality audio over a significant period with minimal dropouts. For clarity, we can call this expanded definition for _Stable_ OOSE, or SOOSE for short.
 
-# Measurement Strategy and Procedure
+# The measurement strategy
 
 Measuring latency always requires us to adopt a measurement strategy in advance. In most cases, a one-way measurement strategy is sufficient, where the delayed impulse is sent across the signal chain (one way) and compared with the reference at the end. However, when dealing with network transmission, we cannot simply compare the reference to the delayed impulse because the delayed impulse is sent to a remote location. We cannot also send the reference because we want to isolate and measure the network path. In these cases, the solution is to adopt a Round-Trip Time (RTT) strategy, where the delayed impulse is sent to the remote location and looped back to the source before being measured (Carôt 2009, Rottondi et.al 2016, Fasciani 2020). This strategy is similar to how computers negotiate clock time, actively measuring RTT latencies from fixed locations and subtracting the results from a common source. If the technical setups in a networked performance are similar in both locations, with matching software and hardware configurations, then dividing the RTT SOOSE delay metric by two should give you the one-way latency.
 
@@ -122,11 +112,11 @@ Finally, **when** should you do the measuring? If it's a networked concert, I re
 
 Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can ensure precision and scientific validity. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with four individual steps that, when followed, will give accurate and precise audio latency measurements.
 
-## Step 1 - Verify The Measurement System
+## Step 1 - Verify the measurement system
 
 First thing is first, set up and verify the measurement system using the methods I've demonstrated in this post. This is also a good time to run some bandwidth tests and configure any network settings.
 
-## Step 2 - Connect The Music System to The Measurement System
+## Step 2 - Connect the music system to the measurement system
 
 Second, insert the measurement object (being the entire SOOSE networked music system) into the delayed signal chain of the measurement system. Connecting these two systems usually means connecting the output of the delayed signal chain to the mixer that sends audio to the remote location, and connecting a microphone to the signal chain input. The microphone is placed somewhere near the performers and the main PA speakers are directed towards the mic. When the audio impulses are sent over the networked and looped back from the remote location, they exit the PA and get picked up by the microphone.
 
@@ -138,7 +128,7 @@ Second, insert the measurement object (being the entire SOOSE networked music sy
 
 However, since we can pretty reliably calculate how long it takes sound to travel a specific distance through air, it is also possible to skip the extra mic and speaker stages, administer the measurement impulses directly to the mixer at one end, and route them back from the mixer at the remote end. In this case, just remember to take note of the distances between the speakers and the performers and factor these distances into the final calculations.
 
-## Step 3 - Fine-tune The Audio Quality
+## Step 3 - Fine-tune the audio quality
 
 As stated, the key to unlocking a meaningful networked music practice is to achieve clear and stable audio transmissions. This is also necessary to be able to maintain the "stable" part of the SOOSE delay metric. Therefore, once the measurement and music systems are connected, the next step is to fine-tune the system for good audio quality.
 
@@ -150,7 +140,7 @@ The simplest way to analyze the audio quality is to send a constant sine tone th
   caption="Send a reference sine tone through the RTT signal chain to monitor the audio (and network) quality. Here, I bypass the microphone and speaker at the remote location because it's often the AD/DA and network convesions that cause artifacts to audio signals, rarly because of microphones or speakers."
 />
 
-## Step 4 - Measure The Latency
+## Step 4 - Measure the latency
 
 Finally, you can measure the latency of your system. Since these measurement practices are essentially statistical exercises, the more data you collect have, the better. In fact, recently I decided to re-develop some older MaxMSP code into software that can administer audio impulses, record, measure and store large amounts of latency datam all in one. Having this software gives me a lot of freedom with the added benefit of making my measurement system more systematic and reproducible. Another advantage of using specialized measurement software is that it opens up the possibilities of measuring other audio devices, such as VST plugins and virtual audio drivers.
 
@@ -162,7 +152,7 @@ Finally, you can measure the latency of your system. Since these measurement pra
 
 Read more and download my software (ALEX) for free via <MyLink href="/works/audio-latency-examiner">my previous post</MyLink>.
 
-## Step 5 (extra) - Measure With Alternative Parameters
+## Step 5 (extra) - Measure with alternative parameters
 
 In addition to the SOOSE delay, it can be well worth collecting data from different system settings to get a better understanding of the system and gain important clues to how to make it more efficient. For instance, experimenting with different buffer sizes, compression settings, and even without certain modules in the chain, will give you insights into how each component contributes to the overall latency. Experimenting with the physical setup, like different microphone and speaker setups, can also be worthwhile in this regard.
 

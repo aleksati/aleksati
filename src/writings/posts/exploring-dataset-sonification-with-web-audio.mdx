@@ -1,5 +1,5 @@
 ---
-title: "Exploring Dataset Sonification with Web Audio"
+title: "Exploring dataset sonification with web audio"
 date: "2023-09-20"
 keywords: ["web", "sonification", "audio", "p5js", "programming", "dsp", "analysis", "javascript", "visuals", "mapping", "nextjs"]
 type: "post"
@@ -7,7 +7,7 @@ summary: "Thanks to modern browsers and open-source coding libraries, creating a
 ---
 
 {/* 
-# Exploring Dataset Sonification with Web Audio 
+# Exploring dataset sonification with web audio
 */}
 
 <MyImage src="datason-cover.png" alt="cover image of data visualizations" padding={false} />
@@ -16,17 +16,7 @@ Creating audio-visual art on the Web is easier than ever, thanks to the growing 
 
 In this post, I share some examples from my workshop, presenting two approaches to model-based sonification of large datasets in a web browser using the <MyLink href="https://p5js.org/">p5js</MyLink> library. To get the full codebase, and more, check out the <MyLink href="https://github.com/aleksati/dataset-sonification-with-web-audio-workshop">workshop repository</MyLink> on my GitHub page. Also, I recommend using the p5js Web Editor as your development environment so you can focus 100% on coding. However, you can run the code from a local node development server. In any case, ensure that you use a Chromium-based web browser as I have not experimented with other browser engines.
 
-{/*
-1. <MyLink type="toc" href="#why-sonify?">Why Sonify?</MyLink>
-2. <MyLink type="toc" href="#example-dataset">Example Dataset</MyLink>
-3. <MyLink type="toc" href="#multi-dimensional-plot">Multi-dimensional Plot</MyLink>
-4. <MyLink type="toc" href="#the-sonic-orbs">The Sonic Orbs</MyLink>
-5. <MyLink type="toc" href="#final-thoughts">Final Thoughts</MyLink>
-6. <MyLink type="toc" href="#download-link-and-source-code">Download Link and Source Code</MyLink> 
----
-*/}
-
-# Why Sonify?
+# Why sonify?
 
 The most common approach to engaging with data online is through visual graphs and plots where various axis represent different data dimensions. However, with sonification, or Auditory Displays, we can use (non-speech) audio to convey information or perceptualize data (Hermann et.al, 2011). As you may not know, sonification is an established field of research, and the literature often differentiates among many kinds of sonification methods. For instance, the method of Audification refers to the direct playback of data samples or a direct translation of a data waveform into sound. So with audification, we can perhaps perceive patterns and irregularities in large datasets in record time.
 
@@ -34,7 +24,7 @@ Most real-world sonification applications augment existing visual-based tools, h
 
 We know that sonification applications can facilitate better accessibility practices and sometimes even be more efficient than data visualization techniques. We also know that rapidly developing technologies, such as the Web Audio API and WebAssembly, etc., make it easy to create powerful and fast DSP engines on the web. But how can we use sonification to navigate Big Data on the web? How useful would this be? And how do we do this from a practical standpoint? These questions inspired me to spend some time exploring dataset sonification using the p5js library and a big dataset of coffee quality.
 
-# Example Dataset
+# Example dataset
 
 The dataset I am using for my examples is a simple and generic .csv spreadsheet detailing Arabic coffee quality from different farms over several years. I sourced the dataset on Kaggle.com, where you can find lots of high-quality and free datasets for your projects, in a variety of different formats.
 
@@ -53,7 +43,7 @@ Each of the 1300 rows in the spreadsheet represents a specific coffee shipments 
 
 It should be noted that I am only using a small fraction of this dataset in my examples in this post.
 
-# Multi-dimensional Plot
+# Multi-dimensional plot
 
 Below is my first example of a model-based sonification system where I've augmented a traditional 2D plot with web audio. Each black dot reprents unique coffee dispatches; rows in the dataset spreadsheet. The height (vertical Y-axis) of the red dots equals coffee acidity levels over time (horizontal X-axis). The farm name is also printed for reference.
 
@@ -175,7 +165,7 @@ class Orb {
 
 But how useful are these audio-augmented plots, really? And can they be used in any analytic or scientific way? Building complex sounds from data can increase the quality and amount of information perceived, but the mapping has to be high-quality, consistent, and reliable. For my orb example to be useful, all parameters and ranges would require fine-tuning and proper testing to ensure that users could pinpoint meaningful(!) data differences from the harmonic content. It would also be advantageous if users could configure more parameters and choose which data dimensions make sound. This would make the system more interactive and customizable for different purposes.
 
-# Final Thoughts
+# Summary
 
 In summary, it's very much possible to enrich data visualizations with model-based sonification in a web browser using the p5js library. I demonstrate two approaches for how to do this that use audio to augment visual data displays as a way to reveal more dimensions in realtime. The first approach can be considered more traditional, using audio to augment simple 2D visual graphs, while the second approach is more experimental, with usual and complex visual-audio aspects.
 
@@ -183,6 +173,6 @@ Besides their educational and artistic potential, I think the biggest advantage 
 
 Finally, although p5js is great for building easy-to-use, audio-visually robust web apps, it's not really a library designed to be the backbone of fast and powerful analysis software. In other words, programming analysis-heavy programs with p5 is not recommended. Rather, it's great for prototyping and smaller apps/projects.
 
-### Sources
+# Sources
 
 Hermann, T., Hunt, A., & Neuhoff, J. G. (Eds.). (2011). The Sonification Handbook (1st ed.). Logos Publishing House.

@@ -1,5 +1,5 @@
 ---
-title: "Strategies for Measuring Video Latency in Networked Music and Dance Performances"
+title: "Strategies for measuring video latency in networked music and dance performances"
 date: "2025-03-22"
 keywords:
   [
@@ -19,10 +19,8 @@ type: "post"
 summary: "Measuring video latency in networked music performances (NMP) is stressful. There is little time and resources at hand, and on-site conditions often differ alot from controlled research setups. In this post, I share a few practical methods and strategies for measuring video latency that guarantee precise and reliable data collection in the field, developed from years of professional experience."
 ---
 
-
-
 {/* 
-# Strategies for Measuring Video Latency in Networked Music and Dance Performances
+# Strategies for measuring video latency in networked music and dance performances
 */}
 
 <MyImage
@@ -39,17 +37,7 @@ Measuring video latency might seem straightforward on paper, but doing it effect
 
 In this post, I write about some strategies and practical ways to measure video latency in networked performances, inspired by recent research and developed from years of experience running networked music courses for the <MyLink href="https://mct-master.github.io/">MCT masters programme</MyLink> at the University of Oslo. Hopefully, this can guide you toward better and more scientific measurement practice.
 
-{/* 1. <MyLink type="toc" href="#how-to-measure">How to Measure</MyLink>
-2. <MyLink type="toc" href="#what-to-measure">What to Measure</MyLink>
-3. <MyLink type="toc" href="#measurement-strategy">Measurement Strategy</MyLink>
-4. <MyLink type="toc" href="#measurement-procedure">Measurement Procedure</MyLink>
-5. <MyLink type="toc" href="#summary">Summary</MyLink>
-6. <MyLink type="toc" href="#sources">Sources</MyLink> 
----
-*/}
-
-
-# How to Measure
+# How to measure the latency
 
 Put simply, video latency is the time it takes an image or a video feed to travel from A to B. In technical systems, video delays are usually caused by various encoding and decoding stages that involve numerous hardware or software operations that take time to complete.
 
@@ -74,7 +62,7 @@ For example, I prefer to use more conventional equipment when in the field, modi
 
 In the end, experimenting with different techniques and practices is necessary to find suitable methods depending on the context. But using scientifically-based techniques is always a good starting point. Then, the question simply becomes what kind of quality and accuracy you're after. Keep in mind that the more simplifications and shortcuts you include, the lower the quality and accuracy you should expect from your experiments.
 
-# What to Measure
+# What exactly to measure
 
 To measure video latency, we must first know what to measure. In other words, what is the _measurement object_ ? Finding this object is a process of filtering out irrelevant factors and can be different things depending on the context. For instance, one measurement object could be interpreted as being only between the transmission computers, while another could be from time-critical source to PC-screen, or from TV-screen to TV-screen, etc.
 
@@ -90,7 +78,7 @@ However, the image latency is not all that matters in a performance. Aesthetic f
 
 It should be stated that aesthetic video factors are usually network dependent, specifically on its bandwidth limitations. Therefore, always get to know the bandwidth of the performance network and dial-in aesthetic factors before doing any kind of latency measurements.
 
-# Measurement Strategy and Procedure
+# The measurement strategy
 
 After the measurement object is determined, it's time to construct a measurement strategy. There are two main strategies we can use when measuring latency in networked systems, standard one-way and Round-Trip Time (RTT). When adopting an RTT strategy for video latency measurements, the delayed image is sent to the remote location and looped back to the source before being measured (Carôt 2009). The downside of the RTT strategy is that it requires the same technical setup in each location to know the one-way latency. And from experience, similar technical setups are rare.
 
@@ -114,21 +102,21 @@ Regardless of which strategy you choose, it's wise to give some extra thought to
 
 Setting up networked performance systems is usually pretty hectic with many concerns and very little time to manage them. Having a detailed plan can therefore ensure precision and scientific validity. And the better the plan is, the less you have to think and stress when the iron is hot. Below I have sketched out an example plan with five individual steps that, when followed, will give accurate and precise video latency measurements.
 
-## Step 1 - Verify The Measurement System
+## Step 1 - Verify the measurement system
 
 First thing is first, set up and verify the measurement system. Use your designated measurement camera and film a simple clock or a timer for a few seconds. Then, verify the framerate and quality of your camera in the editing software. You can also go one step further and connect the networked performance camera to a local TV and do some test measurements. This can be time well spent to get used to running the experiments. This is also a good time to run some bandwidth tests and configure any network settings.
 
 <MyImage src="videolatency-irl-clappingmethod.gif" />
 
-## Step 2 - Fine-Tune The Video Quality
+## Step 2 - Fine-tune the video quality
 
 As mentioned, the key to unlocking a meaningful networked performances is to achieve high quality and stable video transmissions. Therefore, spend good time fine-tuning the video system and balance quality vs. latency vs. stability. This is an iterative process that involves adjusting various framerate, resolution and compression settings. A good way to analyze the video quality is to film the performers in action watch the result on-screen. Use your eyes.
 
-## Step 4 - Measure The Latency
+## Step 4 - Measure the latency
 
 Finally, you can measure the latency of your system. Since these measurement practices are essentially statistical exercises, so the more data you collect have, the better.
 
-## Step 5 (extra) - Measure With Alternative Parameters
+## Step 5 (extra) - Measure with alternative parameters
 
 In addition, it can be well worth collecting data with different settings to get a better understanding of the system and gain important clues to how to make it more efficient. For instance, experimenting with different resolutions, framerates, compression settings, and even without certain modules in the chain, will give you insights into how each component contributes to the overall latency.
 

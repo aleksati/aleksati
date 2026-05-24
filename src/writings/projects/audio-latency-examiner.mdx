@@ -16,21 +16,7 @@ As a connoisseur of networked music, latency is something I care about more than
 
 In this post, I document how ALEX works and explain some of its main features and design concepts. At the bottom, find relevant links to download the software and report any issues you might have experienced.
 
-{/* 
-1. <MyLink type="toc" href="#how-it-works-and-how-to-use-it">How It Works and How To Use It</MyLink>
-2. <MyLink type="toc" href="#modes">Modes</MyLink>
-    1. <MyLink type="toc" href="#external-mode">External Mode</MyLink>
-    2. <MyLink type="toc" href="#internal-mode">Internal Mode</MyLink>
-    3. <MyLink type="toc" href="#vst-mode">VST Mode</MyLink>
-3. <MyLink type="toc" href="#monitor-inputs-and-latency">Monitor Inputs and Latency</MyLink>
-    1. <MyLink type="toc" href="#input-level-gate-threshold">Input Level Gate Threshold</MyLink>
-4. <MyLink type="toc" href="#record-and-export-data">Record and Export Data</MyLink> 
-6. <MyLink type="toc" href="#download-link-and-report-issues">Download Link and Report Issues</MyLink> 
---- 
-*/}
-
-
-# How It Works and How To Use It
+# How it works and how to use it
 
 ALEX collects latency data in real-time by evaluating the arrival time differences between audio impulses (click~) that the software itself administers. One impulse travels out and through the device you wish to measure, while the other acts as a reference, providing the same initial conditions to the reference and delayed signal chains. In particular, the latency is calculated by having the reference impulse start a sample-based counting process that the delayed impulse stops. The amount of counted samples is equal to the latency between the two signals. 
 
@@ -50,7 +36,7 @@ Upon choosing a mode, the dedicated audio and channel routing are made visible i
 
 Below are more detailed accounts of the intended use of the different measurement modes. It should be said that these modes and uses are just templates and simple guidelines. Feel free to use them in any capacity you like. 
 
-## External Mode 
+## External mode 
 
 Use the external device mode to measure the roundtrip latency of any external musical device, such as delay pedals, networked systems, analog instruments, etc. To get the best results, the routing of the external mode is designed in a a loopback fashion, sending both reference and device impulses out of the computer (to the target device) and expecting to receive the same signals in return. Therefore, using this mode requires the use an external audio interface with two or more inputs and outputs. 
 
@@ -58,7 +44,7 @@ Use the external device mode to measure the roundtrip latency of any external mu
 
 To be able to send audio out and in from your laptop, remember to specify the correct audio driver from the "Audio Settings" section and set the correct channels under the "I/O Settings and Device Name" section. 
 
-## Internal Mode 
+## Internal mode 
 
 Use the internal device mode to measure the roundtrip latency of any internal audio device, such as virtual audio drivers, analysis software or audio units. The routing of the internal mode is designed similarly to the external mode, but sends only one impulse out of the assigned audio driver to a designated audio device, expecting to receive the same signal in return as input. The reference signal in the internal mode is passed directly within the software, not leaving the Max8 environment.
 
@@ -66,7 +52,7 @@ Use the internal device mode to measure the roundtrip latency of any internal au
 
 When using the internal mode, you need to set your audio driver to a virtual audio driver to be able to send the signal to another software. This can be specified in driver settings under the "Audio Settings" section. Also, set the correct channels to send/receive the device signals under the "I/O Settings and Device Name" section. 
 
-## VST Mode 
+## VST mode 
 
 Use the VST mode to measure the latency of any VST plugin installed on your machine. The VST mode sends an impulse to the VST and compares the output to a direct signal (reference) that does not pass through the VST.  
 
@@ -74,11 +60,11 @@ Use the VST mode to measure the latency of any VST plugin installed on your mach
 
 When using the VST mode, you must configure the plugin settings manually via the "Show and Configure Plugin" button under the "VST and Plugin Settings" section. Also, since the data does not store the parameter settings of the VST, remember to add notes about the parameters used in the "Add Data Note" section under the "Record and Export Data" header. 
 
-# Monitor Inputs and Latency 
+# Monitoring inputs and latency data
 
 You can view the latency of your device via the number boxes under the oscillator scopes in the  "Monitor Inputs and Latency" section. These latency numbers represent the time difference between the incoming reference and delayed audio impulses in samples and in miliseconds. However, to get reliable results, it's important to tend to the input level gate threshold parameter. 
 
-## Input Level Gate Threshold
+## Input level gate threshold
 
 When passing through analog hardware or delay plugins, the audio impulses administered by ALEX can sometimes get noisy and distorted. However, when evaluating the time difference between the audio impulses, the software relies on stable and clean clicks to be able to make accurate predictions. 
 
@@ -88,7 +74,7 @@ The "Input Level Gate Threshold" is essentially a noise gate that filters out in
 
 Last, it should be said that the reference and delayed impulses are subject to this exact same filtering chain before being evaluated.
 
-# Record and Export Data
+# Record and export data
 
 The software collects latency and device data into a dictionary (JSON) format. Specifically, the latency metrics are float numbers collected into separate arrays in the dictionary. You can click the "View Full Data" button to inspect the entire data structure and even make custom changes if needed. 
 
@@ -110,7 +96,7 @@ Here is a complete list of data points collected by ALEX:
 
 The data-gathering procedure can be commenced at any time, given that the DSP and Audio Playback processes are enabled beforehand. After collection, the data can be exported as a JSON format object for easy post-analysis and documentation.
 
-# Download Link and Report Issues
+# Download link and how to report issues
 
 ALEX is free and open-source, available as a standalone desktop application for both Windows and Mac. You do not need a Max license or Max installed. Download the latest version of ALEX on <MyLink href="https://github.com/aleksati/audio-latency-examiner">this GitHub page</MyLink>. Also, I encourage you to report any issues you experience while using the software on the same GitHub page.
 

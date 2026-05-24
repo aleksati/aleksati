@@ -1,5 +1,5 @@
 ---
-title: "Using Python to Control Ableton Live with MIDI"
+title: "Using Python as my Ableton Live MIDI-controller"
 date: "2023-07-10"
 keywords:
   [
@@ -18,7 +18,7 @@ summary: "While designing a new liveset, I wrote some Python code to help me map
 ---
 
 {/*
-# Using Python to Control Ableton Live with MIDI
+# Using Python as my Ableton Live MIDI-controller
 \*/}
 
 <MyImage
@@ -32,27 +32,7 @@ Designing live performances for <MyLink url="https://theholymountain.net">The Ho
 
 In this post, I demonstrate how you can use some Python code (++) to acheive more complex midi mapping capabilities between your midi-controller and digital audio workstation (DAW).
 
-{/*
-
-1. <MyLink type="toc" href="#overview-and-requirements">
-     Overview and Requirements
-   </MyLink>
-2. <MyLink type="toc" href="#python-setup">
-     Python Setup
-   </MyLink>
-3. <MyLink type="toc" href="#live-setup">
-     Live Setup
-   </MyLink>
-4. <MyLink type="toc" href="#concluding-thoughts">
-     Concluding Thoughts
-   </MyLink>
-5. <MyLink type="toc" href="#download-link-and-source-code">
-     Download Link and Source Code
-   </MyLink>
-   <hr />
-   */}
-
-# Overview and Requirements
+# System overview and requirements
 
 When searching for a solution to my "playing drums and synth at the same time" problem, I naturally wanted to use Ableton Live as my primary DAW software. One of the greatest things about Live is its rich midi capabilities and visual design, enabling control of just about anything from anywhere. However, Ableton alone does not provide users with progressive capabilities to customize their mapping schemas. Their platform is fairly restricted in these particular areas. So to achieve what I was looking for, I had to use additional code and software to manipulate and control Ableton from "afar".
 
@@ -84,7 +64,7 @@ Below you'll find important details about the design, code, and general Live spe
 
 For the record, I use the MIDIPLUS X4 as a midi-controller and <MyLink href="https://www.tobias-erichsen.de/software/loopmidi.html">Tobias Erichsen's loopMIDI</MyLink> as my virtual device. For Mac/OSX users, I recommend setting up a IAC virtual midi bus. No third-party programs required.
 
-# Python Setup
+# Python setup
 
 The Python program sits in-between the controller and Live, and has two primary jobs; to intercept midi messages from the midi-controller, passing them off to Live, and to associate different collections of audio tracks with individual scenes. I start by representing each scene and audio track as a scene_config dictionary in Python. The dictionary key-value pairs represent Live's session view as a 2D matrix stucture. Each key represents a scene, and each value represents a collection (array) of tracks (integers).
 
@@ -186,7 +166,7 @@ with midi_in:
             prev_message = message
 ```
 
-# Live Setup
+# Ableton Live setup
 
 In Live, I only need to do three things to enable the proposed 2D navigation. First, ensure that the scene_config dictionary corresponds to the number of scenes and tracks in my Live session. Second, enable the correct midi settings, and third, provide the correct midi mapping.
 
@@ -207,13 +187,13 @@ To see the full code, visit the source code section below.
 
 Finally, after midi-mapping, I have to set the correct midi settings. Per default, Live will usually recognize and enable any compatible midi device it detects for track, sync and remote. However, we dont want Live to listen directly to our midi controller. We only want to intercept message from Python on the virtual midi port we have initialized. To open the midi preferences in Live, Hit **"ctrl" + ","** and navigate to the midi section. Here, uncheck every device except for incoming messages on your virtual midi port.
 
-# Concluding Thoughts
+# In closing
 
 So there you have it. We can easily expand the capabilities of our Live projects with some creative coding and a virtual midi driver. By using the free and open-source Python rtmidi library, bridging Live with Python is practically effortless. From there, I recommend optimizing your state management and asynchronous parameter control with Python Generators and lazy iterators. Together, this is a force to be reckoned with.
 
 On a side note, there are alternatives to writing custom software for midi communication between Live and elsewhere. For instance, <MyLink href="https://github.com/ideoforms/AbletonOSC">AbletonOSC</MyLink> is a MIDI remote script that provides an Open Sound Control (OSC) interface to control Live. Using OSC will eliminate the need for a virtual midi driver and provide more advanced remote control options.
 
-# Download Link and Source Code
+# Download link and source code
 
 The full source code of this project is open source and available on <MyLink href="https://github.com/aleksati/ableton-navigation-system">my GitHub</MyLink>.
 

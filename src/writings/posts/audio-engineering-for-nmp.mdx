@@ -1,5 +1,5 @@
 ---
-title: "Things to Remember when Audio Engineering for Networked Music Performances"
+title: "Things to remember when audio engineering for networked music performances"
 date: "2023-12-28"
 keywords: ["network", "audio", "engineering", "nmp", "analysis", "realtime", "latency", "research", "telematic", "performance"]
 type: "post"
@@ -7,7 +7,7 @@ summary: "Mixing live sound for networked music events, where several locations 
 ---
 
 {/* 
-# Things to Remember when Audio Engineering for Networked Concerts
+# Things to remember when audio engineering for networked music performances
 */}
 
 After the COVID-19 pandemic, there's been a surge of products that seek to facilitate better musical collaboration over the internet, offering everything from all-in-one hardware solutions, such as <MyLink href="https://elk.audio">Elk</MyLink> or <MyLink href="https://www.songpark.com/company">Songpark</MyLink>, to new software using tech like <MyLink href="https://webrtc.org/">WebRTC</MyLink> and WebAssembly. What these products offer is usually better interfaces, slightly lower hardware latencies, modernized web integration, audio/video/network optimization options, and even compatibility with future networks like 5G. However, adequate tech is only one of many parts necessary to conduct successful networked music performances (NMP). Zooming out, NMPs require us to radically change our audio engineering practice to accomodate a whole new musical environment.
@@ -16,17 +16,7 @@ As a lecturer and engineer at the University of Oslo, Department of Musicology, 
 
 In this post, I provide some steps and strategies that can improve the quality and workflow of your networked audio engineering practice. These simple pointers are in no way comprehensive, nor particularly thorough, but I believe they can help navigate the complicated and often stressful environments of networked audio engineering.
 
-{/* 1. <MyLink type="toc" href="#nmp-mixer-requirements">NMP Mixer Requirements</MyLink>
-2. <MyLink type="toc" href="#first-contact-and-communication-setup">First Contact and Communication Setup</MyLink>
-3. <MyLink type="toc" href="#fine-tuning-the-audio-to-suit-the-network">Fine-tuning the Audio to Suit the Network</MyLink>
-4. <MyLink type="toc" href="#soundchecks-and-the-importance-of-gain-staging">Soundchecks And The Importance Of Gain-staging</MyLink>
-5. <MyLink type="toc" href="#summary">Summary</MyLink>
-6. <MyLink type="toc" href="#references">References</MyLink> 
----
-*/}
-
-
-# NMP Mixer Requirements
+# Mixer requirements
 
 The audio mixer is the central nervous system of a concert. NMPs are no different, but the mixer requirements for NMPs often differ those for normal concerts. With this in mind, it's important to plan ahead and esnure you have a suitable mixer for the gig. Let's map out the basic mixer requirements for a dual-audience NMP, where we expect an audience at both locations.
 
@@ -40,7 +30,7 @@ So for our dual-audience NMP example, each location must have a mixer with at le
 
 But it's not always that we need to have audience members in both locations. In these cases, the remote and audience-less locations does not need to worry about a seperate PA mix.
 
-# First Contact and Communication Setup
+# First contact and setup for communication
 
 When setting up, always prioritze the network connection part first. For this, I recommend communication over the phone while configuring necessary network settings together, step-by-step, in synchrony. Some common conection errors at this stage include firewall settings, restricted networks, network ports not forwarded/open, wrong ports and other IP configs, network privacy settings, etc.
 
@@ -50,7 +40,7 @@ To establish the connection, use the Ping networking tools first before moving o
 
 After, move to the audio software and connect the talkback mic and network mixes to separate input channels on your AD/DA. This way, the talkback is not dependent on the mixer and concert system, making it more reliable and actually useful in troubleshooting scenarios. For instance, if there is no sound from the instruments but the talkback still works, you know the issue is most likely in the mixer. For best results, route the AD/DA outputs in a similar parallel fashion.
 
-# Fine-tuning the Audio to Suit the Network
+# Fine-tuning the audio to suit the network
 
 When setting up an NMP in a new venue, your gear might be the same as before, but the network conditions will always vary. Therefore, since network conditions directly affect audio fidelity, spend time after first contact to assess network performance and fine-tune the audio quality.
 
@@ -64,7 +54,7 @@ Increasing the size of the audio and network buffers will improve the quality of
 
 As a rule of thumb, it's usually possible to trade some audio latency for better quality in networked audio contexts (Fasciani, 2020). We can think about the relationship between latency, quality, and stability in NMP contexts as a triangle where each parameter occupies its own corner. Moving further toward one corner means sacrificing more from the other two.
 
-# Soundchecks And The Importance Of Gain-staging
+# Soundchecks and the importance of gain-staging
 
 Maybe the most important aspect of networked audio engineering is gain-staging and attention to the signal-to-noise ratio (SNR). NMPs will have more gain stages and network layers than regular concerts, with added challenges related to coordinating audio mixing over the network. This means that NMPs are more prone to longer and more noisy audio signal chains.
 
@@ -87,5 +77,7 @@ In my experience, successful NMPs are often achieved by engineers planning ahead
 A systematic and planned strategy will help guide the troubleshooting process and create an environment where **you** are in control. This will produce great-sounding concerts.
 
 ## Sources
+
+Serdar, B., Tidemann, A., Jensenius, A. (2026). _Mixed Method Audio-Video Analyses of Felt Togetherness in a Networked Music-Dance Performance._ MOCO '26: Proceedings of the 10th International Conference on Movement and Computing. doi: https://doi.org/10.1145/3802842.3802884.
 
 Stefano Fasciani. (2020). _Network-Based Collaborative Music Making_. [Video]. YouTube. https://www.youtube.com/watch?v=GZCueJeg168

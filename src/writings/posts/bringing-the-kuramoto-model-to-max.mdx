@@ -1,32 +1,13 @@
 ---
-title: "Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max"
+title: "Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max/MSP"
 date: "2026-01-04"
 keywords: ["audio", "max", "synchronization", "dsp", "kuramoto", "software", "programming", "realtime"]
 type: "post"
-summary: "Almost two years ago, I built an audio DSP version of the Kuramoto model to sync metronomes for my digital rendition of 'Poème Symphonique for 100 Metronomes'. I have since written a post about this project, but looking back today, I feel like my Kuramoto model software deserves a post of its own, a post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly."
+summary: "Two years ago, while recreating Ligeti's 'Poème Symphonique for 100 Metronomes' in software, I had to build my own audio/DSP-version of the Kuramoto model to be able to sync all the metronomes. I have written a post about the project, but looking back, I feel like my Kuramoto model software deserves a post of its own. A post describing the process and how I designed it as a dynamic multi-channel audio object in Max/MSP, able to sync 100+ oscillators on the fly."
 ---
 
-
 {/* 
-# Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max
-*/}
-
-{/* 
-Bringing the Kuramoto Model to Max's Multi-Channel Audio Domain
-Building the Kuramoto Model in Max as a Multi-Channel Audio Object
-Building the Kuramoto Model as a Real-time and MC (multi-channel) Audio Object in Max
-Building a Multi-Channel Audio Version of the Kuramoto Model in Max
-Coding the ... Kuramoto Model as 
-Implementing the Kuramoto Model in Max..
-
-Bringing the Kuramoto Model to Max as a Multi-Channel Audio Object
-
-Building a Multi-Channel Audio Object of the Kuramoto Model in Max
-
-Building a Multi-Channel Audio Object of the Kuramoto Model in Max to Sync Osillators
-
-Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max
-
+# Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max/MSP
 */}
 
 Almost two years ago, I wrote a post about an art project I did where I made a digital version of _Poème Symphonique for 100 metronomes_, a famous piece by the late modernist composer György Ligeti. When I recently re-read the post, I was reminded of how hard it was to digitally model the synchronization process that happens between the metronomes in the piece, using the <MyLink href="https://cycling74.com/">Max</MyLink> programming environment. To handle this, I had to build my own audio DSP version of the _Kuramoto Model_, a well-known algorithm that describes how oscillators that interact with each other in a physical space synchronize over time. In the end, the project turned out really well, and since the whole point of Ligeti's piece is the synchronization aspect I feel that its success is largely due to my Kuramoto model implementation.

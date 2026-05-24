@@ -1,5 +1,5 @@
 ---
-title: "The Standstill Station - How Still Can We Be?"
+title: "The Standstill Station - How still can we be?"
 date: "2026-02-19"
 keywords: ["art", "installation", "motion", "analysis", "realtime", "python", "osc", "research", "programming"]
 type: "project"
@@ -7,7 +7,7 @@ summary: "This post takes a quick look at the Standstill station, an art-science
 ---
 
 {/* 
-# The Standstill Station - How Still Can We Be?
+# The Standstill Station - How still can we be?
 */}
 
 <MyImage src="standstill-overview.png" alt="Standstill station 2026" padding={false}/>
@@ -18,7 +18,7 @@ The exhibit was originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, 
 
 This post just a quick overview of how the installtion is made and how it can be used. 
 
-# How It's Made
+# How it's made
 
 The system consists of a large physical structure, a touchscreen computer, and a pair of headphones with a gyroscope inside. The wooden structure is custom-made and places the user inside a half-box, creating an immersive space that allows for focused attention. All electronics are fastened to the back of the structure. Only the headphones, touchscreen, and documentation plaque are visible. 
 
@@ -33,7 +33,7 @@ All the system software runs inside a small ThinkPad M70q Windows 10 desktop mac
 
 Yes, the standstill station records and retrieves data from all its users and displays this data in real-time. The user can therefore see how well they performed against all other participants. This is quite fun to watch and gamifies the whole experience.
 
-# Main Takeaways and Roadmap Ahead
+# Main takeaways and roadmap ahead
 
 The main challenge of getting the Standstill station up and running was ensuring reliable runtime in a restricted university environment. I had to ensure that it could run for weeks and months on end, without failing, even if no one used it, standing alone in the halls of my department. Previously, at Popsenteret, the installation ran on a small ThinkPad M70q desktop machine, with Windows 10, connected to a remote SQL server over the network. When revisiting the piece, I used the same machine but made a local database, keeping the SQL infrastructure but avoiding the heavily restricted network here at my university. As for usability, the Windows ThinkPad works great. It's easy to navigate and doesn't require a lot of know-how to configure. Good for development and easy prototyping. However, Windows will always be unreliable in the long run. A Linux solution on a Raspberry Pi or desktop machine would probably be best if the project ever gets revisited, yet again.
 
@@ -45,11 +45,11 @@ Another big challenge I encountered was with how users interacted with the UI. T
 
 Anyway, it seems that the theme here was striking a balance between usability (easy to use) and reliability (works forever). Trading off one to get the other, and vice versa.
 
-# Where Can I See It Today? 
+# Where can I see it today? 
 
 The Standstill station is currently located at the Department of Musciology at UiO, at <MyLink href="https://maps.app.goo.gl/BpHuQU8JMMpCpCuT7">this address</MyLink>. It's free and open to everybody so if you're in the area, please stick by and test it for yourself. It stands in the Epicentre, a break room/study facility in the middle of the building. First floor.
 
-# Source code and Documentation
+# Source code and full documentation
 
 You will find much more technical information about the Standstill station on it's dedicated <MyLink href="https://github.com/aleksati/standstill-station">GitHub reporsitory</MyLink>. In this codebase, there is detailed info on how to setup the SQL data handling, how to do development, and how to install and run the software.
 

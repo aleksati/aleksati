@@ -25,17 +25,7 @@ Versions used:
 * TypeScript v5.3.3
 ```
 
-{/* 1. <MyLink type="toc" href="#building-a-p5-container-component">Building a p5 Container Component</MyLink>
-   1. <MyLink type="toc" href="#importing-p5-and-p5-sounds">Importing p5 and p5-sounds</MyLink>
-   2. <MyLink type="toc" href="#alternative-p5-sounds-import">Alternative p5-sounds Import</MyLink>
-2. <MyLink type="toc" href="#building-p5-sketches-with-audio">Building p5 Sketches with Audio</MyLink>
-3. <MyLink type="toc" href="#full-code-and-working-example">Full Code and Working Example</MyLink>
-4. <MyLink type="toc" href="#references-and-inspirations">References and Inspirations</MyLink> 
----
-*/}
-
-
-# Building a p5 Container Component
+# Building a p5 container component
 
 First, create a p5 container React component. The container acts as a Higher-Order Component for the p5 apps (sketches), putting all the React and Nextjs rendering logic in one place so the sketches can be 100% p5-focused.
 
@@ -179,7 +169,7 @@ The p5 documentation clearly states that we can also access various audio constr
 
 Finally, it's also possible to build more elaborate sketches by incorporating custom classes. This works fine, just remember that custom React classes need to extend the React.component class as type.
 
-# Full Code and Working Example
+# Full code and working example
 
 To see a full working example of my code, you can visit my recent post on <MyLink href="/posts/exploring-dataset-sonification-with-web-audio">exploring dataset sonification with web audio</MyLink>. There, I present at least two complex p5 audio sketches with additional UI and visualizations. All my webpage code is also open-sounce and avalaible on my GitHub.
 
@@ -265,7 +255,7 @@ export const P5jsContainer: P5jsContainer = ({ sketch }) => {
 };
 ```
 
-# References and Inspirations
+# Sources and inspirations
 
 As I said in the introduction, I did not create this implementation completely from scratch. Instead, I built it on the shoulders of others. If you wish to read more about these "others", I suggest you take a look in these directions:
 

@@ -1,5 +1,5 @@
 ---
-title: "How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs"
+title: "How Knowledge Distillation can optimize neural audio effects and distortion VSTs"
 date: "2025-12-21"
 keywords: ["audio", "fx", "machine-learning", "vst", "research", "python", "realtime", "engineering"]
 type: "post"
@@ -7,7 +7,7 @@ summary: "Making neural networks smaller without harming their accuracy is diffi
 ---
 
 {/* 
-# How Knowledge Distillation Can Optimize Neural Audio Effects and Distortion VSTs
+# How Knowledge Distillation can optimize neural audio effects and distortion VSTs
 */}
 
 <MyImage src="kd-audio-fx-main.jpg" alt="kd-audio-fx-main.jpg" padding={false} />
@@ -25,7 +25,7 @@ Before we start, here are some useful links:
 * <MyLink href="https://github.com/aleksati/kd-audio-fx">GitHub repository</MyLink> with source code and plugin/VST versions of our distortion models. 
 * Or jump straight down to some <MyLink href="#audio-examples">audio examples</MyLink> to listen to the result.
 
-# VA Modeling and Audio Effects Compression
+# VA Modeling and compression of audio effects
 
 Not too long ago, researchers in the field of Virtual-Analog (VA) modeling discovered the effectiveness of using neural networks to emulate analog audio effects in the digital domain. The advantages of using machine learning for VA-modeling are many, but it comes down to its exceptional ability to find patterns in large quantities of data. Analog audio effects consist of complex hardware circuits that shape the sound in an unpredictable and _non-linear_ way. These non-linearities are hard to describe mathematically. With machine learning, however, we can essentially skip the hard part and train models to recreate the analog behaviour without us actually knowing intricate inner goings on. This approach, of treating the analog audio effect as a "black box", is amply called black-box modeling. The process concerned with mathematically describing the details in the hardware circuitry is called white-box modeling.
 
@@ -35,7 +35,7 @@ But making neural audio effects smaller, i.e reducing the number of operations i
 
 Finally, there is Knowledge Distillation. 
 
-# Knowledge Distillation on Neural Audio Effects 
+# Knowledge Distillation on neural audio effects 
 
 Knowledge distillation (KD) is a technique where smaller neural networks, often called _students_, are trained to mimic a larger _teacher_ network. This works by leveraging the fact that neural networks capture meaningful and complex representations of their training data in hidden layers of their networks. Once a teacher network achieves good generalization and performance on a set of data, its knowledge can be transferred to a smaller student network through the process called distillation. Read more about the inner workings of KD on neural networks, check out <MyLink href="https://arxiv.org/abs/1503.02531">this famous paper</MyLink> by Geoffrey Hinton et al.
 
@@ -47,7 +47,7 @@ There are three primary types of KD for neural networks, each with a unique appr
 
 Additionally, with feature-based distillation, specific layers of the teacher network are identified as important intermediary feature representations of the input data. Similar intermediate layers of a student network are then aligned to those of the teacher. During training, the student model learns to produce feature maps similar to the teacher model, inheriting its structure and hierarchical understanding of the data. To make the model learn, a loss function is defined to minimize the difference between the feature representations of the teacher and student models at these corresponding layers, as illustrated in Figure 1 above. 
 
-# Building and Training our Audio Distortion Network
+# Building and training our audio distortion network
 
 To experiment with KD on audio distortion effects, we first built a general neural network architecture using recurrent LSTMs. This approach has become a common starting point for modeling neural audio effects of this sort. The goal of our experiments was not only to see whether KD was successful on neural audio effects, but also to examine and learn more about the relationship between teacher and student models. What configuration works best, and why? To explore this, we experimented with slightly different network architectures for both the teacher and student models, each with varying network depths and sizes.
 
@@ -63,7 +63,7 @@ We also had time to experiment with some conditioned data. The primary differenc
 
 For both students and teachers, our training strategy was to run each model 1000 epochs. An early stopping mechanism was in place to stop training if there was no reduction in validation loss for 30 consecutive epochs. The batch size is set to 8 examples, with each example composed of 2048 input audio samples. You can read much more in-depth descriptions about the training strategy, loss function (MAE), and other evaluation metrics in the full paper.
 
-# Experiment Results and Discussion 
+# Results and some pointers to consider 
 
 Overall, the results from our experiments were positive, showing that Knowledge distillation has the potential to improve the performance of neural audio effects. But the interesting part is how they improve performance, and to what degree. 
 
@@ -94,7 +94,7 @@ In each listening test trial, participants were subjected to five audio examples
 
 As presented in Figure 5, the listening test revealed that both distilled and non-distilled models scored quite high. This was good news, but it also meant that the perceptual advantage of distillation was not as pronounced as we anticipated. In fact, the finding suggests that it's still inconclusive whether there are any definitive perceptual advantages of distillation. This being said, we did notice a slight preference for distilled models in most cases. Non-distilled models also show greater variability, suggesting slightly less consistency in their perceived quality over their distilled counterparts.
 
-# Audio Examples
+# Audio examples
 
 Below are some audio examples from our attempts to model the DrDrive plugin with neural networks and optimization using KD. What you hear are three versions of the same audio where the only difference is what's creating the distortion effect. 
 

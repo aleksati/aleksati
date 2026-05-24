@@ -1,5 +1,5 @@
 ---
-title: "Poème Symphonique Numérique: Ligeti’s 100 Metronomes as Software"
+title: "Poème Symphonique Numérique: Recreating Ligeti's 100 metronomes in software"
 date: "2024-04-05"
 keywords: ["audio", "art", "software", "machine-learning", "dsp", "max", "kuramoto", "synchronization", "programming", "realtime", "mapping", "sp-tools"]
 type: "project"
@@ -7,7 +7,7 @@ summary: "Modernist composer György Ligeti would have been 100 years in 2023. T
 ---
 
 {/* 
-# Poème Symphonique Numérique: Ligeti’s 100 Metronomes as Software
+# Poème Symphonique Numérique: Recreating Ligeti's 100 metronomes in software
 */}
 
 <MyImage width={750} src="dsp-title.png" alt="A Digital Poème Symphonique visual overview" padding={false} />
@@ -45,7 +45,7 @@ In the governing Kuramoto equation, seen below, the phase (θ) of an oscillator 
 
 Kuramoto-like models have had an impact on a variety of scientific fields, including music. A big part of music research with the Kuramoto model has revolved around new complex forms of synthesis, studying how we can derive complex behavior from simple oscillator systems, experimenting with generative synthesis, sonification applications, and even waveshaping. Rythmn studies is another research area where these models have been put to use (of course, you might think). Some of these studies have experimented with self-organizing rhythmical systems and intelligent systems that can enable better musicking between humans and machines/robots.
 
-# Bringing the Kuramoto Model to Max
+# Bringing the Kuramoto Model to Max/MSP
 
 Why did I choose the Max language/software? Well, for starters, I know Max, and its cousin Pure Data, really well. I've built tons of software with both environments and am therefore quite familiar with the boundaries and possibilities of both. Max is also awesome when working with audio, specifically when you're prototyping something complicated that you need to work in a real-world musical setting, quickly. Finally, since Max also features so many good UI elements, it’s also easy to quickly design good-looking software. It’s an all-in-one package, really.
 
@@ -90,7 +90,7 @@ n_frequency_scaled = n_frequency / samplerate; // (ω) n_frequency is the natura
 
 ```
 
-# Clustering Together A Sound Engine
+# Clustering together a sound engine
 
 Since the output of alx.max are simple sinewaves, I had to design a sound engine that was able to convert the sines into audible metronomes. The first iteration of alx.ksync came with a simple playback system that triggered audio samples at every zero-crossing, imitating the "tick"-characteristics of a metronome well. All I needed for my project was a clever way to decide what sound was played on what channel.
 
@@ -118,7 +118,7 @@ When I was happy with my sound space, I created a 1:1 mapping scheme between the
 
 Finally, I connected each matrixctl group to its own instance of aleks.ksync to create a system where only metronome groups were coupled together.
 
-# Audio and Video Demo
+# See a demo
 
 So there you have it, my software rendition of Ligeti's Poème Symphonique for 100 metronomes, my Poème Symphonique Numérique. In my video demo, I tried to follow the score as much as possible but also practiced some artistic freedom by gradually starting the metronomes one by one, manually turning them off again at the end instead of waiting for them to wind down by themselves, and giving each metronome group a slightly different coupling strength for the Kuramoto model.
 
@@ -126,7 +126,7 @@ So there you have it, my software rendition of Ligeti's Poème Symphonique for 1
 
 I hope you've found this interesting. You can find the full source code for my project of my <MyLink href="https://github.com/aleksati">GitHub profile</MyLink>.
 
-# Sources and Further Reading
+# Sources and further reading
 
 Chakraborty, S., Dutta, S. & Timoney, J. 2021. The Cyborg Philharmonic: Synchronizing interactive musical performances between humans and machines.
 

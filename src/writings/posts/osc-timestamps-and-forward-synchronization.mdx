@@ -1,5 +1,5 @@
 ---
-title: "OSC Timestamps and Forward Synchronization in Python and Pure Data"
+title: "How to do Forward Synchronization between Python and Pure Data using OSC Timestamps"
 date: "2025-05-14"
 keywords:
   [
@@ -19,7 +19,7 @@ summary: "OSC is a high-res protocol (64-bit) for sending messages between music
 ---
 
 {/*
-# OSC Timestamps and Forward Synchronization in Python and Pure Data
+# How to do Forward Synchronization between Python and Pure Data using OSC Timestamps
 */}
 
 <MyLink href="https://opensoundcontrol.stanford.edu/index.html">Open Sound Control</MyLink> (OSC) is a flexible and high-resolution media encoding designed for sending audio control messages between musical devices in real time, similar to MIDI, originally developed by researchers Matt Wright and Adrian Freed at CNMAT, UC Berkeley, in 1997 (Schmeder, Freed, 2008). Because of its high-resolution data transfer (64-bit compared to 8-bit MIDI) and built-in Timestamp support, OSC provides an ideal framework for exploring creative and new approaches to synchronization and latency management over networks.
@@ -29,7 +29,7 @@ Last year, I led a few workshops on the unique synchronization capabilities of O
 **NB:** Following the contents of this workship requires an intermediate familiarity with OSC for Python and Pure Data.
 
 
-# Timestamps and Forward Sync
+# What are OSC Timestamps and Forward Synchronization?
 
 OSC streams consist of sequences of OSC bundles. Each bundle includes a unique identifier, encapsulated message, and timestamp.
 
@@ -51,7 +51,7 @@ Forward synchronization is a technique where a fixed delay is added to timestamp
   caption="Typical transport jitter of 1-5 msec and its recovery by forward synchronization. If the clock sync error is smaller than the transport jitter it's possible to use forward synchronization to remove jitter from the signal. Image from Schmeder, Freed & Wessel, 2010."
 />
 
-# Code Setup and Dependencies
+# Code setup and dependencies
 
 This guide below details OSC communication specifically between Python and Pure Data (PD). You can choose to follow in both environemnts, as demonstrated, or simply use the one you are most familiar with. For the Python development, download and install <MyLink href="https://www.python.org/downloads/">Python version 3</MyLink>. Then, install the libraries playsound, for audio playcback, and python-osc, for OSC commnication, through pip or via download.
 
@@ -64,7 +64,7 @@ I've tested the code on playsound v.1.2.2 and python-osc v.1.9.3. Playsound is t
 
 For PD part, install <MyLink href="https://puredata.info/downloads/pure-data">Pure Data Vanilla, v0.54</MyLink>. Then, download the <MyLink href="https://github.com/pd-externals/mrpeach">mrpeach</MyLink> library. We will use mrpeach for OSC communication. I recommend installing the 32-bit version of PD vanilla for mrpeach to work as intended. Find <MyLink href="https://github.com/aleksati/osc-timestamps-and-forward-synchronization-workshop">the full code repository</MyLink> at my GitHub, complete with full PD patches and both jupyter notebooks and pyscript versions of the Python parts. I've also not tested on newer version of PD.  
 
-# Step 1 - Simple P2P Messaging
+# Step 1 - Simple P2P messaging
 
 To be able to communicate OSC bidirectionally over a local network, or between two machines, we must first define some clients and servers. These will be the basis for the entire tutorial.
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     sendMsg(client1)
 ```
 
-# Step 2 - Networked Metronome
+# Step 2 - Networked metronome
 
 In this example, we will build on the code developed in Step 1 and design a simple system for controlling audio playback in a remote location. This metronome will work by generating a tick sound whenever a "./tick" message is received on the server. You can use any tick sound you want, just make sure to include it in the directories of your PD and Python files.
 
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     print("Exiting...")
 ```
 
-# Step 3 - Timestamp Controlled Metronome
+# Step 3 - Timestamp-controlled metronome
 
 In this segment, I will begin to demonstrate how we can use and manipulate OSC timestamps to synchronize musical devices across a network. The code for this step is almost identical to step 2 but with added logic to include custom timestamps in our OSC bundles on the client side and to review timestamps on the server side.
 
@@ -369,7 +369,7 @@ if __name__ == "__main__":
     print("Exiting...")
 ```
 
-# Step 4 - Forward Synchronized Metronome
+# Step 4 - Forward Synchronized metronome
 
 In this final part, we put the cherry on top by achieving Forward Synchronization. Up to this point, we've only sent control messages in one direction and scheduled playback on the server side. Now, we implement synchronized playback at both ends, on the sending and receiving sides, and offset our timestamps to schedule playback in the future.
 
