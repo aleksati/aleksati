@@ -1,28 +1,56 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MyLink from "../components/MyLink";
 
-const Publications = ({publicationList, message}: {publicationList: PublicationList, message: string}) => {
-  // const [publications, setPublications] = useState<PublicationList>();
-  // const [loading, setLoading] = useState<boolean>();
-  // const [error, setError] = useState<boolean>();
+//   const dummy: PublicationList = [{
+//     cristin_result_id: "one",
+//     authors: "one",
+//     year: "one",
+//     title: "one",
+//     event: "one",
+//     doi: "one",
+//     handle: "one"
+//   },
+//   {
+//     cristin_result_id: "two",
+//     authors: "two",
+//     year: "two",
+//     title: "two",
+//     event: "two",
+//     doi: "two",
+//     handle: "two"
+//   },
+//     {
+//     cristin_result_id: "two",
+//     authors: "two",
+//     year: "two",
+//     title: "two",
+//     event: "two",
+//     doi: "two",
+//     handle: "two"
+//   }
+// ]
 
-  // useEffect(() => {
-    // fetch reseach data from API.
-    // const fetchData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     const res = await fetch("./api/publications");
-    //     const data = await res.json();
-    //     setLoading(false);
-    //     setPublications(data);
-    //   } catch (error) {
-    //     console.log(error);
-    //     setError(true);
-    //   }
-    // };
-    // setPublications(publicationList);
-    // fetchData();
-  // }, []);
+const Publications = ({publicationList, message}: {publicationList: PublicationList, message: string}) => {
+  const [listDisplayed, setListDisplayed] = useState<PublicationList>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // fetch my publication list another time(!) from client side.
+      // This is just in case if there are any new publications that
+      // are published since last time I built the site on Netlify.
+      // keeping the initial render on the server is best for 
+      // performance (the site load instantly, but also updates after a while if necessary)
+      try {
+        const res = await fetch("./api/publications");
+        const data = await res.json();
+        setListDisplayed(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    setListDisplayed(publicationList);
+    fetchData();
+  }, [publicationList]);
 
   return (
     <div className="space-y-4">
@@ -32,7 +60,7 @@ const Publications = ({publicationList, message}: {publicationList: PublicationL
         </p>
       ) : (
         <div className="flex flex-col space-y-6">
-          {publicationList?.map((item, idx) => {
+          {listDisplayed?.map((item, idx) => {
             // Remove certian results, if needed. Here I remove the KD audio duplicate.
             if (item.cristin_result_id === "10268340") return;
             // Remove also Hybrid Learning duplicate.

@@ -1,8 +1,6 @@
 export const dev: boolean = process.env.NODE_ENV !== "production";
 
-export const SITE_DOMAIN: string = dev
-  ? "http://localhost:3000"
-  : "https://aleksati.net";
+export const SITE_DOMAIN: string = dev ? "http://localhost:3000" : "https://aleksati.net";
 
 // I seem to often change the name of my tabs
 // since these tab keys were hardcoded supringly many places (difference between post and work, urls etc.).
@@ -69,12 +67,23 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   react: "#e879f9", // Fuschsia-400
   electronic: "#fef3c7", //amber-100
   engineering: "#dbeafe", //blue-100
-  "sp-tools": "#115e59", //teal-800
+  "data-knot": "#115e59", //teal-800
   mapping: "#f5f5f4", // stone-100
-    // starting over !!
-  "pure-data" : "#a3e635", //lime-400"
+  // starting over !!
+  "pure-data": "#a3e635", //lime-400"
   astronomy: "#60a5fa", //blue-400
   fx: "#f87171", //red-400
   vst: "#c084fc", // purple-400
   dsp: "#facc15", //yellow-400
+  "rhythm-and-time": "#22d3ee", //cyan-400
+  "folk-music": "#2dd4bf", // teal-400
+  "hardanger-fiddle": "#38bdf8", // sky-400
+  algorithms: "#fb923c", //orange-400
+  ritmo: "#818cf8", //indigo-400
+  uio: "#a78bfa", //violet-400
+  //   python: "#34d399", //emerald-400
+  //   nmp: "#fb7185", //rose-400
+  //   midi: "#f472b6", //pink-400
+  //   web: "#fbbf24", // amber-400
+  //   javascript: "#a8a29e", // stone-400
 };

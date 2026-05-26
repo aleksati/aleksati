@@ -20,7 +20,7 @@ const About = () => (
       <div className="space-y-4 col-span-2 md:col-span-1">
         <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
           <h1 className="font-bold text-lg -mb-1">Aleksander Tidemann</h1>
-          <p>Music Technologist</p>
+          <p>Music technologist</p>
           <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
             <MySoMeBar />
             <p className="text-secondary dark:text-secondary-dark text-sm">
