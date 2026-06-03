@@ -1,6 +1,5 @@
 import MyImage from "../components/MyImage";
 import MySoMeBar from "../components/MySoMeBar";
-// import RSSLink from "../components/RSSLink";
 import MyLink from "../components/MyLink";
 
 const About = () => (
@@ -19,7 +18,7 @@ const About = () => (
       </div>
       <div className="space-y-4 col-span-2 md:col-span-1">
         <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
-          <h1 className="font-bold text-lg -mb-1">Aleksander Tidemann</h1>
+          <h1 className="font-bold text-xl -mb-1">Aleksander Tidemann</h1>
           <p>Music technologist</p>
           <div className="flex flex-col items-center space-y-1 justify-center md:items-start">
             <MySoMeBar />
@@ -33,38 +32,30 @@ const About = () => (
           technology at the Department of Musicology, University of Oslo. My
           work sits at the intersection between sound, software, and science,
           with a particular focus on audio programming, networked sound and
-          studio production. Outside of work, I play drums and create music with various acts, and try to read a little every day. This website is both a
-          portfolio and a blog, a place where I share projects and write about
-          music technology and related explorations.
+          studio production. Outside of work, I play drums and create music with various acts, and try to read a little bit every day. This website is both a
+          portfolio and a blog, a place where I share my projects and write about my
+          music technology adventures.
         </p>
         <p>
           Stay updated on my posts by subscribing to my RSS feed from the
           menubar. You can also get in touch by leaving comments under my posts.
         </p>
-        {/* <div className="flex flex-col items-center justify-center md:justify-start">
-          <p className="font-bold text-lg">Social</p>
-
-          <MySoMeBar />
-          <p className="text-secondary dark:text-secondary-dark text-md">
-            @aleksati @alexfürimmer
-          </p>
-        </div> */}
         <div className="flex flex-col space-y-1 items-start">
           <p className="">Current and past teachings:</p>
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MUS2850/">
-            MUS2850 - Computer Music
+            • MUS2850 - Computer Music
           </MyLink>
 
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MCT4054/">
-            MCT4054 - Interactive Music Systems
+            • MCT4054 - Interactive Music Systems
           </MyLink>
 
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MCT4024/index.html">
-            MCT4024 - Networked Music 1
+            • MCT4024 - Networked Music 1
           </MyLink>
 
           <MyLink href="https://www.uio.no/studier/emner/hf/imv/MCT4025/index.html">
-            MCT4025 - Networked Music 2
+            • MCT4025 - Networked Music 2
           </MyLink>
           <br />
         </div>
