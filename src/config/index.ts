@@ -81,8 +81,8 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   algorithms: "#fb923c", //orange-400
   ritmo: "#818cf8", //indigo-400
   uio: "#a78bfa", //violet-400
-  //   python: "#34d399", //emerald-400
-  //   nmp: "#fb7185", //rose-400
+  ai: "#34d399", //emerald-400
+  compression: "#fb7185", //rose-400
   //   midi: "#f472b6", //pink-400
   //   web: "#fbbf24", // amber-400
   //   javascript: "#a8a29e", // stone-400
