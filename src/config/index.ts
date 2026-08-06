@@ -83,7 +83,7 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   uio: "#a78bfa", //violet-400
   ai: "#34d399", //emerald-400
   compression: "#fb7185", //rose-400
-  //   midi: "#f472b6", //pink-400
-  //   web: "#fbbf24", // amber-400
-  //   javascript: "#a8a29e", // stone-400
+  partition: "#f472b6", //pink-400
+  recursion: "#fbbf24", // amber-400
+  troubleshooting: "#a8a29e" // stone-400
 };
