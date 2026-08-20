@@ -9,9 +9,9 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 20 Aug 2026 08:55:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Aug 2026 08:57:35 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 20 Aug 2026 08:55:31 GMT</pubDate>
+        <pubDate>Thu, 20 Aug 2026 08:57:35 GMT</pubDate>
         <item>
             <title><![CDATA[A nod to problem-solving and how a Sudoku solver helped me make evenly uneven beats]]></title>
             <description><![CDATA[During a recent coding project, I fell into an unexpected rabbit hole of Sudoku solvers, recursion, and integer partitions. What started as a specific problem about musical groove turned into an interesting exploration of problem-solving, eventually resulting in my new Max object that can shape interesting rhythmic patterns using restricted integer partitions. This is the story of how I got there, and why I find these kinds of problem-solving adventures so darn interesting.]]></description>
