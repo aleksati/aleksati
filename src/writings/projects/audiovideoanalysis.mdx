@@ -12,7 +12,7 @@ summary: "This post takes a quick look at AudioVideoAnalysis (v2.0), a standalon
 
 <MyImage width={750} priority={true} src="ava-overview.jpg" alt="audiovideoanalysis overview" padding={false}/>
 
-AudioVideoAnalysis a standalone application for realtime rendering of video motiongrams and audio spectrograms, one of the larger applications part of the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/">Musical Gestures Toolbox for MaxMSP</MyLink> (MGT) created by Alexander Refsum Jensenius for the RITMO FourMS lab at the University of Oslo in the early 2000s.
+AudioVideoAnalysis a standalone application for realtime rendering of video motiongrams and audio spectrograms, one of the larger applications part of the <MyLink href="https://www.uio.no/ritmo/english/research/labs/fourms/downloads/software/musicalgesturestoolbox/mgt-max/">Musical Gestures Toolbox for Max</MyLink> (MGT) created by Alexander Refsum Jensenius for the RITMO FourMS lab at the University of Oslo in the early 2000s.
 
 In 2019, I was hired to update and refurbish AudioVideoAnalysis using Max 8. This post takes a quick look at fresh AudioVideoAnalysis v2.0 and shares some its key features.
 
@@ -36,7 +36,7 @@ But perhaps the most useful feature of AVA is the ability to apply analysis mark
 
 <MyImage caption="Analysis markers and grids can assist with orientation and analysis." src="ava-analysis-markers.gif" alt="audiovideoanalysis analysis markers" />
 
-Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar. To accommodate the analysis markers and grid function, AVA also features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content. I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max/MSP and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
+Further, it's possible to add a grid structure over the images, called a _Display Grid_. The size and visibility of the display grid can be set through the _Grid Size_ and _View Display Grid_ options in the menubar. To accommodate the analysis markers and grid function, AVA also features clickpoint data retrieval. By clicking on the spectrogram, users can retrieve sound energy/amplitude data at specific frequencies for a more detailed inspection of the spectral audio content. I first learned about clickpoint data retrieval in this paper by Jean-Francois Charles called <MyLink href="https://www.mitpressjournals.org/doi/pdf/10.1162/comj.2008.32.3.87">A Tutorial on Spectral Sound Processing Using Max and Jitter</MyLink>. I used Jean-Francois' algorithms as the basis for my implementation.
 
 <MySlideshow
   imgs={["ava-clickpoint-light.jpg", "ava-analysis-logfreq.gif"]}

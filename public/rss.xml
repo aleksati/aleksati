@@ -9,9 +9,23 @@
             <link>http://localhost:3000</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 11 Jun 2026 19:00:20 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 20 Aug 2026 08:55:31 GMT</lastBuildDate>
         <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 11 Jun 2026 19:00:20 GMT</pubDate>
+        <pubDate>Thu, 20 Aug 2026 08:55:31 GMT</pubDate>
+        <item>
+            <title><![CDATA[A nod to problem-solving and how a Sudoku solver helped me make evenly uneven beats]]></title>
+            <description><![CDATA[During a recent coding project, I fell into an unexpected rabbit hole of Sudoku solvers, recursion, and integer partitions. What started as a specific problem about musical groove turned into an interesting exploration of problem-solving, eventually resulting in my new Max object that can shape interesting rhythmic patterns using restricted integer partitions. This is the story of how I got there, and why I find these kinds of problem-solving adventures so darn interesting.]]></description>
+            <link>http://localhost:3000/posts/problems-and-partition-grooves</link>
+            <guid isPermaLink="true">http://localhost:3000/posts/problems-and-partition-grooves</guid>
+            <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[My tiny Max library for audio, video and data processing - alx.max]]></title>
+            <description><![CDATA[alx.max is my tiny library of Max abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others, and for me later on. All code and downloads are avaliable open-source.]]></description>
+            <link>http://localhost:3000/projects/alx-max</link>
+            <guid isPermaLink="true">http://localhost:3000/projects/alx-max</guid>
+            <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[The Standstill Station - How still can we be?]]></title>
             <description><![CDATA[This post takes a quick look at the Standstill station, an art-science installation that hosts the Norwegian championship of Standstill, a challenge to see who can move the least. Originally developed by Joachim Poutaraud, Julius Jacoby-Pflug, and Alexander Jensenius in 2023. Revitalized by me in 2026.]]></description>
@@ -20,15 +34,15 @@
             <pubDate>Thu, 19 Feb 2026 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max/MSP]]></title>
-            <description><![CDATA[Two years ago, while recreating Ligeti's 'Poème Symphonique for 100 Metronomes' in software, I had to build my own audio/DSP-version of the Kuramoto model to be able to sync all the metronomes. I have written a post about the project, but looking back, I feel like my Kuramoto model software deserves a post of its own. A post describing the process and how I designed it as a dynamic multi-channel audio object in Max/MSP, able to sync 100+ oscillators on the fly.]]></description>
+            <title><![CDATA[Using the Kuramoto Model to Build a Multi-Channel Audio Synchronizer in Max]]></title>
+            <description><![CDATA[Two years ago I recreated György Ligeti's 'Poème Symphonique for 100 Metronomes' in software. For that to work, I had to build my own audio version of the Kuramoto model so that the metronomes would sync to each other. I have written a post about this project, but looking back, I feel like my Kuramoto model software deserves a post of its own. A post describing the process and how I designed it as a dynamic multi-channel audio object in Max, able to sync 100+ oscillators on the fly.]]></description>
             <link>http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</link>
             <guid isPermaLink="true">http://localhost:3000/posts/bringing-the-kuramoto-model-to-max</guid>
             <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[How Knowledge Distillation can optimize neural audio effects and distortion VSTs]]></title>
-            <description><![CDATA[Making neural networks smaller without harming their accuracy is difficult. Knowledge Distillation (KD) is a fairly new technique where larger models are used to train and improve the performance of smaller models. In this post, I walk through a recent research project where we examined if KD could enhance audio effects (VST) built with neural nets. And the short answer is yes, it can!]]></description>
+            <title><![CDATA[Compressing neural audio effects (VST) with knowledge distillation]]></title>
+            <description><![CDATA[Finding ways to make neural networks smaller without affecting their accuracy is a hard and important problem. In 2025, my colleague and I tried to do precisely this with neural audio effects (VST) using a technique called knowledge distillation. And yes, it worked. In this post, I share what we did and reflect on some experiences from the first-ever international conference on AI and Machine Learning for Audio, where we presented our research.]]></description>
             <link>http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</link>
             <guid isPermaLink="true">http://localhost:3000/posts/knowledge-distillation-for-neural-audio-effects</guid>
             <pubDate>Sun, 21 Dec 2025 00:00:00 GMT</pubDate>
@@ -84,7 +98,7 @@
         </item>
         <item>
             <title><![CDATA[Poème Symphonique Numérique: Recreating Ligeti's 100 metronomes in software]]></title>
-            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I dediced to create a version of his famous 'Poème Symphonique for 100 metronomes' in MaxMSP, using the Kuramoto model for synchronization and a real-time ML-based sound engine. Read more about my process, see the code and listen to the result here!]]></description>
+            <description><![CDATA[Modernist composer György Ligeti would have been 100 years in 2023. To celebrate, I dediced to create a version of his famous 'Poème Symphonique for 100 metronomes' in Max, using the Kuramoto model for synchronization and a real-time ML-based sound engine. Read more about my process, see the code and listen to the result here!]]></description>
             <link>http://localhost:3000/projects/poeme-symphonique-numerique</link>
             <guid isPermaLink="true">http://localhost:3000/projects/poeme-symphonique-numerique</guid>
             <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
@@ -109,13 +123,6 @@
             <link>http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</link>
             <guid isPermaLink="true">http://localhost:3000/projects/tools-for-exploring-performance-patterns-in-norwegian-folk-music</guid>
             <pubDate>Sun, 10 Dec 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[My tiny Max/MSP library for audio, video and data processing - alx.max]]></title>
-            <description><![CDATA[alx.max is my tiny library of MaxMSP abstractions for audio, video and data processing. It's an on-going effort to publish some of my Max code that I believe can be useful to others, and for me later on. All code and downloads are avaliable open-source.]]></description>
-            <link>http://localhost:3000/projects/alx-max</link>
-            <guid isPermaLink="true">http://localhost:3000/projects/alx-max</guid>
-            <pubDate>Sat, 21 Oct 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exploring dataset sonification with web audio]]></title>

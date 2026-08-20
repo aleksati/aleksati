@@ -1,0 +1,108 @@
+---
+title: "A nod to problem-solving and how a Sudoku solver helped me make evenly uneven beats"
+date: "2026-08-20"
+keywords:
+  [
+    "audio",
+    "software",
+    "partition",
+    "algorithms",
+    "max",
+    "javascript",
+    "rhythm-and-time",
+    "research",
+    "analysis",
+    "ritmo",
+    "uio",
+    "recursion",
+    "problem-solving"
+  ]
+type: "post"
+summary: "During a recent reserach project, I fell into an unexpected rabbit hole of Sudoku solvers, recursion, and integer partitions. What started as a specific problem about musical groove turned into an interesting exploration of problem-solving itself, eventually resulting in my new Max object that can shape interesting rhythmic patterns using restricted integer partitions. This is the story of how I got there, and why I find these kinds of problem-solving adventures so darn interesting."
+---
+
+{/* # A nod to problem-solving and how a Sudoku solver helped me make evenly uneven beats */}
+
+Problem-solving hardware and software issues is something I have an almost spiritual relationship with. I think of problem-solving, and troubleshooting, more as an artistic practice than as something very rigid and rational. For me, it's usually a combination of stress and clear constraints that ignites the spark. These are situations where I reach all kinds of flow states and start connecting the more interesting dots. When I am knee-deep in some trouble with a quick deadline, I have to be creative to find a solution. I have no other choice. And it's often in these strange places where the magic happens.
+
+When revisiting the more challenging projects I've done in the past, I'm often amazed at the solutions I've come up with. And it's not that my solutions are particularly great or elegant. That's not the point. I find it genuinely interesting to look back and reflect on the problem-solving process. How it's possible to seemingly pull something out of thin air that, sitting here today, I would never have conceived of. At least, that is what it feels like in hindsight. And it doesn't matter if it's something small I did for a music tech thing or bigger work I've done for a more serious, research-oriented project. I am fascinated either way. And it's maybe the main reason why I like to write about my projects on this website. To document these processes as well as I can. I think it reminds me a lot about making music. A song is also just a really good solution to a hard problem. 
+
+This post is a little tribute to these troublesome moments and the ideas that follow. It's about a software solution I recently developed for a research project on musical *groove*, where I ended up using a strange combination of Sudoku solvers (yes, from the game) and Combinatorics to generate evenly uneven grooves, beats that are equally random and predictable at the same time. If you want to know more about what this actually means, you can read on. This post tells the story of how this happened and why. I also show how I used my solution to create a musical groove device in Max. And yes, you can download and use it yourself.
+
+{/* <MyImage src="...png" alt="diagram showing how many mixes a basic dual-audience NMP would need." caption="The troubleshooter hard at work. Tearing down the walls of ignorance." /> */}
+
+# Some background
+ 
+Last year, I was asked by music professor Anne Danielsen to assist with updating some Max software in lieu of an upcoming research project she was conducting on the perception of groove. Anne herself is an expert in the field of rhythm and groove, and the project was concerned with how people perceive timing and beats in music, exploring questions like; where is the center of a beat? And does this beat perception change if the timing and the character of the beats change? If so, how? Stuff like this.
+
+The software I was asked to update was basically a fancy listening test, a method for collecting data. During the listening test, participants were asked to listen to several trials of rhythmic sequences and interact with the beats. The sounds of these sequences varied from trial to trial, but it was often just a drum or some noise with a particular envelope.
+
+In each trial, participants were given four context beats in succession, boom boom boom boom, followed by one test beat, boom. This was a sequence that repeated itself with a fixed BPM. The rythmical timing of the beats is what was important in the study. In each trial, the position of the beats were offset in some random way, creating what's called non-<MyLink href="https://en.wikipedia.org/wiki/Isochronic_tones">isochronic</MyLink> grooves. Basically where the beat sequences are uneven rythmically. The goal for participants was to manually adjust the timing of the last test beat so that the entire groove made the most sense to them.
+
+Here is an example of a basic isochronic trail with four context beats followed by one test beat:  
+<MyAudioPlayer src="partition-iso.mp3" />
+
+In this second example, the beats have been given offset in time, in different ways, similar to what was given to the test participants:  
+<MyAudioPlayer src="partition-non-iso.mp3" />
+
+When the beats are uneven (or non-isochronic) like in the second audio example, the perceived center of those beats are harder to pinpoint. In other words, we would judge the beat center not necesarly to be where the onsets of the beats are (the initial hit). Rather, the beat center is somewhere in between the beats. And we can tell where people think thee centers are, and where the groove is(!), by examining how they adjust the timing of the test beat.
+
+This is the study in a nutshell.
+
+# The problem to solve - where random meets predictable
+
+My main conundrum while working on Anne's project was creating a system that could randomly generate rhythmical offsets for sequences of beats (drum hits) that also followed a fixed set of restrictions/rules. The “generating random offsets” part was not that hard. I just had to generate a bunch of numbers, normalized them to the length of each beat (based on the BPM of the sequence), and apply them as a delay on the audio channel that plays the beats. But things got more complicated when I wanted to add further fixed rules in the mix. In our case, we wanted to incorporate variables that controlled the minimum and maximum range of the offset values, the minimum gap between the beats, and whether the offsets should be ahead or after the beat center.
+
+Finally, we also wanted to ensure that every participant was subject to the same amount of beat offsets during each trial. This was important for the validity of the study, and it meant, in short, that our system had to be able to **generate a fixed amount of random numbers that each fit a list of criteria and that together, when added up, equalled an offset amount.** So the sequence had to have a specific amount of non-iscochronisity, if you will. It was this final concern, in particular, that led me down a rabbit hole where I encountered Sudoku solvers and various math theories. I ended up calling this parameter the *total offset amount*, a variable that defined the total amount of offset values (in milliseconds) that was distributed evenly amongst sequences of beats in each trial.
+
+<MySlideshow
+  imgs={["partition-beat-offset-1.jpg", "partition-beat-offset-2.jpg", "partition-beat-offset-3.jpg"]}
+  captions={["1", "2", "3"]}
+/>
+
+To try and illustrate how this works, imagine you have a bag of 500 coins and then, suddenly, four people come into the room. Now you have to give each person in the room a random amount of coins, and you must use every single coin in the bag. So far it's not that challenging, you might think. And you are right. But now consider you get a call from somebody demanding extra conditions! The person says you cannot give less than 20 coins to any one person, and no more than 150. Also, the difference in coin between each successive person you give coins to must be a minimum of 10 coins and a maximum of 80 coins. So, if you give one person 60 coins, you have to give the other person somewhere between 70 and 150 coins or somewhere between 20 and 50 coins.
+
+It was when I layed the problem out like this that I knew where to start. I had to look for existing algorithms that could generate number combinations that satisfied all my criteria. And then I had to figure out how code this behaviour into Max.
+
+# Da funk of Sudoku and Combinatorics
+
+I started to look at the algorithm procedure, sketching out all the moving parts and how they would have to work together over time. Pseudo-coding, basically. I gathered that the most essential feature of the program had to be the way it collected number combinations and checked them against the criterias/restrictions. I also had a hunch that this had to involve some kind search or backtracking algorithm to work properly. This is beacuse it would be impossible to know for sure whether the a next random number would fit into the sequence or not.
+
+When I came over the word _backtracking_, I was instantly reminded of a YouTube video I saw many years ago, a video on the Computerphile channel about how to build a Sodoku solving program using Python. In it, professor Thorsten Altenkirch explains how to use backtracking with <MyLink href="https://www.w3schools.com/programming/prog_recursion.php">recursion</MyLink> to elegantly find number combinations that solve Sodoku puzzles. My realization was that I could use some of the same backtracking code to find offset values for my beat offset distribution software. I simply had to go beat by beat and recurively generate numbers and check them against my restrictions. And if they didn't fit, go one step back and try again.
+
+<MySpotifyPlayer embedUrl="https://www.youtube.com/embed/G_UYXzGuqvM?si=MSd4ye9727pH988I" caption="Fun comes in many forms - playing puzzles, or writing programs that solve the puzzles for you. Professor Thorsten Altenkirch on a recursive Sudoku solver." />
+
+But although backtracking was an important structural piece of the puzzle, I was still curious about other existing algorithms that could help solve me generate and check my beat offset values, approaches that were tailored for these kinds of problems. And rightfully so, after some chatting with my LLM, I learned that my problem actually was similar to another class of problems in mathamatics called [integer partitions](https://en.wikipedia.org/wiki/Integer_partition), or restricted integer partitions.
+
+Integer partitons are essentially methods for writing a number _n_ as a sum of positive integers. For instance, the number 4 can be partioned in five distinct ways, namly as 4, 3+1, 2+2, 2+1+1 or 1+1+1+1. Restricted partitions are partitions that include lots more restrictions and requirements, like size or part frequency, or in my case, minimum gap between beats.
+
+I figured out that a variant called a _K-restricted distinct partition with a set variance_ was the right decscription of my beat offset problem. This are partitions where _n_ (the sum I am after, i.e the total amount of offset) is broken down into a exactly _K_ number of parts. So if we look at my example above where _n_ is equal to 4, if we say that _k_ is also equal to 4, the only acceptable partition would be 1+1+1+1., exactly 4 parts that together add up to the number 4. The "set variance" means that the partitions need to be different on every iteration. 
+
+<MyImage src="partition-k-restrict-example.jpg" alt="diagram showing how many mixes a basic dual-audience NMP would need." caption="Example of K-restricted distinct partition, together with the restirctions that I needed to implement. The values in the boxes represent the amount of delay to apply to each beat. Every row represent a uniqe trail. Using recursion to find the possible numbers" />
+
+Finding out about k-distinct integer-partitioning was a huge step for me. Now I had both pieces of the puzzle, the partitioning algorithm combined with the recursive structure of my Sudoku solver. What remained was to implement this into my Max software as audio software, so supporting a DSP-domain. More on that below. 
+
+# Creating partition-based grooves in Max
+
+I decided to code my partition algorithm in the Max environment since it's where I do most of my musicking. Even though Max is primarily a graphical and visual programming language, it has great support for numerous text-based programming languages. This would come in handy since the architecture of my code was quite complicated. I first considered doing everything in the Max-native Gen language, but then feared it wouldn't support my recursive logic. I then considered creating my own Max object from scratch in C, but thought that seemed a bit of overkill for this project. Therefore, JavaScript seemed like a nice middle way, using the Max-native JS objects.
+
+In the end, I wrapped my JS partition code inside a Max abstraction to make the object easier to use in the Max environment and to support multiple object instances. I call this object [alx.partition]. The code itself is not very difficult. It's just a function that does three main jobs: it first 1) generates valid partitions, then 2) enforces the various spacing restrictions, and finally 3) adds touches of randomness along the way. And it does this iteratively, so it tests one number at a time against the current partition set and the restrictions. And at the very end, I also factor in whether to include negative numbers, etc. Other options.
+
+<MySlideshow
+  imgs={["partition-alxpar-1.png", "partition-alxpar-2.png", "partition-alxpar-3.png"]}
+  captions={["Basic example use of alx.partition. Notice the object with yellow borders.", "Another example use using partitions as probability values", "A third example using partitions as binary instructions for a beat sequencer."]}
+/>
+
+When using the object in Max, the arguments you provide are the partition sum, the number of parts (integers) you want the partition to be made up of, and the minimum and maximum integer gap between the parts. The slideshow above presents the basics, as well as some fun musical examples on how to use partitions to affect rhythms and grooves.
+
+The first example presents the intended use of the partition code from the research project. Here, an isochronic 4-beat groove is playing, and each value in the partition represents a millisecond offset for each beat. Notice that the offset can shift the beat both ahead and behind its center. This means my partition code includes negative numbers by default. In the second example, I have a simple drum sequencer in which the partition values determine the probability, or the likelihood, of the drum hits occurring. The partition here creates a kind-of distributed probability field where higher numbers mean sequencer hits are less likely to happen in that particular position. For this example, I also spent some time exploring different subdivisions and how my partition code can quickly adapt to new restrictions. It scales really well.
+
+Finally, the third example shows my favorite, a more experimental use of my partition code. Here, the numbers/parts that make up the partition are first translated into binary digits (0s and 1s). Then, the binary values (4 digits per regular number) are used to determine which drums and drum hits are active. 1 means on, 0 means off. I like this one best just because it works really well musically. The sound output is always very interesting and groovey.
+
+# Summary
+
+There you have it. If you made it this far, you've read my story about how a recent work-related project led me down a rather unexpected rabbit hole involving Sudoku solvers, recursion, and integer partitions. Also, what started as a fairly specific problem about musical groove became an interesting exploration of how I approach problems in the first place.
+
+I have always found something almost magical about troubleshooting and problem-solving. Over time, I've learned that I like the process of figuring things out better than the solution itself. This project has really reminded me og that. Sometimes the most interesting musical ideas come from trying to solve problems that initially have very little to do with music.
+
+In this particular case, my exploration also yielded something concrete I can use for other things, which is always a bonus. alx.partition is a Max object (built with Max 9) for generating constrained number partitions that can also be used to create interesting rhythmic patterns and complex grooves. If you're interested, you can download it and use it for yourself from its <MyLink href="https://github.com/aleksati/alx.max">dedicated Github repo</MyLink>.

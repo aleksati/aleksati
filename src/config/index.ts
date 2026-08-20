@@ -85,5 +85,5 @@ export const KEYWORDS_2_COLOR: Record<string, string> = {
   compression: "#fb7185", //rose-400
   partition: "#f472b6", //pink-400
   recursion: "#fbbf24", // amber-400
-  troubleshooting: "#a8a29e" // stone-400
+  "problem-solving": "#a8a29e" // stone-400
 };
