@@ -18,7 +18,7 @@ keywords:
     "problem-solving"
   ]
 type: "post"
-summary: "During a recent research project, I fell into an unexpected rabbit hole paved with Sudoku solvers, recursion, and strange math. What started as a small problem about musical groove turned into an interesting exploration of problem-solving itself, and eventually led me to develop a Max object that can shape rhythmic patterns using partitions. This is the story of how I got there, and why I find these kinds of problem-solving adventures so darn interesting."
+summary: "While doing some work for a recent research project I fell into an unexpected rabbit hole paved with Sudoku solvers, recursion, and strange beats. What started as a small problem about musical groove turned into an exploration of problem-solving itself, and eventually led me to develop a Max object that can shape rhythmic patterns using integer partitions. This is the story of how I got there, and why I find these kinds of problem-solving adventures so darn interesting."
 ---
 
 {/* 
@@ -41,10 +41,10 @@ The software I was asked to update was basically a fancy listening test, a metho
 
 In each trial, participants were given four context beats in quick succession, "boom boom boom boom", followed by one test beat, "boom". This sequence repeated itself with a fixed BPM. The rythmical timing of these beats was the important part of the study. In each trial, the position of the beats were offset in some random way, creating what's called non-<MyLink href="https://en.wikipedia.org/wiki/Isochronic_tones">isochronic</MyLink> grooves. Basically where the beat sequences are rythmically uneven. The participants' goal was to manually adjust the timing of the last test beat so that the entire groove made the most sense to them.
 
-Here is an example of a basic isochronic trail with four context beats followed by one test beat:  
+Here is an example of a basic isochronic groove with four context beats followed by one test beat:  
 <MyAudioPlayer src="partition-iso.mp3" />
 
-In this second example, the beats have been given offset in time, in different ways, similar to what was given to the test participants:  
+In contrast, here is groove where the beats each have been given a different timing offset. This is similar to what was given to the test participants:  
 <MyAudioPlayer src="partition-non-iso.mp3" />
 
 When the groove is non-isochronic, as in the second audio example, the perceived onset of the beats are harder to pinpoint. In other words, we would judge the beat center not necesarly to be where the onsets of the beats are (the initial hit). Rather, the beat center is somewhere in between the beats. And we can tell where people think thee centers are, and where the groove is(!), by examining how they adjust the timing of the test beat.
@@ -88,7 +88,7 @@ Finding out about k-distinct integer-partitioning was a huge step for me. Now I 
 
 I decided to code my partition algorithm in the Max environment since it's where I do most of my musicking. Even though Max is primarily a graphical and visual programming language, it has great support for numerous text-based programming languages. This would come in handy since the architecture of my code was quite complicated. I first considered doing everything in the Max-native Gen language, but then feared it wouldn't support my recursive logic. I then considered creating my own Max object from scratch in C, but thought that seemed a bit of overkill for this project. Therefore, JavaScript seemed like a nice middle way, using the Max-native JS objects.
 
-In the end, I wrapped my JS partition code inside a Max abstraction to make the object easier to use in the Max environment and to support multiple object instances. I call this object [alx.partition]. The code itself is not very difficult. It's just a function that does three main jobs: it first 1) generates valid partitions, then 2) enforces the various spacing restrictions, and finally 3) adds touches of randomness along the way. And it does this iteratively, so it tests one number at a time against the current partition set and the restrictions. And at the very end, I also factor in whether to include negative numbers, etc. Other options.
+In the end, I wrapped my JS partition code inside a Max abstraction I called [alx.partition]. The code itself is not very difficult. It's just a function that does three main jobs, it first 1) generates valid partitions, then 2) enforces the various spacing restrictions, and finally 3) adds touches of randomness along the way. And it does this iteratively, so it tests one number at a time against the current partition set and the restrictions. And at the very end, I also factor in whether to include negative numbers, etc. Other options.
 
 <MySlideshow
   imgs={["partition-alxpar-1.png", "partition-alxpar-2.png", "partition-alxpar-3.png"]}
