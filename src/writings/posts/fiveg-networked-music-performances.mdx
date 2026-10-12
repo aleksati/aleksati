@@ -54,20 +54,15 @@ Finally, we needed lightweight transmission software that was agnostic about net
 
 Having lightning-fast communication is always a high priority for any NMP. However, low latency is not synonymous with high-quality transmissions with minimal unwanted artifacts (glitches) and dropouts. Knowing this, we ran experiments to find the best possible tradeoff between stability, quality, and latency, instead of just benchmarking various metrics. We were more intersted in finding suitable conditions where musical activity actually could occur. In total, we did three tests at each location that measured the network coverage, signal quality and audio latency.
 
-**Network coverage**
 B1 using a combination of <MyLink href="https://iperf.fr/">iPerf</MyLink> networking utilities, measurements from the Huawei routers' software, <MyLink href="https://www.telenor.no/dekning/#dekningskart">Telenor’s online coverage map</MyLink>, and <MyLink href="https://www.speedtest.net/">Ookla's online speedtester</MyLink>, we were able to make network bandwidth and coverage estimates throughout the experiments. These metrics made us confident that our transmission load did not exceed the capacity of the networks.
 
-**Signal Quality**
 To locate the quality and stability sweetspots for our audio transmission, we created a network loopback systems between our two NMP kits, as depicted in the diagram below. By listening and inspecting the audio we sent across these loopback systems (preferably a single mid-range sine tones), we could monitor the audio quality of our connections in real-time.
 
 <MyImage src="5G-latency-method.jpg" alt="latency measurement diagram" caption="Setting up a networked loopback system enables us to measure audio quality, stability, and roundtrip latency from one single location." />
 
 If we experienced any unwanted artifacts, glitches, or drops in the audio, we just adjusted the buffersize of our audio interfaces (and in jacktrip) to the lowest possible configuration where we found a stable transmission over time.
 
-**Roundtrip Latency**
-With the software and hardware parameters fine-tuned, we used the same loopback system to measure the digital and analog audio roundtrip time (RTT).
-
-With digital RTT, we refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware. By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
+With the software and hardware parameters fine-tuned, we used the same loopback system to measure the digital and analog audio roundtrip time (RTT). With digital RTT, we refer to the time it takes audio to travel from software to software (or PC to PC) and back again. With this method, we bypass and control for the latency induced by our external soundcards and mixer hardware. By including this additional hardware, we measure the analog RTT. This measurement is the most relevant metric for NMP musicians because it captures the entire audio chain.
 
 <MyImage src="5G-latency-method-third-laptop.png" alt="latency measurement third laptop diagram" caption="Using a third device to measure RTT between two clients can help achieve higher accuracy and precision measurements. The term 'Lola rack' in the diagram refers to the NMP kits." />
 
