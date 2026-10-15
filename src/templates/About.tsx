@@ -30,7 +30,7 @@ const About = () => (
         <p>
           My name is Aleksander and I'm a senior engineer and lecturer in music
           technology at the Department of Musicology, University of Oslo. My
-          work and main interests lie at the intersection between sound, software, and science, often involving audio programming, networked sound and studio production. Outside of work, I play drums and electronics with various Oslo-based bands, compose some music for other mixed media, and try to read a little bit every day. This website is both portfolio and a blog, a place where I share my projects and write about my music technology adventures.
+          work and main interests lie at the intersection between sound, software, and science, often involving audio programming, networked sound and studio production. Outside of work, I play drums and electronics with several Oslo-based bands, compose some music for film and mixed-media, and try to read a little bit every day. This website is both portfolio and a blog, a place where I share my projects and write about my music technology adventures.
         </p>
         <p>
           Stay updated on my posts by subscribing to my RSS feed from the
